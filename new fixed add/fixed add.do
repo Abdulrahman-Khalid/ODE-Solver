@@ -37,3 +37,9 @@ run
 force -freeze sim:/fixed_add/bin1 1000000000000000 0
 force -freeze sim:/fixed_add/bin2 1000000000000000 0
 run
+force -freeze sim:/fixed_add/bin1 0000000000000000 0
+force -freeze sim:/fixed_add/bin2 0000000000000000 0
+run
+force -freeze sim:/fixed_add/bin1 1111111000001111 0
+force -freeze sim:/fixed_add/bin2 1010010111111111 0
+run
