@@ -22,7 +22,7 @@ def float_to_bin(number):
 
 
 def multiplication(a_num, b_num):
-    reg = "0"*BITS_NUM
+    reg = format(0, "#0{}b".format(BITS_NUM+2))
     a_binary = format(a_num, "#0{}b".format(BITS_NUM+2))
     a_binary = a_binary[len(a_binary)-BITS_NUM:]
     b_binary = format(b_num, "#0{}b".format(BITS_NUM+2))
