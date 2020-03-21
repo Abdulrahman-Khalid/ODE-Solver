@@ -64,14 +64,25 @@ void add(bitset<BITS_NUM> a, bitset<BITS_NUM> b, bitset<BITS_NUM> &res, bitset<1
 
 void mult(bitset<BITS_NUM> a, bitset<BITS_NUM> b, bitset<BITS_NUM> &res, bitset<1> &of)
 {
+	string a_str = a.to_string();
+	string b_str = b.to_string();
+	if (a[15] == 1)
+		a_str = twos_complement(a_str);
+	if (b[15] == 1)
+		b_str = twos_complement(b_str);
+	a = bitset<16>(a_str);
+	b = bitset<16>(b_str);
 	bitset<32> temp_res(a.to_ullong() * b.to_ullong());
-	bitset<32> check_overflow(temp_res.to_string().substr(0, 10));
+	// if (temp_res[32] == 1)
+	// 	temp_res = bitset<32>(twos_complement(temp_res.to_string()));
+
+	bitset<10> check_overflow(temp_res.to_string().substr(0, 10));
 	if (check_overflow.all() | check_overflow.none())
-		of = 1;
-	else
 		of = 0;
-	string res_str = temp_res.to_string().substr(9, BITS_NUM);
-	res = bitset<BITS_NUM>(res_str);
+	else
+		of = 1;
+	string res_str = temp_res.to_string().substr(9, 16);
+	res = bitset<16>(res_str);
 }
 
 vector<bitset<BITS_NUM>> a{0b0101010101010101,
@@ -122,7 +133,7 @@ int main()
 		mult(a[i], b[i], res_mult, of_mult);
 		add(a[i], b[i], res_add, of_add);
 		mult_1.push_back(res_mult.to_string());
-		mult_2.push_back(of_add.to_string());
+		mult_2.push_back(of_mult.to_string());
 		add_1.push_back(res_add.to_string());
 		add_2.push_back(of_add.to_string());
 		// output_file << output;

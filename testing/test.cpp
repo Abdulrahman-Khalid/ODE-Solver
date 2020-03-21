@@ -61,12 +61,20 @@ void add(bitset<16> a, bitset<16> b, bitset<16> &res, bitset<1> &of)
 
 void mult(bitset<16> a, bitset<16> b, bitset<16> &res, bitset<1> &of)
 {
+    string a_str = a.to_string();
+    string b_str = b.to_string();
+    if (a[15] == 1)
+        a_str = twos_complement(a_str);
+    if (b[15] == 1)
+        b_str = twos_complement(b_str);
+    a = bitset<16>(a_str);
+    b = bitset<16>(b_str);
     bitset<32> temp_res(a.to_ullong() * b.to_ullong());
-    bitset<32> check_overflow(temp_res.to_string().substr(0, 10));
+    bitset<10> check_overflow(temp_res.to_string().substr(0, 10));
     if (check_overflow.all() | check_overflow.none())
-        of = 1;
-    else
         of = 0;
+    else
+        of = 1;
     string res_str = temp_res.to_string().substr(9, 16);
     res = bitset<16>(res_str);
 }
