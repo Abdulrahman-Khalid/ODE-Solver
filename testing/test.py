@@ -153,16 +153,15 @@ def is_binary(binary):
 
 
 def signed_to_binary(signed):
-    if(signed[0] == '0'):
-        signed = "0b"+signed[3:]
-    else:
-        signed = "-0b"+signed[4:]
+    if(signed[0] == '1'):
+        return "-0b"+signed[1:]
+    return "0b"+signed[1:]
 
 
 def main():
     print("-------------------------START-------------------------------")
+    choice = input("Enter 1 to use binary or anything to use decimal: ")
     while(True):
-        choice = input("Enter 1 to use binary or anything to use decimal: ")
         if(choice == '1'):
             a_num = input("Enter 1st number (binary): ")
             b_num = input("Enter 2nd number (binary): ")
@@ -172,6 +171,8 @@ def main():
             else:
                 input_1 = binary_to_float(a_num)
                 input_2 = binary_to_float(b_num)
+                a_num = signed_to_binary(a_num)
+                b_num = signed_to_binary(b_num)
         else:
             input_1 = float(input("Enter 1st number (decimal): "))
             input_2 = float(input("Enter 2nd number (decimal): "))
