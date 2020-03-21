@@ -6,4 +6,4 @@ add wave -position end  sim:/phase_one_tb/add_output
 add wave -position end  sim:/phase_one_tb/mult_output
 add wave -position end  sim:/phase_one_tb/add_overflow
 add wave -position end  sim:/phase_one_tb/mult_overflow
-run
+run 200 ns
