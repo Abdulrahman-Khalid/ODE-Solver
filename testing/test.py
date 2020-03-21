@@ -116,21 +116,19 @@ def add(A, B):
     a = int(A, 2)
     b = int(B, 2)
     res = bin(a+b)
-    print("res1:", res, len(res))
     ################## SOME CLEANSING TO GET 17 BITS as the vhdl code gets #############
     if (res[0]=='-'):
         res = res[3:]
         if(len(res) < BITS_NUM):
             res=(BITS_NUM-len(res)-1)*"0"+res
         res = '1'+res
-        print("res1:", res, len(res))
     else:
         res = res[2:]
         if(len(res) < BITS_NUM):
             res=(BITS_NUM-len(res))*"0"+res
     ####################################################################################
     over_flow = '1' if ( A[0] == B[0] and sign_bit(A) != res[-BITS_NUM]) else '0'
-    res = res[-BITS_NUM:]
+    res = res[-BITS_NUM:] #first 16 bits
     return res, over_flow
 
 
