@@ -6,4 +6,4 @@ Ayat Mostafa
 Abdulrahman Khaled
 Mohamed Khier shaheen
 
-To run software, 
+To run software, ./test
