@@ -18,6 +18,5 @@ Architecture arch of Multiplication is
     begin
 	result <= std_logic_vector(signed(A) * signed(B));
 	output <= result(22 downto 7);  -- (scale_factor+15 downto scale_factor)
-	overFlow <= '0' when (result(31 downto 22) = "0000000000" or result(31 downto 22) = "1111111111")
-			else 	'1';
+	overFlow <= '0' when (result(31 downto 22) = "0000000000" or result(31 downto 22) = "1111111111") else '1';
 end Architecture;

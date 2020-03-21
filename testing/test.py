@@ -109,17 +109,32 @@ def mult(A, B):
 
 
 def add(A, B):
+    #EXTEND BIT#
+    if(A[0]=='-'):
+        A=A[:3]+'1'+A[3:]
+    else:
+        A=A[:2]+'0'+A[2:]
+    if(B[0]=='-'):
+        B=B[:3]+'1'+B[3:]
+    else:
+        B=B[:2]+'0'+B[2:]
+    print("A:",A, len(A))
+    print("B:",B, len(B))
+    ###########
     a = int(A, 2)
     b = int(B, 2)
     res = bin(a+b)
-    print("res1:", res)
+    print("res1:", res, len(res))
     ################## SOME CLEANSING TO GET 17 BITS as the vhdl code gets #############
     if(res[0] == '-'):
         res = res[3:]
-        print("res2:", res, len(res))
-        num = BITS_NUM-len(res)+1
-        if(num > 0):
-            res = "01"+(num-2)*"0"+res
+        if(len(res)!=BITS_NUM+1):
+            print("res2:", res, len(res))
+            num = BITS_NUM-len(res)+1
+            if(num > 2):
+                res = "01"+(num-2)*"0"==+res
+        else:
+            res = '0'+res
         print("res3:", res, len(res))
     else:
         res = res[2:]

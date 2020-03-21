@@ -12,12 +12,11 @@ entity fixed_addition is
 end fixed_addition;
 
 Architecture arch of fixed_addition is
-    signal result : std_logic_vector(16 downto 0);
+    signal result : std_logic_vector(15 downto 0);
     constant scaleFactor : integer := 7;
     begin
-	result <= std_logic_vector(signed(A(15)& A) + signed(B(15)&B));
-	output <= result(15 downto 0); 
-
-	overFlow <= '0' when result(16) = '1' else
-	       	'1';
+	result <= std_logic_vector(signed(A) + signed(B));
+	output <= result;
+	-- neg + neg = pos or pos + pos = neg => overFlow = '1' else '0'
+	overFlow <= '1' when (A(15) = B(15) and A(15) /= result(15)) else '0'; 
 end Architecture;
