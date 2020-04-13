@@ -1,0 +1,14 @@
+Student name: Abdulrahman Khalid Hassan
+B.N: 31
+Team Number: 7
+-------------------------------------------How to use it ----------------------
+comile using g++: g++ test.cpp -o test
+run: ./test
+Enter the 2 numbers you want to add and multiply,
+ps: Enter the negative number in the 2's compliment form 
+-------------------------------------------------------------------------------
+To get the test cases used in the test bench
+compile: g++ get_outputs.cpp -o get_outputs
+run: ./get_outputs
+The output will be in file named ./outputs.txt
+-------------------------------------------------------------------------------
