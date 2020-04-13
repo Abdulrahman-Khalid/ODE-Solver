@@ -1,0 +1,35 @@
+vsim -gui work.carry_look_ahead
+# vsim -gui work.carry_look_ahead 
+# Start time: 05:58:43 on Apr 13,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.carry_look_ahead(behavioral)
+# Loading work.partial_full_adder(behavioral)
+add wave -position insertpoint sim:/carry_look_ahead/*
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: ESLAM ELECTRONICS  Hostname: DESKTOP-EKFC7R1  ProcessID: 6360
+#           Attempting to use alternate WLF file "./wlftc5r0az".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftc5r0az
+force -freeze sim:/carry_look_ahead/Cin 0 0
+force -freeze sim:/carry_look_ahead/A 0000000000000000 0
+force -freeze sim:/carry_look_ahead/B 0000000000000000 0
+force -freeze sim:/carry_look_ahead/Cin 0 0
+run
+force -freeze sim:/carry_look_ahead/A 1111111111111111 0
+run
+force -freeze sim:/carry_look_ahead/A 1111111111111111 0
+force -freeze sim:/carry_look_ahead/B 1111111111111111 0
+force -freeze sim:/carry_look_ahead/A 0000000000000000 0
+run
+force -freeze sim:/carry_look_ahead/A 1111111111111111 0
+run
+force -freeze sim:/carry_look_ahead/A 1010101010101010 0
+run
+force -freeze sim:/carry_look_ahead/B 0010010010010010 0
+run
+force -freeze sim:/carry_look_ahead/A 1100100011111010 0
+force -freeze sim:/carry_look_ahead/B 0010110100010111 0
+run
+
