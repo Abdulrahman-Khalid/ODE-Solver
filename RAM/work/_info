@@ -1,0 +1,133 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Modeltech_pe_edu_10.4a/examples
+Eram
+Z0 w1586888266
+Z1 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z4 dH:/equ/third year/second term/VLSI/vlsiProject/ODE-Solver/RAM
+Z5 8H:/equ/third year/second term/VLSI/vlsiProject/ODE-Solver/RAM/RAM.vhd
+Z6 FH:/equ/third year/second term/VLSI/vlsiProject/ODE-Solver/RAM/RAM.vhd
+l0
+L7
+V5`_oRcmAQWMCKbzKnHXzX3
+!s100 @ljSJo51a2m3KNcH9PFJM1
+Z7 OV;C;10.5b;63
+33
+Z8 !s110 1586888293
+!i10b 1
+Z9 !s108 1586888293.000000
+Z10 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|H:/equ/third year/second term/VLSI/vlsiProject/ODE-Solver/RAM/RAM.vhd|
+Z11 !s107 H:/equ/third year/second term/VLSI/vlsiProject/ODE-Solver/RAM/RAM.vhd|
+!i113 1
+Z12 o-work work -2008 -explicit
+Z13 tExplicit 1 CvgOpt 0
+Aram_arch
+R1
+R2
+R3
+DEx4 work 3 ram 0 22 5`_oRcmAQWMCKbzKnHXzX3
+l46
+L19
+VZij8[f:PWNPYfmGbMT9jS0
+!s100 QG2fIdM:6D3FFGT3gkG:G2
+R7
+33
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Eram2
+Z14 w1586888453
+R1
+R2
+R3
+R4
+Z15 8H:/equ/third year/second term/VLSI/vlsiProject/ODE-Solver/RAM/RAM2.vhd
+Z16 FH:/equ/third year/second term/VLSI/vlsiProject/ODE-Solver/RAM/RAM2.vhd
+l0
+L7
+VE?4ald2^M[zN9Tm2QmTni2
+!s100 Y`iXnXNomd8Dhz4mnm9oj2
+R7
+33
+Z17 !s110 1586888461
+!i10b 1
+Z18 !s108 1586888461.000000
+Z19 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|H:/equ/third year/second term/VLSI/vlsiProject/ODE-Solver/RAM/RAM2.vhd|
+Z20 !s107 H:/equ/third year/second term/VLSI/vlsiProject/ODE-Solver/RAM/RAM2.vhd|
+!i113 1
+R12
+R13
+Aram_arch
+R1
+R2
+R3
+DEx4 work 4 ram2 0 22 E?4ald2^M[zN9Tm2QmTni2
+l45
+L19
+VB3VXe7Tmm4QT;;bCLo>712
+!s100 oL2:Wg`joo@zF?igeWW8J2
+R7
+33
+R17
+!i10b 1
+R18
+R19
+R20
+!i113 1
+R12
+R13
+Etest_ram
+Z21 w1586890936
+R1
+R2
+R3
+R4
+Z22 8H:/equ/third year/second term/VLSI/vlsiProject/ODE-Solver/RAM/RAMTestBench.vhd
+Z23 FH:/equ/third year/second term/VLSI/vlsiProject/ODE-Solver/RAM/RAMTestBench.vhd
+l0
+L8
+VmdeU2mSKzbXQ09f[0c?k]0
+!s100 3jlc;dNzRcBC2RbHFX>TK0
+R7
+33
+Z24 !s110 1586890959
+!i10b 1
+Z25 !s108 1586890959.000000
+Z26 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|H:/equ/third year/second term/VLSI/vlsiProject/ODE-Solver/RAM/RAMTestBench.vhd|
+Z27 !s107 H:/equ/third year/second term/VLSI/vlsiProject/ODE-Solver/RAM/RAMTestBench.vhd|
+!i113 1
+R12
+R13
+Aramtest
+R1
+R2
+R3
+Z28 DEx4 work 8 test_ram 0 22 mdeU2mSKzbXQ09f[0c?k]0
+l35
+L16
+VgzU84=6ALX0Y?HoQ>Rb<j0
+!s100 aPd6WTRY1XYzi23MN]eJG2
+R7
+33
+R24
+!i10b 1
+R25
+R26
+R27
+!i113 1
+R12
+R13
