@@ -1,0 +1,402 @@
+m255
+K4
+z2
+!s11e MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/intelFPGA_pro/19.3
+Ebooth_multiplier
+Z0 w1586827353
+Z1 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z2 DPx4 ieee 16 std_logic_signed 0 22 C<aanc0R`<LWPSe[JYRP^3
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+Z5 dD:/third year/vlsi/booth
+Z6 8D:\third year\vlsi\booth\booth.vhd
+Z7 FD:\third year\vlsi\booth\booth.vhd
+l0
+L5
+VDEb=n;nh_1AO=ABI;`3RY1
+!s100 ifOOI3Q4AG9TlWnn2<iMP2
+Z8 OV;C;2019.2;69
+32
+Z9 !s110 1586919833
+!i10b 1
+Z10 !s108 1586919833.000000
+Z11 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:\third year\vlsi\booth\booth.vhd|
+Z12 !s107 D:\third year\vlsi\booth\booth.vhd|
+!i113 1
+Z13 o-work work -2002 -explicit
+Z14 tExplicit 1 CvgOpt 0
+Abehavior
+R1
+R2
+R3
+R4
+DEx4 work 16 booth_multiplier 0 22 DEb=n;nh_1AO=ABI;`3RY1
+l16
+L14
+V8>O<3RM[CNeSY^X;j7^[83
+!s100 1=zk=5VP4<K@PEHoJCCDZ2
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+R14
+Ecomparator
+Z15 w1586919268
+Z16 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+R1
+R3
+R4
+R5
+Z17 8D:/third year/vlsi/booth/comparator.vhd
+Z18 FD:/third year/vlsi/booth/comparator.vhd
+l0
+L6
+VS>j@VYYfCGR<3Z_k7OJ4D3
+!s100 @f`GoZf:5PZ2QG?ZEk:300
+R8
+32
+Z19 !s110 1586919834
+!i10b 1
+Z20 !s108 1586919834.000000
+Z21 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/third year/vlsi/booth/comparator.vhd|
+Z22 !s107 D:/third year/vlsi/booth/comparator.vhd|
+!i113 1
+R13
+R14
+Abehavioure
+R16
+R1
+R3
+R4
+Z23 DEx4 work 10 comparator 0 22 S>j@VYYfCGR<3Z_k7OJ4D3
+l18
+L16
+VMn@NSL[j2;Ol<]HWh]P6U1
+!s100 Af==lBP9iLI@o_GGH@aVY1
+R8
+32
+R19
+!i10b 1
+R20
+R21
+R22
+!i113 1
+R13
+R14
+Ecounter
+Z24 w1586919791
+R16
+R1
+R3
+R4
+R5
+Z25 8D:\third year\vlsi\booth\counter.vhd
+Z26 FD:\third year\vlsi\booth\counter.vhd
+l0
+L6
+VjnGh1CaEa<kAk[4S@g<7P0
+!s100 nIS3e3_NzHLDigFJJQaVH2
+R8
+32
+Z27 !s110 1586919871
+!i10b 1
+Z28 !s108 1586919871.000000
+Z29 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:\third year\vlsi\booth\counter.vhd|
+Z30 !s107 D:\third year\vlsi\booth\counter.vhd|
+!i113 1
+R13
+R14
+Abehavioure
+R23
+Z31 DEx4 work 3 mux 0 22 D@gfd=KiI6SlH>AWXa?Q62
+Z32 DEx4 work 11 incrementor 0 22 YfG<oH4ToFQY`GDJDeXXF1
+Z33 DEx4 work 3 reg 0 22 DnYVb>ne2MQe?NGhHRl<I0
+R16
+R1
+R3
+R4
+Z34 DEx4 work 7 counter 0 22 jnGh1CaEa<kAk[4S@g<7P0
+l24
+L21
+V]5g8hNCf_TgI>4kQYo;Oc3
+!s100 Y1@WR;W`K8>0]?K]081fl3
+R8
+32
+R27
+!i10b 1
+R28
+R29
+R30
+!i113 1
+R13
+R14
+Eincrementor
+Z35 w1586919782
+R16
+R1
+R3
+R4
+R5
+Z36 8D:\third year\vlsi\booth\incrementor.vhd
+Z37 FD:\third year\vlsi\booth\incrementor.vhd
+l0
+L6
+VYfG<oH4ToFQY`GDJDeXXF1
+!s100 ]BFRGC[D85MneLFb:W_XC3
+R8
+32
+R19
+!i10b 1
+R20
+Z38 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:\third year\vlsi\booth\incrementor.vhd|
+Z39 !s107 D:\third year\vlsi\booth\incrementor.vhd|
+!i113 1
+R13
+R14
+Abehavioure
+R16
+R1
+R3
+R4
+R32
+l16
+L15
+VF:G9beOaLk0iG?:D7^0TM2
+!s100 A0VdUHHTT<WJMDN:dcl5m3
+R8
+32
+R19
+!i10b 1
+R20
+R38
+R39
+!i113 1
+R13
+R14
+Emux
+Z40 w1586919307
+R16
+R1
+R3
+R4
+R5
+Z41 8D:\third year\vlsi\booth\counterMux.vhd
+Z42 FD:\third year\vlsi\booth\counterMux.vhd
+l0
+L6
+VD@gfd=KiI6SlH>AWXa?Q62
+!s100 Gz>YJN=h?GoMlO6P8GUTk0
+R8
+32
+R19
+!i10b 1
+R20
+Z43 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:\third year\vlsi\booth\counterMux.vhd|
+Z44 !s107 D:\third year\vlsi\booth\counterMux.vhd|
+!i113 1
+R13
+R14
+Abehavioure
+R16
+R1
+R3
+R4
+R31
+l19
+L18
+VmPl^fR@TF:hS`1<L;V>S43
+!s100 [94YE6Wkn5ok3M9VEHg`;1
+R8
+32
+R19
+!i10b 1
+R20
+R43
+R44
+!i113 1
+R13
+R14
+Eoverflow
+Z45 w1586799188
+R1
+R2
+R3
+R4
+R5
+Z46 8D:\third year\vlsi\booth\overflow.vhd
+Z47 FD:\third year\vlsi\booth\overflow.vhd
+l0
+L5
+VA[cPP@`cUW_3hcXadn8zF0
+!s100 5^SMlcKdicoP;RlNgi_gF3
+R8
+32
+Z48 !s110 1586799285
+!i10b 1
+Z49 !s108 1586799285.000000
+Z50 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:\third year\vlsi\booth\overflow.vhd|
+Z51 !s107 D:\third year\vlsi\booth\overflow.vhd|
+!i113 1
+R13
+R14
+Abehavioure
+R1
+R2
+R3
+R4
+DEx4 work 8 overflow 0 22 A[cPP@`cUW_3hcXadn8zF0
+l12
+L10
+V[Y?BH:nnEJZLZg62?]H?Z1
+!s100 mcQZiGG_7hL<Fz^9nb`PK3
+R8
+32
+R48
+!i10b 1
+R49
+R50
+R51
+!i113 1
+R13
+R14
+Ereg
+Z52 w1586919489
+R16
+R1
+R3
+R4
+R5
+Z53 8D:\third year\vlsi\booth\register.vhd
+Z54 FD:\third year\vlsi\booth\register.vhd
+l0
+L8
+VDnYVb>ne2MQe?NGhHRl<I0
+!s100 Jn?gY=`d5_ZX=gM`1m5YA2
+R8
+32
+R9
+!i10b 1
+R10
+Z55 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:\third year\vlsi\booth\register.vhd|
+Z56 !s107 D:\third year\vlsi\booth\register.vhd|
+!i113 1
+R13
+R14
+Abehavioral
+R16
+R1
+R3
+R4
+R33
+l19
+L18
+VLoPl<6i2`=Fca1d6L3Y5N2
+!s100 jg7K9jZLb>RTYF=:DnFa_0
+R8
+32
+R9
+!i10b 1
+R10
+R55
+R56
+!i113 1
+R13
+R14
+Ereg1
+Z57 w1586743463
+R16
+R1
+R3
+R4
+R5
+Z58 8D:\third year\vlsi\booth\reg.vhd
+Z59 FD:\third year\vlsi\booth\reg.vhd
+l0
+L6
+VlJla8?j40go8QOMbDBYUP0
+!s100 0`7?1T4[[f6oE@hP5`LLJ2
+R8
+32
+Z60 !s110 1586743466
+!i10b 1
+Z61 !s108 1586743465.000000
+Z62 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:\third year\vlsi\booth\reg.vhd|
+Z63 !s107 D:\third year\vlsi\booth\reg.vhd|
+!i113 1
+R13
+R14
+Abehavioral
+R16
+R1
+R3
+R4
+DEx4 work 4 reg1 0 22 lJla8?j40go8QOMbDBYUP0
+l16
+L15
+VX2h07Lz`BhY5ZabH9@9ZJ1
+!s100 GeNOdIeO:<YSgY8IT2Dao0
+R8
+32
+R60
+!i10b 1
+R61
+R62
+R63
+!i113 1
+R13
+R14
+Ereg16
+Z64 w1586831074
+R16
+R1
+R3
+R4
+R5
+R53
+R54
+l0
+L8
+V]d`kKfLBSCz[e0>TUXJCF3
+!s100 KdF>6[4>0A[UI60oU9[=H3
+R8
+32
+Z65 !s110 1586919372
+!i10b 1
+Z66 !s108 1586919371.000000
+R55
+R56
+!i113 1
+R13
+R14
+Abehavioral
+R16
+R1
+R3
+R4
+DEx4 work 5 reg16 0 22 ]d`kKfLBSCz[e0>TUXJCF3
+l19
+L18
+VFgMZ>0Od:E8aYB6f1a4]J1
+!s100 HEe^;4B>AHX=m1YFKe4Yg1
+R8
+32
+R65
+!i10b 1
+R66
+R55
+R56
+!i113 1
+R13
+R14
