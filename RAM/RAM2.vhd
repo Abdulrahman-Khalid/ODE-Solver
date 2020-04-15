@@ -30,7 +30,7 @@ begin
 if PORT1EN='0'  then
     data_Euler1 <=(others=>'Z');
 elsif(PORT1EN ='1') then
-    if (falling_edge(CLK)) then
+    if (CLK'event and CLK = '0') then
         if(WR1 ='1') then
             RAM_data(to_integer(unsigned(address_Euler1))) := data_Euler1;
         end if;
@@ -60,7 +60,7 @@ begin
 if PORT3EN='0'  then
     data_IO <=(others=>'Z');
 elsif(PORT3EN ='1') then
-    if (falling_edge(CLK)) then
+    if (CLK'event and CLK = '0') then
         if(WRIO ='1') then
             RAM_data(to_integer(unsigned(address_IO))) := data_IO;
         end if;
