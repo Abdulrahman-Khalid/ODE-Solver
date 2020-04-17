@@ -1,0 +1,19 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity incrementor is
+generic(n : integer := 16);
+port(
+    counter: std_logic_vector (n - 1 downto 0);
+    incremented: std_logic_vector (n - 1 downto 0)
+);
+end entity;
+
+architecture behavioure of incrementor is
+begin
+
+    incremented <= counter + 1;
+
+end;

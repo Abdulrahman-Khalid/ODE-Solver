@@ -1,0 +1,76 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.numeric_std.all;
+--USE WORK.bus_array_pkg.all;
+use STD.TEXTIO.all;
+
+
+ENTITY test_RAM IS
+	GENERIC (word_size : integer := 32;
+	         address_width: integer := 14;
+		    RAM_size: integer := 16384); --2^14 slot		
+END ENTITY test_RAM;
+
+Architecture  ramTest of test_RAM is 
+signal 	s_cLK, s_WR1,s_WR2,s_WRIO  :  std_logic;
+signal	s_address_Euler1,s_address_Euler2,s_address_IO :std_logic_vector(address_width DOWNTO 0);
+signal	s_data_Euler1,s_data_Euler2OUT,s_data_IO  :std_logic_vector(word_size - 1 DOWNTO 0);
+constant CLK_PERIOD :time :=10 ns;
+
+component RAM is
+GENERIC (word_size : integer := 32;
+	         address_width: integer := 13;
+		    RAM_size: integer := 16384); --2^14 slot
+            PORT(	
+                CLK, WR1,WR2,WRIO  : IN std_logic;
+                address_Euler1,address_Euler2,address_IO: IN  std_logic_vector(address_width DOWNTO 0);
+                data_Euler2OUT : OUT  std_logic_vector(word_size-1 DOWNTO 0);
+                data_Euler1,data_IO  : INOUT  std_logic_vector(word_size - 1 DOWNTO 0));
+end component;
+
+begin
+R1:RAM generic map(word_size<= 32,address_width<=12,RAM_size<=20000)  port map(s_clk,s_WR1,s_WR2,s_WRIO,s_address_Euler1,s_address_Euler2,s_address_IO
+s_address_Euler1,s_data_Euler2,s_data_IO);
+
+process 
+    begin
+        s_clk <= not s_clk;
+        wait for CLK_PERIOD/2;
+    end process;
+process 
+    begin
+    s_WR1<='1';
+    s_address_Euler1 <= (unsigned)(5);
+    data_Euler1 <= (others=>'1');
+    wait for CLK_PERIOD/2;
+    s_WR2<='0';
+    s_address_Euler2 <= (unsigned)(5);
+    assert (data_Euler2OUT = (others=>'1')) report "error in Ram Write&Read" severity error;
+
+    -- s_WR1<='0';
+    -- s_WR2<='0';
+    -- s_WRIO<='0';
+    -- s_address_Euler1 <= (unsigned)(5);
+    -- s_address_Euler2 <= (unsigned)(6);
+    -- s_address_IO <= (others=>'x');
+    
+    -- s_WR1<='0';
+    -- s_WR2<='0';
+    -- s_WRIO<='0';
+    -- s_address_Euler1 <= (unsigned)(5);
+    -- s_address_Euler2 <= (unsigned)(6);
+    -- s_address_IO <= (others=>'x');
+    
+
+    -- s_WR1<='0';
+    -- s_WR2<='0';
+    -- s_WRIO<='0';
+    -- s_address_Euler1 <= (unsigned)(5);
+    -- s_address_Euler2 <= (unsigned)(6);
+    -- s_address_IO <= (others=>'x');
+    
+
+        
+    end process;
+
+end Architecture;
