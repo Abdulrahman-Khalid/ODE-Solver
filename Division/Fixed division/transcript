@@ -1,0 +1,63 @@
+# Reading C:/Modeltech_pe_edu_10.4a/tcl/vsim/pref.tcl
+# OpenFile {E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/Division/Fixed division/Fixed_division.mpf}
+# Loading project Fixed_division
+# Compile of Fixed_division.vhd was successful.
+# Compile of Fixed_division.vhd was successful.
+vsim -gui work.fixed_division
+# //  ModelSim PE Student Edition 10.4a Apr  7 2015 
+# //
+# //  Copyright 1991-2015 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //  THIS DOCUMENT CONTAINS TRADE SECRETS AND COMMERCIAL OR FINANCIAL
+# //  INFORMATION THAT ARE PRIVILEGED, CONFIDENTIAL, AND EXEMPT FROM
+# //  DISCLOSURE UNDER THE FREEDOM OF INFORMATION ACT, 5 U.S.C. SECTION 552.
+# //  FURTHERMORE, THIS INFORMATION IS PROHIBITED FROM DISCLOSURE UNDER
+# //  THE TRADE SECRETS ACT, 18 U.S.C. SECTION 1905.
+# //
+# // NOT FOR CORPORATE OR PRODUCTION USE.
+# // THE ModelSim PE Student Edition IS NOT A SUPPORTED PRODUCT.
+# // FOR HIGHER EDUCATION PURPOSES ONLY
+# //
+# vsim -gui E:\Muhanad\CUFE\Third year\2nd Semester\VLSI\Projects\Project\ODE-Solver\Division\Fixed division\Fixed_division.mpf 
+# Start time: 05:43:40 on Apr 15,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.fixed_division(arch)
+add wave -position insertpoint sim:/fixed_division/*
+force -freeze sim:/fixed_division/A 16'h10 0
+force -freeze sim:/fixed_division/B 16'hFFFF 0
+run
+run
+run
+force -freeze sim:/fixed_division/B 16'h8 0
+run
+force -freeze sim:/fixed_division/B 16'h0001 0
+run
+quit -sim
+# Compile of Fixed_division.vhd was successful.
+vsim -gui work.fixed_division
+# vsim 
+# Start time: 05:52:33 on Apr 15,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.fixed_division(arch)
+add wave -position insertpoint sim:/fixed_division/*
+force -freeze sim:/fixed_division/B 16'h0002 0
+run
+force -freeze sim:/fixed_division/B 16'h0003 0
+run
+force -freeze sim:/fixed_division/B 16'h0004 0
+run
+quit -sim
+# Compile of Fixed_division.vhd failed with 5 errors.
+# Compile of Fixed_division.vhd failed with 3 errors.
+# Compile of Fixed_division.vhd was successful.
+# Compile of Fixed_division.vhd failed with 2 errors.
