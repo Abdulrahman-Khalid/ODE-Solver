@@ -8,30 +8,71 @@ z2
 !i10f 100
 cModel Technology
 dC:/Modeltech_pe_edu_10.4a/examples
-Efixed_division
-Z0 w1586923760
-Z1 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Ecomparator
+Z0 w1587137673
+Z1 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
 Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
 Z4 dE:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/Division/Fixed division
-Z5 8E:\Muhanad\CUFE\Third year\2nd Semester\VLSI\Projects\Project\ODE-Solver\Division\Fixed division\Fixed_division.vhd
-Z6 FE:\Muhanad\CUFE\Third year\2nd Semester\VLSI\Projects\Project\ODE-Solver\Division\Fixed division\Fixed_division.vhd
+Z5 8E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/Division/Fixed division/Comparator.vhd
+Z6 FE:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/Division/Fixed division/Comparator.vhd
+l0
+L5
+Vj;ENo>a@zHi>JXa`Zf8FK0
+!s100 fTA<WQ63YQN=l2@Y4IIkA2
+Z7 OP;C;10.4a;61
+32
+Z8 !s110 1587137679
+!i10b 1
+Z9 !s108 1587137679.000000
+Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/Division/Fixed division/Comparator.vhd|
+Z11 !s107 E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/Division/Fixed division/Comparator.vhd|
+!i113 1
+Z12 o-work work -2002 -explicit -O0
+Z13 tExplicit 1
+Adataflow
+R1
+R2
+R3
+DEx4 work 10 comparator 0 22 j;ENo>a@zHi>JXa`Zf8FK0
+l15
+L14
+VRjVT8jRYIDXb7c?d2EQi80
+!s100 Z:TGJ6zlKoCX9CX<12lU;1
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Efixed_division
+Z14 w1586923760
+Z15 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+R2
+R3
+R4
+Z16 8E:\Muhanad\CUFE\Third year\2nd Semester\VLSI\Projects\Project\ODE-Solver\Division\Fixed division\Fixed_division.vhd
+Z17 FE:\Muhanad\CUFE\Third year\2nd Semester\VLSI\Projects\Project\ODE-Solver\Division\Fixed division\Fixed_division.vhd
 l0
 L6
 VXWbCblmQGfjYZ>73KV]RR1
 !s100 QzZMGnWNNgkUa:=OhIAJb0
-Z7 OP;C;10.4a;61
+R7
 32
 !s110 1586923765
 !i10b 1
 !s108 1586923764.000000
-Z8 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:\Muhanad\CUFE\Third year\2nd Semester\VLSI\Projects\Project\ODE-Solver\Division\Fixed division\Fixed_division.vhd|
-!s107 E:\Muhanad\CUFE\Third year\2nd Semester\VLSI\Projects\Project\ODE-Solver\Division\Fixed division\Fixed_division.vhd|
+Z18 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:\Muhanad\CUFE\Third year\2nd Semester\VLSI\Projects\Project\ODE-Solver\Division\Fixed division\Fixed_division.vhd|
+Z19 !s107 E:\Muhanad\CUFE\Third year\2nd Semester\VLSI\Projects\Project\ODE-Solver\Division\Fixed division\Fixed_division.vhd|
 !i113 1
-Z9 o-work work -2002 -explicit -O0
-Z10 tExplicit 1
+R12
+R13
 Aarch
-R1
+R15
 R2
 R3
 DEx4 work 14 fixed_division 0 22 XWbCblmQGfjYZ>73KV]RR1
@@ -44,8 +85,8 @@ R7
 !s110 1586923022
 !i10b 1
 !s108 1586923022.000000
-R8
-!s107 E:\Muhanad\CUFE\Third year\2nd Semester\VLSI\Projects\Project\ODE-Solver\Division\Fixed division\Fixed_division.vhd|
+R18
+R19
 !i113 1
-R9
-R10
+R12
+R13
