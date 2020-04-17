@@ -73,3 +73,24 @@ force -freeze sim:/comparator/B 16'h0006 0
 run
 run
 quit -sim
+# Compile of 2'S Complement.vhd failed with 1 errors.
+# Compile of 2'S Complement.vhd failed with 1 errors.
+# Compile of 2'S Complement.vhd failed with 5 errors.
+# Compile of 2'S Complement.vhd failed with 4 errors.
+# Compile of 2'S Complement.vhd failed with 3 errors.
+# Compile of 2'S Complement.vhd failed with 2 errors.
+# Compile of 2'S Complement.vhd was successful.
+vsim -gui work.complement2
+# vsim 
+# Start time: 22:26:37 on Apr 17,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.complement2(structural)
+add wave -position insertpoint sim:/complement2/*
+force -freeze sim:/complement2/X 15'hFFF1 0
+run
+force -freeze sim:/complement2/X 15'h1 0
+run
+quit -sim

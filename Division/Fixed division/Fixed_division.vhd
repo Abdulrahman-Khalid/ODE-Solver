@@ -5,13 +5,14 @@ use ieee.numeric_std.all;
 
 entity fixed_division is
     generic (N : integer := 16);
-	port( Divisor : in std_logic_vector(N-1 downto 0);
-	      Dividend : in std_logic_vector(N-1 downto 0);
+	port( Dividend : in std_logic_vector(N-1 downto 0);
+		  Divisor : in std_logic_vector(N-1 downto 0);
 	      Quotient : out std_logic_vector(N-1 downto 0);
-	      ERR : inout std_logic);
+		  ERR : out std_logic;
+		  OverFlow : out std_logic);
 end entity;
 
-Architecture arch of fixed_division is
+architecture arch of fixed_division is
 	begin
 		Quotient(N-1) <= Divisor(N-1) xor Dividend(N-1);
 		 
@@ -20,14 +21,15 @@ Architecture arch of fixed_division is
 		variable SHIFTING_IT : Integer := 0;
 		variable D : std_logic_vector(N-2 downto 0);
 		variable Z : std_logic_vector(N-2 downto 0);
-		begin
+		begin	
 			-- If divisor == 0 then ERROR bit = 1
 			l1 : for i in 0 to N-2 loop
-				ERR_VAR := ERR_VAR or Dividend(i);
-				if Dividend(i) = '1' then
+				ERR_VAR := ERR_VAR or Divisor(i);
+				if Divisor(i) = '1' then
 					SHIFTING_IT := i; -- Calculating the index of the most 1 bit
 				end if ;
 			end loop ; -- l1
+			-- Error bit
 			ERR <= not ERR_VAR;	
 			
 			D(N-2 downto N-2-SHIFTING_IT) := Divisor(N-2 downto N-2-SHIFTING_IT);
@@ -37,4 +39,4 @@ Architecture arch of fixed_division is
 			end loop ; -- l2
 
 		end process;
-end Architecture;
+end architecture;
