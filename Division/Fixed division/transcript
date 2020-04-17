@@ -38,3 +38,38 @@ run
 force -freeze sim:/comparator/B 16'h0005 0
 run
 quit -sim
+# Compile of Comparator.vhd was successful.
+vsim -gui work.comparator
+# vsim 
+# Start time: 17:42:34 on Apr 17,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading work.comparator(dataflow)
+add wave -position insertpoint sim:/comparator/*
+force -freeze sim:/comparator/A 16'h5 0
+force -freeze sim:/comparator/B 16'h4 0
+run
+quit -sim
+# Compile of Comparator.vhd was successful.
+vsim -gui work.comparator
+# vsim 
+# Start time: 17:45:03 on Apr 17,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading work.comparator(dataflow)
+add wave -position insertpoint sim:/comparator/*
+force -freeze sim:/comparator/A 16'h5 0
+force -freeze sim:/comparator/B 16'h44 0
+force -freeze sim:/comparator/A 16'h0005 0
+force -freeze sim:/comparator/B 16'h0004 0
+run
+force -freeze sim:/comparator/B 16'h0005 0
+run
+force -freeze sim:/comparator/B 16'h0006 0
+run
+run
+quit -sim
