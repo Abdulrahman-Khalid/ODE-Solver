@@ -69,4 +69,5 @@ while { [gets $fp data] >= 0 } {
     force -deposit /Done_Row 0
 }
 force -deposit /Enable 0
+run 100
 close $fp
