@@ -14,10 +14,11 @@ const unsigned int busSize = 32;
 using json = nlohmann::json;
 unsigned int maxConsequtive(string str);
 void bin(unsigned int n, string &res);
-string createPacket(int packetSize, int number, bool finalPacket = false, char firstPacketBitType = '-');
+string createPacket(int packetSize, int number, bool lastPacket = false);
 string decimalToBinary(double num);
 int countBits(int num);
 string RLE(string str);
+
 int main(int argc, char *argv[])
 {
     if (argc < 3)
@@ -127,13 +128,14 @@ string RLE(string str)
     }
     assertm(packetSize < busSize, "Error packet bigger than 32 bit");
     cout << "packetSize: " << packetSize << '\n';
-    string encoding = bitset<busSize>(packetSize).to_string();
+    string encoding = bitset<31>(packetSize).to_string();
+    encoding = str[0] + encoding; // first bit in
     // cout << "packetSize: " << encoding << '\n';
     int i = 0;
     int cnt = 1;
     while (str[i] == str[i + 1])
         cnt++, i++;
-    encoding += createPacket(packetSize, cnt, false, str[i]);
+    encoding += createPacket(packetSize, cnt);
     i++;
     assert(i < str.length() && "Should be more than one packet");
     while (true)
@@ -143,7 +145,7 @@ string RLE(string str)
             cnt++, i++;
         i++;
         if (i < str.length())
-            encoding += createPacket(packetSize, cnt, false);
+            encoding += createPacket(packetSize, cnt);
         else
         {
             encoding += createPacket(packetSize, cnt, true);
@@ -202,6 +204,19 @@ string createPacket(int packetSize, int number, bool finalPacket, char firstPack
     if (finalPacket)
         return '1' + string(diff - 1, '0') + res;
     return string(diff, '0') + res;
+}
+
+string createPacket(int packetSize, int number, bool lastPacket)
+{
+    string res = "";
+    bin(number, res);
+    int diff = packetSize - res.length();
+    assert(diff >= 1 && "packet overflow");
+    // first bit indicat if this is the final packet in the row
+    if (!lastPacket)
+        return string(diff, '0') + res;
+    else
+        return '1' + string(diff - 1, '0') + res;
 }
 
 void bin(unsigned int n, string &res)

@@ -15,11 +15,12 @@ exec ./cpu $inputFile $outputFile
 #  read the file one line at a time
 set fp [open $outputFile r]
 while { [gets $fp data] >= 0 } {
-    set startIndx 0
+    set startIndx 1
     set endIndx 31
     # puts $data
     # set i 0
     set bin [string range $data $startIndx $endIndx]
+    set firstPacketBitType [string index $data 0]
     puts "packet size = [set packetSize [bin_to_num $bin]]"
     #TODO SEND Packet Size
 
