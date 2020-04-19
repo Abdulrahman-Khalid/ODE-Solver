@@ -26,8 +26,8 @@ exec make;
 #########################################################################
 exec ./cpu $inputFile $outputFile
 set fp [open $outputFile r]
-set DoneLoading [examine -binary sim:/ODE_Solver/DoneLoading]
 force -deposit /Enable 1; # Enable IO signal
+run 100
 while { [gets $fp data] >= 0 } {
     set bin [string range $data 1 31]
     set firstPacketBitType [string index $data 0]
@@ -35,11 +35,7 @@ while { [gets $fp data] >= 0 } {
     puts "packet size = [set packetSize [bin_to_num $bin]]"
     puts "Meta Data of Row CPU to IO: $cpuToIoBus"
     set row [list]
-    # puts [string length $cpuToIoBus]
-    #TODO SEND cpuToIoBus
-
     lappend row $cpuToIoBus
-    ######################
     set len [string length $data]
     set startIndx 32
     set endIndx [expr { $startIndx + 31}]
