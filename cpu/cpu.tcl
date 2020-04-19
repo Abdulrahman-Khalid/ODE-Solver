@@ -1,3 +1,16 @@
+delete wave *
+add wave -unsigned *
+add wave -unsigned /ODE_Solver/RAM/RAM2
+force -deposit /CLK 1 0, 0 50 -r 100
+force -deposit /RST 1
+run 100
+force -deposit /RST 0
+force -deposit /INT 1
+force -deposit /LoadProcess 1
+run 100
+force -deposit /INT 0
+force -deposit /LoadProcess 0
+
 proc bin_to_num { bin } {
     binary scan [binary format B* [format %032s $bin]] I val
     return $val
@@ -5,24 +18,26 @@ proc bin_to_num { bin } {
 
 set inputFile ./input.json;
 set outputFile ./output.txt;
-# run c++ code
+############################## run c++ code #############################
 exec make clean ;
+#  "__________________________START ENCODING__________________________"
 exec make;
+#  "___________________________END ENCODING__________________________"
+#########################################################################
 exec ./cpu $inputFile $outputFile
-# puts "__________________________START ENCODING__________________________"
-# puts $file_data
-# puts "___________________________END ENCODING__________________________"
-#  read the file one line at a time
 set fp [open $outputFile r]
+set DoneLoading [examine -binary sim:/ODE_Solver/DoneLoading]
 while { [gets $fp data] >= 0 } {
     set bin [string range $data 1 31]
     set firstPacketBitType [string index $data 0]
     set cpuToIoBus "$firstPacketBitType$bin"
     puts "packet size = [set packetSize [bin_to_num $bin]]"
     puts "Meta Data of Row CPU to IO: $cpuToIoBus"
+    set row [list]
     # puts [string length $cpuToIoBus]
     #TODO SEND cpuToIoBus
 
+    lappend row $cpuToIoBus
     ######################
     set len [string length $data]
     set startIndx 32
@@ -31,18 +46,24 @@ while { [gets $fp data] >= 0 } {
     while {$endIndx < $len} {
         set cpuToIoBus [string range $data $startIndx $endIndx]
         puts "CPU to IO #$i = $cpuToIoBus"
-        # puts [string length $cpuToIoBus]
-        #TODO SEND Packet
-        ################
+        lappend row $cpuToIoBus
         set startIndx [expr {$endIndx + 1}] 
         set endIndx [expr {$startIndx + 31}] 
         set i [expr {$i +1}]
     }
-    #TODO send packet bin to IO
-    
-    #TODO send packet bin to IO
+    set $rowLength [llength $row]
+    puts "Row Buses count = $rowLength"
+    puts "Sending..."
+    while { $idx < $rowLength } {
+        set DoneReadingPacket [examine -binary sim:/ODE_Solver/DoneReadingPacket]
+        if {$DoneReadingPacket == 1} {
+            force -freeze sim:/ODE_Solver/CPUBus [lindex $row $idx] 0
+            incr idx
+        } 
+	    run 100
+    }
+    force -deposit /DoneLoadingRow 1
+    run 100
+    force -deposit /DoneLoadingRow 0
 }
 close $fp
-# set triggerVal [examine /trigger]
-
-
