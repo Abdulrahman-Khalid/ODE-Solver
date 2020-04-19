@@ -1,0 +1,415 @@
+# Compile of booth.vhd was successful.
+# Compile of interpolation_Logic.vhd failed with 11 errors.
+# Compile of Interpolation.vhd failed with 13 errors.
+# Compile of interPolation_Devision.vhd failed with 1 errors.
+# Compile of cry_lkahd_adder.vhd was successful.
+# Compile of Fixed_division.vhd was successful.
+# 6 compiles, 3 failed with 25 errors.
+# Compile of interpolation_Logic.vhd failed with 12 errors.
+# Compile of interpolation_Logic.vhd failed with 11 errors.
+# Compile of interpolation_Logic.vhd failed with 9 errors.
+# Compile of interpolation_Logic.vhd failed with 9 errors.
+# Compile of interpolation_Logic.vhd failed with 8 errors.
+# Compile of interpolation_Logic.vhd failed with 7 errors.
+# Compile of booth.vhd was successful.
+# Compile of interpolation_Logic.vhd failed with 4 errors.
+# Compile of Interpolation.vhd failed with 10 errors.
+# Compile of interPolation_Devision.vhd failed with 1 errors.
+# Compile of cry_lkahd_adder.vhd was successful.
+# Compile of Fixed_division.vhd was successful.
+# 6 compiles, 3 failed with 15 errors.
+# Compile of booth.vhd was successful.
+# Compile of interpolation_Logic.vhd failed with 4 errors.
+# Compile of Interpolation.vhd failed with 10 errors.
+# Compile of interPolation_Devision.vhd failed with 1 errors.
+# Compile of cry_lkahd_adder.vhd was successful.
+# Compile of Fixed_division.vhd was successful.
+# 6 compiles, 3 failed with 15 errors.
+# Compile of interpolation_Logic.vhd failed with 3 errors.
+# Compile of interpolation_Logic.vhd failed with 2 errors.
+# Compile of interpolation_Logic.vhd was successful.
+# Compile of interPolation_Devision.vhd failed with 1 errors.
+# Compile of interPolation_Devision.vhd failed with 2 errors.
+# Compile of interPolation_Devision.vhd was successful.
+# Compile of Interpolation.vhd failed with 7 errors.
+# Compile of register.vhd was successful.
+# Compile of Interpolation.vhd was successful.
+# Compile of booth.vhd was successful.
+# Compile of interpolation_Logic.vhd was successful.
+# Compile of Interpolation.vhd was successful.
+# Compile of interPolation_Devision.vhd was successful.
+# Compile of cry_lkahd_adder.vhd was successful.
+# Compile of Fixed_division.vhd was successful.
+# Compile of register.vhd was successful.
+# 7 compiles, 0 failed with no errors.
+vsim -gui work.interpolation_devision
+# vsim -gui work.interpolation_devision 
+# Start time: 23:16:49 on Apr 19,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.interpolation_devision(interpolation_devisionarch)
+# Loading work.fixed_division(arch)
+# Loading work.carry_look_ahead(behavioral)
+# Loading work.partial_full_adder(behavioral)
+# ** Warning: (vsim-8683) Uninitialized out port /interpolation_devision/D1/OverFlow has no driver.
+# This port will contribute value (U) to the signal network.
+# WARNING: No extended dataflow license exists
+add wave -position insertpoint  \
+sim:/interpolation_devision/width \
+sim:/interpolation_devision/Tk \
+sim:/interpolation_devision/Tz \
+sim:/interpolation_devision/Tn \
+sim:/interpolation_devision/CLK \
+sim:/interpolation_devision/EN \
+sim:/interpolation_devision/Done \
+sim:/interpolation_devision/DivOut \
+sim:/interpolation_devision/temp \
+sim:/interpolation_devision/TkComp \
+sim:/interpolation_devision/Tk_Tn \
+sim:/interpolation_devision/Tz_Tn \
+sim:/interpolation_devision/Division_output \
+sim:/interpolation_devision/Div_EN \
+sim:/interpolation_devision/ERROR \
+sim:/interpolation_devision/Div_OVF
+force -freeze sim:/interpolation_devision/Tk UUUUUUUUUUUUUUUU 0
+force -freeze sim:/interpolation_devision/Tk 0000000010000000 0
+force -freeze sim:/interpolation_devision/Tz 0000000100000000 0
+force -freeze sim:/interpolation_devision/Tn 0000000000000000 0
+force -freeze sim:/interpolation_devision/CLK 1 0, 0 {50 ps} -r 100
+force -freeze sim:/interpolation_devision/EN 1 0
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+run
+# Break in Architecture Interpolation_DevisionArch at H:/equ/third year/second term/VLSI/project/Interpolation/interPolation_Devision.vhd line 23
+step -over
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /interpolation_devision
+run
+# Break in Architecture Interpolation_DevisionArch at H:/equ/third year/second term/VLSI/project/Interpolation/interPolation_Devision.vhd line 23
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /interpolation_devision
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /interpolation_devision/D1
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /interpolation_devision/D1
+# Break in Architecture Interpolation_DevisionArch at H:/equ/third year/second term/VLSI/project/Interpolation/interPolation_Devision.vhd line 23
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 2  Instance: /interpolation_devision
+# Break in Architecture Interpolation_DevisionArch at H:/equ/third year/second term/VLSI/project/Interpolation/interPolation_Devision.vhd line 23
+run
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 50 ps  Iteration: 0  Instance: /interpolation_devision/D1
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 100 ps  Iteration: 0  Instance: /interpolation_devision/D1
+run
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 150 ps  Iteration: 0  Instance: /interpolation_devision/D1
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 200 ps  Iteration: 0  Instance: /interpolation_devision/D1
+run
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 250 ps  Iteration: 0  Instance: /interpolation_devision/D1
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 300 ps  Iteration: 0  Instance: /interpolation_devision/D1
+run
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 350 ps  Iteration: 0  Instance: /interpolation_devision/D1
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 400 ps  Iteration: 0  Instance: /interpolation_devision/D1
+run
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 450 ps  Iteration: 0  Instance: /interpolation_devision/D1
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 500 ps  Iteration: 0  Instance: /interpolation_devision/D1
+run
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 550 ps  Iteration: 0  Instance: /interpolation_devision/D1
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 600 ps  Iteration: 0  Instance: /interpolation_devision/D1
+run
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 650 ps  Iteration: 0  Instance: /interpolation_devision/D1
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 700 ps  Iteration: 0  Instance: /interpolation_devision/D1
+run
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 750 ps  Iteration: 0  Instance: /interpolation_devision/D1
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 800 ps  Iteration: 0  Instance: /interpolation_devision/D1
+run
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 850 ps  Iteration: 0  Instance: /interpolation_devision/D1
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 900 ps  Iteration: 0  Instance: /interpolation_devision/D1
+run
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 950 ps  Iteration: 0  Instance: /interpolation_devision/D1
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 1 ns  Iteration: 0  Instance: /interpolation_devision/D1
+run
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 1050 ps  Iteration: 0  Instance: /interpolation_devision/D1
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 1100 ps  Iteration: 0  Instance: /interpolation_devision/D1
+run
+run
+quit -sim
+# End time: 23:53:06 on Apr 19,2020, Elapsed time: 0:36:17
+# Errors: 0, Warnings: 29
+vsim -gui work.fixed_division
+# vsim -gui work.fixed_division 
+# Start time: 23:53:27 on Apr 19,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.fixed_division(arch)
+# Loading work.carry_look_ahead(behavioral)
+# Loading work.partial_full_adder(behavioral)
+# WARNING: No extended dataflow license exists
+add wave -position insertpoint  \
+sim:/fixed_division/N \
+sim:/fixed_division/Dividend \
+sim:/fixed_division/Divisor \
+sim:/fixed_division/Enable \
+sim:/fixed_division/clk \
+sim:/fixed_division/Quotient \
+sim:/fixed_division/ERR \
+sim:/fixed_division/Done \
+sim:/fixed_division/OverFlow \
+sim:/fixed_division/add1 \
+sim:/fixed_division/add2 \
+sim:/fixed_division/addOut
+add wave -position insertpoint  \
+sim:/fixed_division/N \
+sim:/fixed_division/Dividend \
+sim:/fixed_division/Divisor \
+sim:/fixed_division/Enable \
+sim:/fixed_division/clk \
+sim:/fixed_division/Quotient \
+sim:/fixed_division/ERR \
+sim:/fixed_division/Done \
+sim:/fixed_division/OverFlow \
+sim:/fixed_division/add1 \
+sim:/fixed_division/add2 \
+sim:/fixed_division/addOut
+force -freeze sim:/fixed_division/Dividend 0000000010000000 0
+force -freeze sim:/fixed_division/Divisor 0000000100000000 0
+force -freeze sim:/fixed_division/Enable 1 0
+force -freeze sim:/fixed_division/clk 1 0, 0 {50 ps} -r 100
+run
+run
+run
+run
+run
+run
+run
+run
+run
+quit -sim
+# End time: 23:56:26 on Apr 19,2020, Elapsed time: 0:02:59
+# Errors: 0, Warnings: 1
+vsim -gui work.interpolation_devision
+# vsim -gui work.interpolation_devision 
+# Start time: 23:56:29 on Apr 19,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.interpolation_devision(interpolation_devisionarch)
+# Loading work.fixed_division(arch)
+# Loading work.carry_look_ahead(behavioral)
+# Loading work.partial_full_adder(behavioral)
+# ** Warning: (vsim-8683) Uninitialized out port /interpolation_devision/D1/OverFlow has no driver.
+# This port will contribute value (U) to the signal network.
+# WARNING: No extended dataflow license exists
+# vsim -gui work.interpolation_devision 
+# Start time: 23:16:49 on Apr 19,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.interpolation_devision(interpolation_devisionarch)
+# Loading work.fixed_division(arch)
+# Loading work.carry_look_ahead(behavioral)
+# Loading work.partial_full_adder(behavioral)
+# ** Warning: (vsim-8683) Uninitialized out port /interpolation_devision/D1/OverFlow has no driver.
+# This port will contribute value (U) to the signal network.
+# WARNING: No extended dataflow license exists
+add wave -position insertpoint  \
+sim:/interpolation_devision/width \
+sim:/interpolation_devision/Tk \
+sim:/interpolation_devision/Tz \
+sim:/interpolation_devision/Tn \
+sim:/interpolation_devision/CLK \
+sim:/interpolation_devision/EN \
+sim:/interpolation_devision/Done \
+sim:/interpolation_devision/DivOut \
+sim:/interpolation_devision/temp \
+sim:/interpolation_devision/TkComp \
+sim:/interpolation_devision/Tk_Tn \
+sim:/interpolation_devision/Tz_Tn \
+sim:/interpolation_devision/Division_output \
+sim:/interpolation_devision/Div_EN \
+sim:/interpolation_devision/ERROR \
+sim:/interpolation_devision/Div_OVF
+force -freeze sim:/interpolation_devision/Tk UUUUUUUUUUUUUUUU 0
+force -freeze sim:/interpolation_devision/Tk 0000000010000000 0
+force -freeze sim:/interpolation_devision/Tz 0000000100000000 0
+force -freeze sim:/interpolation_devision/Tn 0000000000000000 0
+force -freeze sim:/interpolation_devision/CLK 1 0, 0 {50 ps} -r 100
+force -freeze sim:/interpolation_devision/EN 1 0
+
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /interpolation_devision
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /interpolation_devision
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /interpolation_devision/D1
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /interpolation_devision/D1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 2  Instance: /interpolation_devision
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 50 ps  Iteration: 0  Instance: /interpolation_devision/D1
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 100 ps  Iteration: 0  Instance: /interpolation_devision/D1
+run
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 150 ps  Iteration: 0  Instance: /interpolation_devision/D1
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 200 ps  Iteration: 0  Instance: /interpolation_devision/D1
+run
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 250 ps  Iteration: 0  Instance: /interpolation_devision/D1
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 300 ps  Iteration: 0  Instance: /interpolation_devision/D1
+run
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 350 ps  Iteration: 0  Instance: /interpolation_devision/D1
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 400 ps  Iteration: 0  Instance: /interpolation_devision/D1
+run
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 450 ps  Iteration: 0  Instance: /interpolation_devision/D1
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 500 ps  Iteration: 0  Instance: /interpolation_devision/D1
+run
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 550 ps  Iteration: 0  Instance: /interpolation_devision/D1
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 600 ps  Iteration: 0  Instance: /interpolation_devision/D1
+run
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 650 ps  Iteration: 0  Instance: /interpolation_devision/D1
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 700 ps  Iteration: 0  Instance: /interpolation_devision/D1
+run
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 750 ps  Iteration: 0  Instance: /interpolation_devision/D1
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 800 ps  Iteration: 0  Instance: /interpolation_devision/D1
+run
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 850 ps  Iteration: 0  Instance: /interpolation_devision/D1
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 900 ps  Iteration: 0  Instance: /interpolation_devision/D1
+run
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 950 ps  Iteration: 0  Instance: /interpolation_devision/D1
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 1 ns  Iteration: 0  Instance: /interpolation_devision/D1
+run
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 1050 ps  Iteration: 0  Instance: /interpolation_devision/D1
+# ** Warning: NUMERIC_STD.">=": metavalue detected, returning FALSE
+#    Time: 1100 ps  Iteration: 0  Instance: /interpolation_devision/D1
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
