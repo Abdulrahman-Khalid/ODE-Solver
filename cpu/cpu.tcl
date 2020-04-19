@@ -59,7 +59,7 @@ while { [gets $fp data] >= 0 } {
     while { $idx < $rowLength } {
         set Done_Reading_Bus [examine -binary sim:/ODE_Solver/Done_Reading_Bus]
         if {$Done_Reading_Bus == 1} {
-            force -freeze sim:/ODE_Solver/CPUBus [lindex $row $idx] 0
+            force -freeze sim:/ODE_Solver/CPU_Bus [lindex $row $idx] 0
             incr idx
         } 
 	    run 100
