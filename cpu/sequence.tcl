@@ -1,15 +1,12 @@
-delete wave *
-add wave -unsigned *
-add wave -unsigned /ODE_Solver/RAM/RAM2
-force -deposit /CLK 1 0, 0 50 -r 100
-force -deposit /RST 1
-run 100
-force -deposit /RST 0
-force -deposit /INT 1
-force -deposit /LoadProcess 1
-run 100
-force -deposit /INT 0
-force -deposit /LoadProcess 0
+puts "start clk"
+puts "RST -> 1"
+puts "Run 100"
+puts "RST -> 0"
+puts "INT -> 1"
+puts "LoadProcess -> 1"
+puts "Run 100"
+puts "INT -> 0"
+puts "LoadProcess -> 0"
 
 proc bin_to_num { bin } {
     binary scan [binary format B* [format %032s $bin]] I val
@@ -26,8 +23,8 @@ exec ./cpu $inputFile $outputFile
 #  "___________________________END ENCODING__________________________"
 #########################################################################
 set fp [open $outputFile r]
-force -deposit /Enable 1; # Enable IO signal
-run 100
+puts "Enable -> 1"
+puts "Run 100"
 while { [gets $fp data] >= 0 } {
     set bin [string range $data 1 31]
     set firstPacketBitType [string index $data 0]
@@ -48,22 +45,23 @@ while { [gets $fp data] >= 0 } {
         set endIndx [expr {$startIndx + 31}] 
         set i [expr {$i +1}]
     }
+    puts $row
     set rowLength [llength $row]
+    puts "__________________________________________________________________"
     puts "Row Buses count = $rowLength"
     puts "Sending..."
     set idx 0
     while { $idx < $rowLength } {
-        set Done_Reading_Bus [examine -binary sim:/ODE_Solver/Done_Reading_Bus]
-        if {$Done_Reading_Bus == 1} {
-            force -freeze sim:/ODE_Solver/CPU_Bus [lindex $row $idx] 0
-            incr idx
-        } 
-	    run 100
+        set cpuToIoBus [lindex $row $idx]
+        puts "CPU to IO #[expr $idx+1] = $cpuToIoBus"
+        incr idx
+        puts "Run 100"
     }
-    force -deposit /Done_Row 1
-    run 100
-    force -deposit /Done_Row 0
+    puts "Done_Row -> 1"
+    puts "Run 100"
+    puts "Done_Row -> 0"
+    puts "__________________________________________________________________"
 }
-force -deposit /Enable 0
-run 100
+puts "Enable -> 0"
+puts "Run 100"
 close $fp
