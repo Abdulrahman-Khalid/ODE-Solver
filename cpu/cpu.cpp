@@ -225,6 +225,7 @@ void bin(unsigned int n, string &res)
         bin(n >> 1, res);
     res += to_string(n & 1);
 }
+
 int countBits(int num)
 {
     return (int)log2(num) + 1;
