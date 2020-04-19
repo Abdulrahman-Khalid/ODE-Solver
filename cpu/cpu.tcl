@@ -27,6 +27,7 @@ exec make;
 exec ./cpu $inputFile $outputFile
 set fp [open $outputFile r]
 set DoneLoading [examine -binary sim:/ODE_Solver/DoneLoading]
+force -deposit /Enable 1; # Enable IO signal
 while { [gets $fp data] >= 0 } {
     set bin [string range $data 1 31]
     set firstPacketBitType [string index $data 0]
@@ -54,16 +55,18 @@ while { [gets $fp data] >= 0 } {
     set $rowLength [llength $row]
     puts "Row Buses count = $rowLength"
     puts "Sending..."
+    set idx 0
     while { $idx < $rowLength } {
-        set DoneReadingPacket [examine -binary sim:/ODE_Solver/DoneReadingPacket]
-        if {$DoneReadingPacket == 1} {
+        set Done_Reading_Bus [examine -binary sim:/ODE_Solver/Done_Reading_Bus]
+        if {$Done_Reading_Bus == 1} {
             force -freeze sim:/ODE_Solver/CPUBus [lindex $row $idx] 0
             incr idx
         } 
 	    run 100
     }
-    force -deposit /DoneLoadingRow 1
+    force -deposit /Done_Row 1
     run 100
-    force -deposit /DoneLoadingRow 0
+    force -deposit /Done_Row 0
 }
+force -deposit /Enable 0
 close $fp
