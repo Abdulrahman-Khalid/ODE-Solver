@@ -5,8 +5,11 @@
 #include "json.hpp"
 #include <bitset>
 #include <vector>
+#include <cassert>
+#define assertm(exp, msg) assert(((void)msg, exp))
 using namespace std;
 const unsigned int scaleFactor = 7;
+const unsigned int busSize = 32;
 
 using json = nlohmann::json;
 unsigned int maxConsequtive(string str);
@@ -15,9 +18,11 @@ string createPacket(int packetSize, int number, bool finalPacket = false, char f
 string decimalToBinary(double num);
 int countBits(int num);
 string RLE(string str);
-int main()
+int main(int argc, char *argv[])
 {
-    ifstream input("input.json");
+    if (argc < 3)
+        return 0;
+    ifstream input((string)argv[1]);
     json j;
     input >> j;
     int N = j["N"].get<int>();
@@ -92,7 +97,7 @@ int main()
     }
     // loop on data row by row and compute bit-lvl RLE
     ofstream outputfile;
-    outputfile.open("output.txt");
+    outputfile.open((string)argv[2]);
     for (const string &r : rows)
     {
         string rle = RLE(r);
@@ -106,10 +111,23 @@ int main()
 string RLE(string str)
 {
     int max = maxConsequtive(str);
-    // cout << "packetSize: " << max << '\n';
+    cout << "max: " << max << '\n';
     int packetSize = countBits(max) + 1;
-    // cout << "packetSize: " << packetSize << '\n';
-    string encoding = bitset<8>(packetSize).to_string();
+    {
+        int i = 2;
+        while (true)
+        {
+            if (i >= packetSize)
+            {
+                packetSize = i;
+                break;
+            }
+            i *= 2;
+        }
+    }
+    assertm(packetSize < busSize, "Error packet bigger than 32 bit");
+    cout << "packetSize: " << packetSize << '\n';
+    string encoding = bitset<busSize>(packetSize).to_string();
     // cout << "packetSize: " << encoding << '\n';
     int i = 0;
     int cnt = 1;
