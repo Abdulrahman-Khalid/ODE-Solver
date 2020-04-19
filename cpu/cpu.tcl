@@ -7,6 +7,7 @@ run 100
 force -deposit /RST 0
 force -deposit /INT 1
 force -deposit /LoadProcess 1
+force -deposit /Enable 0
 run 100
 force -deposit /INT 0
 force -deposit /LoadProcess 0
@@ -19,8 +20,8 @@ proc bin_to_num { bin } {
 set inputFile ./input.json;
 set outputFile ./output.txt;
 ############################## run c++ code #############################
-exec make clean ;
-exec make;
+# exec make clean ;
+# exec make;
 #  "__________________________START ENCODING__________________________"
 exec ./cpu $inputFile $outputFile
 #  "___________________________END ENCODING__________________________"
@@ -46,7 +47,7 @@ while { [gets $fp data] >= 0 } {
         lappend row $cpuToIoBus
         set startIndx [expr {$endIndx + 1}] 
         set endIndx [expr {$startIndx + 31}] 
-        set i [expr {$i +1}]
+        incr i
     }
     set rowLength [llength $row]
     puts "Row Buses count = $rowLength"
