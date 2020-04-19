@@ -152,6 +152,9 @@ string RLE(string str)
             break;
         }
     }
+    int padding = encoding.length() % busSize;
+    if (padding != 0)
+        encoding += string((busSize - padding), '0');
     return encoding;
 }
 
