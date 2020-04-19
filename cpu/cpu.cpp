@@ -113,9 +113,9 @@ string RLE(string str)
 {
     int max = maxConsequtive(str);
     cout << "max: " << max << '\n';
-    int packetSize = countBits(max) + 1;
+    int packetSize = countBits(max);
     {
-        int i = 2;
+        int i = 1;
         while (true)
         {
             if (i >= packetSize)
@@ -126,7 +126,7 @@ string RLE(string str)
             i *= 2;
         }
     }
-    assertm(packetSize < busSize, "Error packet bigger than 32 bit");
+    assertm(packetSize <= busSize, "Error packet bigger than 32 bit");
     cout << "packetSize: " << packetSize << '\n';
     string encoding = bitset<31>(packetSize).to_string();
     encoding = str[0] + encoding; // first bit in
@@ -195,31 +195,13 @@ string decimalToBinary(double num)
     return binary;
 }
 
-string createPacket(int packetSize, int number, bool finalPacket, char firstPacketBitType)
-{
-    string res = "";
-    bin(number, res);
-    int diff = packetSize - res.length();
-    assert(diff >= 1 && "packet overflow");
-    // first bit indicat if this is the final packet in the row
-    if (firstPacketBitType == '0' || firstPacketBitType == '1')
-        return firstPacketBitType + string(diff - 1, '0') + res;
-    if (finalPacket)
-        return '1' + string(diff - 1, '0') + res;
-    return string(diff, '0') + res;
-}
-
 string createPacket(int packetSize, int number, bool lastPacket)
 {
     string res = "";
     bin(number, res);
     int diff = packetSize - res.length();
-    assert(diff >= 1 && "packet overflow");
-    // first bit indicat if this is the final packet in the row
-    if (!lastPacket)
-        return string(diff, '0') + res;
-    else
-        return '1' + string(diff - 1, '0') + res;
+    assertm(diff >= 0, "packet overflow");
+    return string(diff, '0') + res;
 }
 
 void bin(unsigned int n, string &res)
