@@ -18,7 +18,7 @@ architecture Interpolation_DevisionArch of Interpolation_Devision is
     signal ERROR,Div_OVF:std_logic; 
     signal Div_EN,DoneSignal :std_logic;
     begin
-       D1:entity work.fixed_division port map(Dividend=>Tk_Tn,Divisor=>Tz_Tn,Enable=>Div_EN,CLK=>CLK,Quotient=>Division_output,ERR=>ERROR,Done=>DoneSignal,OverFlow=>Div_OVF);  
+       D1:entity work.fixed_division port map(Dividend=>Tk_Tn,Divisor=>Tz_Tn,Enable=>'1',CLK=>CLK,Start=>Div_EN,Quotient=>Division_output,ERR=>ERROR,Done=>DoneSignal,OverFlow=>Div_OVF);  
         DIV_EN <= '1' when (Tk_Tn /= (std_logic_vector(to_unsigned(0,width))) and Tz_Tn /= (std_logic_vector(to_unsigned(0,width)))) and falling_edge(CLK) else
         '0' when (rising_edge(CLK));
         temp <= not Tn;

@@ -10,7 +10,7 @@ entity Interpolation is
         Uk:OUT std_logic_vector(width-1 downto 0));    
 end Interpolation;
 architecture InterpolationArch of Interpolation is
-    signal Tz_Reg,Tn_Reg : std_logic_vector(width-1 downto 0);
+    signal Tz_Reg,Tn_Reg : std_logic_vector(width-1 downto 0):=(others=>'0');
     signal Div_Output : std_logic_vector(width-1 downto 0);
     signal DivisonDoneSignal:std_logic;
     
