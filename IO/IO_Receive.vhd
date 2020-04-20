@@ -4,17 +4,17 @@ use ieee.numeric_std.all;
 use IEEE.std_logic_unsigned.all;
 
 
-entity IO is
+entity IO_Receive is
     generic (N : integer := 32);
-    port( CPU_Bus : inout std_logic_vector(N-1 downto 0);
-    Enable,CLK,Done_Row : in std_logic;
+    port(CPU_Bus : inout std_logic_vector(N-1 downto 0);
+    Enable_Receiving_IO, CLK, Done_Row : in std_logic;
     Done_Reading_Bus : out std_logic;
     Memory_Bus : out std_logic_vector(N-1 downto 0);
     Memory_WR_Enable : out std_logic);
 end entity;
 
 
-architecture arch of IO is
+architecture arch of IO_Receive is
     begin
     process (clk) is 
 
@@ -27,7 +27,7 @@ architecture arch of IO is
     variable data_bit_index : integer; -- Holding index of the bit to be changed in data variable
 
     begin
-        if enable = '1' then
+        if Enable_Receiving_IO = '1' then
             if (rising_edge(clk)) then
                 if Done_Row = '1' then
                     packet_meta_data := CPU_Bus;

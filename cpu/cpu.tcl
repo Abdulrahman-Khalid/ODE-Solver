@@ -1,6 +1,6 @@
 delete wave *
 add wave -unsigned *
-add wave -unsigned /ODE_Solver/RAM/RAM2
+add wave -unsigned /ODE_Solver/RAM2
 set time 0
 set cycleTime 100
 force -deposit /CLK 1 0, 0 [expr {$cycleTime/2}] -r $cycleTime
@@ -10,7 +10,7 @@ run $cycleTime; set time [expr {$time + $cycleTime}];
 force -deposit /RST 0
 force -deposit /INT 1
 force -deposit /LoadProcess 1
-force -deposit /Enable 0
+force -deposit /Enable_Receiving_IO 0
 run $cycleTime; set time [expr {$time + $cycleTime}];
 force -deposit /INT 0
 force -deposit /LoadProcess 0
@@ -30,7 +30,7 @@ exec ./cpu $inputFile $outputFile
 #  "___________________________END ENCODING__________________________"
 #########################################################################
 set fp [open $outputFile r]
-force -deposit /Enable 1; # Enable IO signal
+force -deposit /Enable_Receiving_IO 1; # Enable IO signal
 run $cycleTime; set time [expr {$time + $cycleTime}];
 while { [gets $fp data] >= 0 } {
     set bin [string range $data 1 31]
@@ -55,6 +55,9 @@ while { [gets $fp data] >= 0 } {
     set rowLength [llength $row]
     puts "Row Buses count = $rowLength"
     puts "Sending..."
+    force -deposit /Done_Row 1
+    run $cycleTime; set time [expr {$time + $cycleTime}];
+    force -deposit /Done_Row 0
     set idx 0
     while { $idx < $rowLength } {
         set Done_Reading_Bus [examine -binary sim:/ODE_Solver/Done_Reading_Bus]
@@ -64,13 +67,8 @@ while { [gets $fp data] >= 0 } {
         } 
         run $cycleTime; set time [expr {$time + $cycleTime}];
     }
-    force -deposit /Done_Row 1
-    run $cycleTime; set time [expr {$time + $cycleTime}];
-    force -deposit /Done_Row 0
 }
-force -deposit /Enable 0
-run $cycleTime
-run $cycleTime; set time [expr {$time + $cycleTime}];
+force -deposit /Enable_Receiving_IO 0
 puts "____________________________Waiting for the outcput____________________________"
 set Result_Ready [examine -binary sim:/ODE_Solver/Result_Ready]
 while {$Result_Ready == 0} {
