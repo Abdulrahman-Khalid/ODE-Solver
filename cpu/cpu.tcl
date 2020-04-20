@@ -55,10 +55,17 @@ while { [gets $fp data] >= 0 } {
     set rowLength [llength $row]
     puts "Row Buses count = $rowLength"
     puts "Sending..."
-    force -deposit /Done_Row 1
-    run $cycleTime; set time [expr {$time + $cycleTime}];
-    force -deposit /Done_Row 0
+    # send packet meta data
     set idx 0
+    set Done_Reading_Bus [examine -binary sim:/ODE_Solver/Done_Reading_Bus]
+    if {$idx < $rowLength && $Done_Reading_Bus == 1} {
+        force -deposit /Done_Row 1
+        force -freeze sim:/ODE_Solver/CPU_Bus [lindex $row $idx] 0
+        run $cycleTime; set time [expr {$time + $cycleTime}];
+        force -deposit /Done_Row 0
+        incr idx
+    } 
+    # send packets as on bus
     while { $idx < $rowLength } {
         set Done_Reading_Bus [examine -binary sim:/ODE_Solver/Done_Reading_Bus]
         if {$Done_Reading_Bus == 1} {
@@ -69,6 +76,7 @@ while { [gets $fp data] >= 0 } {
     }
 }
 force -deposit /Enable_Receiving_IO 0
+
 puts "____________________________Waiting for the outcput____________________________"
 set Result_Ready [examine -binary sim:/ODE_Solver/Result_Ready]
 while {$Result_Ready == 0} {
