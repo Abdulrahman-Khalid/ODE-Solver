@@ -19,7 +19,7 @@ temp<= not Un;
 UnComp<= std_logic_vector(unsigned(temp + 1));
 Sub:entity work.Carry_Look_Ahead(Behavioral) port map(A=>Uz,B=>UnComp,Cin=>'0',S=>Uz_Un);
 mul:entity work.booth_multiplier port map(m=>DivResult,r=>Uz_Un,result=>secondOperand,overflow=>Mul_OVF);
-add:entity work.Carry_Look_Ahead(Behavioral) port map(A=>Un,B=>secondOperand,Cin=>'0',S=>UkSignal);
-Uk <= UkSignal when EN ='1' 
-else (others=>'Z');
+add:entity work.Carry_Look_Ahead(Behavioral) port map(A=>Un,B=>secondOperand,Cin=>'0',S=>Uk);
+-- Uk <= UkSignal when EN ='1' 
+-- else (others=>'Z');
 end Interpolation_LogicArch ; 

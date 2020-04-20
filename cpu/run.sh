@@ -1,1 +1,1 @@
-make clean && make && ./cpu ./input.json ./output.txt
+tclsh ./cpu.tcl
