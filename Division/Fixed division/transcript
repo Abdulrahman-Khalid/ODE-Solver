@@ -1,0 +1,108 @@
+# Reading C:/Modeltech_pe_edu_10.4a/tcl/vsim/pref.tcl
+# OpenFile {E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/Division/Fixed division/Fixed_division.mpf}
+# Loading project Fixed_division
+# Compile of Fixed_division.vhd was successful.
+vsim -gui work.fixed_division
+# //  ModelSim PE Student Edition 10.4a Apr  7 2015 
+# //
+# //  Copyright 1991-2015 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //  THIS DOCUMENT CONTAINS TRADE SECRETS AND COMMERCIAL OR FINANCIAL
+# //  INFORMATION THAT ARE PRIVILEGED, CONFIDENTIAL, AND EXEMPT FROM
+# //  DISCLOSURE UNDER THE FREEDOM OF INFORMATION ACT, 5 U.S.C. SECTION 552.
+# //  FURTHERMORE, THIS INFORMATION IS PROHIBITED FROM DISCLOSURE UNDER
+# //  THE TRADE SECRETS ACT, 18 U.S.C. SECTION 1905.
+# //
+# // NOT FOR CORPORATE OR PRODUCTION USE.
+# // THE ModelSim PE Student Edition IS NOT A SUPPORTED PRODUCT.
+# // FOR HIGHER EDUCATION PURPOSES ONLY
+# //
+# vsim -gui E:\Muhanad\CUFE\Third year\2nd Semester\VLSI\Projects\Project\ODE-Solver\Division\Fixed division\Fixed_division.mpf 
+# Start time: 21:46:16 on Apr 19,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.fixed_division(arch)
+# Loading work.carry_look_ahead(behavioral)
+# Loading work.partial_full_adder(behavioral)
+# ** Warning: Design size of 10568 statements or 18 leaf instances exceeds ModelSim PE Student Edition recommended capacity.
+# Expect performance to be quite adversely affected.
+add wave -position insertpoint sim:/fixed_division/*
+force -freeze sim:/fixed_division/Dividend f305 0
+force -freeze sim:/fixed_division/Divisor 0080 0
+force -freeze sim:/fixed_division/Enable 1 0
+force -freeze sim:/fixed_division/clk 1 0, 0 {50 ns} -r 100
+run
+run
+run
+run
+run
+run
+run
+run
+force -freeze sim:/fixed_division/Divisor 0003 0
+run
+run
+run
+# ** Fatal: (vsim-3734) Index value 17 is out of range 15 downto 0.
+#    Time: 1100 ns  Iteration: 0  Process: /fixed_division/line__22 File: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/Division/Fixed division/Fixed_division.vhd
+# Fatal error in Process line__22 at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/Division/Fixed division/Fixed_division.vhd line 122
+# 
+# HDL call sequence:
+# Stopped at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/Division/Fixed division/Fixed_division.vhd 122 Process line__22
+# 
+run
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/Division/Fixed division/Fixed_division.vhd 122 Process line__22
+# 
+run
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/Division/Fixed division/Fixed_division.vhd 122 Process line__22
+# 
+restart -f
+force -freeze sim:/fixed_division/Dividend 500 0
+force -freeze sim:/fixed_division/Divisor 100 0
+force -freeze sim:/fixed_division/Enable 1 0
+force -freeze sim:/fixed_division/clk 1 0, 0 {50 ns} -r 100
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+restart -f
+force -freeze sim:/fixed_division/Divisor 2500 0
+force -freeze sim:/fixed_division/Dividend 2500 0
+force -freeze sim:/fixed_division/Divisor 500 0
+force -freeze sim:/fixed_division/Enable 1 0
+force -freeze sim:/fixed_division/clk 1 0, 0 {50 ns} -r 100
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+quit -sim

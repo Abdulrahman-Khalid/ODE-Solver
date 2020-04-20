@@ -5,19 +5,25 @@
 #include "json.hpp"
 #include <bitset>
 #include <vector>
+#include <cassert>
+#define assertm(exp, msg) assert(((void)msg, exp))
 using namespace std;
 const unsigned int scaleFactor = 7;
+const unsigned int busSize = 32;
 
 using json = nlohmann::json;
 unsigned int maxConsequtive(string str);
 void bin(unsigned int n, string &res);
-string createPacket(int packetSize, int number, bool finalPacket = false, char firstPacketBitType = '-');
+string createPacket(int packetSize, int number, bool lastPacket = false);
 string decimalToBinary(double num);
 int countBits(int num);
 string RLE(string str);
-int main()
+
+int main(int argc, char *argv[])
 {
-    ifstream input("input.json");
+    if (argc < 3)
+        return 0;
+    ifstream input((string)argv[1]);
     json j;
     input >> j;
     int N = j["N"].get<int>();
@@ -92,7 +98,7 @@ int main()
     }
     // loop on data row by row and compute bit-lvl RLE
     ofstream outputfile;
-    outputfile.open("output.txt");
+    outputfile.open((string)argv[2]);
     for (const string &r : rows)
     {
         string rle = RLE(r);
@@ -106,16 +112,30 @@ int main()
 string RLE(string str)
 {
     int max = maxConsequtive(str);
-    // cout << "packetSize: " << max << '\n';
-    int packetSize = countBits(max) + 1;
-    // cout << "packetSize: " << packetSize << '\n';
-    string encoding = bitset<8>(packetSize).to_string();
+    cout << "max: " << max << '\n';
+    int packetSize = countBits(max);
+    {
+        int i = 1;
+        while (true)
+        {
+            if (i >= packetSize)
+            {
+                packetSize = i;
+                break;
+            }
+            i *= 2;
+        }
+    }
+    assertm(packetSize <= busSize, "Error packet bigger than 32 bit");
+    cout << "packetSize: " << packetSize << '\n';
+    string encoding = bitset<31>(packetSize).to_string();
+    encoding = str[0] + encoding; // first bit in
     // cout << "packetSize: " << encoding << '\n';
     int i = 0;
     int cnt = 1;
     while (str[i] == str[i + 1])
         cnt++, i++;
-    encoding += createPacket(packetSize, cnt, false, str[i]);
+    encoding += createPacket(packetSize, cnt);
     i++;
     assert(i < str.length() && "Should be more than one packet");
     while (true)
@@ -125,13 +145,16 @@ string RLE(string str)
             cnt++, i++;
         i++;
         if (i < str.length())
-            encoding += createPacket(packetSize, cnt, false);
+            encoding += createPacket(packetSize, cnt);
         else
         {
             encoding += createPacket(packetSize, cnt, true);
             break;
         }
     }
+    int padding = encoding.length() % busSize;
+    if (padding != 0)
+        encoding += string((busSize - padding), '0');
     return encoding;
 }
 
@@ -172,17 +195,12 @@ string decimalToBinary(double num)
     return binary;
 }
 
-string createPacket(int packetSize, int number, bool finalPacket, char firstPacketBitType)
+string createPacket(int packetSize, int number, bool lastPacket)
 {
     string res = "";
     bin(number, res);
     int diff = packetSize - res.length();
-    assert(diff >= 1 && "packet overflow");
-    // first bit indicat if this is the final packet in the row
-    if (firstPacketBitType == '0' || firstPacketBitType == '1')
-        return firstPacketBitType + string(diff - 1, '0') + res;
-    if (finalPacket)
-        return '1' + string(diff - 1, '0') + res;
+    assertm(diff >= 0, "packet overflow");
     return string(diff, '0') + res;
 }
 
@@ -192,6 +210,7 @@ void bin(unsigned int n, string &res)
         bin(n >> 1, res);
     res += to_string(n & 1);
 }
+
 int countBits(int num)
 {
     return (int)log2(num) + 1;

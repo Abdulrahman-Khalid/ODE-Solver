@@ -1,1 +1,1 @@
-make clean && make && ./cpu
+tclsh ./cpu.tcl
