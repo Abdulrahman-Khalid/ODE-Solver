@@ -46,13 +46,13 @@ architecture arch of fixed_division is
 					--Quotient(N-1) <= Divisor(N-1) xor Dividend(N-1);
 					QuotientVar(N-2 downto 0) := (Others => '0');
 					Divisor2 := (Others => '0');
-					-- If the divisor == 1 then the OP is the same and return
-					if unsigned(Divisor) = 128 then
+					-- If the divisor == 1 then the OP is the same and return or -- If the Dividend == 0 then the OP is 0 and return
+					if unsigned(Divisor) = 128 or unsigned(Dividend(N-2 downto 0)) = 0  then
 						QuotientVar(N-2 downto 0) := Dividend (N-2 downto 0);
 						Quotient<=QuotientVar;
 						Done <= '1';
 						Done_bit := '1';
-					-- If the divisor then ERROR bit = 1 then return
+					-- If the divisor = 0 then ERROR bit = 1 then return
 					elsif unsigned(Divisor(N-2 downto 0)) = 0 then
 						ERR <= '1';						
 						Done <= '1';
@@ -93,12 +93,15 @@ architecture arch of fixed_division is
 						end if ;
 					end if;
 					------check overflow-------------
+					FIRST_ONE_DIVISOR:=20; -- To handle if divisor is zero do not raise overflow
+					FIRST_ONE_DIVIDEND:=0; -- to handle if dividend is zero
 					l3 : for i in N-2 downto 0 loop
 						if Divisor(i) = '1' then
 							FIRST_ONE_DIVISOR:=i;
 							exit;
 						end if ;
 					end loop ; -- l3
+					
 					l4 : for i in N-2 downto 0 loop
 						if Dividend(i) = '1' then
 							FIRST_ONE_DIVIDEND:=i;
@@ -108,6 +111,8 @@ architecture arch of fixed_division is
 
 					if(FIRST_ONE_DIVISOR<=N/2-2 and FIRST_ONE_DIVIDEND>N/2-2)then
 						if(FIRST_ONE_DIVIDEND-FIRST_ONE_DIVISOR>=N/2)then
+							Done <= '1';
+							Done_bit := '1';
 							OverFlow<='1';
 						end if;
 					end if;
