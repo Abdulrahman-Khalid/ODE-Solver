@@ -18,7 +18,6 @@ architecture arch of IO is
     begin
     process (clk) is 
 
-    variable state : std_logic := '0'; -- Equals to '0' to get packet info else getting compressed data
     variable packet_meta_data : std_logic_vector (N-1 downto 0); -- Containg packet size (N-2 downto 0) , First packet starting bit (N-1)
     variable data : std_logic_vector (N-1 downto 0); -- Containing the 32-bit data
     variable bit_value : std_logic; -- For getting the packet bit value 
@@ -30,9 +29,8 @@ architecture arch of IO is
     begin
         if enable = '1' then
             if (rising_edge(clk)) then
-                if state = '0' or Done_Row = '1' then
+                if Done_Row = '1' then
                     packet_meta_data := CPU_Bus;
-                    state := '1';
                     bit_value := packet_meta_data(N-1);
                     next_starting_index := N;
                     data_bit_index := N;
