@@ -2221,3 +2221,23 @@ run
 run
 run
 run
+force -freeze sim:/io/Enable 0 0
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+quit -sim
