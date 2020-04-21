@@ -15,6 +15,7 @@ using json = nlohmann::json;
 unsigned int maxConsequtive(string str);
 void bin(unsigned int n, string &res);
 string createPacket(int packetSize, int number);
+string towsComp(string binary);
 string decimalToBinary(double num, int precisionMode);
 int countBits(int num);
 string RLE(string str);
@@ -170,17 +171,13 @@ unsigned int maxConsequtive(string str)
     int cnt = 1;
     char c = str[0];
     for (int i = 1; i < str.length(); i++)
-    {
         if (c == str[i])
-        {
             cnt++;
-        }
         else
         {
             res = max(res, cnt);
             cnt = 1;
         }
-    }
     res = max(res, cnt);
     return res;
 }
@@ -192,13 +189,10 @@ string decimalToBinary(double num, int precisionMode)
     switch (precisionMode)
     {
     case 1:
-        int number = num;
+        int number = abs(num); // abs because I get the 2's complement in the end if it was negative number
         const int numBits = 9;
         const int scaleFactorBits = 16 - numBits;
-        if (num >= 0)
-            binary = bitset<numBits>(number).to_string();
-        else
-            binary = string(numBits, '1'); // TODO to change
+        binary = bitset<numBits>(number).to_string();
         double fractional = abs(num) - number;
         for (int i = 0; i < scaleFactorBits; ++i)
         {
@@ -213,8 +207,10 @@ string decimalToBinary(double num, int precisionMode)
         }
         break;
     }
-    if (binary.length() < ramWidth) // if binary length is less than 64 bit -> add padding of zeros on the left
-        binary = string(ramWidth - binary.length(), binary[0]) + binary;
+    if (num < 0)
+        binary = towsComp(binary);                                 // get twos complement if number less than zero
+    if (binary.length() < ramWidth)                                // if binary length is less than 64 bit -> add padding of zeros on the left
+        binary = string(ramWidth - binary.length(), '0') + binary; // TODDO could be change to sign extend
     return binary;
 }
 
@@ -238,4 +234,20 @@ void bin(unsigned int n, string &res)
 int countBits(int num)
 {
     return (int)log2(num) + 1;
+}
+
+string towsComp(string binary)
+{
+    int i;
+    for (i = binary.length() - 1; i >= 0; --i)
+        if (binary[i] == '1')
+            break;
+    if (i == -1)
+        return '1' + binary;
+    for (int j = i - 1; j >= 0; --j)
+        if (binary[j] == '1')
+            binary[j] = '0';
+        else
+            binary[j] = '1';
+    return binary;
 }
