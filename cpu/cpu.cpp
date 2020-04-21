@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
     row = bitset<49>(Count).to_string() + bitset<2>(Fixedpoint).to_string() + bitset<1>(Mode).to_string() + bitset<6>(M).to_string() + bitset<6>(N).to_string() + decimalToBinary(H, Fixedpoint) + decimalToBinary(Err, Fixedpoint);
     rows.push_back(row);
     // cout << "row: " << row.length() << '\n';
-    // b) rowf
+    // b) row
     for (const auto &a : A)
     {
         row = "";
@@ -66,21 +66,30 @@ int main(int argc, char *argv[])
     {
         row = "";
         for (const auto &val : b)
-            row += decimalToBinary(val, Fixedpoint);
+        {
+            // cout << val << " ";
+            string tmp = decimalToBinary(val, Fixedpoint);
+            // cout << tmp << '\n';
+            row += tmp;
+        }
+        // cout << row << "\n";
         rows.push_back(row);
         // cout << "row: " << row.length() << '\n';
     }
     // d) row
+    row = "";
     for (const auto &val : X0)
         row += decimalToBinary(val, Fixedpoint);
     rows.push_back(row);
     // cout << "row: " << row.length() << '\n';
     // e) row
+    row = "";
     for (const auto &val : T)
         row += decimalToBinary(val, Fixedpoint);
     rows.push_back(row);
     // cout << "row: " << row.length() << '\n';
     // f) row
+    row = "";
     for (const auto &val : U0)
         row += decimalToBinary(val, Fixedpoint);
     rows.push_back(row);
@@ -111,7 +120,7 @@ string RLE(string str)
 {
     int max = maxConsequtive(str);
     cout << "______________________________________________________\n";
-    cout << "max: " << max << '\n';
+    cout << "max concequtive = " << max << '\n';
     int packetSize = countBits(max);
     {
         int i = 1;
@@ -124,35 +133,32 @@ string RLE(string str)
             }
             i *= 2;
         }
+        string errMsg = "Error packet bigger than " + to_string(busSize) + " bit";
+        assertm(packetSize <= busSize, errMsg);
     }
-    string errMsg = "Error packet bigger than " + to_string(busSize) + " bit";
-    assertm(packetSize <= busSize, errMsg);
-    cout << "packetSize: " << packetSize << '\n';
+    cout << "packet size = " << packetSize << '\n';
     const int busSizeMin1 = busSize - 1;
-    string encoding = bitset<busSizeMin1>(packetSize).to_string();
-    encoding = str[0] + encoding; // first bit in
-    // cout << "packetSize: " << encoding << '\n';
-    int numOfPackets = 0;
-    int i = 0;
-    int cnt = 1;
-    while (str[i] == str[i + 1])
-        cnt++, i++;
-    encoding += createPacket(packetSize, cnt);
+    int numOfPackets = 0, i = 0;
+    string encoding = str[i] + bitset<busSizeMin1>(packetSize).to_string(); // first bit in
     numOfPackets++;
-    assert(i < str.length() && "Should be more than one packet");
-    while (++i < str.length())
+    // cout << "packetSize: " << encoding << '\n';
+    int cnt = 1;
+    do
     {
-        cnt = 1;
+        int cnt = 1;
         while (str[i] == str[i + 1])
             cnt++, i++;
         encoding += createPacket(packetSize, cnt);
         numOfPackets++;
-    }
-    int padding = encoding.length() % busSize;
+    } while (++i < str.length());
+    int padding = (busSize - (encoding.length() % busSize)) % busSize;
+    cout << "encoding length = " << encoding.length() << '\n';
+    cout << "padding = " << padding << '\n';
     if (padding != 0)
-        encoding += string((busSize - padding), '0');
+        encoding += string(padding, '0');
+    cout << "encoding length after padding = " << encoding.length() << '\n';
     cout << "Num of Packets = " << numOfPackets << '\n';
-    cout << "Num of Buses = " << ceil(((numOfPackets * (float)packetSize) / busSize)) << '\n';
+    cout << "Num of Buses = " << ceil(((float)encoding.length() / busSize)) << '\n';
     return encoding;
 }
 
@@ -187,18 +193,28 @@ string decimalToBinary(double num, int precisionMode)
     {
     case 1:
         int number = num;
-        binary = bitset<9>(number).to_string();
-        double fractional = num - number;
-        int scale = 7; // 9+7 = 16 bits
-        while (scale--)
-            if ((int)(fractional * 2) == 1)
-                fractional -= 1, binary += '1';
+        const int numBits = 9;
+        const int scaleFactorBits = 16 - numBits;
+        if (num >= 0)
+            binary = bitset<numBits>(number).to_string();
+        else
+            binary = string(numBits, '1'); // TODO to change
+        double fractional = abs(num) - number;
+        for (int i = 0; i < scaleFactorBits; ++i)
+        {
+            fractional *= 2;
+            if ((int)(fractional) == 1)
+            {
+                fractional -= 1;
+                binary += '1';
+            }
             else
                 binary += '0';
+        }
         break;
     }
     if (binary.length() < ramWidth) // if binary length is less than 64 bit -> add padding of zeros on the left
-        binary = string(ramWidth - binary.length(), '0') + binary;
+        binary = string(ramWidth - binary.length(), binary[0]) + binary;
     return binary;
 }
 
@@ -208,7 +224,8 @@ string createPacket(int packetSize, int number)
     bin(number, res);
     int diff = packetSize - res.length();
     assertm(diff >= 0, "packet overflow");
-    return string(diff, '0') + res;
+    res = string(diff, '0') + res;
+    return res;
 }
 
 void bin(unsigned int n, string &res)
