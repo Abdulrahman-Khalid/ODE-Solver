@@ -26,10 +26,12 @@ GENERIC (word_size : integer := 32;
 	         address_width: integer := 14;
 		    RAM_size: integer := 16384); --2^14 slot
             PORT(	
-		CLK, WR1,WR2,WRIO,PORT1EN,PORT2EN,PORT3EN  : IN std_logic;
-		address_Euler1,address_Euler2,address_IO: IN  std_logic_vector(address_width-1 DOWNTO 0);
-		data_Euler2OUT,data_Euler1OUT,data_IOOUT : OUT  std_logic_vector(word_size-1 DOWNTO 0);
-		data_Euler1IN,data_IOIN  : IN  std_logic_vector(word_size - 1 DOWNTO 0));
+                CLK, WR1,WR2,WRIO,PORT1EN,PORT2EN,PORT3EN  : IN std_logic;
+                address_Euler1,address_Euler2: IN  std_logic_vector(address_width-1 DOWNTO 0);
+                address_IO :IN integer;
+                data_Euler2OUT,data_Euler1OUT,data_IOOUT : OUT  std_logic_vector(word_size-1 DOWNTO 0);
+                data_Euler1IN,data_IOIN  : IN  std_logic_vector(word_size - 1 DOWNTO 0));
+        
                 
 end component;
 

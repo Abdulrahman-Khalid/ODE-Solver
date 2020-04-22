@@ -24,6 +24,7 @@ ARCHITECTURE RAM_arch OF RAM2 IS
 
 -------------------------------------------------------------------------------------------------------------------
 shared variable RAM_data : ram_type:= (others => (others =>'0'));
+
 BEGIN
 process(CLK,PORT1EN)--for port 1  Euler 1 Read/Write port
 
