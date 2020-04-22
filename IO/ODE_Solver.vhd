@@ -23,8 +23,9 @@ architecture ODE_Solver_arch of ODE_Solver is
             mem2_data_euler2_out, mem1_data_io_in, mem2_data_io_out, mem2_data_io_in, mem_bus_io_recv: std_logic_vector(63 DOWNTO 0);
     signal mem1_wr_en, mem2_wr_en, mem1_port_IO_enable, mem2_port_IO_enable, mem1_write_IO, mem2_write_IO: std_logic;
 begin
-    io_recv: entity work.IO_Receive port map(CPU_Bus, enable_Receiving_IO, CLK, done_row,
-                                             RST, mem_bus_io_recv, mem_addr_recv, mem1_wr_en, mem2_wr_en); 
+    io_recv: entity work.IO_Receive generic map(CPU_Bus_Width => 32) port map(CPU_Bus, enable_Receiving_IO, CLK, done_row,
+										RST, done_reading_bus, mem_bus_io_recv, mem_addr_recv,
+										mem1_wr_en, mem2_wr_en); 
                                              
     io_send: entity work.IO_Output port map(enable_output_IO, CLK, RST, end_T_address, 
                                             end_Output_address, memory_data,
@@ -40,12 +41,12 @@ begin
                                                                  mem2_data_euler1_out, mem2_data_euler2_out, mem2_data_io_out,
                                                                  mem2_data_euler1_in, mem2_data_io_in);
 
-    mem1_port_IO_enable <= '1' when enable_output_IO or enable_Receiving_IO else '0';
-    mem1_port_IO_enable <= '1' when enable_output_IO or enable_Receiving_IO else '0';
-    mem1_write_IO <= '1' when enable_Receiving_IO and mem1_wr_en else '0';
-    mem2_write_IO <= '1' when enable_Receiving_IO and mem2_wr_en else '0';
-    memory_data <= mem1_data_io_out when enable_output_IO else (others => '0');
+    mem1_port_IO_enable <= '1' when enable_output_IO = '1' or enable_Receiving_IO = '1' else '0';
+    mem1_port_IO_enable <= '1' when enable_output_IO = '1' or enable_Receiving_IO = '1' else '0';
+    mem1_write_IO <= '1' when enable_Receiving_IO = '1' and mem1_wr_en = '1' else '0';
+    mem2_write_IO <= '1' when enable_Receiving_IO = '1' and mem2_wr_en = '1' else '0';
+    memory_data <= mem1_data_io_out when enable_output_IO = '1' else (others => '0');
     mem1_data_io_in <= mem_bus_io_recv;
     mem2_data_io_in <= mem_bus_io_recv;
-    addr_io <= mem_addr_recv when enable_Receiving_IO else mem_addr_send when enable_output_IO else 0;
+    addr_io <= mem_addr_recv when enable_Receiving_IO = '1' else mem_addr_send when enable_output_IO = '1' else 0;
 end architecture;

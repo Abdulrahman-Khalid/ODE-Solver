@@ -17,12 +17,12 @@ signal overflow : std_logic;
 signal Dividend : std_logic_vector(15 downto 0);   -- -10.5
 signal Divisor : std_logic_vector(15 downto 0);    -- 2
 Signal Result_test : std_logic_vector(15 downto 0); -- -5.25	
-signal Enable : std_logic :='1';
+signal Reset : std_logic;
 Signal Result : std_logic_vector(15 downto 0) ;	
 
 
 begin
-ttb : entity work.fixed_division  generic map (N => 16) port map (Dividend,Divisor,Enable,clk,start,Result,Err,done,overflow);
+ttb : entity work.fixed_division  generic map (N => 16) port map (Dividend,Divisor,Reset,clk,start,Result,Err,done,overflow);
 
 -- Clock process definitions
 clock_process :process
@@ -37,6 +37,9 @@ end process;
 -- Testbench sequence
 test_bench: process
 begin 
+	Reset<='1';
+	wait for 100 ns;
+	Reset<='0';
 	---case 1 positive / positive
 	Dividend<="0000010101000000";--     10.5/
 	Divisor<= "0000000100000000";--        2=
@@ -56,6 +59,9 @@ begin
 	end if;
 
 	---case 2  negative / positive
+	Reset<='1';
+	wait for 100 ns;
+	Reset<='0';
 	Dividend<="1111101011000000";-- -10.5
 	Divisor<= "0000000100000000";--  2
 	Result_test<="1111110101100000";-- -5.25
@@ -74,6 +80,9 @@ begin
 	end if ;	
 
 	---case 3 positive /negative
+	Reset<='1';
+	wait for 100 ns;
+	Reset<='0';
 	Dividend<="0000010101000000"; -- 10.5
 	Divisor<="1111111100000000";-- -2
 	Result_test<="1111110101100000";-- -5.25
@@ -93,6 +102,9 @@ begin
 	end if;
 
 	---case 4 negative / negative
+	Reset<='1';
+	wait for 100 ns;
+	Reset<='0';
 	Dividend<="1111101011000000";-- -10.5
 	Divisor<="1111111100000000";-- -2
 	Result_test<="0000001010100000";-- 5.25
@@ -112,6 +124,9 @@ begin
 	end if;
 
 	---case 5 overflow test
+	Reset<='1';
+	wait for 100 ns;
+	Reset<='0';
 	Dividend<="0100000000000000"; -- 256
 	Divisor<= "0000000001000000"; -- .5
 	Result_test<="1111110101100000";-- 512 overflow
@@ -127,6 +142,9 @@ begin
 	wait for 100 ns;
 
 	---case 6 Error Test
+	Reset<='1';
+	wait for 100 ns;
+	Reset<='0';
 	Dividend<="1111101011000000";
 	Divisor<="0000000000000000";
 	Result_test<="1111110101100000";--5.25
@@ -142,6 +160,9 @@ begin
 	wait for 100 ns;
 
 	---case 7 Division by one
+	Reset<='1';
+	wait for 100 ns;
+	Reset<='0';
 	Dividend<="1111101011000000";
 	Divisor<="0000000010000000";
 	Result_test<="1111101011000000";
@@ -156,6 +177,9 @@ begin
 	end if;
 	wait for 100 ns;
 	---case 8 Division Zero by anything
+	Reset<='1';
+	wait for 100 ns;
+	Reset<='0';
 	Dividend<="0000000000000000";
 	Divisor<= "0000000010000000";
 	Result_test<="0000000000000000";
