@@ -35,6 +35,7 @@ architecture arch of IO_Receive is
     variable ram_address_var : integer; -- Holding ram address to be written in
     variable input_data_state : std_logic_vector(2 downto 0) := "111"; -- "000" => the first row in ram1,"001" => for the second and third rows ram1,"010" => A, "011" => B, "100" => X, "101" => T, "110" => U
     variable N : unsigned(5 downto 0); -- Holding N value
+    variable M : unsigned(5 downto 0); -- Holding M value
     variable T : unsigned(48 downto 0); -- Holding T value
 
     begin
@@ -59,10 +60,10 @@ architecture arch of IO_Receive is
                     elsif input_data_state = "001" then
                         input_data_state := "010";
                         ram_address_var := Starting_A;
-                    elsif input_data_state = "010" and ram_address_var = N+Starting_A then
+                    elsif input_data_state = "010" and ram_address_var = N*N+Starting_A then
                         input_data_state := "011";
                         ram_address_var := Starting_B;
-                    elsif input_data_state = "011" and ram_address_var = N+Starting_B then
+                    elsif input_data_state = "011" and ram_address_var = N*M+Starting_B then
                         input_data_state := "100";
                         ram_address_var := Starting_X0;
                     elsif input_data_state = "100" and ram_address_var = T+Starting_X0 then
@@ -85,6 +86,7 @@ architecture arch of IO_Receive is
                         -- To store N in case of getting the first row of ram 1
                         if input_data_state = "000" then
                             N := unsigned(data(5 downto 0));
+                            M := unsigned(data(11 downto 6));
                             T := unsigned(data(63 downto 15));
                             input_data_state := "001";
                         end if ;
@@ -142,6 +144,7 @@ architecture arch of IO_Receive is
                                 -- To store N in case of getting the first row of ram 1
                                 if input_data_state = "000" then
                                     N := unsigned(data(5 downto 0));
+                                    M := unsigned(data(11 downto 6));
                                     T := unsigned(data(63 downto 15));
                                     input_data_state := "001";
                                 end if ;
