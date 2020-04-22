@@ -30,9 +30,9 @@ architecture arch of IO_Output is
             Done_output_data <= '0';
         elsif (Enable_Output_IO = '1') then
             if (rising_edge(clk) and state = "00") then
-                if(start_T_address <= end_T_address) then
-                    memory_address <= start_T_address;
-                    start_T_address := start_T_address + 1;
+                if(Starting_T <= end_T_address) then
+                    memory_address <= Starting_T;
+                    Starting_T := Starting_T + 1;
                     Done_output_data <= '0';
                 elsif(start_Output_address <= end_Output_address) then
                     memory_address <= start_Output_address;

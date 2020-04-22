@@ -21,7 +21,7 @@ architecture ODE_Solver_arch of ODE_Solver is
     constant mem2_data_euler1_in: std_logic_vector(63 DOWNTO 0) := (others => '0');
     signal mem1_data_euler1_out, mem1_data_euler2_out, mem1_data_io_out, mem2_data_euler1_out, memory_data,
             mem2_data_euler2_out, mem1_data_io_in, mem2_data_io_out, mem2_data_io_in, mem_bus_io_recv: std_logic_vector(63 DOWNTO 0);
-    signal mem1_wr_en, mem2_wr_en, mem1_port_IO_enable, mem2_port_IO_enable, mem1_write_IO, mem2_write_IO: std_logic;
+    signal mem1_port_IO_enable, mem2_port_IO_enable, mem1_write_IO, mem2_write_IO: std_logic;
 begin
     io_recv: entity work.IO_Receive port map(CPU_Bus, enable_Receiving_IO, CLK, done_row,
                                              RST, mem_bus_io_recv, mem_addr_recv, mem1_wr_en, mem2_wr_en); 
