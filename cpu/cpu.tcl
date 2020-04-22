@@ -9,11 +9,11 @@ force -deposit /RST 1
 run $cycleTime; set time [expr {$time + $cycleTime}];
 force -deposit /RST 0
 force -deposit /INT 1
-force -deposit /LoadProcess 1
+force -deposit /load_process 1
 force -deposit /Enable_Receiving_IO 0
 run $cycleTime; set time [expr {$time + $cycleTime}];
 force -deposit /INT 0
-force -deposit /LoadProcess 0
+force -deposit /load_process 0
 
 proc bin_to_num { bin } {
     binary scan [binary format B* [format %032s $bin]] I val
@@ -77,23 +77,30 @@ while { [gets $fp data] >= 0 } {
 }
 force -deposit /Enable_Receiving_IO 0
 
+#TODO to be removed later
+force -freeze sim:/ODE_Solver/enable_output_IO 1 0; 
+########################
 puts "____________________________Waiting for the outcput____________________________"
-set Result_Ready [examine -binary sim:/ODE_Solver/Result_Ready]
+set Result_Ready [examine -binary sim:/ODE_Solver/enable_output_IO]
 while {$Result_Ready == 0} {
     run $cycleTime; set time [expr {$time + $cycleTime}];
-    set Result_Ready [examine -binary sim:/ODE_Solver/Result_Ready]
+    set Result_Ready [examine -binary sim:/IO_Output/enable_output_IO]
 }
 puts "_________________________________Output Ready_________________________________"
-puts "_______________________________Output Meta Data_______________________________"
-puts "From loading data inputs to output the results"
-puts "It token the processor ($time ns) with ([expr {$time/$cycleTime}] cycles)"
 puts "____________________________________Result___________________________________"
+set Result_Ready [examine -binary sim:/ODE_Solver/enable_output_IO]
+set done_output_data [examine -binary sim:/ODE_Solver/done_output_data]
+run $cycleTime; set time [expr {$time + $cycleTime}];
 set resultVectorBus [list]
-while {$Result_Ready == 1} {
+while {$Result_Ready == 1 && $done_output_data == 0} {
     set ioToCpuBus [examine -binary sim:/ODE_Solver/CPU_Bus]
     lappend resultVectorBus $ioToCpuBus
     run $cycleTime; set time [expr {$time + $cycleTime}];
-    set Result_Ready [examine -binary sim:/ODE_Solver/Result_Ready]
+    set Result_Ready [examine -binary sim:/ODE_Solver/enable_output_IO]
+    set done_output_data [examine -binary sim:/ODE_Solver/done_output_data]
 }
+puts "_______________________________Output Meta Data_______________________________"
+puts "From loading data inputs to output the results"
+puts "It token the processor ($time ns) with ([expr {$time/$cycleTime}] cycles)"
 puts "Output : $resultVectorBus"
 close $fp

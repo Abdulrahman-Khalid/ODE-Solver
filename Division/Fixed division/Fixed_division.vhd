@@ -8,7 +8,7 @@ entity fixed_division is
     generic (N : integer := 16);
 	port( Dividend : in std_logic_vector(N-1 downto 0);
 		  Divisor : in std_logic_vector(N-1 downto 0);
-		  Enable,clk : in std_logic;
+		  Reset,clk : in std_logic;
 		  Start : in std_logic;
 	    	  Quotient : out std_logic_vector(N-1 downto 0);
 		  ERR,Done : out std_logic;
@@ -20,19 +20,20 @@ architecture arch of fixed_division is
 	signal add1,add2,addOut : std_logic_vector(N-1 downto 0);
 	
 	begin
-		process (Enable,clk) is
+		process (Reset,clk) is
 		variable Index : integer;
 		variable FIRST_ONE_DIVIDEND : integer;
 		variable FIRST_ONE_DIVISOR : integer;
-		variable Done_bit : std_logic := '1'; 
+		variable Done_bit : std_logic ; 
 		variable Dividend2 : std_logic_vector(N-1 downto 0);
 		variable QuotientVar : std_logic_vector(N-1 downto 0);
 		variable Divisor2 : std_logic_vector(2*N-3 downto 0);
+		variable twosCompliment : std_logic_vector(N-2 downto 0);
 		variable FIRST_ONE : std_logic;
 		variable Q_FIRST_ONE : std_logic;
 
 		begin	
-			if Enable = '1' then
+			if Reset = '0' then
 				if Done_bit = '1' and Start='1' then
 					-- Initialization
 					Done<='0';
@@ -124,7 +125,7 @@ architecture arch of fixed_division is
 						Dividend2 := addOut;
 						FIRST_ONE := '0';
 					end if ;
-					if unsigned(Dividend2) >= unsigned(Divisor2) then
+					if unsigned(Dividend2) >= unsigned(Divisor2) and unsigned(Dividend2)/=0 then
 						add1 <= Dividend2;
 						add2 <= not Divisor2(N-1 downto 0);
 						FIRST_ONE := '1';
@@ -152,7 +153,9 @@ architecture arch of fixed_division is
 						end if;
 					end if ;
 					Index := Index - 1;
-				end if ;		
+				end if ;	
+			else 
+				Done_bit:='1';	
 			end if ;
 		end process;
 
