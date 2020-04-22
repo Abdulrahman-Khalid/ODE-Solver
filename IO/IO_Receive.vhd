@@ -42,7 +42,7 @@ architecture arch of IO_Receive is
             input_data_state := "111";
             ram_address_var := First_3_Lines;
         end if ;
-        if Enable_Receiving_IO = '1' then
+        if Enable_Receiving_IO = '1' and RST = '0' then
             if (rising_edge(clk)) then
                 if Done_Row = '1' then
                     packet_meta_data := CPU_Bus;
@@ -71,6 +71,9 @@ architecture arch of IO_Receive is
                     elsif input_data_state = "101" then
                         input_data_state := "110";
                         ram_address_var := Starting_U;
+                    else
+                        input_data_state := "111";
+                        ram_address_var := First_3_Lines;
                     end if ;
 
                 else
