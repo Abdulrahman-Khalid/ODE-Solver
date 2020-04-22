@@ -1,0 +1,50 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+
+
+ENTITY reg is
+GENERIC(N : INTEGER := 16);
+PORT ( 
+	D : IN std_logic_vector(N - 1 downto 0);
+	load : IN std_logic;
+	Clk : IN std_logic;
+	Q : OUT std_logic_vector(N - 1 downto 0);
+	rst: in std_logic);
+END reg;
+
+ARCHITECTURE Behavioral of reg is
+BEGIN
+	PROCESS(clk,load, rst)
+	BEGIN
+		if(rst ='1') then Q <= (others => '0');
+		elsIF(load='1' and falling_edge(clk)) THEN
+			Q <= D;
+		END IF;
+	END PROCESS;
+END ARCHITECTURE;
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL; 
+
+ENTITY reg is
+PORT ( 
+	D : IN std_logic;
+	load : IN std_logic;
+	Clk : IN std_logic;
+	Q : OUT std_logic;
+	rst: in std_logic);
+END reg;
+
+ARCHITECTURE Behavioral of reg is
+BEGIN
+	PROCESS(clk,load, rst)
+	BEGIN
+		if(rst ='1') then Q <='0';
+		elsIF(load='1' and falling_edge(clk)) THEN
+			Q <= D;
+		END IF;
+	END PROCESS;
+END ARCHITECTURE;
