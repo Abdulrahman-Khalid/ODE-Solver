@@ -1,36 +1,23 @@
 # Reading C:/Modeltech_pe_edu_10.4a/tcl/vsim/pref.tcl
 # OpenFile {E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.mpf}
 # Loading project IO
-# Compile of IO.vhd failed with 3 errors.
-# Compile of IO.vhd failed with 3 errors.
-# Compile of IO.vhd failed with 4 errors.
-# Compile of IO.vhd failed with 4 errors.
-# Compile of IO.vhd failed with 3 errors.
-# Compile of IO.vhd failed with 2 errors.
-# Compile of IO.vhd failed with 2 errors.
-# Compile of IO.vhd failed with 2 errors.
-# Compile of IO.vhd was successful.
-# Compile of IO.vhd failed with 2 errors.
-# Compile of IO.vhd failed with 2 errors.
-# Compile of IO.vhd failed with 2 errors.
-# Compile of IO.vhd failed with 2 errors.
-# Compile of IO.vhd failed with 2 errors.
-# Compile of IO.vhd was successful.
-# Compile of IO.vhd failed with 2 errors.
-# Compile of IO.vhd failed with 2 errors.
-# Compile of IO.vhd failed with 2 errors.
-# Compile of IO.vhd failed with 3 errors.
-# Compile of IO.vhd was successful.
-# Compile of IO.vhd was successful.
-# Compile of IO.vhd failed with 2 errors.
-# Compile of IO.vhd failed with 2 errors.
-# Compile of IO.vhd failed with 2 errors.
-# Compile of IO.vhd was successful.
-# Compile of IO.vhd was successful.
-# Compile of cry_lkahd_adder.vhd was successful.
-# 2 compiles, 0 failed with no errors.
-# Compile of IO.vhd was successful.
-vsim -gui work.io
+# Compile of IO_Receive.vhd failed with 9 errors.
+# Compile of IO_Receive.vhd failed with 8 errors.
+# Compile of IO_Receive.vhd failed with 18 errors.
+# Compile of IO_Receive.vhd failed with 18 errors.
+# Compile of IO_Receive.vhd was successful.
+# Compile of IO_Receive.vhd failed with 6 errors.
+# Compile of IO_Receive.vhd failed with 9 errors.
+# Compile of IO_Receive.vhd failed with 7 errors.
+# Compile of IO_Receive.vhd failed with 5 errors.
+# Compile of IO_Receive.vhd failed with 3 errors.
+# Compile of IO_Receive.vhd was successful.
+# Compile of IO_Receive.vhd was successful.
+# Compile of IO_Receive.vhd failed with 4 errors.
+# Compile of IO_Receive.vhd failed with 4 errors.
+# Compile of IO_Receive.vhd was successful.
+# Compile of IO_Receive.vhd was successful.
+vsim -gui work.io_receive
 # //  ModelSim PE Student Edition 10.4a Apr  7 2015 
 # //
 # //  Copyright 1991-2015 Mentor Graphics Corporation
@@ -50,80 +37,29 @@ vsim -gui work.io
 # // FOR HIGHER EDUCATION PURPOSES ONLY
 # //
 # vsim -gui E:\Muhanad\CUFE\Third year\2nd Semester\VLSI\Projects\Project\ODE-Solver\IO\IO.mpf 
-# Start time: 05:36:00 on Apr 20,2020
+# Start time: 01:52:18 on Apr 22,2020
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
 # Loading ieee.std_logic_arith(body)
 # Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-add wave -position insertpoint sim:/io/*
-force -freeze sim:/io/CPU_Bus 80000008 0
-force -freeze sim:/io/CLK 1 0, 0 {50 ns} -r 100
-force -freeze sim:/io/Enable 1 0
+# Loading work.io_receive(arch)
+add wave -position insertpoint sim:/io_receive/*
+force -freeze sim:/io_receive/CLK 1 0, 0 {50 ns} -r 100
+force -freeze sim:/io_receive/RST 1 0
 run
+force -freeze sim:/io_receive/RST 0 0
+force -freeze sim:/io_receive/Enable_Receiving_IO 1 0
+force -freeze sim:/io_receive/CPU_Bus 00000008 0
+force -freeze sim:/io_receive/Done_Row 1 0
 run
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-run
-run
-run
-run
-run
-quit -sim
-# Load canceled
-# Compile of IO.vhd was successful.
-vsim -gui work.io
-# vsim 
-# Start time: 05:39:58 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-add wave -position insertpoint sim:/io/*
-force -freeze sim:/io/CPU_Bus 80000008 0
-force -freeze sim:/io/CLK 1 0, 0 {50 ns} -r 100
-force -freeze sim:/io/Enable 1 0
-run
+force -freeze sim:/io_receive/Done_Row 0 0
 run
 # ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-force -freeze sim:/io/CPU_Bus 08080808 0
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-restart -f
-force -freeze sim:/io/CPU_Bus 80000008 0
-force -freeze sim:/io/Enable 1 0
-force -freeze sim:/io/CLK 1 0, 0 {50 ns} -r 100
-run
-run
+#    Time: 300 ns  Iteration: 0  Instance: /io_receive
 # ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
+#    Time: 300 ns  Iteration: 0  Instance: /io_receive
 run
 run
 run
@@ -133,133 +69,36 @@ run
 run
 run
 run
-restart -f
-force -freeze sim:/io/CPU_Bus 80000008 0
-force -freeze sim:/io/Enable 1 0
-force -freeze sim:/io/CLK 1 0, 0 {50 ns} -r 100
 run
 run
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-force -freeze sim:/io/CPU_Bus 08080808 0
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
 restart
-force -freeze sim:/io/CPU_Bus 80000008 0
-force -freeze sim:/io/Enable 1 0
-force -freeze sim:/io/CLK 1 0, 0 {50 ns} -r 100
+force -freeze sim:/io_receive/RST 1 0
+force -freeze sim:/io_receive/CLK 1 0, 0 {50 ns} -r 100
 run
-force -freeze sim:/io/CPU_Bus 08080808 0
+force -freeze sim:/io_receive/RST 0 0
+force -freeze sim:/io_receive/Done_Row 1 0
+force -freeze sim:/io_receive/Enable_Receiving_IO 1 0
+force -freeze sim:/io_receive/CPU_Bus 00000008 0
 run
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-run
-run
-run
-run
-run
-quit -sim
-# Compile of IO.vhd was successful.
-vsim -gui work.io
-# vsim 
-# Start time: 05:57:04 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-add wave -position insertpoint sim:/io/*
-force -freeze sim:/io/CPU_Bus 80000008 0
-force -freeze sim:/io/Enable 1 0
-force -freeze sim:/io/CLK 1 0, 0 {50 ns} -r 100
-run
-force -freeze sim:/io/CPU_Bus 08080808 0
-run
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-run
-run
-run
-run
-run
-run
-quit -sim
-# Compile of IO.vhd was successful.
-vsim -gui work.io
-# vsim 
-# Start time: 06:00:50 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-add wave -position insertpoint sim:/io/*
-force -freeze sim:/io/CPU_Bus 00000008 0
-force -freeze sim:/io/Enable 1 0
-force -freeze sim:/io/CLK 1 0, 0 {50 ns} -r 100
-run
-force -freeze sim:/io/CPU_Bus 0A0A0A0A 0
-run
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-run
-run
-run
-# ** Fatal: (vsim-3734) Index value -1 is out of range 31 downto 0.
-#    Time: 500 ns  Iteration: 0  Process: /io/line__19 File: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd
-# Fatal error in ForLoop l2 at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd line 66
-# 
-# HDL call sequence:
-# Stopped at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd 66 ForLoop l2
-# 
-run
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd 66 ForLoop l2
-# 
-restart -f
-force -freeze sim:/io/CPU_Bus 00000008 0
-force -freeze sim:/io/Enable 1 0
-force -freeze sim:/io/CLK 1 0, 0 {50 ns} -r 100
-run
-force -freeze sim:/io/CPU_Bus 0a0a0a0a 0
-run
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-run
-run
-run
-# ** Fatal: (vsim-3734) Index value -1 is out of range 31 downto 0.
-#    Time: 500 ns  Iteration: 0  Process: /io/line__19 File: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd
-# Fatal error in ForLoop l2 at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd line 66
-# 
-# HDL call sequence:
-# Stopped at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd 66 ForLoop l2
-# 
-quit -sim
-# Compile of IO.vhd was successful.
-vsim -gui work.io
-# vsim 
-# Start time: 06:14:29 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-add wave -position insertpoint sim:/io/*
-force -freeze sim:/io/CPU_Bus 00000008 0
-force -freeze sim:/io/Enable 1 0
-force -freeze sim:/io/CLK 1 0, 0 {50 ns} -r 100
-run
-force -freeze sim:/io/CPU_Bus 0A0A0A0A 0
-run
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-run
+force -freeze sim:/io_receive/CPU_Bus 30303030 0
 run
 run
 run
@@ -268,76 +107,164 @@ run
 run
 run
 quit -sim
-# Compile of IO.vhd was successful.
-vsim -gui work.io
+force -freeze sim:/io_receive/RST 1 0
+# Dataset not found: sim
+force -freeze sim:/io_receive/CLK 1 0, 0 {50 ns} -r 100
+# Dataset not found: sim
+run
+# No Design Loaded!
+force -freeze sim:/io_receive/RST 0 0
+# Dataset not found: sim
+force -freeze sim:/io_receive/Done_Row 1 0
+# Dataset not found: sim
+force -freeze sim:/io_receive/Enable_Receiving_IO 1 0
+# Dataset not found: sim
+force -freeze sim:/io_receive/CPU_Bus 00000008 0
+# Dataset not found: sim
+run
+# No Design Loaded!
+
+
+
+vsim -gui work.io_receive
 # vsim 
-# Start time: 06:37:55 on Apr 20,2020
+# Start time: 02:03:10 on Apr 22,2020
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
 # Loading ieee.std_logic_arith(body)
 # Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-add wave -position insertpoint sim:/io/*
-force -freeze sim:/io/CPU_Bus 00000008 0
-force -freeze sim:/io/Enable 1 0
-force -freeze sim:/io/CLK 1 0, 0 {50 ns} -r 100
+# Loading work.io_receive(arch)
+add wave -position insertpoint sim:/io_receive/*
+force -freeze sim:/io_receive/RST 1 0
+force -freeze sim:/io_receive/CLK 1 0, 0 {50 ns} -r 100
 run
-force -freeze sim:/io/CPU_Bus 0a0a0a0a 0
+force -freeze sim:/io_receive/RST 0 0
+force -freeze sim:/io_receive/Done_Row 1 0
+force -freeze sim:/io_receive/Enable_Receiving_IO 1 0
+force -freeze sim:/io_receive/CPU_Bus 00000008 0
 run
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-restart -f
-force -freeze sim:/io/CPU_Bus 00000008 0
-force -freeze sim:/io/Enable 1 0
-run
-force -freeze sim:/io/CPU_Bus 0a0a0a0a 0
-run
-restart -f
-force -freeze sim:/io/CPU_Bus 00000008 0
-force -freeze sim:/io/Enable 1 0
-force -freeze sim:/io/CLK 1 0, 0 {50 ns} -r 100
-run
-force -freeze sim:/io/CPU_Bus 0a0a0a0a 0
+
+
+
+force -freeze sim:/io_receive/Done_Row 0 0
+force -freeze sim:/io_receive/CPU_Bus 30303030 0
 run
 # ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
+#    Time: 300 ns  Iteration: 0  Instance: /io_receive
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 300 ns  Iteration: 0  Instance: /io_receive
 run
 run
 run
 run
+run
+run
+run
+run
+run
+run
+# Compile of IO_Receive.vhd was successful.
+vsim -gui work.io_receive
+# vsim 
+# Start time: 02:08:04 on Apr 22,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.io_receive(arch)
+# vsim 
+# Start time: 02:03:10 on Apr 22,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.io_receive(arch)
+add wave -position insertpoint sim:/io_receive/*
+force -freeze sim:/io_receive/RST 1 0
+force -freeze sim:/io_receive/CLK 1 0, 0 {50 ns} -r 100
+run
+force -freeze sim:/io_receive/RST 0 0
+force -freeze sim:/io_receive/Done_Row 1 0
+force -freeze sim:/io_receive/Enable_Receiving_IO 1 0
+force -freeze sim:/io_receive/CPU_Bus 00000008 0
+run
+
+
+
+force -freeze sim:/io_receive/Done_Row 0 0
+force -freeze sim:/io_receive/CPU_Bus 30303030 0
+run
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 300 ns  Iteration: 0  Instance: /io_receive
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 300 ns  Iteration: 0  Instance: /io_receive
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 300 ns  Iteration: 0  Instance: /io_receive
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 300 ns  Iteration: 0  Instance: /io_receive
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+
+
+
+# Compile of IO_Receive.vhd was successful.
 quit -sim
-# Compile of IO.vhd was successful.
-vsim -gui work.io
+vsim -gui work.io_receive
 # vsim 
-# Start time: 06:46:52 on Apr 20,2020
+# Start time: 02:09:21 on Apr 22,2020
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
 # Loading ieee.std_logic_arith(body)
 # Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-add wave -position insertpoint sim:/io/*
-force -freeze sim:/io/CPU_Bus 00000008 0
-force -freeze sim:/io/Enable 1 0
-force -freeze sim:/io/CLK 1 0, 0 {50 ns} -r 100
+# Loading work.io_receive(arch)
+# vsim 
+# Start time: 02:03:10 on Apr 22,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.io_receive(arch)
+add wave -position insertpoint sim:/io_receive/*
+force -freeze sim:/io_receive/RST 1 0
+force -freeze sim:/io_receive/CLK 1 0, 0 {50 ns} -r 100
 run
-force -freeze sim:/io/CPU_Bus 0a0a0a0a 0
+force -freeze sim:/io_receive/RST 0 0
+force -freeze sim:/io_receive/Done_Row 1 0
+force -freeze sim:/io_receive/Enable_Receiving_IO 1 0
+force -freeze sim:/io_receive/CPU_Bus 00000008 0
+run
+
+
+
+force -freeze sim:/io_receive/Done_Row 0 0
+force -freeze sim:/io_receive/CPU_Bus 30303030 0
 run
 # ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
+#    Time: 300 ns  Iteration: 0  Instance: /io_receive
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 300 ns  Iteration: 0  Instance: /io_receive
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 300 ns  Iteration: 0  Instance: /io_receive
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 300 ns  Iteration: 0  Instance: /io_receive
 run
 run
 run
@@ -345,68 +272,67 @@ run
 run
 run
 run
+run
+run
+run
+
+
+
+# Compile of IO_Receive.vhd was successful.
 quit -sim
-# Compile of IO.vhd was successful.
-vsim -gui work.io
+vsim -gui work.io_receive
 # vsim 
-# Start time: 07:02:51 on Apr 20,2020
+# Start time: 02:12:49 on Apr 22,2020
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
 # Loading ieee.std_logic_arith(body)
 # Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-add wave -position insertpoint sim:/io/*
-force -freeze sim:/io/CPU_Bus 00000008 0
-force -freeze sim:/io/Enable 1 0
-force -freeze sim:/io/CLK 1 0, 0 {50 ns} -r 100
-run
-force -freeze sim:/io/CPU_Bus 0a0a0a0a 0
-run
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-run
-run
-run
-run
-run
-run
-run
-run
-run
+# Loading work.io_receive(arch)
 quit -sim
-# Compile of IO.vhd was successful.
-vsim -gui work.io
+vsim -gui work.io_receive
 # vsim 
-# Start time: 07:08:09 on Apr 20,2020
+# Start time: 02:13:09 on Apr 22,2020
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
 # Loading ieee.std_logic_arith(body)
 # Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
+# Loading work.io_receive(arch)
 # vsim 
-# Start time: 07:02:51 on Apr 20,2020
+# Start time: 02:03:10 on Apr 22,2020
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
 # Loading ieee.std_logic_arith(body)
 # Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-add wave -position insertpoint sim:/io/*
-force -freeze sim:/io/CPU_Bus 00000008 0
-force -freeze sim:/io/Enable 1 0
-force -freeze sim:/io/CLK 1 0, 0 {50 ns} -r 100
+# Loading work.io_receive(arch)
+add wave -position insertpoint sim:/io_receive/*
+force -freeze sim:/io_receive/RST 1 0
+force -freeze sim:/io_receive/CLK 1 0, 0 {50 ns} -r 100
 run
-force -freeze sim:/io/CPU_Bus 0a0a0a0a 0
+force -freeze sim:/io_receive/RST 0 0
+force -freeze sim:/io_receive/Done_Row 1 0
+force -freeze sim:/io_receive/Enable_Receiving_IO 1 0
+force -freeze sim:/io_receive/CPU_Bus 00000008 0
 run
+
+
+
+force -freeze sim:/io_receive/Done_Row 0 0
+force -freeze sim:/io_receive/CPU_Bus 30303030 0
+run
 # ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
+#    Time: 300 ns  Iteration: 0  Instance: /io_receive
 # ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
+#    Time: 300 ns  Iteration: 0  Instance: /io_receive
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 300 ns  Iteration: 0  Instance: /io_receive
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 300 ns  Iteration: 0  Instance: /io_receive
 run
 run
 run
@@ -416,506 +342,313 @@ run
 run
 run
 run
+run
 
 
 
-run
-restart -f
-vsim -gui work.io
+# Compile of IO_Receive.vhd was successful.
+# Compile of IO_Receive.vhd was successful.
+vsim -gui work.io_receive
 # vsim 
-# Start time: 07:10:07 on Apr 20,2020
+# Start time: 02:17:02 on Apr 22,2020
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
 # Loading ieee.std_logic_arith(body)
 # Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
+# Loading work.io_receive(arch)
 # vsim 
-# Start time: 07:02:51 on Apr 20,2020
+# Start time: 02:03:10 on Apr 22,2020
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
 # Loading ieee.std_logic_arith(body)
 # Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-add wave -position insertpoint sim:/io/*
-force -freeze sim:/io/CPU_Bus 00000008 0
-force -freeze sim:/io/Enable 1 0
-force -freeze sim:/io/CLK 1 0, 0 {50 ns} -r 100
-run
-force -freeze sim:/io/CPU_Bus 0a0a0a0a 0
-run
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-run
-run
-run
-run
+# Loading work.io_receive(arch)
+add wave -position insertpoint sim:/io_receive/*
+force -freeze sim:/io_receive/RST 1 0
+force -freeze sim:/io_receive/CLK 1 0, 0 {50 ns} -r 100
 run
+force -freeze sim:/io_receive/RST 0 0
+force -freeze sim:/io_receive/Done_Row 1 0
+force -freeze sim:/io_receive/Enable_Receiving_IO 1 0
+force -freeze sim:/io_receive/CPU_Bus 00000008 0
 run
-run
-run
-run
 
 
 
-run
-run
-run
-force -freeze sim:/io/CPU_Bus a0a00000 0
-run
-run
+force -freeze sim:/io_receive/Done_Row 0 0
+force -freeze sim:/io_receive/CPU_Bus 30303030 0
 run
-run
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 300 ns  Iteration: 0  Instance: /io_receive
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 300 ns  Iteration: 0  Instance: /io_receive
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 300 ns  Iteration: 0  Instance: /io_receive
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 300 ns  Iteration: 0  Instance: /io_receive
 run
 run
 run
 run
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2 is not in bounds of subtype NATURAL.
+#    Time: 700 ns  Iteration: 0  Instance: /io_receive
 run
 run
 run
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2 is not in bounds of subtype NATURAL.
+#    Time: 1 us  Iteration: 0  Instance: /io_receive
 run
 run
-quit -sim
-# Compile of IO.vhd was successful.
-vsim -gui work.io
-# vsim 
-# Start time: 07:16:51 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 07:02:51 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-add wave -position insertpoint sim:/io/*
-force -freeze sim:/io/CPU_Bus 00000008 0
-force -freeze sim:/io/Enable 1 0
-force -freeze sim:/io/CLK 1 0, 0 {50 ns} -r 100
 run
-force -freeze sim:/io/CPU_Bus 0a0a0a0a 0
+
+
+
 run
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
 run
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2 is not in bounds of subtype NATURAL.
+#    Time: 1500 ns  Iteration: 0  Instance: /io_receive
 run
 run
 run
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2 is not in bounds of subtype NATURAL.
+#    Time: 1800 ns  Iteration: 0  Instance: /io_receive
 run
 run
 run
 run
 run
-quit -sim
-# Compile of IO.vhd was successful.
-vsim -gui work.io
-# vsim 
-# Start time: 07:16:56 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2 is not in bounds of subtype NATURAL.
+#    Time: 2300 ns  Iteration: 0  Instance: /io_receive
+vsim -gui work.io_receive
 # vsim 
-# Start time: 07:08:09 on Apr 20,2020
+# Start time: 02:20:36 on Apr 22,2020
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
 # Loading ieee.std_logic_arith(body)
 # Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
+# Loading work.io_receive(arch)
 # vsim 
-# Start time: 07:02:51 on Apr 20,2020
+# Start time: 02:03:10 on Apr 22,2020
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
 # Loading ieee.std_logic_arith(body)
 # Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-add wave -position insertpoint sim:/io/*
-force -freeze sim:/io/CPU_Bus 00000008 0
-force -freeze sim:/io/Enable 1 0
-force -freeze sim:/io/CLK 1 0, 0 {50 ns} -r 100
-run
-force -freeze sim:/io/CPU_Bus 0a0a0a0a 0
-run
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-run
-run
+# Loading work.io_receive(arch)
+add wave -position insertpoint sim:/io_receive/*
+force -freeze sim:/io_receive/RST 1 0
+force -freeze sim:/io_receive/CLK 1 0, 0 {50 ns} -r 100
 run
+force -freeze sim:/io_receive/RST 0 0
+force -freeze sim:/io_receive/Done_Row 1 0
+force -freeze sim:/io_receive/Enable_Receiving_IO 1 0
+force -freeze sim:/io_receive/CPU_Bus 00000008 0
 run
-run
-run
-run
-run
-run
 
 
 
-run
-restart -f
-vsim -gui work.io
-# vsim 
-# Start time: 07:17:00 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 07:10:07 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 07:02:51 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-add wave -position insertpoint sim:/io/*
-force -freeze sim:/io/CPU_Bus 00000008 0
-force -freeze sim:/io/Enable 1 0
-force -freeze sim:/io/CLK 1 0, 0 {50 ns} -r 100
-run
-force -freeze sim:/io/CPU_Bus 0a0a0a0a 0
+force -freeze sim:/io_receive/Done_Row 0 0
+force -freeze sim:/io_receive/CPU_Bus 30303030 0
 run
 # ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
+#    Time: 300 ns  Iteration: 0  Instance: /io_receive
 # ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
+#    Time: 300 ns  Iteration: 0  Instance: /io_receive
 # ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
+#    Time: 300 ns  Iteration: 0  Instance: /io_receive
 # ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-run
-run
-run
-run
+#    Time: 300 ns  Iteration: 0  Instance: /io_receive
 run
 run
 run
 run
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2 is not in bounds of subtype NATURAL.
+#    Time: 700 ns  Iteration: 0  Instance: /io_receive
 run
-
-
-
-run
-run
-run
-force -freeze sim:/io/CPU_Bus a0a00000 0
-run
-run
 run
 run
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2 is not in bounds of subtype NATURAL.
+#    Time: 1 us  Iteration: 0  Instance: /io_receive
 run
 run
 run
-run
-run
-run
-run
-run
-run
 
 
 
-vsim -gui work.io
-# vsim 
-# Start time: 07:19:13 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
+vsim -gui work.io_receive
 # vsim 
-# Start time: 07:10:07 on Apr 20,2020
+# Start time: 02:21:02 on Apr 22,2020
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
 # Loading ieee.std_logic_arith(body)
 # Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
+# Loading work.io_receive(arch)
 # vsim 
-# Start time: 07:02:51 on Apr 20,2020
+# Start time: 02:03:10 on Apr 22,2020
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
 # Loading ieee.std_logic_arith(body)
 # Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-add wave -position insertpoint sim:/io/*
-force -freeze sim:/io/CPU_Bus 00000008 0
-force -freeze sim:/io/Enable 1 0
-force -freeze sim:/io/CLK 1 0, 0 {50 ns} -r 100
+# Loading work.io_receive(arch)
+add wave -position insertpoint sim:/io_receive/*
+force -freeze sim:/io_receive/RST 1 0
+force -freeze sim:/io_receive/CLK 1 0, 0 {50 ns} -r 100
+run
+force -freeze sim:/io_receive/RST 0 0
+force -freeze sim:/io_receive/Done_Row 1 0
+force -freeze sim:/io_receive/Enable_Receiving_IO 1 0
+force -freeze sim:/io_receive/CPU_Bus 00000008 0
 run
-force -freeze sim:/io/CPU_Bus 0a0a0a0a 0
+
+
+
+force -freeze sim:/io_receive/Done_Row 0 0
+force -freeze sim:/io_receive/CPU_Bus 30303030 0
 run
 # ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
+#    Time: 300 ns  Iteration: 0  Instance: /io_receive
 # ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
+#    Time: 300 ns  Iteration: 0  Instance: /io_receive
 # ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
+#    Time: 300 ns  Iteration: 0  Instance: /io_receive
 # ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-run
-run
-run
-run
-run
-run
-run
+#    Time: 300 ns  Iteration: 0  Instance: /io_receive
 run
 run
-
-
-
-run
 run
 run
-force -freeze sim:/io/CPU_Bus a0a00000 0
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2 is not in bounds of subtype NATURAL.
+#    Time: 700 ns  Iteration: 0  Instance: /io_receive
 
 
-
-run
-run
-run
-force -freeze sim:/io/CPU_Bus 0a0a0000 0
-vsim -gui work.io
+# Compile of IO_Receive.vhd was successful.
+vsim -gui work.io_receive
 # vsim 
-# Start time: 07:20:36 on Apr 20,2020
+# Start time: 02:36:18 on Apr 22,2020
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
 # Loading ieee.std_logic_arith(body)
 # Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
+# Loading work.io_receive(arch)
 # vsim 
-# Start time: 07:10:07 on Apr 20,2020
+# Start time: 02:03:10 on Apr 22,2020
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
 # Loading ieee.std_logic_arith(body)
 # Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 07:02:51 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-add wave -position insertpoint sim:/io/*
-force -freeze sim:/io/CPU_Bus 00000008 0
-force -freeze sim:/io/Enable 1 0
-force -freeze sim:/io/CLK 1 0, 0 {50 ns} -r 100
+# Loading work.io_receive(arch)
+add wave -position insertpoint sim:/io_receive/*
+force -freeze sim:/io_receive/RST 1 0
+force -freeze sim:/io_receive/CLK 1 0, 0 {50 ns} -r 100
+run
+force -freeze sim:/io_receive/RST 0 0
+force -freeze sim:/io_receive/Done_Row 1 0
+force -freeze sim:/io_receive/Enable_Receiving_IO 1 0
+force -freeze sim:/io_receive/CPU_Bus 00000008 0
 run
-force -freeze sim:/io/CPU_Bus 0a0a0a0a 0
+
+
+
+force -freeze sim:/io_receive/Done_Row 0 0
+force -freeze sim:/io_receive/CPU_Bus 30303030 0
 run
 # ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
+#    Time: 300 ns  Iteration: 0  Instance: /io_receive
 # ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
+#    Time: 300 ns  Iteration: 0  Instance: /io_receive
 # ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
+#    Time: 300 ns  Iteration: 0  Instance: /io_receive
 # ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-run
-run
-run
-run
-run
+#    Time: 300 ns  Iteration: 0  Instance: /io_receive
 run
 run
 run
 run
 
 
-
-run
 run
-run
-force -freeze sim:/io/CPU_Bus 0a0a0000 0
-
-
-
 run
 run
 run
 run
 run
-quit -sim
-# Compile of IO.vhd was successful.
-vsim -gui work.io
-# vsim 
-# Start time: 07:27:36 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
+# Compile of IO_Receive.vhd failed with 3 errors.
+# Compile of IO_Receive.vhd failed with 2 errors.
+# Compile of IO_Receive.vhd was successful.
+vsim -gui work.io_receive
 # vsim 
-# Start time: 07:10:07 on Apr 20,2020
+# Start time: 02:41:43 on Apr 22,2020
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
 # Loading ieee.std_logic_arith(body)
 # Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
+# Loading work.io_receive(arch)
 # vsim 
-# Start time: 07:02:51 on Apr 20,2020
+# Start time: 02:03:10 on Apr 22,2020
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
 # Loading ieee.std_logic_arith(body)
 # Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-add wave -position insertpoint sim:/io/*
-force -freeze sim:/io/CPU_Bus 00000008 0
-force -freeze sim:/io/Enable 1 0
-force -freeze sim:/io/CLK 1 0, 0 {50 ns} -r 100
+# Loading work.io_receive(arch)
+add wave -position insertpoint sim:/io_receive/*
+force -freeze sim:/io_receive/RST 1 0
+force -freeze sim:/io_receive/CLK 1 0, 0 {50 ns} -r 100
+run
+force -freeze sim:/io_receive/RST 0 0
+force -freeze sim:/io_receive/Done_Row 1 0
+force -freeze sim:/io_receive/Enable_Receiving_IO 1 0
+force -freeze sim:/io_receive/CPU_Bus 00000008 0
 run
-force -freeze sim:/io/CPU_Bus 0a0a0a0a 0
+
+
+
+force -freeze sim:/io_receive/Done_Row 0 0
+force -freeze sim:/io_receive/CPU_Bus 30303030 0
 run
 # ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
+#    Time: 300 ns  Iteration: 0  Instance: /io_receive
 # ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
+#    Time: 300 ns  Iteration: 0  Instance: /io_receive
 # ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
+#    Time: 300 ns  Iteration: 0  Instance: /io_receive
 # ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-run
-run
-run
-run
-run
-run
-run
+#    Time: 300 ns  Iteration: 0  Instance: /io_receive
 run
 run
-
-
-
-run
 run
 run
-force -freeze sim:/io/CPU_Bus 0a0a0000 0
 
 
-
-run
-run
-run
 run
 run
 run
 run
 run
 run
-force -freeze sim:/io/Done_Row 1 0
 run
-force -freeze sim:/io/Done_Row 0 0
 run
 run
-run
-run
-run
-run
-quit -sim
-vsim -gui work.io
-# vsim 
-# Start time: 07:34:01 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 07:10:07 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 07:02:51 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-add wave -position insertpoint sim:/io/*
-force -freeze sim:/io/CPU_Bus 00000008 0
-force -freeze sim:/io/Enable 1 0
-force -freeze sim:/io/CLK 1 0, 0 {50 ns} -r 100
 run
-force -freeze sim:/io/CPU_Bus 0a0a0a0a 0
 run
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
 run
 run
 run
@@ -925,62 +658,12 @@ run
 run
 run
 run
-
-
-
 run
 run
 run
-force -freeze sim:/io/CPU_Bus 0a0a0000 0
-
-
-
-force -freeze sim:/io/Done_Row 1 0
 run
-force -freeze sim:/io/Done_Row 0 0
-vsim -gui work.io
-# vsim 
-# Start time: 07:34:44 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 07:10:07 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 07:02:51 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-add wave -position insertpoint sim:/io/*
-force -freeze sim:/io/CPU_Bus 00000008 0
-force -freeze sim:/io/Enable 1 0
-force -freeze sim:/io/CLK 1 0, 0 {50 ns} -r 100
 run
-force -freeze sim:/io/CPU_Bus 0a0a0a0a 0
 run
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
 run
 run
 run
@@ -990,1222 +673,13 @@ run
 run
 run
 run
-
-
-
 run
 run
 run
-force -freeze sim:/io/CPU_Bus 0a0a0000 0
-
-
-
-force -freeze sim:/io/CPU_Bus 00000020 0
-force -freeze sim:/io/Done_Row 1 0
 run
-force -freeze sim:/io/Done_Row 0 0
 run
-# ** Fatal: (vsim-3734) Index value 31 is out of range 15 downto 0.
-#    Time: 1600 ns  Iteration: 0  Process: /io/line__19 File: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd
-# Fatal error in ForLoop l1 at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd line 62
-# 
-# HDL call sequence:
-# Stopped at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd 62 ForLoop l1
-# 
-force -freeze sim:/io/CPU_Bus 30h 0
-# Value length (3) does not equal array index length (32).
-# 
-# ** Error: (vsim-4011) Invalid force value: 30h 0.
-# 
 run
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd 62 ForLoop l1
-# 
-force -freeze sim:/io/CPU_Bus 30 0
 run
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd 62 ForLoop l1
-# 
-vsim -gui work.io
-# vsim 
-# Start time: 07:46:43 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 07:10:07 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 07:02:51 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-add wave -position insertpoint sim:/io/*
-force -freeze sim:/io/CPU_Bus 00000008 0
-force -freeze sim:/io/Enable 1 0
-force -freeze sim:/io/CLK 1 0, 0 {50 ns} -r 100
-run
-force -freeze sim:/io/CPU_Bus 0a0a0a0a 0
-run
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-run
-run
-run
-run
-run
-run
-run
-run
-run
-
-
-
-run
-run
-run
-force -freeze sim:/io/CPU_Bus 0a0a0000 0
-
-
-
-vsim -gui work.io
-# vsim 
-# Start time: 07:47:06 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 07:10:07 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 07:02:51 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-add wave -position insertpoint sim:/io/*
-force -freeze sim:/io/CPU_Bus 00000008 0
-force -freeze sim:/io/Enable 1 0
-force -freeze sim:/io/CLK 1 0, 0 {50 ns} -r 100
-run
-force -freeze sim:/io/CPU_Bus 0a0a0a0a 0
-run
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-run
-run
-run
-run
-run
-run
-run
-run
-run
-
-
-
-run
-run
-run
-force -freeze sim:/io/CPU_Bus 0a0a0000 0
-
-
-
-force -freeze sim:/io/CPU_Bus 20 0
-force -freeze sim:/io/Done_Row 1 0
-run
-force -freeze sim:/io/Done_Row 0 0
-run
-# ** Fatal: (vsim-3734) Index value 31 is out of range 15 downto 0.
-#    Time: 1600 ns  Iteration: 0  Process: /io/line__19 File: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd
-# Fatal error in ForLoop l1 at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd line 62
-# 
-# HDL call sequence:
-# Stopped at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd 62 ForLoop l1
-# 
-force -freeze sim:/io/CPU_Bus 30 0
-run
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd 62 ForLoop l1
-# 
-force -freeze sim:/io/CPU_Bus 20 0
-run
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd 62 ForLoop l1
-# 
-run
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd 62 ForLoop l1
-# 
-run
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd 62 ForLoop l1
-# 
-quit -sim
-vsim -gui work.io
-# vsim 
-# Start time: 08:01:23 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 07:10:07 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 07:02:51 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-add wave -position insertpoint sim:/io/*
-force -freeze sim:/io/CPU_Bus 00000008 0
-force -freeze sim:/io/Enable 1 0
-force -freeze sim:/io/CLK 1 0, 0 {50 ns} -r 100
-run
-force -freeze sim:/io/CPU_Bus 0a0a0a0a 0
-run
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-run
-run
-run
-run
-run
-run
-run
-run
-run
-
-
-
-run
-run
-run
-force -freeze sim:/io/CPU_Bus 0a0a0000 0
-
-
-
-vsim -gui work.io
-# vsim 
-# Start time: 08:01:45 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 07:10:07 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 07:02:51 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-add wave -position insertpoint sim:/io/*
-force -freeze sim:/io/CPU_Bus 00000008 0
-force -freeze sim:/io/Enable 1 0
-force -freeze sim:/io/CLK 1 0, 0 {50 ns} -r 100
-run
-force -freeze sim:/io/CPU_Bus 0a0a0a0a 0
-run
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-run
-run
-run
-run
-run
-run
-run
-run
-run
-
-
-
-run
-run
-run
-force -freeze sim:/io/CPU_Bus 0a0a0000 0
-
-
-
-force -freeze sim:/io/CPU_Bus 20 0
-force -freeze sim:/io/Done_Row 1 0
-run
-force -freeze sim:/io/Done_Row 0 0
-run
-# ** Fatal: (vsim-3734) Index value 31 is out of range 15 downto 0.
-#    Time: 1600 ns  Iteration: 0  Process: /io/line__19 File: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd
-# Fatal error in ForLoop l1 at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd line 62
-# 
-# HDL call sequence:
-# Stopped at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd 62 ForLoop l1
-# 
-force -freeze sim:/io/CPU_Bus 30 0
-run
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd 62 ForLoop l1
-# 
-quit -sim
-# Compile of IO.vhd was successful.
-vsim -gui work.io
-# vsim 
-# Start time: 08:03:59 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 08:01:45 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 07:10:07 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 07:02:51 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-add wave -position insertpoint sim:/io/*
-force -freeze sim:/io/CPU_Bus 00000008 0
-force -freeze sim:/io/Enable 1 0
-force -freeze sim:/io/CLK 1 0, 0 {50 ns} -r 100
-run
-force -freeze sim:/io/CPU_Bus 0a0a0a0a 0
-run
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-run
-run
-run
-run
-run
-run
-run
-run
-run
-
-
-
-run
-run
-run
-force -freeze sim:/io/CPU_Bus 0a0a0000 0
-
-
-
-force -freeze sim:/io/CPU_Bus 20 0
-force -freeze sim:/io/Done_Row 1 0
-run
-force -freeze sim:/io/Done_Row 0 0
-run
-
-force -freeze sim:/io/CPU_Bus 30 0
-run
-run
-run
-run
-quit -sim
-# Compile of IO.vhd was successful.
-vsim -gui work.io
-# vsim 
-# Start time: 08:38:43 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 08:01:45 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 07:10:07 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 07:02:51 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-add wave -position insertpoint sim:/io/*
-force -freeze sim:/io/CPU_Bus 00000008 0
-force -freeze sim:/io/Enable 1 0
-force -freeze sim:/io/CLK 1 0, 0 {50 ns} -r 100
-run
-force -freeze sim:/io/CPU_Bus 0a0a0a0a 0
-run
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Error: (vsim-86) Argument value -2147483648 is not in bounds of subtype NATURAL.
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Fatal: (vsim-3420) Array lengths do not match. Left is 32 (31 downto 0). Right is 31 (30 downto 0).
-#    Time: 200 ns  Iteration: 0  Process: /io/line__19 File: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd
-# Fatal error in Process line__19 at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd line 71
-# 
-# HDL call sequence:
-# Stopped at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd 71 Process line__19
-# 
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-run
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd 71 Process line__19
-# 
-run
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd 71 Process line__19
-# 
-run
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd 71 Process line__19
-# 
-run
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd 71 Process line__19
-# 
-run
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd 71 Process line__19
-# 
-run
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd 71 Process line__19
-# 
-run
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd 71 Process line__19
-# 
-run
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd 71 Process line__19
-# 
-run
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd 71 Process line__19
-# 
-
-
-
-run
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd 71 Process line__19
-# 
-run
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd 71 Process line__19
-# 
-run
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd 71 Process line__19
-# 
-force -freeze sim:/io/CPU_Bus 0a0a0000 0
-
-
-
-force -freeze sim:/io/CPU_Bus 20 0
-force -freeze sim:/io/Done_Row 1 0
-run
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd 71 Process line__19
-# 
-force -freeze sim:/io/Done_Row 0 0
-run
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd 71 Process line__19
-# 
-
-quit -sim
-# Compile of IO.vhd was successful.
-vsim -gui work.io
-# vsim 
-# Start time: 08:40:05 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 08:01:45 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 07:10:07 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 07:02:51 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-add wave -position insertpoint sim:/io/*
-force -freeze sim:/io/CPU_Bus 00000008 0
-force -freeze sim:/io/Enable 1 0
-force -freeze sim:/io/CLK 1 0, 0 {50 ns} -r 100
-run
-force -freeze sim:/io/CPU_Bus 0a0a0a0a 0
-run
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Error: (vsim-86) Argument value -2147483648 is not in bounds of subtype NATURAL.
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-run
-run
-run
-run
-run
-run
-run
-run
-run
-
-
-
-run
-run
-run
-force -freeze sim:/io/CPU_Bus 0a0a0000 0
-
-
-
-force -freeze sim:/io/CPU_Bus 20 0
-force -freeze sim:/io/Done_Row 1 0
-run
-force -freeze sim:/io/Done_Row 0 0
-run
-
-# Compile of IO.vhd failed with 2 errors.
-# Compile of IO.vhd was successful.
-vsim -gui work.io
-# vsim 
-# Start time: 08:42:10 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 08:01:45 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 07:10:07 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 07:02:51 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-add wave -position insertpoint sim:/io/*
-force -freeze sim:/io/CPU_Bus 00000008 0
-force -freeze sim:/io/Enable 1 0
-force -freeze sim:/io/CLK 1 0, 0 {50 ns} -r 100
-run
-force -freeze sim:/io/CPU_Bus 0a0a0a0a 0
-run
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-run
-run
-run
-run
-run
-run
-run
-run
-run
-
-
-
-run
-run
-run
-force -freeze sim:/io/CPU_Bus 0a0a0000 0
-
-
-
-force -freeze sim:/io/CPU_Bus 20 0
-force -freeze sim:/io/Done_Row 1 0
-run
-force -freeze sim:/io/Done_Row 0 0
-run
-
-run
-run
-run
-vsim -gui work.io
-# vsim 
-# Start time: 08:42:57 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 08:01:45 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 07:10:07 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 07:02:51 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-add wave -position insertpoint sim:/io/*
-force -freeze sim:/io/CPU_Bus 00000008 0
-force -freeze sim:/io/Enable 1 0
-force -freeze sim:/io/CLK 1 0, 0 {50 ns} -r 100
-run
-force -freeze sim:/io/CPU_Bus 0a0a0a0a 0
-run
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-run
-run
-run
-run
-run
-run
-run
-run
-run
-
-
-
-run
-run
-run
-force -freeze sim:/io/CPU_Bus 0a0a0000 0
-
-
-
-force -freeze sim:/io/CPU_Bus 20 0
-force -freeze sim:/io/Done_Row 1 0
-run
-force -freeze sim:/io/Done_Row 0 0
-run
-
-run
-force -freeze sim:/io/CPU_Bus 32'h00000030 0
-run
-run
-run
-run
-run
-run
-run
-run
-# Compile of IO.vhd was successful.
-vsim -gui work.io
-# vsim 
-# Start time: 08:47:46 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 08:01:45 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 07:10:07 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 07:02:51 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-add wave -position insertpoint sim:/io/*
-force -freeze sim:/io/CPU_Bus 00000008 0
-force -freeze sim:/io/Enable 1 0
-force -freeze sim:/io/CLK 1 0, 0 {50 ns} -r 100
-run
-force -freeze sim:/io/CPU_Bus 0a0a0a0a 0
-run
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-run
-run
-run
-run
-run
-run
-run
-run
-run
-
-
-
-run
-run
-run
-force -freeze sim:/io/CPU_Bus 0a0a0000 0
-
-
-
-force -freeze sim:/io/CPU_Bus 20 0
-force -freeze sim:/io/Done_Row 1 0
-run
-force -freeze sim:/io/Done_Row 0 0
-run
-
-run
-force -freeze sim:/io/CPU_Bus 32'h00000030 0
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-# Compile of IO.vhd was successful.
-vsim -gui work.io
-# vsim 
-# Start time: 08:51:51 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 08:01:45 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 07:10:07 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 07:02:51 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-add wave -position insertpoint sim:/io/*
-force -freeze sim:/io/CPU_Bus 00000008 0
-force -freeze sim:/io/Enable 1 0
-force -freeze sim:/io/CLK 1 0, 0 {50 ns} -r 100
-run
-force -freeze sim:/io/CPU_Bus 0a0a0a0a 0
-run
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-run
-run
-run
-run
-# ** Note: ----------------------D5lt l if l negsa-----------------------------------
-#    Time: 600 ns  Iteration: 0  Instance: /io
-run
-run
-run
-run
-# ** Note: ----------------------D5lt l if l negsa-----------------------------------
-#    Time: 1 us  Iteration: 0  Instance: /io
-run
-
-
-
-run
-run
-run
-# ** Note: ----------------------D5lt l if l negsa-----------------------------------
-#    Time: 1400 ns  Iteration: 0  Instance: /io
-force -freeze sim:/io/CPU_Bus 0a0a0000 0
-
-
-
-force -freeze sim:/io/CPU_Bus 20 0
-force -freeze sim:/io/Done_Row 1 0
-run
-force -freeze sim:/io/Done_Row 0 0
-run
-
-force -freeze sim:/io/CPU_Bus 32'h00000030 0
-run
-# ** Note: ----------------------D5lt l if l negsa-----------------------------------
-#    Time: 1700 ns  Iteration: 0  Instance: /io
-# Compile of IO.vhd failed with 3 errors.
-# Compile of IO.vhd failed with 7 errors.
-# Compile of IO.vhd was successful.
-vsim -gui work.io
-# vsim 
-# Start time: 09:01:34 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 08:01:45 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 07:10:07 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 07:02:51 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-add wave -position insertpoint sim:/io/*
-force -freeze sim:/io/CPU_Bus 00000008 0
-force -freeze sim:/io/Enable 1 0
-force -freeze sim:/io/CLK 1 0, 0 {50 ns} -r 100
-run
-force -freeze sim:/io/CPU_Bus 0a0a0a0a 0
-run
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-run
-run
-run
-run
-run
-run
-run
-run
-run
-
-
-
-run
-run
-run
-force -freeze sim:/io/CPU_Bus 0a0a0000 0
-
-
-
-force -freeze sim:/io/CPU_Bus 20 0
-force -freeze sim:/io/Done_Row 1 0
-run
-force -freeze sim:/io/Done_Row 0 0
-run
-
-force -freeze sim:/io/CPU_Bus 32'h00000030 0
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-# Compile of IO.vhd was successful.
-vsim -gui work.io
-# vsim 
-# Start time: 09:22:47 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 08:01:45 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 07:10:07 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-# vsim 
-# Start time: 07:02:51 on Apr 20,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.io(arch)
-add wave -position insertpoint sim:/io/*
-force -freeze sim:/io/Done_Row 1 0
-force -freeze sim:/io/CPU_Bus 00000008 0
-force -freeze sim:/io/Enable 1 0
-force -freeze sim:/io/CLK 1 0, 0 {50 ns} -r 100
-run
-force -freeze sim:/io/CPU_Bus 0a0a0a0a 0
-run
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-run
-run
-run
-run
-run
-run
-run
-run
-run
-
-
-
-run
-run
-run
-force -freeze sim:/io/CPU_Bus 0a0a0000 0
-
-
-
-force -freeze sim:/io/CPU_Bus 20 0
-force -freeze sim:/io/Done_Row 1 0
-run
-force -freeze sim:/io/Done_Row 0 0
-run
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 1600 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 1600 ns  Iteration: 0  Instance: /io
-
-restart
-force -freeze sim:/io/CPU_Bus 00000008 0
-force -freeze sim:/io/Enable 1 0
-force -freeze sim:/io/CLK 1 0, 0 {50 ns} -r 100
-force -freeze sim:/io/Done_Row 1 0
-run
-force -freeze sim:/io/Done_Row 0 0
-force -freeze sim:/io/CPU_Bus 20202020 0
-run
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 200 ns  Iteration: 0  Instance: /io
 run
 run
 run
@@ -2214,14 +688,12 @@ run
 run
 run
 run
-force -freeze sim:/io/CPU_Bus 08080808 0
 run
 run
 run
 run
 run
 run
-force -freeze sim:/io/Enable 0 0
 run
 run
 run
