@@ -8,7 +8,7 @@ entity IO_Output is
     generic (N : integer := 32;
             bus_bits: integer := 64;
             mem_address_bits : integer := 32);
-    port(enable_output_IO, CLK,RST : in std_logic;
+    port(enable_output_IO, CLK, RST : in std_logic;
     end_T_address, end_Output_address : in integer;
     memory_data : in std_logic_vector(bus_bits-1 downto 0);
     CPU_Bus : inout std_logic_vector(N-1 downto 0);
