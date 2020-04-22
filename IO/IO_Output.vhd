@@ -21,19 +21,18 @@ architecture arch of IO_Output is
     process (CLK) is 
     variable start_Output_address : integer; -- Ram 1
     variable start_T_address : integer; -- Ram 1
-    variable state : std_logic(1 downto 0);
+    variable state : std_logic_vector(1 downto 0);
     begin
         if RST = '1' then
-            Starting_T := 5003;
+            start_T_address := 5003;
             start_Output_address := 2503;
-            flip_to_output_address := '0';
             state := "00";
             Done_output_data <= '0';
         elsif (Enable_Output_IO = '1') then
             if (rising_edge(clk) and state = "00") then
-                if(Starting_T <= end_T_address) then
-                    memory_address <= Starting_T;
-                    Starting_T := Starting_T + 1;
+                if(start_T_address <= end_T_address) then
+                    memory_address <= start_T_address;
+                    start_T_address := start_T_address + 1;
                     Done_output_data <= '0';
                 elsif(start_Output_address <= end_Output_address) then
                     memory_address <= start_Output_address;
@@ -62,7 +61,7 @@ architecture arch of IO_Output is
                 end if ;
             end if;
         else
-            Starting_T := 5003;
+            start_T_address := 5003;
             start_Output_address := 2503;
             state := "00";
             Done_output_data <= '0';

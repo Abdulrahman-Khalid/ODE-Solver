@@ -11,7 +11,7 @@ entity IO_Receive is
     Done_Reading_Bus : out std_logic;
     Memory_Data_Bus : out std_logic_vector(2*CPU_Bus_Width-1 downto 0);
     Memory_Address_Bus : out integer;
-    Memory1_WR_Enable,Memory2_WR_Enable : out std_logic);
+    Memory1_WR_Enable, Memory2_WR_Enable : out std_logic);
 end entity;
 
 
