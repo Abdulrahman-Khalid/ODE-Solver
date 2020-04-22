@@ -10,7 +10,8 @@ ENTITY RAM2 IS
 		    RAM_size: integer := 16384); --2^14 slot
 	PORT(	
 		CLK, WR1,WR2,WRIO,PORT1EN,PORT2EN,PORT3EN  : IN std_logic;
-		address_Euler1,address_Euler2,address_IO: IN  std_logic_vector(address_width-1 DOWNTO 0);
+		address_Euler1,address_Euler2: IN  std_logic_vector(address_width-1 DOWNTO 0);
+        address_IO :IN integer;
 		data_Euler2OUT,data_Euler1OUT,data_IOOUT : OUT  std_logic_vector(word_size-1 DOWNTO 0);
 		data_Euler1IN,data_IOIN  : IN  std_logic_vector(word_size - 1 DOWNTO 0));
 		
@@ -62,11 +63,11 @@ if PORT3EN='0'  then
 elsif(PORT3EN ='1') then
     if (CLK'event and CLK = '0') then
         if(WRIO ='1') then
-            RAM_data(to_integer(unsigned(address_IO))) := data_IOIN;
+            RAM_data(address_IO) := data_IOIN;
         end if;
     end if;
     if WRIO = '0' then
-        data_IOOUT <= RAM_data(to_integer(unsigned(address_IO)));
+        data_IOOUT <= RAM_data(address_IO);
     end if;    
 end if;
 end process;

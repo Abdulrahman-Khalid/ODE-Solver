@@ -16,7 +16,8 @@ END ENTITY test_RAM;
 Architecture  ramTest of test_RAM is 
 signal s_clk : std_logic:= '0';
 signal 	s_WR1,s_WR2,s_WRIO,s_PORT1EN,s_PORT2EN,s_PORT3EN  :  std_logic;
-signal	s_address_Euler1,s_address_Euler2,s_address_IO :std_logic_vector(address_width-1 DOWNTO 0);
+signal	s_address_Euler1,s_address_Euler2 :std_logic_vector(address_width-1 DOWNTO 0);
+signal s_address_IO:integer;
 signal	s_data_Euler1OUT,s_data_Euler2OUT,s_data_IOOUT,s_data_Euler1IN,s_data_IOIN  :std_logic_vector(word_size - 1 DOWNTO 0);
 constant CLK_PERIOD :time :=100 ps;
 
@@ -50,12 +51,11 @@ end process;
 process 
     begin   
     --write by IO PORT at location 3
-    
     s_WRIO<='1';
     s_PORT1EN <='0';
     s_PORT2EN <='0';
     s_PORT3EN <='1';
-    s_address_IO <= (std_logic_vector(to_unsigned(3,address_width)));
+    s_address_IO <= 3;
     s_data_IOIN <= X"00000000";
     wait for CLK_PERIOD;
     
@@ -115,7 +115,7 @@ process
     
     s_address_Euler2 <= (std_logic_vector(to_unsigned(3,address_width)));
     s_address_Euler1 <= (std_logic_vector(to_unsigned(2,address_width)));
-    s_address_IO<=(std_logic_vector(to_unsigned(5,address_width)));
+    s_address_IO<=5;
     s_data_IOIN <= X"00000100";
     wait for CLK_PERIOD;
     
