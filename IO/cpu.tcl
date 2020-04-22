@@ -28,12 +28,11 @@ set outputFile ./output.txt;
 # exec make clean ;
 # exec make;
 #  "__________________________START ENCODING__________________________"
-exec cpu.out $inputFile $outputFile
+# exec ./cpu $inputFile $outputFile
 #  "___________________________END ENCODING__________________________"
 ########################################################################
 set fp [open $outputFile r]
 force -deposit /Enable_Receiving_IO 1; # Enable IO signal
-run $cycleTime; set time [expr {$time + $cycleTime}];
 while { [gets $fp data] >= 0 } {
     set bin [string range $data 1 31]
     set firstPacketBitType [string index $data 0]
@@ -61,10 +60,10 @@ while { [gets $fp data] >= 0 } {
     set idx 0
     set Done_Reading_Bus [examine -binary sim:/ODE_Solver/Done_Reading_Bus]
     if {$idx < $rowLength && $Done_Reading_Bus == 1} {
-        force -deposit /Done_Row 1
+        force -deposit /ode_solver/Done_Row 1
         force -freeze sim:/ODE_Solver/CPU_Bus [lindex $row $idx] 0
         run $cycleTime; set time [expr {$time + $cycleTime}];
-        force -deposit /Done_Row 0
+        force -deposit /ode_solver/Done_Row 0
         incr idx
     } 
     # send packets as on bus
@@ -77,7 +76,7 @@ while { [gets $fp data] >= 0 } {
         run $cycleTime; set time [expr {$time + $cycleTime}];
     }
 }
-force -deposit /Enable_Receiving_IO 0
+force -freeze sim:/ODE_Solver/enable_output_IO 0 0; 
 
 #TODO to be removed later
 force -freeze sim:/ODE_Solver/enable_output_IO 1 0; 

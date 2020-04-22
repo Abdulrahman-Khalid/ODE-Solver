@@ -42,6 +42,8 @@ architecture arch of IO_Receive is
         if RST = '1' then
             input_data_state := "111";
             ram_address_var := First_3_Lines;
+            Memory_Address_Bus <= 0;
+            data_bit_index := 0;
         end if ;
         if Enable_Receiving_IO = '1' and RST = '0' then
             if (rising_edge(clk)) then
