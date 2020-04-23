@@ -11,7 +11,7 @@ entity IO_Receive is
     Done_Reading_Bus : out std_logic;
     Memory_Data_Bus : out std_logic_vector(2*CPU_Bus_Width-1 downto 0);
     Memory_Address_Bus : out integer;
-    Memory1_WR_Enable, Memory2_WR_Enable : out std_logic);
+    Memory1_WR_Enable,Memory2_WR_Enable : out std_logic);
 end entity;
 
 
@@ -42,7 +42,6 @@ architecture arch of IO_Receive is
         if RST = '1' then
             input_data_state := "111";
             ram_address_var := First_3_Lines;
-            data_bit_index := 0;
             Memory_Address_Bus <= 0;
         end if ;
         if Enable_Receiving_IO = '1' and RST = '0' then

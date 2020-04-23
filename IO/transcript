@@ -1,6 +1,23 @@
 # Reading C:/Modeltech_pe_edu_10.4a/tcl/vsim/pref.tcl
-# OpenFile E:/CMP/projects/3B/ODE-Solver/IO/IO.mpf
+# OpenFile {E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.mpf}
 # Loading project IO
+# unmatched open brace in list
+# 0 compiles, 4 failed with no errors.
+# Compile of IO_Output.vhd was successful.
+# Compile of IO_Receive.vhd was successful.
+# Compile of ODE_Solver.vhd failed with 3 errors.
+# Compile of RAM2.vhd was successful with warnings.
+# 4 compiles, 1 failed with 3 errors.
+# Compile of IO_Output.vhd was successful.
+# Compile of IO_Receive.vhd was successful.
+# Compile of ODE_Solver.vhd was successful.
+# Compile of RAM2.vhd was successful with warnings.
+# 4 compiles, 0 failed with no errors.
+# Compile of IO_Output.vhd was successful.
+# Compile of IO_Receive.vhd was successful.
+# Compile of ODE_Solver.vhd was successful.
+# Compile of RAM2.vhd was successful with warnings.
+# 4 compiles, 0 failed with no errors.
 do hi.tcl
 # //  ModelSim PE Student Edition 10.4a Apr  7 2015 
 # //
@@ -20,633 +37,8 @@ do hi.tcl
 # // THE ModelSim PE Student Edition IS NOT A SUPPORTED PRODUCT.
 # // FOR HIGHER EDUCATION PURPOSES ONLY
 # //
-# vsim -gui E:\CMP\projects\3B\ODE-Solver\IO\IO.mpf 
-# Start time: 01:48:17 on Apr 23,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.ode_solver(ode_solver_arch)
-# Loading work.io_receive(arch)
-# Loading work.io_output(arch)
-# Loading work.ram2(ram_arch)
-# ** Warning: Design size of 10472 statements or 5 leaf instances exceeds ModelSim PE Student Edition recommended capacity.
-# Expect performance to be quite adversely affected.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(31) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(30) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(29) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(28) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(27) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(26) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(25) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(24) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(23) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(22) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(21) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(20) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(19) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(18) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(17) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(16) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(15) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(14) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(13) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(12) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(11) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(10) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(9) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(8) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(7) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(6) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(5) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(4) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(3) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(2) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(1) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(0) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# (vsim-4077) Logging very large object: /ode_solver/mem1/RAM_data 
-# (vsim-4077) Logging very large object: /ode_solver/mem2/RAM_data 
-# 0
-# 100
-# 100
-# 200
-# ./input.json
-# ./output.txt
-# filebe646d0
-# packet size = 8
-# Meta Data of Row CPU to IO: 00000000000000000000000000001000
-# CPU to IO #1 = 00101111000000010000001000000010
-# CPU to IO #2 = 00000100000000010000010100000010
-# CPU to IO #3 = 00111100000000100100000000000001
-# CPU to IO #4 = 00000001000000000000000000000000
-# Row Buses count = 5
-# Sending...
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 400 ns  Iteration: 0  Instance: /ode_solver/io_recv
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 400 ns  Iteration: 0  Instance: /ode_solver/io_recv
-# packet size = 8
-# Meta Data of Row CPU to IO: 00000000000000000000000000001000
-# CPU to IO #1 = 00111000000000010000000100000001
-# CPU to IO #2 = 00000010000000100011100000000001
-# CPU to IO #3 = 00111111000000100000000100000010
-# CPU to IO #4 = 00000010000000100000000000000000
-# Row Buses count = 5
-# Sending...
-# packet size = 8
-# Meta Data of Row CPU to IO: 00000000000000000000000000001000
-# CPU to IO #1 = 00110110000000010011111100000001
-# CPU to IO #2 = 00000001000000010011110100000010
-# CPU to IO #3 = 00001000000000000000000000000000
-# Row Buses count = 4
-# Sending...
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 1400 ns  Iteration: 0  Instance: /ode_solver/io_recv
-# packet size = 8
-# Meta Data of Row CPU to IO: 00000000000000000000000000001000
-# CPU to IO #1 = 00110110000000110011110000000001
-# CPU to IO #2 = 00111111000000010000001000000001
-# CPU to IO #3 = 00000111000000000000000000000000
-# Row Buses count = 4
-# Sending...
-# packet size = 8
-# Meta Data of Row CPU to IO: 00000000000000000000000000001000
-# CPU to IO #1 = 00111100000000100011100100000001
-# CPU to IO #2 = 00000001000000010000011000000000
-# Row Buses count = 3
-# Sending...
-# packet size = 8
-# Meta Data of Row CPU to IO: 00000000000000000000000000001000
-# CPU to IO #1 = 00110111000000100011110100000001
-# CPU to IO #2 = 00001001000000000000000000000000
-# Row Buses count = 3
-# Sending...
-# packet size = 8
-# Meta Data of Row CPU to IO: 00000000000000000000000000001000
-# CPU to IO #1 = 00110110000000010000000100000001
-# CPU to IO #2 = 00111101000000100000100000000000
-# Row Buses count = 3
-# Sending...
-# packet size = 8
-# Meta Data of Row CPU to IO: 00000000000000000000000000001000
-# CPU to IO #1 = 00111100000000100011100100000001
-# CPU to IO #2 = 00111110000000010000001000000001
-# CPU to IO #3 = 00000110000000000000000000000000
-# Row Buses count = 4
-# Sending...
-# packet size = 8
-# Meta Data of Row CPU to IO: 00000000000000000000000000001000
-# CPU to IO #1 = 00111000000000010011111000000001
-# CPU to IO #2 = 00001000000000000000000000000000
-# Row Buses count = 3
-# Sending...
-# packet size = 8
-# Meta Data of Row CPU to IO: 00000000000000000000000000001000
-# CPU to IO #1 = 00110111000000100000000100000001
-# CPU to IO #2 = 00000010000000100011100000000001
-# CPU to IO #3 = 00000100000000100000001000000000
-# Row Buses count = 4
-# Sending...
-# packet size = 8
-# Meta Data of Row CPU to IO: 00000000000000000000000000001000
-# CPU to IO #1 = 00110111000000010000001000000001
-# CPU to IO #2 = 00000010000000100011011100000010
-# CPU to IO #3 = 00000010000000100000001000000010
-# Row Buses count = 4
-# Sending...
-# packet size = 8
-# Meta Data of Row CPU to IO: 00000000000000000000000000001000
-# CPU to IO #1 = 00110111000000100000000100000001
-# CPU to IO #2 = 00000010000000100011011000000001
-# CPU to IO #3 = 00000001000000010000100000000000
-# Row Buses count = 4
-# Sending...
-do hi.tcl
-# vsim 
-# Start time: 01:53:46 on Apr 23,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.ode_solver(ode_solver_arch)
-# Loading work.io_receive(arch)
-# Loading work.io_output(arch)
-# Loading work.ram2(ram_arch)
-# ** Warning: Design size of 10472 statements or 5 leaf instances exceeds ModelSim PE Student Edition recommended capacity.
-# Expect performance to be quite adversely affected.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(31) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(30) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(29) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(28) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(27) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(26) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(25) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(24) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(23) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(22) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(21) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(20) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(19) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(18) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(17) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(16) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(15) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(14) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(13) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(12) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(11) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(10) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(9) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(8) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(7) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(6) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(5) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(4) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(3) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(2) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(1) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(0) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# 0
-# 100
-# 100
-# 200
-# ./input.json
-# ./output.txt
-# filebe64a18
-# packet size = 8
-# Meta Data of Row CPU to IO: 00000000000000000000000000001000
-# CPU to IO #1 = 00101111000000010000001000000010
-# CPU to IO #2 = 00000100000000010000010100000010
-# CPU to IO #3 = 00111100000000100100000000000001
-# CPU to IO #4 = 00000001000000000000000000000000
-# Row Buses count = 5
-# Sending...
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 400 ns  Iteration: 0  Instance: /ode_solver/io_recv
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 400 ns  Iteration: 0  Instance: /ode_solver/io_recv
-# packet size = 8
-# Meta Data of Row CPU to IO: 00000000000000000000000000001000
-# CPU to IO #1 = 00111000000000010000000100000001
-# CPU to IO #2 = 00000010000000100011100000000001
-# CPU to IO #3 = 00111111000000100000000100000010
-# CPU to IO #4 = 00000010000000100000000000000000
-# Row Buses count = 5
-# Sending...
-# packet size = 8
-# Meta Data of Row CPU to IO: 00000000000000000000000000001000
-# CPU to IO #1 = 00110110000000010011111100000001
-# CPU to IO #2 = 00000001000000010011110100000010
-# CPU to IO #3 = 00001000000000000000000000000000
-# Row Buses count = 4
-# Sending...
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 1400 ns  Iteration: 0  Instance: /ode_solver/io_recv
-# packet size = 8
-# Meta Data of Row CPU to IO: 00000000000000000000000000001000
-# CPU to IO #1 = 00110110000000110011110000000001
-# CPU to IO #2 = 00111111000000010000001000000001
-# CPU to IO #3 = 00000111000000000000000000000000
-# Row Buses count = 4
-# Sending...
-# packet size = 8
-# Meta Data of Row CPU to IO: 00000000000000000000000000001000
-# CPU to IO #1 = 00111100000000100011100100000001
-# CPU to IO #2 = 00000001000000010000011000000000
-# Row Buses count = 3
-# Sending...
-# packet size = 8
-# Meta Data of Row CPU to IO: 00000000000000000000000000001000
-# CPU to IO #1 = 00110111000000100011110100000001
-# CPU to IO #2 = 00001001000000000000000000000000
-# Row Buses count = 3
-# Sending...
-# packet size = 8
-# Meta Data of Row CPU to IO: 00000000000000000000000000001000
-# CPU to IO #1 = 00110110000000010000000100000001
-# CPU to IO #2 = 00111101000000100000100000000000
-# Row Buses count = 3
-# Sending...
-# packet size = 8
-# Meta Data of Row CPU to IO: 00000000000000000000000000001000
-# CPU to IO #1 = 00111100000000100011100100000001
-# CPU to IO #2 = 00111110000000010000001000000001
-# CPU to IO #3 = 00000110000000000000000000000000
-# Row Buses count = 4
-# Sending...
-# packet size = 8
-# Meta Data of Row CPU to IO: 00000000000000000000000000001000
-# CPU to IO #1 = 00111000000000010011111000000001
-# CPU to IO #2 = 00001000000000000000000000000000
-# Row Buses count = 3
-# Sending...
-# packet size = 8
-# Meta Data of Row CPU to IO: 00000000000000000000000000001000
-# CPU to IO #1 = 00110111000000100000000100000001
-# CPU to IO #2 = 00000010000000100011100000000001
-# CPU to IO #3 = 00000100000000100000001000000000
-# Row Buses count = 4
-# Sending...
-# packet size = 8
-# Meta Data of Row CPU to IO: 00000000000000000000000000001000
-# CPU to IO #1 = 00110111000000010000001000000001
-# CPU to IO #2 = 00000010000000100011011100000010
-# CPU to IO #3 = 00000010000000100000001000000010
-# Row Buses count = 4
-# Sending...
-# packet size = 8
-# Meta Data of Row CPU to IO: 00000000000000000000000000001000
-# CPU to IO #1 = 00110111000000100000000100000001
-# CPU to IO #2 = 00000010000000100011011000000001
-# CPU to IO #3 = 00000001000000010000100000000000
-# Row Buses count = 4
-# Sending...
-do hi.tcl
-# vsim 
-# Start time: 01:58:49 on Apr 23,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.ode_solver(ode_solver_arch)
-# Loading work.io_receive(arch)
-# Loading work.io_output(arch)
-# Loading work.ram2(ram_arch)
-# ** Warning: Design size of 10472 statements or 5 leaf instances exceeds ModelSim PE Student Edition recommended capacity.
-# Expect performance to be quite adversely affected.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(31) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(30) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(29) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(28) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(27) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(26) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(25) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(24) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(23) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(22) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(21) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(20) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(19) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(18) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(17) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(16) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(15) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(14) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(13) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(12) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(11) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(10) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(9) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(8) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(7) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(6) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(5) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(4) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(3) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(2) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(1) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(0) has no driver.
-# 
-# This port will contribute value (U) to the signal network.
-# 0
-# 100
-# 100
-# 200
-# ./input.json
-# ./output.txt
-# filebe831d8
-# packet size = 8
-# Meta Data of Row CPU to IO: 00000000000000000000000000001000
-# CPU to IO #1 = 00101111000000010000001000000010
-# CPU to IO #2 = 00000100000000010000010100000010
-# CPU to IO #3 = 00111100000000100100000000000001
-# CPU to IO #4 = 00000001000000000000000000000000
-# Row Buses count = 5
-# Sending...
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 400 ns  Iteration: 0  Instance: /ode_solver/io_recv
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 400 ns  Iteration: 0  Instance: /ode_solver/io_recv
-# packet size = 8
-# Meta Data of Row CPU to IO: 00000000000000000000000000001000
-# CPU to IO #1 = 00111000000000010000000100000001
-# CPU to IO #2 = 00000010000000100011100000000001
-# CPU to IO #3 = 00111111000000100000000100000010
-# CPU to IO #4 = 00000010000000100000000000000000
-# Row Buses count = 5
-# Sending...
-# packet size = 8
-# Meta Data of Row CPU to IO: 00000000000000000000000000001000
-# CPU to IO #1 = 00110110000000010011111100000001
-# CPU to IO #2 = 00000001000000010011110100000010
-# CPU to IO #3 = 00001000000000000000000000000000
-# Row Buses count = 4
-# Sending...
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 1400 ns  Iteration: 0  Instance: /ode_solver/io_recv
-# packet size = 8
-# Meta Data of Row CPU to IO: 00000000000000000000000000001000
-# CPU to IO #1 = 00110110000000110011110000000001
-# CPU to IO #2 = 00111111000000010000001000000001
-# CPU to IO #3 = 00000111000000000000000000000000
-# Row Buses count = 4
-# Sending...
-# packet size = 8
-# Meta Data of Row CPU to IO: 00000000000000000000000000001000
-# CPU to IO #1 = 00111100000000100011100100000001
-# CPU to IO #2 = 00000001000000010000011000000000
-# Row Buses count = 3
-# Sending...
-# packet size = 8
-# Meta Data of Row CPU to IO: 00000000000000000000000000001000
-# CPU to IO #1 = 00110111000000100011110100000001
-# CPU to IO #2 = 00001001000000000000000000000000
-# Row Buses count = 3
-# Sending...
-# packet size = 8
-# Meta Data of Row CPU to IO: 00000000000000000000000000001000
-# CPU to IO #1 = 00110110000000010000000100000001
-# CPU to IO #2 = 00111101000000100000100000000000
-# Row Buses count = 3
-# Sending...
-# packet size = 8
-# Meta Data of Row CPU to IO: 00000000000000000000000000001000
-# CPU to IO #1 = 00111100000000100011100100000001
-# CPU to IO #2 = 00111110000000010000001000000001
-# CPU to IO #3 = 00000110000000000000000000000000
-# Row Buses count = 4
-# Sending...
-# packet size = 8
-# Meta Data of Row CPU to IO: 00000000000000000000000000001000
-# CPU to IO #1 = 00111000000000010011111000000001
-# CPU to IO #2 = 00001000000000000000000000000000
-# Row Buses count = 3
-# Sending...
-# packet size = 8
-# Meta Data of Row CPU to IO: 00000000000000000000000000001000
-# CPU to IO #1 = 00110111000000100000000100000001
-# CPU to IO #2 = 00000010000000100011100000000001
-# CPU to IO #3 = 00000100000000100000001000000000
-# Row Buses count = 4
-# Sending...
-# packet size = 8
-# Meta Data of Row CPU to IO: 00000000000000000000000000001000
-# CPU to IO #1 = 00110111000000010000001000000001
-# CPU to IO #2 = 00000010000000100011011100000010
-# CPU to IO #3 = 00000010000000100000001000000010
-# Row Buses count = 4
-# Sending...
-# packet size = 8
-# Meta Data of Row CPU to IO: 00000000000000000000000000001000
-# CPU to IO #1 = 00110111000000100000000100000001
-# CPU to IO #2 = 00000010000000100011011000000001
-# CPU to IO #3 = 00000001000000010000100000000000
-# Row Buses count = 4
-# Sending...
-# Compile of RAM2.vhd was successful with warnings.
-# Compile of IO_Output.vhd was successful.
-# Compile of IO_Receive.vhd was successful.
-# Compile of ODE_Solver.vhd was successful.
-# 4 compiles, 0 failed with no errors.
-do hi.tcl
-# vsim 
-# Start time: 02:01:46 on Apr 23,2020
+# vsim -gui E:\Muhanad\CUFE\Third year\2nd Semester\VLSI\Projects\Project\ODE-Solver\IO\IO.mpf 
+# Start time: 02:22:27 on Apr 23,2020
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -761,7 +153,7 @@ do hi.tcl
 # 200
 # ./input.json
 # ./output.txt
-# filee3f9cf0
+# filee6a0f60
 # packet size = 8
 # Meta Data of Row CPU to IO: 00000000000000000000000000001000
 # CPU to IO #1 = 00101111000000010000001000000010
@@ -770,148 +162,1416 @@ do hi.tcl
 # CPU to IO #4 = 00000001000000000000000000000000
 # Row Buses count = 5
 # Sending...
-# ** Fatal: (vsim-3734) Index value -2147483648 is out of range 0 to 16383.
-#    Time: 200 ns  Iteration: 2  Process: /ode_solver/mem1/line__59 File: E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd
-# Fatal error in Process line__59 at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd line 70
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 400 ns  Iteration: 0  Instance: /ode_solver/io_recv
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 400 ns  Iteration: 0  Instance: /ode_solver/io_recv
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00111000000000010000000100000001
+# CPU to IO #2 = 00000010000000100011100000000001
+# CPU to IO #3 = 00111111000000100000000100000010
+# CPU to IO #4 = 00000010000000100000000000000000
+# Row Buses count = 5
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110110000000010011111100000001
+# CPU to IO #2 = 00000001000000010011110100000010
+# CPU to IO #3 = 00001000000000000000000000000000
+# Row Buses count = 4
+# Sending...
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 1400 ns  Iteration: 0  Instance: /ode_solver/io_recv
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110110000000110011110000000001
+# CPU to IO #2 = 00111111000000010000001000000001
+# CPU to IO #3 = 00000111000000000000000000000000
+# Row Buses count = 4
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00111100000000100011100100000001
+# CPU to IO #2 = 00000001000000010000011000000000
+# Row Buses count = 3
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110111000000100011110100000001
+# CPU to IO #2 = 00001001000000000000000000000000
+# Row Buses count = 3
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110110000000010000000100000001
+# CPU to IO #2 = 00111101000000100000100000000000
+# Row Buses count = 3
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00111100000000100011100100000001
+# CPU to IO #2 = 00111110000000010000001000000001
+# CPU to IO #3 = 00000110000000000000000000000000
+# Row Buses count = 4
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00111000000000010011111000000001
+# CPU to IO #2 = 00001000000000000000000000000000
+# Row Buses count = 3
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110111000000100000000100000001
+# CPU to IO #2 = 00000010000000100011100000000001
+# CPU to IO #3 = 00000100000000100000001000000000
+# Row Buses count = 4
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110111000000010000001000000001
+# CPU to IO #2 = 00000010000000100011011100000010
+# CPU to IO #3 = 00000010000000100000001000000010
+# Row Buses count = 4
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110111000000100000000100000001
+# CPU to IO #2 = 00000010000000100011011000000001
+# CPU to IO #3 = 00000001000000010000100000000000
+# Row Buses count = 4
+# Sending...
+# Compile of IO_Output.vhd was successful.
+# Compile of IO_Receive.vhd was successful.
+# Compile of ODE_Solver.vhd was successful.
+# Compile of RAM2.vhd was successful with warnings.
+# 4 compiles, 0 failed with no errors.
+do hi.tcl
+# vsim 
+# Start time: 02:26:17 on Apr 23,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.ode_solver(ode_solver_arch)
+# Loading work.io_receive(arch)
+# Loading work.io_output(arch)
+# Loading work.ram2(ram_arch)
+# ** Warning: Design size of 10471 statements or 5 leaf instances exceeds ModelSim PE Student Edition recommended capacity.
+# Expect performance to be quite adversely affected.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(31) has no driver.
 # 
-# HDL call sequence:
-# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(30) has no driver.
 # 
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(29) has no driver.
 # 
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(28) has no driver.
 # 
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(27) has no driver.
 # 
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(26) has no driver.
 # 
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(25) has no driver.
 # 
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(24) has no driver.
 # 
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(23) has no driver.
 # 
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(22) has no driver.
 # 
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(21) has no driver.
 # 
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(20) has no driver.
 # 
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(19) has no driver.
 # 
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(18) has no driver.
 # 
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(17) has no driver.
 # 
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(16) has no driver.
 # 
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(15) has no driver.
 # 
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(14) has no driver.
 # 
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(13) has no driver.
 # 
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(12) has no driver.
 # 
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(11) has no driver.
 # 
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(10) has no driver.
 # 
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(9) has no driver.
 # 
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(8) has no driver.
 # 
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(7) has no driver.
 # 
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(6) has no driver.
 # 
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(5) has no driver.
 # 
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(4) has no driver.
 # 
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(3) has no driver.
 # 
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(2) has no driver.
 # 
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(1) has no driver.
 # 
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(0) has no driver.
 # 
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# This port will contribute value (U) to the signal network.
+# 0
+# 100
+# 100
+# 200
+# ./input.json
+# ./output.txt
+# file986a688
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00101111000000010000001000000010
+# CPU to IO #2 = 00000100000000010000010100000010
+# CPU to IO #3 = 00111100000000100100000000000001
+# CPU to IO #4 = 00000001000000000000000000000000
+# Row Buses count = 5
+# Sending...
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 400 ns  Iteration: 0  Instance: /ode_solver/io_recv
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 400 ns  Iteration: 0  Instance: /ode_solver/io_recv
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00111000000000010000000100000001
+# CPU to IO #2 = 00000010000000100011100000000001
+# CPU to IO #3 = 00111111000000100000000100000010
+# CPU to IO #4 = 00000010000000100000000000000000
+# Row Buses count = 5
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110110000000010011111100000001
+# CPU to IO #2 = 00000001000000010011110100000010
+# CPU to IO #3 = 00001000000000000000000000000000
+# Row Buses count = 4
+# Sending...
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 1400 ns  Iteration: 0  Instance: /ode_solver/io_recv
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110110000000110011110000000001
+# CPU to IO #2 = 00111111000000010000001000000001
+# CPU to IO #3 = 00000111000000000000000000000000
+# Row Buses count = 4
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00111100000000100011100100000001
+# CPU to IO #2 = 00000001000000010000011000000000
+# Row Buses count = 3
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110111000000100011110100000001
+# CPU to IO #2 = 00001001000000000000000000000000
+# Row Buses count = 3
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110110000000010000000100000001
+# CPU to IO #2 = 00111101000000100000100000000000
+# Row Buses count = 3
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00111100000000100011100100000001
+# CPU to IO #2 = 00111110000000010000001000000001
+# CPU to IO #3 = 00000110000000000000000000000000
+# Row Buses count = 4
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00111000000000010011111000000001
+# CPU to IO #2 = 00001000000000000000000000000000
+# Row Buses count = 3
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110111000000100000000100000001
+# CPU to IO #2 = 00000010000000100011100000000001
+# CPU to IO #3 = 00000100000000100000001000000000
+# Row Buses count = 4
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110111000000010000001000000001
+# CPU to IO #2 = 00000010000000100011011100000010
+# CPU to IO #3 = 00000010000000100000001000000010
+# Row Buses count = 4
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110111000000100000000100000001
+# CPU to IO #2 = 00000010000000100011011000000001
+# CPU to IO #3 = 00000001000000010000100000000000
+# Row Buses count = 4
+# Sending...
+# Compile of IO_Output.vhd was successful.
+# Compile of IO_Receive.vhd was successful.
+# Compile of ODE_Solver.vhd was successful.
+# Compile of RAM2.vhd was successful with warnings.
+# 4 compiles, 0 failed with no errors.
+do hi.tcl
+# vsim 
+# Start time: 02:30:15 on Apr 23,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.ode_solver(ode_solver_arch)
+# Loading work.io_receive(arch)
+# Loading work.io_output(arch)
+# Loading work.ram2(ram_arch)
+# ** Warning: Design size of 10471 statements or 5 leaf instances exceeds ModelSim PE Student Edition recommended capacity.
+# Expect performance to be quite adversely affected.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(31) has no driver.
 # 
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(30) has no driver.
 # 
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(29) has no driver.
 # 
-# Cannot continue because of fatal error.
-# HDL call sequence:
-# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(28) has no driver.
 # 
-# End time: 02:01:59 on Apr 23,2020, Elapsed time: 0:00:13
-# Errors: 36, Warnings: 33
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(27) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(26) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(25) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(24) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(23) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(22) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(21) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(20) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(19) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(18) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(17) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(16) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(15) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(14) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(13) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(12) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(11) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(10) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(9) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(8) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(7) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(6) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(5) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(4) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(3) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(2) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(1) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(0) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# 0
+# 100
+# 100
+# 200
+# ./input.json
+# ./output.txt
+# file9871078
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00101111000000010000001000000010
+# CPU to IO #2 = 00000100000000010000010100000010
+# CPU to IO #3 = 00111100000000100100000000000001
+# CPU to IO #4 = 00000001000000000000000000000000
+# Row Buses count = 5
+# Sending...
+# ** Error: Unknown option: binary
+# ** Error: (vish-4003) Invalid option '-binary'.
+# Attempt to get usage failed: No help for force available.
+# Error in macro ./hi.tcl line 79
+# Unknown option: binary
+# ** Error: (vish-4003) Invalid option '-binary'.
+# Attempt to get usage failed: No help for force available.
+#     while executing
+# "force -freeze -binary sim:/ODE_Solver/CPU_Bus [lindex $row $idx] 0"
+#     ("while" body line 28)
+#     invoked from within
+# "while { [gets $fp data] >= 0 } {
+#     set bin [string range $data 1 31]
+#     set firstPacketBitType [string index $data 0]
+#     set cpuToIoBus "$firstPac..."
+force -freeze sim:/ode_solver/io_recv/CPU_Bus 35 0
+force -freeze sim:/ode_solver/io_recv/CPU_Bus 2'b1 0
+# Compile of IO_Output.vhd was successful.
+# Compile of IO_Receive.vhd was successful.
+# Compile of ODE_Solver.vhd was successful.
+# Compile of RAM2.vhd was successful with warnings.
+# 4 compiles, 0 failed with no errors.
+do hi.tcl
+# vsim 
+# Start time: 02:34:37 on Apr 23,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.ode_solver(ode_solver_arch)
+# Loading work.io_receive(arch)
+# Loading work.io_output(arch)
+# Loading work.ram2(ram_arch)
+# ** Warning: Design size of 10471 statements or 5 leaf instances exceeds ModelSim PE Student Edition recommended capacity.
+# Expect performance to be quite adversely affected.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(31) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(30) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(29) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(28) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(27) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(26) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(25) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(24) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(23) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(22) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(21) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(20) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(19) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(18) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(17) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(16) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(15) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(14) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(13) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(12) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(11) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(10) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(9) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(8) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(7) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(6) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(5) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(4) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(3) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(2) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(1) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(0) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# 0
+# 100
+# 100
+# 200
+# ./input.json
+# ./output.txt
+# fileec074c8
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00101111000000010000001000000010
+# CPU to IO #2 = 00000100000000010000010100000010
+# CPU to IO #3 = 00111100000000100100000000000001
+# CPU to IO #4 = 00000001000000000000000000000000
+# Row Buses count = 5
+# Sending...
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 400 ns  Iteration: 0  Instance: /ode_solver/io_recv
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 400 ns  Iteration: 0  Instance: /ode_solver/io_recv
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00111000000000010000000100000001
+# CPU to IO #2 = 00000010000000100011100000000001
+# CPU to IO #3 = 00111111000000100000000100000010
+# CPU to IO #4 = 00000010000000100000000000000000
+# Row Buses count = 5
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110110000000010011111100000001
+# CPU to IO #2 = 00000001000000010011110100000010
+# CPU to IO #3 = 00001000000000000000000000000000
+# Row Buses count = 4
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110110000000110011110000000001
+# CPU to IO #2 = 00111111000000010000001000000001
+# CPU to IO #3 = 00000111000000000000000000000000
+# Row Buses count = 4
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00111100000000100011100100000001
+# CPU to IO #2 = 00000001000000010000011000000000
+# Row Buses count = 3
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110111000000100011110100000001
+# CPU to IO #2 = 00001001000000000000000000000000
+# Row Buses count = 3
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110110000000010000000100000001
+# CPU to IO #2 = 00111101000000100000100000000000
+# Row Buses count = 3
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00111100000000100011100100000001
+# CPU to IO #2 = 00111110000000010000001000000001
+# CPU to IO #3 = 00000110000000000000000000000000
+# Row Buses count = 4
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00111000000000010011111000000001
+# CPU to IO #2 = 00001000000000000000000000000000
+# Row Buses count = 3
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110111000000100000000100000001
+# CPU to IO #2 = 00000010000000100011100000000001
+# CPU to IO #3 = 00000100000000100000001000000000
+# Row Buses count = 4
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110111000000010000001000000001
+# CPU to IO #2 = 00000010000000100011011100000010
+# CPU to IO #3 = 00000010000000100000001000000010
+# Row Buses count = 4
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110111000000100000000100000001
+# CPU to IO #2 = 00000010000000100011011000000001
+# CPU to IO #3 = 00000001000000010000100000000000
+# Row Buses count = 4
+# Sending...
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+clear
+# invalid command name "clear"
+do hi.tcl
+# vsim 
+# Start time: 03:02:50 on Apr 23,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.ode_solver(ode_solver_arch)
+# Loading work.io_receive(arch)
+# Loading work.io_output(arch)
+# Loading work.ram2(ram_arch)
+# ** Warning: Design size of 10471 statements or 5 leaf instances exceeds ModelSim PE Student Edition recommended capacity.
+# Expect performance to be quite adversely affected.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(31) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(30) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(29) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(28) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(27) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(26) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(25) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(24) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(23) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(22) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(21) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(20) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(19) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(18) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(17) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(16) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(15) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(14) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(13) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(12) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(11) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(10) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(9) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(8) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(7) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(6) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(5) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(4) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(3) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(2) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(1) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(0) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# 0
+# 100
+# 100
+# 200
+# ./input.json
+# ./output.txt
+# filef3279d0
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00101111000000010000001000000010
+# CPU to IO #2 = 00000100000000010000010100000010
+# CPU to IO #3 = 00111100000000100100000000000001
+# CPU to IO #4 = 00000001000000000000000000000000
+# Row Buses count = 5
+# Sending...
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 400 ns  Iteration: 0  Instance: /ode_solver/io_recv
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 400 ns  Iteration: 0  Instance: /ode_solver/io_recv
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00111000000000010000000100000001
+# CPU to IO #2 = 00000010000000100011100000000001
+# CPU to IO #3 = 00111111000000100000000100000010
+# CPU to IO #4 = 00000010000000100000000000000000
+# Row Buses count = 5
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110110000000010011111100000001
+# CPU to IO #2 = 00000001000000010011110100000010
+# CPU to IO #3 = 00001000000000000000000000000000
+# Row Buses count = 4
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110110000000110011110000000001
+# CPU to IO #2 = 00111111000000010000001000000001
+# CPU to IO #3 = 00000111000000000000000000000000
+# Row Buses count = 4
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00111100000000100011100100000001
+# CPU to IO #2 = 00000001000000010000011000000000
+# Row Buses count = 3
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110111000000100011110100000001
+# CPU to IO #2 = 00001001000000000000000000000000
+# Row Buses count = 3
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110110000000010000000100000001
+# CPU to IO #2 = 00111101000000100000100000000000
+# Row Buses count = 3
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00111100000000100011100100000001
+# CPU to IO #2 = 00111110000000010000001000000001
+# CPU to IO #3 = 00000110000000000000000000000000
+# Row Buses count = 4
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00111000000000010011111000000001
+# CPU to IO #2 = 00001000000000000000000000000000
+# Row Buses count = 3
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110111000000100000000100000001
+# CPU to IO #2 = 00000010000000100011100000000001
+# CPU to IO #3 = 00000100000000100000001000000000
+# Row Buses count = 4
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110111000000010000001000000001
+# CPU to IO #2 = 00000010000000100011011100000010
+# CPU to IO #3 = 00000010000000100000001000000010
+# Row Buses count = 4
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110111000000100000000100000001
+# CPU to IO #2 = 00000010000000100011011000000001
+# CPU to IO #3 = 00000001000000010000100000000000
+# Row Buses count = 4
+# Sending...
+do hi.tcl
+# vsim 
+# Start time: 03:03:26 on Apr 23,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.ode_solver(ode_solver_arch)
+# Loading work.io_receive(arch)
+# Loading work.io_output(arch)
+# Loading work.ram2(ram_arch)
+# ** Warning: Design size of 10471 statements or 5 leaf instances exceeds ModelSim PE Student Edition recommended capacity.
+# Expect performance to be quite adversely affected.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(31) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(30) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(29) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(28) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(27) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(26) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(25) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(24) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(23) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(22) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(21) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(20) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(19) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(18) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(17) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(16) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(15) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(14) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(13) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(12) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(11) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(10) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(9) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(8) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(7) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(6) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(5) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(4) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(3) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(2) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(1) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(0) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# 0
+# 100
+# 100
+# 200
+# ./input.json
+# ./output.txt
+# file95e8de8
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00101111000000010000001000000010
+# CPU to IO #2 = 00000100000000010000010100000010
+# CPU to IO #3 = 00111100000000100100000000000001
+# CPU to IO #4 = 00000001000000000000000000000000
+# Row Buses count = 5
+# Sending...
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 400 ns  Iteration: 0  Instance: /ode_solver/io_recv
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 400 ns  Iteration: 0  Instance: /ode_solver/io_recv
+# 400
+run
+run
+run
+run
+run
+run
+run
+run
+do hi.tcl
+# vsim 
+# Start time: 03:05:39 on Apr 23,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.ode_solver(ode_solver_arch)
+# Loading work.io_receive(arch)
+# Loading work.io_output(arch)
+# Loading work.ram2(ram_arch)
+# ** Warning: Design size of 10471 statements or 5 leaf instances exceeds ModelSim PE Student Edition recommended capacity.
+# Expect performance to be quite adversely affected.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(31) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(30) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(29) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(28) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(27) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(26) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(25) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(24) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(23) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(22) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(21) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(20) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(19) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(18) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(17) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(16) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(15) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(14) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(13) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(12) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(11) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(10) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(9) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(8) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(7) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(6) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(5) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(4) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(3) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(2) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(1) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(0) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# 0
+# 100
+# 100
+# 200
+# ./input.json
+# ./output.txt
+# filef15cc40
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00101111000000010000001000000010
+# CPU to IO #2 = 00000100000000010000010100000010
+# CPU to IO #3 = 00111100000000100100000000000001
+# CPU to IO #4 = 00000001000000000000000000000000
+# Row Buses count = 5
+# Sending...
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 400 ns  Iteration: 0  Instance: /ode_solver/io_recv
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 400 ns  Iteration: 0  Instance: /ode_solver/io_recv
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00111000000000010000000100000001
+# CPU to IO #2 = 00000010000000100011100000000001
+# CPU to IO #3 = 00111111000000100000000100000010
+# CPU to IO #4 = 00000010000000100000000000000000
+# Row Buses count = 5
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110110000000010011111100000001
+# CPU to IO #2 = 00000001000000010011110100000010
+# CPU to IO #3 = 00001000000000000000000000000000
+# Row Buses count = 4
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110110000000110011110000000001
+# CPU to IO #2 = 00111111000000010000001000000001
+# CPU to IO #3 = 00000111000000000000000000000000
+# Row Buses count = 4
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00111100000000100011100100000001
+# CPU to IO #2 = 00000001000000010000011000000000
+# Row Buses count = 3
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110111000000100011110100000001
+# CPU to IO #2 = 00001001000000000000000000000000
+# Row Buses count = 3
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110110000000010000000100000001
+# CPU to IO #2 = 00111101000000100000100000000000
+# Row Buses count = 3
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00111100000000100011100100000001
+# CPU to IO #2 = 00111110000000010000001000000001
+# CPU to IO #3 = 00000110000000000000000000000000
+# Row Buses count = 4
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00111000000000010011111000000001
+# CPU to IO #2 = 00001000000000000000000000000000
+# Row Buses count = 3
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110111000000100000000100000001
+# CPU to IO #2 = 00000010000000100011100000000001
+# CPU to IO #3 = 00000100000000100000001000000000
+# Row Buses count = 4
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110111000000010000001000000001
+# CPU to IO #2 = 00000010000000100011011100000010
+# CPU to IO #3 = 00000010000000100000001000000010
+# Row Buses count = 4
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110111000000100000000100000001
+# CPU to IO #2 = 00000010000000100011011000000001
+# CPU to IO #3 = 00000001000000010000100000000000
+# Row Buses count = 4
+# Sending...
+do hi.tcl
+# vsim 
+# Start time: 03:16:36 on Apr 23,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.ode_solver(ode_solver_arch)
+# Loading work.io_receive(arch)
+# Loading work.io_output(arch)
+# Loading work.ram2(ram_arch)
+# ** Warning: Design size of 10471 statements or 5 leaf instances exceeds ModelSim PE Student Edition recommended capacity.
+# Expect performance to be quite adversely affected.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(31) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(30) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(29) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(28) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(27) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(26) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(25) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(24) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(23) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(22) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(21) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(20) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(19) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(18) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(17) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(16) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(15) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(14) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(13) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(12) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(11) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(10) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(9) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(8) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(7) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(6) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(5) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(4) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(3) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(2) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(1) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(0) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# 0
+# 100
+# 100
+# 200
+# ./input.json
+# ./output.txt
+# filef329168
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00101111000000010000001000000010
+# CPU to IO #2 = 00000100000000010000010100000010
+# CPU to IO #3 = 00111100000000100100000000000001
+# CPU to IO #4 = 00000001000000000000000000000000
+# Row Buses count = 5
+# Sending...
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 400 ns  Iteration: 0  Instance: /ode_solver/io_recv
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 400 ns  Iteration: 0  Instance: /ode_solver/io_recv
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00111000000000010000000100000001
+# CPU to IO #2 = 00000010000000100011100000000001
+# CPU to IO #3 = 00111111000000100000000100000010
+# CPU to IO #4 = 00000010000000100000000000000000
+# Row Buses count = 5
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110110000000010011111100000001
+# CPU to IO #2 = 00000001000000010011110100000010
+# CPU to IO #3 = 00001000000000000000000000000000
+# Row Buses count = 4
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110110000000110011110000000001
+# CPU to IO #2 = 00111111000000010000001000000001
+# CPU to IO #3 = 00000111000000000000000000000000
+# Row Buses count = 4
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00111100000000100011100100000001
+# CPU to IO #2 = 00000001000000010000011000000000
+# Row Buses count = 3
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110111000000100011110100000001
+# CPU to IO #2 = 00001001000000000000000000000000
+# Row Buses count = 3
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110110000000010000000100000001
+# CPU to IO #2 = 00111101000000100000100000000000
+# Row Buses count = 3
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00111100000000100011100100000001
+# CPU to IO #2 = 00111110000000010000001000000001
+# CPU to IO #3 = 00000110000000000000000000000000
+# Row Buses count = 4
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00111000000000010011111000000001
+# CPU to IO #2 = 00001000000000000000000000000000
+# Row Buses count = 3
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110111000000100000000100000001
+# CPU to IO #2 = 00000010000000100011100000000001
+# CPU to IO #3 = 00000100000000100000001000000000
+# Row Buses count = 4
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110111000000010000001000000001
+# CPU to IO #2 = 00000010000000100011011100000010
+# CPU to IO #3 = 00000010000000100000001000000010
+# Row Buses count = 4
+# Sending...
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00110111000000100000000100000001
+# CPU to IO #2 = 00000010000000100011011000000001
+# CPU to IO #3 = 00000001000000010000100000000000
+# Row Buses count = 4
+# Sending...

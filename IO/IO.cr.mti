@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-E:/CMP/projects/3B/ODE-Solver/IO/IO_Output.vhd {1 {vcom -work work -2002 -explicit -stats=none E:/CMP/projects/3B/ODE-Solver/IO/IO_Output.vhd
-=======
-{E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:\Muhanad\CUFE\Third year\2nd Semester\VLSI\Projects\Project\ODE-Solver\IO\IO.vhd}
->>>>>>> Stashed changes
+{E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Output.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Output.vhd}
 Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -10,11 +6,10 @@ Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 
 -- Loading package NUMERIC_STD
 -- Loading package std_logic_arith
 -- Loading package STD_LOGIC_UNSIGNED
--- Compiling entity IO
--- Compiling architecture arch of IO
+-- Compiling entity IO_Output
+-- Compiling architecture arch of IO_Output
 
-<<<<<<< Updated upstream
-} {} {}} E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd {2 {vcom -work work -2002 -explicit -stats=none E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd
+} {} {}} {E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/RAM2.vhd} {2 {vcom -work work -2002 -explicit -stats=none {E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/RAM2.vhd}
 Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -22,13 +17,10 @@ Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 
 -- Loading package NUMERIC_STD
 -- Compiling entity RAM2
 -- Compiling architecture RAM_arch of RAM2
-** Warning: E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd(26): (vcom-1236) Shared variables must be of a protected type.
+** Warning: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/RAM2.vhd(26): (vcom-1236) Shared variables must be of a protected type.
 
 
-} {} {}} E:/CMP/projects/3B/ODE-Solver/IO/ODE_Solver.vhd {1 {vcom -work work -2002 -explicit -stats=none E:/CMP/projects/3B/ODE-Solver/IO/ODE_Solver.vhd
-=======
-} {} {}} {E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Output.vhd} {0 {vcom -work work -2002 -explicit -stats=none {E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Output.vhd}
->>>>>>> Stashed changes
+} {} {}} {E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/ODE_Solver.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/ODE_Solver.vhd}
 Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -36,70 +28,10 @@ Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 
 -- Loading package NUMERIC_STD
 -- Loading package std_logic_arith
 -- Loading package STD_LOGIC_UNSIGNED
-<<<<<<< Updated upstream
 -- Compiling entity ODE_Solver
 -- Compiling architecture ODE_Solver_arch of ODE_Solver
 -- Loading entity IO_Receive
 -- Loading entity IO_Output
 -- Loading entity RAM2
-
-} {} {}} E:/CMP/projects/3B/ODE-Solver/IO/IO_Receive.vhd {1 {vcom -work work -2002 -explicit -stats=none E:/CMP/projects/3B/ODE-Solver/IO/IO_Receive.vhd
-=======
--- Compiling entity IO_Output
--- Compiling architecture arch of IO_Output
-** Error: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Output.vhd(24): Index constraint cannot be applied to non-array type ieee.std_logic_1164.STD_LOGIC.
-** Error: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Output.vhd(27): (vcom-1136) Unknown identifier "Starting_T".
-
-** Error: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Output.vhd(27): Target type (error) in variable assignment is different from expression type Integer.
-** Error: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Output.vhd(27): (vcom-1136) Unknown identifier "Starting_T".
-
-** Error: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Output.vhd(29): (vcom-1136) Unknown identifier "flip_to_output_address".
-
-** Error: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Output.vhd(29): Target type (error) in variable assignment is different from expression type.
-** Error: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Output.vhd(29): (vcom-1136) Unknown identifier "flip_to_output_address".
-
-** Error: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Output.vhd(30): Target type ieee.std_logic_1164.STD_LOGIC in variable assignment is different from expression type.
-** Error: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Output.vhd(33): No feasible entries for infix operator "=".
-** Error: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Output.vhd(33): Bad expression in right operand of infix expression "and".
-** Error: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Output.vhd(33): Type error resolving infix expression "and" as type std.STANDARD.BOOLEAN.
-** Error: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Output.vhd(34): (vcom-1136) Unknown identifier "Starting_T".
-
-** Error: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Output.vhd(34): Type error resolving infix expression "<=" as type std.STANDARD.BOOLEAN.
-** Error: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Output.vhd(35): (vcom-1136) Unknown identifier "Starting_T".
-
-** Error: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Output.vhd(36): (vcom-1136) Unknown identifier "Starting_T".
-
-** Error: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Output.vhd(36): (vcom-1136) Unknown identifier "Starting_T".
-
-** Error: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Output.vhd(36): Bad right hand side (infix expression) in variable assignment.
-** Error: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Output.vhd(43): Target type ieee.std_logic_1164.STD_LOGIC in variable assignment is different from expression type.
-** Error: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Output.vhd(48): No feasible entries for infix operator "=".
-** Error: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Output.vhd(48): Type error resolving infix expression "=" as type std.STANDARD.BOOLEAN.
-** Error: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Output.vhd(50): Target type ieee.std_logic_1164.STD_LOGIC in variable assignment is different from expression type.
-** Error: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Output.vhd(52): No feasible entries for infix operator "=".
-** Error: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Output.vhd(52): Type error resolving infix expression "=" as type std.STANDARD.BOOLEAN.
-** Error: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Output.vhd(54): Target type ieee.std_logic_1164.STD_LOGIC in variable assignment is different from expression type.
-** Error: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Output.vhd(56): No feasible entries for infix operator "=".
-** Error: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Output.vhd(56): Type error resolving infix expression "=" as type std.STANDARD.BOOLEAN.
-** Error: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Output.vhd(58): Target type ieee.std_logic_1164.STD_LOGIC in variable assignment is different from expression type.
-** Error: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Output.vhd(65): (vcom-1136) Unknown identifier "Starting_T".
-
-** Error: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Output.vhd(65): Target type (error) in variable assignment is different from expression type Integer.
-** Error: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Output.vhd(65): (vcom-1136) Unknown identifier "Starting_T".
-
-** Error: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Output.vhd(67): Target type ieee.std_logic_1164.STD_LOGIC in variable assignment is different from expression type.
-** Error: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Output.vhd(72): VHDL Compiler exiting
-
-} {11.0 13.0 14.0 16.0 17.0 18.0 19.0 21.0 22.0 27.0 28.0 30.0 31.0 32.0 33.0 34.0 35.0 47.0 48.0 50.0 51.0 53.0} {}} {E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Receive.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Receive.vhd}
->>>>>>> Stashed changes
-Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Compiling entity IO_Receive
--- Compiling architecture arch of IO_Receive
 
 } {} {}}

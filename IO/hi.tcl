@@ -3,7 +3,7 @@ delete wave *
 # add wave -unsigned *
 
 # add wave -unsigned /ode_solver/mem1/RAM_data
-add wave -unsigned /ode_solver/io_recv/*
+add wave /ode_solver/io_recv/*
 
 set time 0
 set cycleTime 100
@@ -62,7 +62,7 @@ while { [gets $fp data] >= 0 } {
     set idx 0
     if {$idx < $rowLength} {
         force -deposit /ode_solver/Done_Row 1
-        force -freeze sim:/ODE_Solver/CPU_Bus [lindex $row $idx] 0
+        force -freeze sim:/ODE_Solver/CPU_Bus 2'b[lindex $row $idx] 0
         run $cycleTime; set time [expr {$time + $cycleTime}];
         force -deposit /ode_solver/Done_Row 0
         incr idx
@@ -71,7 +71,7 @@ while { [gets $fp data] >= 0 } {
     while { $idx < $rowLength } {
         set Done_Reading_Bus [examine -binary sim:/ODE_Solver/Done_Reading_Bus]
         if {$Done_Reading_Bus == 1} {
-            force -freeze sim:/ODE_Solver/CPU_Bus [lindex $row $idx] 0
+            force -freeze sim:/ODE_Solver/CPU_Bus 2'b[lindex $row $idx] 0
             incr idx
         } 
         run $cycleTime; set time [expr {$time + $cycleTime}];
