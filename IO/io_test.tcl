@@ -4,8 +4,9 @@ delete wave *
 
 # add wave -unsigned /ode_solver/mem1/RAM_data
 add wave /ode_solver/io_recv/*
+add wave -position end  /ode_solver/io_recv/line__26/*
 
-set numOfBuses 23
+set numOfBuses 39
 set numOfBusesSent 0
 set exitCode 0
 
@@ -67,15 +68,18 @@ while { [gets $fp data] >= 0 } {
     if { $idx < $rowLength } {
         if {$numOfBusesSent >= $numOfBuses} {
             set exitCode 1 
+            break
+        } else {
+            incr numOfBusesSent
+            force -deposit /ode_solver/Done_Row 1
+            force -freeze sim:/ODE_Solver/CPU_Bus 2'b[lindex $row $idx] 0
+            run $cycleTime; set time [expr {$time + $cycleTime}];
+            force -deposit /ode_solver/Done_Row 0
+            incr idx
         }
-        incr numOfBusesSent
-        force -deposit /ode_solver/Done_Row 1
-        force -freeze sim:/ODE_Solver/CPU_Bus 2'b[lindex $row $idx] 0
-        run $cycleTime; set time [expr {$time + $cycleTime}];
-        force -deposit /ode_solver/Done_Row 0
-        incr idx
+        
     }
-    if { exitCode == 1} {
+    if { $exitCode == 1} {
         break
     }
     # send packets as on bus
@@ -84,23 +88,31 @@ while { [gets $fp data] >= 0 } {
         if {$Done_Reading_Bus == 1} {
             if {$numOfBusesSent >= $numOfBuses} {
                 set exitCode 1 
+                break
+            } else {
+                incr numOfBusesSent
+                force -freeze sim:/ODE_Solver/CPU_Bus 2'b[lindex $row $idx] 0
+                incr idx
             }
-            incr numOfBusesSent
-            force -freeze sim:/ODE_Solver/CPU_Bus 2'b[lindex $row $idx] 0
-            incr idx
         }
         run $cycleTime; set time [expr {$time + $cycleTime}];
+    }
+     if { $exitCode == 1} {
+        break
     }
     set Done_Reading_Bus [examine -binary sim:/ODE_Solver/Done_Reading_Bus]
     while { $Done_Reading_Bus == 0} {
         if {$numOfBusesSent >= $numOfBuses} {
             set exitCode 1 
+            break
+        } else {
+            incr numOfBusesSent
+            run $cycleTime; set time [expr {$time + $cycleTime}];
+            set Done_Reading_Bus [examine -binary sim:/ODE_Solver/Done_Reading_Bus]
         }
-        incr numOfBusesSent
-        run $cycleTime; set time [expr {$time + $cycleTime}];
-        set Done_Reading_Bus [examine -binary sim:/ODE_Solver/Done_Reading_Bus]
+       
     }
-    if { exitCode == 1} {
+    if { $exitCode == 1} {
         break
     }
 }

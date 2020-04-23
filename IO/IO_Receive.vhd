@@ -65,26 +65,21 @@ architecture arch of IO_Receive is
                         counter := 0;
                     elsif input_data_state = "001" then
                         input_data_state := "010";
-                        report "------------------------------------------------------D5lt A--------------------------------------------------------";
                         ram_address_var := Starting_A;
                         counter := 0;
                     elsif input_data_state = "010" and counter = N then
-                        report "------------------------------------------------------D5lt B--------------------------------------------------------";
                         input_data_state := "011";
                         ram_address_var := Starting_B;
                         counter := 0;
                     elsif input_data_state = "011" and counter = N then
-                        report "------------------------------------------------------D5lt X--------------------------------------------------------";
                         input_data_state := "100";
                         ram_address_var := Starting_X0;
                         counter := 0;
-                    elsif input_data_state = "100" and counter = T then
-                        report "------------------------------------------------------D5lt T--------------------------------------------------------";
+                    elsif input_data_state = "100" then
                         input_data_state := "101";
                         ram_address_var := Starting_T;
                         counter := 0;
                     elsif input_data_state = "101" then
-                        report "------------------------------------------------------D5lt U--------------------------------------------------------";
                         input_data_state := "110";
                         ram_address_var := Starting_U;
                         counter := 0;
@@ -124,12 +119,6 @@ architecture arch of IO_Receive is
                     end if ;
 
                     
-                    if unsigned(number_of_bits) = 0 then
-                        Done_Reading_Bus <= '1';
-                        next_starting_index := CPU_Bus_Width;
-                    end if ;
-
-
                     if remaining_number_of_bits = 0 then
                         -- This loop puts number of packet bits in number_of_bits
                         number_of_bits := (Others => '0');
