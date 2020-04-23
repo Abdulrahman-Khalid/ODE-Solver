@@ -34,9 +34,9 @@ architecture arch of IO_Receive is
     variable data_bit_index : integer; -- Holding index of the bit to be changed in data variable
     variable ram_address_var : integer; -- Holding ram address to be written in
     variable input_data_state : std_logic_vector(2 downto 0) := "111"; -- "000" => the first row in ram1,"001" => for the second and third rows ram1,"010" => A, "011" => B, "100" => X, "101" => T, "110" => U
-    variable N : unsigned(5 downto 0); -- Holding N value
-    variable M : unsigned(5 downto 0); -- Holding M value
-    variable T : unsigned(48 downto 0); -- Holding T value
+    variable N : integer; -- Holding N value
+    variable M : integer; -- Holding M value
+    variable T : integer; -- Holding T value
 
     begin
         if RST = '1' then
@@ -74,9 +74,9 @@ architecture arch of IO_Receive is
                     elsif input_data_state = "101" then
                         input_data_state := "110";
                         ram_address_var := Starting_U;
-                    else
-                        input_data_state := "111";
-                        ram_address_var := First_3_Lines;
+                    -- else
+                    --     input_data_state := "111";
+                    --     ram_address_var := First_3_Lines;
                     end if ;
 
                 else
@@ -87,9 +87,9 @@ architecture arch of IO_Receive is
                     if data_bit_index = 0 or unsigned(number_of_bits) = 0  or Done_Row = '1' then 
                         -- To store N in case of getting the first row of ram 1
                         if input_data_state = "000" then
-                            N := unsigned(data(5 downto 0));
-                            M := unsigned(data(11 downto 6));
-                            T := unsigned(data(63 downto 15));
+                            N := to_integer(unsigned(data(5 downto 0)));
+                            M := to_integer(unsigned(data(11 downto 6)));
+                            T := to_integer(unsigned(data(63 downto 15)));
                             input_data_state := "001";
                         end if ;
                         Memory_Data_Bus <= data;
@@ -144,9 +144,9 @@ architecture arch of IO_Receive is
                             if data_bit_index = 0 then
                                 -- To store N in case of getting the first row of ram 1
                                 if input_data_state = "000" then
-                                    N := unsigned(data(5 downto 0));
-                                    M := unsigned(data(11 downto 6));
-                                    T := unsigned(data(63 downto 15));
+                                    N := to_integer(unsigned(data(5 downto 0)));
+                                    M := to_integer(unsigned(data(11 downto 6)));
+                                    T := to_integer(unsigned(data(63 downto 15)));
                                     input_data_state := "001";
                                 end if ;
                                 Memory_Data_Bus <= data;
