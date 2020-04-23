@@ -36,7 +36,6 @@ architecture arch of IO_Receive is
     variable input_data_state : std_logic_vector(2 downto 0) := "111"; -- "000" => the first row in ram1,"001" => for the second and third rows ram1,"010" => A, "011" => B, "100" => X, "101" => T, "110" => U
     variable N : integer; -- Holding N value
     variable M : integer; -- Holding M value
-    variable T : integer; -- Holding T value
     variable counter : integer; -- Holding counter value
     variable end_of_raw : std_logic;
     begin
@@ -100,7 +99,6 @@ architecture arch of IO_Receive is
                         if input_data_state = "000" then
                             N := to_integer(unsigned(data(5 downto 0)));
                             M := to_integer(unsigned(data(11 downto 6)));
-                            T := to_integer(unsigned(data(63 downto 15)));
                             input_data_state := "001";
                         end if ;
                         Memory_Data_Bus <= data;
@@ -157,7 +155,6 @@ architecture arch of IO_Receive is
                                 if input_data_state = "000" then
                                     N := to_integer(unsigned(data(5 downto 0)));
                                     M := to_integer(unsigned(data(11 downto 6)));
-                                    T := to_integer(unsigned(data(63 downto 15)));
                                     input_data_state := "001";
                                 end if ;
                                 Memory_Data_Bus <= data;
