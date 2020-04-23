@@ -6,11 +6,13 @@
 #include <bitset>
 #include <vector>
 #include <cassert>
+#include <sstream>    
 #define assertm(exp, msg) assert(((void)msg, exp))
 using namespace std;
 const unsigned int scaleFactor = 7;
 const unsigned int busSize = 32;
 
+const int ramWidth = 64;
 using json = nlohmann::json;
 unsigned int maxConsequtive(string str);
 void bin(unsigned int n, string &res);
@@ -19,7 +21,7 @@ string towsComp(string binary);
 string decimalToBinary(double num, int precisionMode);
 int countBits(int num);
 string RLE(string str);
-
+string binaryToHexa(bitset<ramWidth> binary);
 int main(int argc, char *argv[])
 {
     if (argc < 3)
@@ -48,62 +50,111 @@ int main(int argc, char *argv[])
     vector<double> U0 = j["U0"].get<vector<double>>();
     vector<vector<double>> Us = j["Us"].get<vector<vector<double>>>();
     vector<string> rows;
-    string row = "";
+    string row = "", debug = "";
     // a) row
     row = bitset<49>(Count).to_string() + bitset<2>(Fixedpoint).to_string() + bitset<1>(Mode).to_string() + bitset<6>(M).to_string() + bitset<6>(N).to_string() + decimalToBinary(H, Fixedpoint) + decimalToBinary(Err, Fixedpoint);
     rows.push_back(row);
+    ofstream debugFile;
+    debugFile.open("debug.txt");
+    debug = bitset<49>(Count).to_string() + bitset<2>(Fixedpoint).to_string() + bitset<1>(Mode).to_string() + bitset<6>(M).to_string() + bitset<6>(N).to_string();
+    debugFile << "First row\n";
+    bitset<ramWidth> binarySet(debug);
+    debugFile << "Binary: " << debug << ", Hex: " << binaryToHexa(binarySet) << '\n';
+    debug = decimalToBinary(H, Fixedpoint);
+    {
+        bitset<ramWidth> binarySet(debug);
+        debugFile << "Binary: " << debug << ", Hex: " << binaryToHexa(binarySet) << '\n';
+    }
+    debug = decimalToBinary(Err, Fixedpoint);
+    {
+        bitset<ramWidth> binarySet(debug);
+        debugFile << "Binary: " << debug << ", Hex: " << binaryToHexa(binarySet) << '\n';
+    }
+    debugFile << "_____________________________________________________________________\n";
     // cout << "row: " << row.length() << '\n';
     // b) row
+    debugFile << "Start Matrix A\n";
     for (const auto &a : A)
     {
         row = "";
-        for (const auto &val : a)
-            row += decimalToBinary(val, Fixedpoint);
+        for (const auto &val : a) {
+            debug = decimalToBinary(val, Fixedpoint);
+            bitset<ramWidth> binarySet(debug);
+            debugFile << "Binary: " << debug << ", Hex: " << binaryToHexa(binarySet) << '\n';
+            row += debug;
+        }
         rows.push_back(row);
         // cout << "row: " << row.length() << '\n';
     }
+    debugFile << "_____________________________________________________________________\n";
     // c) row
+    debugFile << "Start Matrix B\n";
     for (const auto &b : B)
     {
         row = "";
         for (const auto &val : b)
         {
-            // cout << val << " ";
-            string tmp = decimalToBinary(val, Fixedpoint);
-            // cout << tmp << '\n';
-            row += tmp;
+            debug = decimalToBinary(val, Fixedpoint);
+            bitset<ramWidth> binarySet(debug);
+            debugFile << "Binary: " << debug << ", Hex: " << binaryToHexa(binarySet) << '\n';
+            row += debug;
         }
         // cout << row << "\n";
         rows.push_back(row);
         // cout << "row: " << row.length() << '\n';
     }
+    debugFile << "_____________________________________________________________________\n";
     // d) row
     row = "";
-    for (const auto &val : X0)
-        row += decimalToBinary(val, Fixedpoint);
+    debugFile << "Start vector X0\n";
+    for (const auto &val : X0) {
+        debug = decimalToBinary(val, Fixedpoint);
+        bitset<ramWidth> binarySet(debug);
+        debugFile << "Binary: " << debug << ", Hex: " << binaryToHexa(binarySet) << '\n';
+        row += debug;
+    }
     rows.push_back(row);
+    debugFile << "_____________________________________________________________________\n";
     // cout << "row: " << row.length() << '\n';
     // e) row
+    debugFile << "Start vector T\n";
     row = "";
-    for (const auto &val : T)
-        row += decimalToBinary(val, Fixedpoint);
+    for (const auto &val : T) {
+        debug = decimalToBinary(val, Fixedpoint);
+        bitset<ramWidth> binarySet(debug);
+        debugFile << "Binary: " << debug << ", Hex: " << binaryToHexa(binarySet) << '\n';
+        row += debug;
+    }
     rows.push_back(row);
+    debugFile << "_____________________________________________________________________\n";
     // cout << "row: " << row.length() << '\n';
     // f) row
     row = "";
-    for (const auto &val : U0)
-        row += decimalToBinary(val, Fixedpoint);
+    debugFile << "Start vector U0\n";
+    for (const auto &val : U0) {
+        debug = decimalToBinary(val, Fixedpoint);
+        bitset<ramWidth> binarySet(debug);
+        debugFile << "Binary: " << debug << ", Hex: " << binaryToHexa(binarySet) << '\n';
+        row += debug;
+    }
     rows.push_back(row);
+    debugFile << "_____________________________________________________________________\n";
     // cout << "row: " << row.length() << '\n';
     // g) row
+    debugFile << "Start Matrix Us\n";
     for (const auto &u : Us)
     {
         row = "";
-        for (const auto &val : u)
-            row += decimalToBinary(val, Fixedpoint);
+        for (const auto &val : u) {
+            debug = decimalToBinary(val, Fixedpoint);
+            bitset<ramWidth> binarySet(debug);
+            debugFile << "Binary: " << debug << ", Hex: " << binaryToHexa(binarySet) << '\n';
+            row += debug;
+        }
         rows.push_back(row);
         // cout << "row: " << row.length() << '\n';
     }
+    debugFile << "_____________________________________________________________________\n";
     // loop on data row by row and compute bit-lvl RLE
     ofstream outputfile;
     outputfile.open((string)argv[2]);
@@ -114,6 +165,7 @@ int main(int argc, char *argv[])
         // cout << rle.length() << '\n';
     }
     outputfile.close();
+    debugFile.close();
     return 0;
 }
 
@@ -184,7 +236,6 @@ unsigned int maxConsequtive(string str)
 
 string decimalToBinary(double num, int precisionMode)
 {
-    const int ramWidth = 64;
     string binary = "";
     switch (precisionMode)
     {
@@ -250,4 +301,14 @@ string towsComp(string binary)
         else
             binary[j] = '1';
     return binary;
+}
+
+string binaryToHexa(bitset<ramWidth> binary) {
+    stringstream res;
+    res << hex << uppercase << binary.to_ulong();
+    int length = (ramWidth/4);
+    string ans = res.str();
+    int diff = length - ans.length();
+    ans = string(diff,'0') + ans;
+    return ans;
 }
