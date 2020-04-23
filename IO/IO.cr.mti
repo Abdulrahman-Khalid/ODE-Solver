@@ -1,1 +1,41 @@
 
+<<<<<<< Updated upstream
+=======
+} {} {}} {E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Receive.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/IO_Receive.vhd}
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity IO_Receive
+-- Compiling architecture arch of IO_Receive
+
+} {} {}} {E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/RAM2.vhd} {2 {vcom -work work -2002 -explicit -stats=none {E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/RAM2.vhd}
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity RAM2
+-- Compiling architecture RAM_arch of RAM2
+** Warning: E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/RAM2.vhd(26): (vcom-1236) Shared variables must be of a protected type.
+
+
+} {} {}} {E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/ODE_Solver.vhd} {1 {vcom -work work -2002 -explicit -stats=none {E:/Muhanad/CUFE/Third year/2nd Semester/VLSI/Projects/Project/ODE-Solver/IO/ODE_Solver.vhd}
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity ODE_Solver
+-- Compiling architecture ODE_Solver_arch of ODE_Solver
+-- Loading entity IO_Receive
+-- Loading entity IO_Output
+-- Loading entity RAM2
+
+} {} {}}
+>>>>>>> Stashed changes
