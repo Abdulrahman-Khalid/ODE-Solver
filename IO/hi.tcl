@@ -76,6 +76,11 @@ while { [gets $fp data] >= 0 } {
         }
         run $cycleTime; set time [expr {$time + $cycleTime}];
     }
+    set Done_Reading_Bus [examine -binary sim:/ODE_Solver/Done_Reading_Bus]
+    while { $Done_Reading_Bus != '0'} {
+        run $cycleTime; set time [expr {$time + $cycleTime}];
+        set Done_Reading_Bus [examine -binary sim:/ODE_Solver/Done_Reading_Bus]
+    }
 }
 force -freeze sim:/ODE_Solver/enable_output_IO 0 0; 
 
