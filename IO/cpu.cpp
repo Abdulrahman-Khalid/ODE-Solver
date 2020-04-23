@@ -261,7 +261,7 @@ string decimalToBinary(double num, int precisionMode)
     if (num < 0)
         binary = towsComp(binary);                                 // get twos complement if number less than zero
     if (binary.length() < ramWidth)                                // if binary length is less than 64 bit -> add padding of zeros on the left
-        binary = string(ramWidth - binary.length(), '0') + binary; // TODDO could be change to sign extend
+        binary = string(ramWidth - binary.length(), binary[binary.length()-1]) + binary; // TODO could be change to sign extend
     return binary;
 }
 
