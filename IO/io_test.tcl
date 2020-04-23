@@ -7,6 +7,7 @@ add wave /ode_solver/io_recv/*
 
 set numOfBuses 23
 set numOfBusesSent 0
+set exitCode 0
 
 set time 0
 set cycleTime 100
@@ -65,7 +66,7 @@ while { [gets $fp data] >= 0 } {
     set idx 0
     if { $idx < $rowLength } {
         if {$numOfBusesSent >= $numOfBuses} {
-            exit
+            set exitCode 1 
         }
         incr numOfBusesSent
         force -deposit /ode_solver/Done_Row 1
@@ -74,12 +75,15 @@ while { [gets $fp data] >= 0 } {
         force -deposit /ode_solver/Done_Row 0
         incr idx
     }
+    if { exitCode == 1} {
+        break
+    }
     # send packets as on bus
     while { $idx < $rowLength } {
         set Done_Reading_Bus [examine -binary sim:/ODE_Solver/Done_Reading_Bus]
         if {$Done_Reading_Bus == 1} {
             if {$numOfBusesSent >= $numOfBuses} {
-                exit
+                set exitCode 1 
             }
             incr numOfBusesSent
             force -freeze sim:/ODE_Solver/CPU_Bus 2'b[lindex $row $idx] 0
@@ -90,11 +94,14 @@ while { [gets $fp data] >= 0 } {
     set Done_Reading_Bus [examine -binary sim:/ODE_Solver/Done_Reading_Bus]
     while { $Done_Reading_Bus == 0} {
         if {$numOfBusesSent >= $numOfBuses} {
-            exit
+            set exitCode 1 
         }
         incr numOfBusesSent
         run $cycleTime; set time [expr {$time + $cycleTime}];
         set Done_Reading_Bus [examine -binary sim:/ODE_Solver/Done_Reading_Bus]
+    }
+    if { exitCode == 1} {
+        break
     }
 }
 force -freeze sim:/ODE_Solver/enable_output_IO 0 0; 
