@@ -42,7 +42,7 @@ begin
                                                                  mem2_data_euler1_in, mem2_data_io_in);
 
     mem1_port_IO_enable <= '1' when enable_output_IO = '1' or enable_Receiving_IO = '1' else '0';
-    mem1_port_IO_enable <= '1' when enable_output_IO = '1' or enable_Receiving_IO = '1' else '0';
+    mem2_port_IO_enable <= '1' when enable_Receiving_IO = '1' else '0';
     mem1_write_IO <= '1' when enable_Receiving_IO = '1' and mem1_wr_en = '1' else '0';
     mem2_write_IO <= '1' when enable_Receiving_IO = '1' and mem2_wr_en = '1' else '0';
     memory_data <= mem1_data_io_out when enable_output_IO = '1' else (others => '0');

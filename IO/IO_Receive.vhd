@@ -38,7 +38,7 @@ architecture arch of IO_Receive is
     variable M : integer; -- Holding M value
     variable T : integer; -- Holding T value
     variable counter : integer; -- Holding counter value
-
+    variable end_of_raw : std_logic;
     begin
         if RST = '1' then
             input_data_state := "111";
@@ -46,6 +46,7 @@ architecture arch of IO_Receive is
             Memory_Address_Bus <= 0;
             Done_Reading_Bus <= '1';
             counter := 0;
+            end_of_raw := '0';
         end if ;
         if Enable_Receiving_IO = '1' and RST = '0' then
             if (rising_edge(clk)) then
@@ -64,21 +65,26 @@ architecture arch of IO_Receive is
                         counter := 0;
                     elsif input_data_state = "001" then
                         input_data_state := "010";
+                        report "------------------------------------------------------D5lt A--------------------------------------------------------";
                         ram_address_var := Starting_A;
                         counter := 0;
                     elsif input_data_state = "010" and counter = N then
+                        report "------------------------------------------------------D5lt B--------------------------------------------------------";
                         input_data_state := "011";
                         ram_address_var := Starting_B;
                         counter := 0;
                     elsif input_data_state = "011" and counter = N then
+                        report "------------------------------------------------------D5lt X--------------------------------------------------------";
                         input_data_state := "100";
                         ram_address_var := Starting_X0;
                         counter := 0;
                     elsif input_data_state = "100" and counter = T then
+                        report "------------------------------------------------------D5lt T--------------------------------------------------------";
                         input_data_state := "101";
                         ram_address_var := Starting_T;
                         counter := 0;
                     elsif input_data_state = "101" then
+                        report "------------------------------------------------------D5lt U--------------------------------------------------------";
                         input_data_state := "110";
                         ram_address_var := Starting_U;
                         counter := 0;
@@ -88,11 +94,13 @@ architecture arch of IO_Receive is
                     end if ;
 
                 else
+                    Memory1_WR_Enable <= '0';
+                    Memory2_WR_Enable <= '0';
                     Done_Reading_Bus <= '0';
                     -- If the 32 bit data_bit_index then out data to memory and get new data from CPU bus
                     -- OR
                     -- If it's an empty package then the row has ended
-                    if data_bit_index = 0 or unsigned(number_of_bits) = 0  or Done_Row = '1' then 
+                    if (data_bit_index = 0 or unsigned(number_of_bits) = 0) and (end_of_raw = '0') then 
                         -- To store N in case of getting the first row of ram 1
                         if input_data_state = "000" then
                             N := to_integer(unsigned(data(5 downto 0)));
@@ -104,7 +112,7 @@ architecture arch of IO_Receive is
                         data := (Others => '0');
                         Memory_Address_Bus <= ram_address_var;
                         -- Select memory 2 if it was B or U data , else select memory 1
-                        if input_data_state = "100" or input_data_state = "111" then
+                        if input_data_state = "011" or input_data_state = "110" then
                             Memory2_WR_Enable <= '1';
                             Memory1_WR_Enable <= '0';
                         else
@@ -132,6 +140,12 @@ architecture arch of IO_Receive is
                                 next_starting_index_tmp := i; -- next_starting_index_tmp = next_starting_index - unsigned(packet_meta_data(N-2 downto 0)) to be used next time
                             end if ;
                         end loop ; -- l1
+                        -- If the number_of_bits is 0 then it's empty package , then send Done_Reading_Bus and don't send data to memory
+                        if unsigned(number_of_bits) = 0 then
+                            end_of_raw := '1';
+                        else
+                            end_of_raw := '0';
+                        end if ;
                         next_starting_index := next_starting_index_tmp;
                         if next_starting_index = 0 then
                             Done_Reading_Bus <= '1';
@@ -161,7 +175,7 @@ architecture arch of IO_Receive is
                                 data := (Others => '0');
                                 Memory_Address_Bus <= ram_address_var;
                                 -- Select memory 2 if it was B or U data , else select memory 1
-                                if input_data_state = "100" or input_data_state = "111" then
+                                if input_data_state = "011" or input_data_state = "110" then
                                     Memory2_WR_Enable <= '1';
                                     Memory1_WR_Enable <= '0';
                                 else
