@@ -1,8 +1,10 @@
 vsim -gui work.ode_solver
 delete wave *
-add wave -unsigned *
-add wave -unsigned /ode_solver/mem1/RAM_data
-add wave -unsigned /ode_solver/mem2/RAM_data
+# add wave -unsigned *
+
+# add wave -unsigned /ode_solver/mem1/RAM_data
+add wave /ode_solver/io_recv/*
+
 set time 0
 set cycleTime 100
 force -deposit /ode_solver/CLK 1 0, 0 [expr {$cycleTime/2}] -r $cycleTime
@@ -58,25 +60,29 @@ while { [gets $fp data] >= 0 } {
     puts "Sending..."
     # send packet meta data
     set idx 0
-    set Done_Reading_Bus [examine -binary sim:/ODE_Solver/Done_Reading_Bus]
-    if {$idx < $rowLength && $Done_Reading_Bus == 1} {
+    if { $idx < $rowLength } {
         force -deposit /ode_solver/Done_Row 1
-        force -freeze sim:/ODE_Solver/CPU_Bus [lindex $row $idx] 0
+        force -freeze sim:/ODE_Solver/CPU_Bus 2'b[lindex $row $idx] 0
         run $cycleTime; set time [expr {$time + $cycleTime}];
         force -deposit /ode_solver/Done_Row 0
         incr idx
-    } 
+    }
     # send packets as on bus
     while { $idx < $rowLength } {
         set Done_Reading_Bus [examine -binary sim:/ODE_Solver/Done_Reading_Bus]
         if {$Done_Reading_Bus == 1} {
-            force -freeze sim:/ODE_Solver/CPU_Bus [lindex $row $idx] 0
+            force -freeze sim:/ODE_Solver/CPU_Bus 2'b[lindex $row $idx] 0
             incr idx
-        } 
+        }
         run $cycleTime; set time [expr {$time + $cycleTime}];
     }
+    set Done_Reading_Bus [examine -binary sim:/ODE_Solver/Done_Reading_Bus]
+    while { $Done_Reading_Bus == 0} {
+        run $cycleTime; set time [expr {$time + $cycleTime}];
+        set Done_Reading_Bus [examine -binary sim:/ODE_Solver/Done_Reading_Bus]
+    }
 }
-force -freeze sim:/ODE_Solver/enable_output_IO 0 0; 
+force -freeze sim:/ODE_Solver/enable_output_IO 0 0;
 
 #TODO to be removed later
 force -freeze sim:/ODE_Solver/enable_output_IO 1 0; 
