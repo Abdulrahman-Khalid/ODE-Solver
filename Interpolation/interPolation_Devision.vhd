@@ -1,29 +1,29 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
-USE IEEE.numeric_std.all;
-use IEEE.std_logic_unsigned.all;
 
 entity Interpolation_Devision is
     generic(width :integer:=16);
     port(
     Tk,Tz,Tn:IN std_logic_vector(width-1 downto 0);
-    CLK,EN:IN std_logic;
+    CLK,reset,EN:IN std_logic;
     Done: OUT  std_logic;
     DivOut:OUT std_logic_vector(width-1 downto 0)          
     ); 
 end Interpolation_Devision;
 
 architecture Interpolation_DevisionArch of Interpolation_Devision is
-    signal temp,TkComp,Tk_Tn,Tz_Tn,Division_output :std_logic_vector(width-1 downto 0):=(others=>'0');
+    signal temp,TkComp,Tk_Tn,Tz_Tn,Division_output :std_logic_vector(width-1 downto 0);
     signal ERROR,Div_OVF:std_logic; 
-    signal DoneSignal :std_logic:='0';
-    signal Div_EN :std_logic:='0';
-    signal rst2,Q1,Q2:std_logic;
+    signal DoneSignal :std_logic;
+    signal Div_EN :std_logic;
+    signal L1,rst2,Q1,Q2:std_logic;
+
     begin
-       D1:entity work.fixed_division port map(Dividend=>Tk_Tn,Divisor=>Tz_Tn,Enable=>'1',CLK=>CLK,Start=>Div_EN,Quotient=>Division_output,ERR=>ERROR,Done=>DoneSignal,OverFlow=>Div_OVF);  
-       F:entity work.flipflop(Behavioral) port map(D=>EN,Load=>'1',CLK=>CLK,Q=>Q1,rst=>Q2);
+       D1:entity work.fixed_division port map(Dividend=>Tk_Tn,Divisor=>Tz_Tn,Reset=>reset,CLK=>CLK,Start=>Div_EN,Quotient=>Division_output,ERR=>ERROR,Done=>DoneSignal,OverFlow=>Div_OVF);  
+       F:entity work.flipflop(Behavioral) port map(D=>EN,Load=>L1,CLK=>CLK,Q=>Q1,rst=>Q2);
        F2:entity work.flipflop(Behavioral) port map(D=>EN,Load=>Q1,CLK=>CLK,Q=>Q2,rst=>rst2);
        rst2<=not EN;
+       L1 <= not reset;
         Div_EN <= '1' when Q1 ='1' else '0'  ;  
         temp <= not Tn;
         add1:entity work.Carry_Look_Ahead(Behavioral) port map(A=>temp,B=>(others=>'0'),Cin=>'1',S=>TkComp);
