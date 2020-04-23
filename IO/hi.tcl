@@ -60,26 +60,21 @@ while { [gets $fp data] >= 0 } {
     puts "Sending..."
     # send packet meta data
     set idx 0
-    set Done_Reading_Bus [examine -binary sim:/ODE_Solver/Done_Reading_Bus]
-    if {$idx < $rowLength && $Done_Reading_Bus == 1} {
+    if { $idx < $rowLength } {
         force -deposit /ode_solver/Done_Row 1
         force -freeze sim:/ODE_Solver/CPU_Bus 2'b[lindex $row $idx] 0
         run $cycleTime; set time [expr {$time + $cycleTime}];
         force -deposit /ode_solver/Done_Row 0
         incr idx
-    } 
+    }
     # send packets as on bus
     while { $idx < $rowLength } {
         set Done_Reading_Bus [examine -binary sim:/ODE_Solver/Done_Reading_Bus]
         if {$Done_Reading_Bus == 1} {
-            force -deposit /ode_solver/Done_Row 1
             force -freeze sim:/ODE_Solver/CPU_Bus 2'b[lindex $row $idx] 0
-            run $cycleTime; set time [expr {$time + $cycleTime}];
-            force -deposit /ode_solver/Done_Row 0
             incr idx
-        } else {
-            run $cycleTime; set time [expr {$time + $cycleTime}];
         }
+        run $cycleTime; set time [expr {$time + $cycleTime}];
     }
 }
 force -freeze sim:/ODE_Solver/enable_output_IO 0 0; 
