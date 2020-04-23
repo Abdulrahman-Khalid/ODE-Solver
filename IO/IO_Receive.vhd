@@ -37,6 +37,7 @@ architecture arch of IO_Receive is
     variable N : integer; -- Holding N value
     variable M : integer; -- Holding M value
     variable T : integer; -- Holding T value
+    variable counter : integer; -- Holding counter value
 
     begin
         if RST = '1' then
@@ -44,6 +45,7 @@ architecture arch of IO_Receive is
             ram_address_var := First_3_Lines;
             Memory_Address_Bus <= 0;
             Done_Reading_Bus <= '1';
+            counter := 0;
         end if ;
         if Enable_Receiving_IO = '1' and RST = '0' then
             if (rising_edge(clk)) then
@@ -54,26 +56,32 @@ architecture arch of IO_Receive is
                     data_bit_index := 2*CPU_Bus_Width;
                     Done_Reading_Bus <= '1';
                     remaining_number_of_bits := 0;
-                    
+                    counter := counter + 1; 
                     -- Changing to different inputs A,B,U,T,X
                     if input_data_state = "111" then
                         input_data_state := "000";
                         ram_address_var := First_3_Lines;
+                        counter := 0;
                     elsif input_data_state = "001" then
                         input_data_state := "010";
                         ram_address_var := Starting_A;
-                    elsif input_data_state = "010" and ram_address_var = N*N+Starting_A then
+                        counter := 0;
+                    elsif input_data_state = "010" and counter = N then
                         input_data_state := "011";
                         ram_address_var := Starting_B;
-                    elsif input_data_state = "011" and ram_address_var = N*M+Starting_B then
+                        counter := 0;
+                    elsif input_data_state = "011" and counter = N then
                         input_data_state := "100";
                         ram_address_var := Starting_X0;
-                    elsif input_data_state = "100" and ram_address_var = T+Starting_X0 then
+                        counter := 0;
+                    elsif input_data_state = "100" and counter = T then
                         input_data_state := "101";
                         ram_address_var := Starting_T;
+                        counter := 0;
                     elsif input_data_state = "101" then
                         input_data_state := "110";
                         ram_address_var := Starting_U;
+                        counter := 0;
                     -- else
                     --     input_data_state := "111";
                     --     ram_address_var := First_3_Lines;
