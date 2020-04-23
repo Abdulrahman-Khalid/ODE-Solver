@@ -83,6 +83,7 @@ while { [gets $fp data] >= 0 } {
     }
 }
 force -freeze sim:/ODE_Solver/enable_output_IO 0 0;
+noforce sim:/ode_solver/CPU_Bus
 
 #TODO to be removed later
 force -freeze sim:/ODE_Solver/enable_output_IO 1 0; 
