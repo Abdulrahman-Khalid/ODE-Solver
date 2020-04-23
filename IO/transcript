@@ -639,3 +639,279 @@ do hi.tcl
 # CPU to IO #3 = 00000001000000010000100000000000
 # Row Buses count = 4
 # Sending...
+# Compile of RAM2.vhd was successful with warnings.
+# Compile of IO_Output.vhd was successful.
+# Compile of IO_Receive.vhd was successful.
+# Compile of ODE_Solver.vhd was successful.
+# 4 compiles, 0 failed with no errors.
+do hi.tcl
+# vsim 
+# Start time: 02:01:46 on Apr 23,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.ode_solver(ode_solver_arch)
+# Loading work.io_receive(arch)
+# Loading work.io_output(arch)
+# Loading work.ram2(ram_arch)
+# ** Warning: Design size of 10471 statements or 5 leaf instances exceeds ModelSim PE Student Edition recommended capacity.
+# Expect performance to be quite adversely affected.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(31) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(30) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(29) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(28) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(27) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(26) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(25) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(24) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(23) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(22) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(21) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(20) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(19) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(18) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(17) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(16) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(15) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(14) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(13) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(12) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(11) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(10) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(9) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(8) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(7) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(6) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(5) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(4) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(3) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(2) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(1) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized inout port /ode_solver/io_recv/CPU_Bus(0) has no driver.
+# 
+# This port will contribute value (U) to the signal network.
+# 0
+# 100
+# 100
+# 200
+# ./input.json
+# ./output.txt
+# filee3f9cf0
+# packet size = 8
+# Meta Data of Row CPU to IO: 00000000000000000000000000001000
+# CPU to IO #1 = 00101111000000010000001000000010
+# CPU to IO #2 = 00000100000000010000010100000010
+# CPU to IO #3 = 00111100000000100100000000000001
+# CPU to IO #4 = 00000001000000000000000000000000
+# Row Buses count = 5
+# Sending...
+# ** Fatal: (vsim-3734) Index value -2147483648 is out of range 0 to 16383.
+#    Time: 200 ns  Iteration: 2  Process: /ode_solver/mem1/line__59 File: E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd
+# Fatal error in Process line__59 at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd line 70
+# 
+# HDL call sequence:
+# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# 
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at E:/CMP/projects/3B/ODE-Solver/IO/RAM2.vhd 70 Process line__59
+# 
+# End time: 02:01:59 on Apr 23,2020, Elapsed time: 0:00:13
+# Errors: 36, Warnings: 33
