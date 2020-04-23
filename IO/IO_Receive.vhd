@@ -43,6 +43,7 @@ architecture arch of IO_Receive is
             input_data_state := "111";
             ram_address_var := First_3_Lines;
             Memory_Address_Bus <= 0;
+            Done_Reading_Bus <= '1';
         end if ;
         if Enable_Receiving_IO = '1' and RST = '0' then
             if (rising_edge(clk)) then
@@ -106,11 +107,6 @@ architecture arch of IO_Receive is
                         ram_address_var := ram_address_var + 1; 
                     end if ;
 
-                    if next_starting_index = 0 and remaining_number_of_bits = 0 then
-                        Done_Reading_Bus <= '1';
-                        next_starting_index := CPU_Bus_Width;
-                    end if ;
-
                     
                     if unsigned(number_of_bits) = 0 then
                         Done_Reading_Bus <= '1';
@@ -129,13 +125,17 @@ architecture arch of IO_Receive is
                             end if ;
                         end loop ; -- l1
                         next_starting_index := next_starting_index_tmp;
+                        if next_starting_index = 0 then
+                            Done_Reading_Bus <= '1';
+                            next_starting_index := CPU_Bus_Width;
+                        end if ;
                         remaining_number_of_bits := to_integer(unsigned(number_of_bits));
                     else
                         number_of_bits := std_logic_vector(to_unsigned(remaining_number_of_bits, CPU_Bus_Width));
                     end if ;
 
                     
-                    l2 : for i in CPU_Bus_Width-1 downto 0 loop
+                    l2 : for i in 2*CPU_Bus_Width-1 downto 0 loop
                         if unsigned(number_of_bits) > i then
                             remaining_number_of_bits := remaining_number_of_bits - 1;
                             data(data_bit_index - 1) := bit_value;
