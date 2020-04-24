@@ -1,9 +1,9 @@
 vsim -gui work.ode_solver
 delete wave *
 
-# add wave /ode_solver/io_recv/*
+add wave /ode_solver/io_recv/*
 add wave /ode_solver/io_send/*
-add wave -position end  /ode_solver/io_send/line__21/*
+# add wave -position end  /ode_solver/io_send/line__21/*
 
 set time 0
 set cycleTime 100
