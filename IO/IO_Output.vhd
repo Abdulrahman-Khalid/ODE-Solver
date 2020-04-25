@@ -44,7 +44,8 @@ architecture arch of IO_Output is
                     memory_address <= addr_output;
                     Done_output_data <= '0';
                 end if;
-            elsif(falling_edge(clk)) then
+            end if;
+            if(falling_edge(clk)) then
                 if state = "00" then
                     CPU_Bus <= memory_data(bus_bits-1 downto bus_bits/2);
                     state := "01";

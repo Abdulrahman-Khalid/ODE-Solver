@@ -6,13 +6,13 @@
 #include <bitset>
 #include <vector>
 #include <cassert>
-#include <sstream>    
+#include <sstream>
 #define assertm(exp, msg) assert(((void)msg, exp))
 using namespace std;
 const unsigned int scaleFactor = 7;
 const unsigned int busSize = 32;
+const unsigned int ramWidth = 64;
 
-const int ramWidth = 64;
 using json = nlohmann::json;
 unsigned int maxConsequtive(string str);
 void bin(unsigned int n, string &res);
@@ -22,8 +22,18 @@ string decimalToBinary(double num, int precisionMode);
 int countBits(int num);
 string RLE(string str);
 string binaryToHexa(bitset<ramWidth> binary);
+void decompress(string inputFile, string outputFile); //simulate decompress in vhdl
 int main(int argc, char *argv[])
 {
+    if (argc == 4 && ((string)argv[1]) == "--decompress")
+    {
+        // To decompress run the following command:
+        // make clean && make && ./cpu --decompress output.txt output_decompress.txt
+        decompress((string)argv[2], (string)argv[3]);
+        return 0;
+    }
+    // To compress run the following command:
+    // make clean && make && ./cpu input.json output.txt
     if (argc < 3)
         return 0;
     ifstream input((string)argv[1]);
@@ -77,7 +87,8 @@ int main(int argc, char *argv[])
     for (const auto &a : A)
     {
         row = "";
-        for (const auto &val : a) {
+        for (const auto &val : a)
+        {
             debug = decimalToBinary(val, Fixedpoint);
             bitset<ramWidth> binarySet(debug);
             debugFile << "Binary: " << debug << ", Hex: " << binaryToHexa(binarySet) << '\n';
@@ -107,7 +118,8 @@ int main(int argc, char *argv[])
     // d) row
     row = "";
     debugFile << "Start vector X0\n";
-    for (const auto &val : X0) {
+    for (const auto &val : X0)
+    {
         debug = decimalToBinary(val, Fixedpoint);
         bitset<ramWidth> binarySet(debug);
         debugFile << "Binary: " << debug << ", Hex: " << binaryToHexa(binarySet) << '\n';
@@ -119,7 +131,8 @@ int main(int argc, char *argv[])
     // e) row
     debugFile << "Start vector T\n";
     row = "";
-    for (const auto &val : T) {
+    for (const auto &val : T)
+    {
         debug = decimalToBinary(val, Fixedpoint);
         bitset<ramWidth> binarySet(debug);
         debugFile << "Binary: " << debug << ", Hex: " << binaryToHexa(binarySet) << '\n';
@@ -131,7 +144,8 @@ int main(int argc, char *argv[])
     // f) row
     row = "";
     debugFile << "Start vector U0\n";
-    for (const auto &val : U0) {
+    for (const auto &val : U0)
+    {
         debug = decimalToBinary(val, Fixedpoint);
         bitset<ramWidth> binarySet(debug);
         debugFile << "Binary: " << debug << ", Hex: " << binaryToHexa(binarySet) << '\n';
@@ -145,7 +159,8 @@ int main(int argc, char *argv[])
     for (const auto &u : Us)
     {
         row = "";
-        for (const auto &val : u) {
+        for (const auto &val : u)
+        {
             debug = decimalToBinary(val, Fixedpoint);
             bitset<ramWidth> binarySet(debug);
             debugFile << "Binary: " << debug << ", Hex: " << binaryToHexa(binarySet) << '\n';
@@ -172,8 +187,8 @@ int main(int argc, char *argv[])
 string RLE(string str)
 {
     int max = maxConsequtive(str);
-    cout << "______________________________________________________\n";
-    cout << "max concequtive = " << max << '\n';
+    // cout << "______________________________________________________\n";
+    // cout << "max concequtive = " << max << '\n';
     int packetSize = countBits(max);
     {
         int i = 1;
@@ -189,7 +204,7 @@ string RLE(string str)
         string errMsg = "Error packet bigger than " + to_string(busSize) + " bit";
         assertm(packetSize <= busSize, errMsg);
     }
-    cout << "packet size = " << packetSize << '\n';
+    // cout << "packet size = " << packetSize << '\n';
     const int busSizeMin1 = busSize - 1;
     int numOfPackets = 0, i = 0;
     string encoding = str[i] + bitset<busSizeMin1>(packetSize).to_string(); // first bit in
@@ -205,13 +220,13 @@ string RLE(string str)
         numOfPackets++;
     } while (++i < str.length());
     int padding = (busSize - (encoding.length() % busSize)) % busSize;
-    cout << "encoding length = " << encoding.length() << '\n';
-    cout << "padding = " << padding << '\n';
+    // cout << "encoding length = " << encoding.length() << '\n';
+    // cout << "padding = " << padding << '\n';
     if (padding != 0)
         encoding += string(padding, '0');
-    cout << "encoding length after padding = " << encoding.length() << '\n';
-    cout << "Num of Packets = " << numOfPackets << '\n';
-    cout << "Num of Buses = " << ceil(((float)encoding.length() / busSize)) << '\n';
+    // cout << "encoding length after padding = " << encoding.length() << '\n';
+    // cout << "Num of Packets = " << numOfPackets << '\n';
+    // cout << "Num of Buses = " << ceil(((float)encoding.length() / busSize)) << '\n';
     return encoding;
 }
 
@@ -303,12 +318,56 @@ string towsComp(string binary)
     return binary;
 }
 
-string binaryToHexa(bitset<ramWidth> binary) {
+string binaryToHexa(bitset<ramWidth> binary)
+{
     stringstream res;
     res << hex << uppercase << binary.to_ulong();
-    int length = (ramWidth/4);
+    int length = (ramWidth / 4);
     string ans = res.str();
     int diff = length - ans.length();
-    ans = string(diff,'0') + ans;
+    ans = string(diff, '0') + ans;
     return ans;
+}
+
+void decompress(string inputFile, string outputFile)
+{
+    ifstream input(inputFile);
+    ofstream output(outputFile);
+    string row;
+    output << "Start Decoding ...\n";
+    while (getline(input, row))
+    {
+        const int bitsetSafeSize = 33;
+        string metaData = row.substr(0, busSize);
+        char firstBitType = metaData[0];                                         // get first packet type if '0' or '1'
+        long packetSize = bitset<bitsetSafeSize>(metaData.substr(1)).to_ulong(); // get how many bits the packet is
+        row = row.substr(busSize);
+        int end_r = row.length() - busSize;
+        string reg64Bit = "";
+        for (int r = 0; r <= end_r; r += busSize)
+        {
+            string bus = row.substr(r, busSize);
+            int end_b = bus.length() - packetSize;
+            for (int b = 0; b <= end_b; b += packetSize)
+            {
+                string packet = bus.substr(b, packetSize);
+                int numOfBits = bitset<bitsetSafeSize>(packet).to_ulong();
+                if (firstBitType == '0')
+                    reg64Bit += string(numOfBits, '0'), firstBitType = '1';
+                else if (firstBitType == '1')
+                    reg64Bit += string(numOfBits, '1'), firstBitType = '0';
+                else
+                    assert("Error wrong bit type");
+                while (reg64Bit.length() >= ramWidth)
+                {
+                    string decompressed = reg64Bit.substr(0, ramWidth);
+                    bitset<ramWidth> binarySet(decompressed);
+                    output << "Binary: " << decompressed << ", Hex: " << binaryToHexa(binarySet) << '\n';
+                    reg64Bit = (reg64Bit.length() == ramWidth) ? "" : reg64Bit.substr(ramWidth);
+                }
+            }
+        }
+    }
+    input.close();
+    output.close();
 }
