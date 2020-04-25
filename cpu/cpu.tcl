@@ -122,21 +122,14 @@ set outputFile [open temp.txt w]
 set i 0
 set MS32 0
 set LS32 0
-set busesSize [llength $resultVectorBus]
-while { $i < $busesSize } {
-    set tmp [string range [lindex $resultVectorBus $i] 4 35]
-    if { [expr {$i%2}] == 0 } {
-        set MS32 $tmp
-    }
-    else {
-        set LS32 $tmp
-    }
-    if{ $MS32 != 0 && $LS32 != 0 } {
-        puts $outputFile "$MS32$LS32\n"
-        set MS32 0
-        set LS32 0
-    }
+set end [expr [llength $resultVectorBus]-1];
+# output buses of IO output module in form of 64 bit in file called temp.txt 
+while { $i < $end } {
+    set MS32 [string range [lindex $resultVectorBus $i] 4 35]
     incr i
+    set LS32 [string range [lindex $resultVectorBus $i] 4 35]
+    incr i
+    puts $outputFile "$MS32$LS32"
 }
 close $outputFile
 close $fp
