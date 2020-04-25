@@ -1,14 +1,13 @@
-<<<<<<< HEAD
 library ieee;
 use ieee.std_logic_1164.all;
 
-Entity Decoder is
+Entity Decoder1 is
 	port(s : IN std_logic_vector (2 downto 0);
 	     firstRaw : IN std_logic;
 	     d : out std_logic_vector (1 to 10));
-end Decoder;
+end Decoder1;
 
-architecture dec of Decoder is
+architecture dec of Decoder1 is
 begin
 	process(s)
 	begin
@@ -36,7 +35,7 @@ begin
 		end if;
 	end process;
 end dec;
-=======
+
 library ieee;
 use ieee.std_logic_1164.all;
 
@@ -72,4 +71,4 @@ begin
 		end if;
 	end process;
 end dec;
->>>>>>> 48c080a5d275053c5171d803ee54a2e6341d4d50
+
