@@ -58,6 +58,3 @@ ARCHITECTURE MuxArch OF MuxCustom IS
 begin
 	Y <= A when (selector = '1') else (others=>'0');
 end MuxArch;
-
-library ieee;
-use ieee.std_logic_1164.all; 

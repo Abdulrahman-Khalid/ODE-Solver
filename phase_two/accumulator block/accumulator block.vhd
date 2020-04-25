@@ -1,7 +1,7 @@
 --block logic
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use ieee.numeric_bit_unsigned.all;
+--use ieee.numeric_bit_unsigned.all;
 use ieee.numeric_std.all;
 
 entity accumulator_block is
@@ -13,6 +13,7 @@ y : in STD_LOGIC_VECTOR (n-1 downto 0);
 --overflow_in : in STD_LOGIC;
 S : out STD_LOGIC_VECTOR (n-1 downto 0);
 clr: in std_logic;
+clk: in std_logic;
 load: in std_logic;
 overFlow_out_error : out std_logic);
 end accumulator_block;
@@ -48,7 +49,7 @@ signal latch_data_to_added : std_logic_vector (n-1 downto 0);
 signal latch_data_final_sum : std_logic_vector (n-1 downto 0);
 signal final_sum : std_logic_vector (n-1 downto 0);
 
-signal clk : std_logic := '1';
+--signal clk : std_logic := '1';
 begin
 
 
@@ -85,7 +86,7 @@ clk => clk,
 clr =>clr,
 b => latch_data_to_added);
 
- clk <= not clk after (100 ps) / 2;
+ --clk <= not clk after (100 ps) / 2;
 one(0) <= '1'; 
 y_sig <= sum2;
 abs_diff <= std_logic_vector(abs(signed(sum1)));
