@@ -360,7 +360,9 @@ void decompress(string inputFile, string outputFile)
                     assert("Error wrong bit type");
                 while (reg64Bit.length() >= ramWidth)
                 {
-                    output << reg64Bit.substr(0, ramWidth) << '\n';
+                    string decompressed = reg64Bit.substr(0, ramWidth);
+                    bitset<ramWidth> binarySet(decompressed);
+                    output << "Binary: " << decompressed << ", Hex: " << binaryToHexa(binarySet) << '\n';
                     reg64Bit = (reg64Bit.length() == ramWidth) ? "" : reg64Bit.substr(ramWidth);
                 }
             }
