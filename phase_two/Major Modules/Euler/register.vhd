@@ -19,9 +19,9 @@ ARCHITECTURE Behavioral of reg is
 BEGIN
 	PROCESS(clk,load, rst)
 	BEGIN
-		IF(falling_edge(clk)) THEN
-			if(rst ='1') then Q <= (others => '0');
-			elsif load = '1' then Q <= D; end if;
+		if(rst ='1') then Q <= (others => '0');
+		elsIF(falling_edge(clk)) THEN
+			if load = '1' then Q <= D; end if;
 		END IF;
 	END PROCESS;
 END ARCHITECTURE;

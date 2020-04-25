@@ -35,20 +35,19 @@ architecture arch of IO_Receive is
     variable ram_address_var : integer; -- Holding ram address to be written in
     variable input_data_state : std_logic_vector(2 downto 0) := "111"; -- "000" => the first row in ram1,"001" => for the second and third rows ram1,"010" => A, "011" => B, "100" => X, "101" => T, "110" => U
     variable N : integer; -- Holding N value
-    variable M : integer; -- Holding M value
     variable counter : integer; -- Holding counter value
     variable end_of_raw : std_logic;
     begin
-        if RST = '1' then
-            input_data_state := "111";
-            ram_address_var := First_3_Lines;
-            Memory_Address_Bus <= 0;
-            Done_Reading_Bus <= '1';
-            counter := 0;
-            end_of_raw := '0';
-        end if ;
-        if Enable_Receiving_IO = '1' and RST = '0' then
-            if (rising_edge(clk)) then
+        if (rising_edge(clk)) then
+            if RST = '1' then
+                input_data_state := "111";
+                ram_address_var := First_3_Lines;
+                Memory_Address_Bus <= 0;
+                Done_Reading_Bus <= '1';
+                counter := 0;
+                end_of_raw := '0';
+            end if ;
+            if Enable_Receiving_IO = '1' and RST = '0' then
                 if Done_Row = '1' then
                     packet_meta_data := CPU_Bus;
                     bit_value := packet_meta_data(CPU_Bus_Width-1);
@@ -98,7 +97,6 @@ architecture arch of IO_Receive is
                         -- To store N in case of getting the first row of ram 1
                         if input_data_state = "000" then
                             N := to_integer(unsigned(data(5 downto 0)));
-                            M := to_integer(unsigned(data(11 downto 6)));
                             input_data_state := "001";
                         end if ;
                         Memory_Data_Bus <= data;
@@ -151,29 +149,30 @@ architecture arch of IO_Receive is
                             data_bit_index := data_bit_index - 1;
                             -- If we still have bits from the previous packet
                             if data_bit_index = 0 then
-                                -- To store N in case of getting the first row of ram 1
-                                if input_data_state = "000" then
-                                    N := to_integer(unsigned(data(5 downto 0)));
-                                    M := to_integer(unsigned(data(11 downto 6)));
-                                    input_data_state := "001";
-                                end if ;
-                                Memory_Data_Bus <= data;
-                                data := (Others => '0');
-                                Memory_Address_Bus <= ram_address_var;
-                                -- Select memory 2 if it was B or U data , else select memory 1
-                                if input_data_state = "011" or input_data_state = "110" then
-                                    Memory2_WR_Enable <= '1';
-                                    Memory1_WR_Enable <= '0';
-                                else
-                                    Memory1_WR_Enable <= '1';
-                                    Memory2_WR_Enable <= '0';
-                                end if ;
-                                data_bit_index := 2*CPU_Bus_Width;
-                                ram_address_var := ram_address_var + 1;
+                                exit;
                             end if ;
                         end if ;
                     end loop ; -- l2
-                    
+                    if data_bit_index = 0 then
+                        -- To store N in case of getting the first row of ram 1
+                        if input_data_state = "000" then
+                            N := to_integer(unsigned(data(5 downto 0)));
+                            input_data_state := "001";
+                        end if ;
+                        Memory_Data_Bus <= data;
+                        data := (Others => '0');
+                        Memory_Address_Bus <= ram_address_var;
+                        -- Select memory 2 if it was B or U data , else select memory 1
+                        if input_data_state = "011" or input_data_state = "110" then
+                            Memory2_WR_Enable <= '1';
+                            Memory1_WR_Enable <= '0';
+                        else
+                            Memory1_WR_Enable <= '1';
+                            Memory2_WR_Enable <= '0';
+                        end if ;
+                        data_bit_index := 2*CPU_Bus_Width;
+                        ram_address_var := ram_address_var + 1;
+                    end if ;
                     if remaining_number_of_bits = 0 then
                         bit_value := not bit_value;
                     end if ;       
