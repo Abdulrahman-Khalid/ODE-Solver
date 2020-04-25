@@ -1,0 +1,1172 @@
+*******************************************************************
+*      Copyright (c) 2004 - 2020 Mentor Graphics Corporation      *
+*                       All Rights Reserved                       *
+*                                                                 *
+*                                                                 *
+*   THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION   *
+*      WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION       *
+*        OR ITS LICENSORS AND IS SUBJECT TO LICENSE TERMS.        *
+*                                                                 *
+* Program : ../bin/Linux-x86_64-O/oasysGui                        *
+* Version : 19.2-p002                                             *
+* Date    : Fri Jan 10 14:27:22 PST 2020                          *
+* Build   : releases/19.2-49727.0-CentOS_6.5-O                    *
+*******************************************************************
+ config sdc-v1.7-cpd cli cmd explore mxdb
+loading: oasys fp rta dft RTTessent-d ctl verify edit bt upf-c aos conc vcd prot int
+checked out licenses: psyncore psynfloorplan psyndft psynpower
+
+         date     : Sun Apr 26 00:37:54 EET 2020
+         ppid/pid : 28134/28144
+         hostname : localhost.localdomain
+         arch/os  : x86_64/Linux-3.10.0-1062.el7.x86_64 
+         install  : /home/vlsi/Installation/Oasys/Oasys-RTL-2019.2.R1
+         currdir  : /home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2
+         logfile  : /home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/oasys.log.00
+         tmpdir   : /tmp/oasys.28134/
+> source /home/vlsi/Installation/Oasys/Oasys-RTL-2019.2.R1/tcl/library/history.tcl
+> source scripts/run.tcl
+> source scripts/0_adder_init_design.tcl
+> config_shell -echo true
+> config_report timing -format {cell edge arrival delay arc_delay net_delay slew net_load load fanout location power_domain}
+> check_library
+Report Check Library: 
+-----+-------------------+------+--------+------+------------------------------------------
+     |Item               |Errors|Warnings|Status|Description                               
+-----+-------------------+------+--------+------+------------------------------------------
+1    |logical_only_cell  |     0|       0|Passed|Logical only cells exist in the libraries 
+2    |physical_only_cell |     0|       0|Passed|Physical only cells exist in the libraries
+3    |no_basic_gates     |     1|       0|Failed|No basic gates for synthesis or mapping   
+4    |no_clock_gate_cells|     0|       0|Passed|No clock-gating cells for clock-gating    
+5    |bad_physical_lib   |     0|       0|Passed|Bad physical libraries (no layer etc.)    
+-----+-------------------+------+--------+------+------------------------------------------
+
+-----------------------------
+
+Done setting design variables
+
+-----------------------------
+
+> source scripts/1_read_design.tcl
+> read_library /home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/lib_data/NangateOpenCellLibrary_typical.lib
+reading /home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/lib_data/NangateOpenCellLibrary_typical.lib...
+Finished reading. Elapsed time= 1 seconds
+info:    The technology cmos was specified.  [LIB-200]
+info:    delay_model specified was table_lookup.  [LIB-200]
+info:    Using the cmos syntax tables...  [LIB-200]
+info:    timer ignores arcs of type 'recovery'  [LIB-117]
+info:    timer ignores arcs of type 'asynchronous'  [LIB-117]
+info:    timer ignores arcs of type 'three state disable'  [LIB-117]
+info:    found transparent arc 'DLH_X1/D->Q'  [NL-120]
+info:    found transparent arc 'DLH_X2/D->Q'  [NL-120]
+info:    found transparent arc 'DLL_X1/D->Q'  [NL-120]
+info:    found transparent arc 'DLL_X2/D->Q'  [NL-120]
+info:    found transparent arc 'TLAT_X1/D->Q'  [NL-120]
+> read_lef /home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/lib_data/NangateOpenCellLibrary.tech.lef
+info:    units per micron 2000 defined in LEF is ignored. Tool uses 20000 units per micron.  [LEF-118]
+note:    the above message has more detailed information, see "message LEF-118"
+info:    use manufacturing grid 100  [LEF-110]
+info:    Site FreePDK45_38x28_10R_NP_162NW_34O defined in /home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/lib_data/NangateOpenCellLibrary.tech.lef  [LEF-119]
+> read_lef /home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/lib_data/NangateOpenCellLibrary.macro.lef
+warning: direction (tristate) of pin 'Z' of cell 'TBUF_X1' in logical/timing library does not match the direction (output) from the physical library -direction from logical/timing library overrides  [LEF-100]
+warning: direction (tristate) of pin 'Z' of cell 'TBUF_X16' in logical/timing library does not match the direction (output) from the physical library -direction from logical/timing library overrides  [LEF-100]
+warning: direction (tristate) of pin 'Z' of cell 'TBUF_X2' in logical/timing library does not match the direction (output) from the physical library -direction from logical/timing library overrides  [LEF-100]
+warning: direction (tristate) of pin 'Z' of cell 'TBUF_X4' in logical/timing library does not match the direction (output) from the physical library -direction from logical/timing library overrides  [LEF-100]
+warning: direction (tristate) of pin 'Z' of cell 'TBUF_X8' in logical/timing library does not match the direction (output) from the physical library -direction from logical/timing library overrides  [LEF-100]
+warning: direction (tristate) of pin 'ZN' of cell 'TINV_X1' in logical/timing library does not match the direction (output) from the physical library -direction from logical/timing library overrides  [LEF-100]
+warning: direction (tristate) of pin 'Q' of cell 'TLAT_X1' in logical/timing library does not match the direction (output) from the physical library -direction from logical/timing library overrides  [LEF-100]
+> read_ptf /home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/lib_data/NCSU_FreePDK_45nm.ptf
+warning: skipping cell ANTENNA_X1 in the library since it does not have delay arcs  [NL-215]
+warning: skipping cell FILLCELL_X1 in the library since it does not have delay arcs  [NL-215]
+warning: skipping cell FILLCELL_X2 in the library since it does not have delay arcs  [NL-215]
+warning: skipping cell FILLCELL_X4 in the library since it does not have delay arcs  [NL-215]
+warning: skipping cell FILLCELL_X8 in the library since it does not have delay arcs  [NL-215]
+warning: skipping cell FILLCELL_X16 in the library since it does not have delay arcs  [NL-215]
+warning: skipping cell FILLCELL_X32 in the library since it does not have delay arcs  [NL-215]
+warning: skipping cell LOGIC0_X1 in the library since it does not have delay arcs  [NL-215]
+warning: skipping cell LOGIC1_X1 in the library since it does not have delay arcs  [NL-215]
+info:    extracting RC values from PTF file /home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/lib_data/NCSU_FreePDK_45nm.ptf  [CMD-001]
+info:    using operating temperature 25.0  [CMD-001]
+info:    done extracting RC values from PTF  [CMD-001]
+Report Layers RC: 
+-----+----------+---------+-------+-------+------+-----------+----------+----------+-------------
+     |Layer Name|Direction|Width  |Spacing|ohm/sq|ohm/um     |cap ff/um |ecap ff/um|cap/Å       
+-----+----------+---------+-------+-------+------+-----------+----------+----------+-------------
+1    |metal1    |H        |0.07000|0.07000|     0|  5.4285712|  0.148296|         0|1.4829599e-05
+2    |metal2    |V        |0.07000|0.12000|     0|  3.5714285|  0.109236|         0|1.09236e-05  
+3    |metal3    |H        |0.07000|0.07000|     0|  3.5714285|    0.1521|         0|1.5209999e-05
+4    |metal4    |V        |0.14000|0.14000|     0|        1.5|   0.15446|         0|1.5445999e-05
+5    |metal5    |H        |0.14000|0.14000|     0|        1.5|0.15236001|         0|1.5236001e-05
+6    |metal6    |V        |0.14000|0.14000|     0|        1.5|   0.15127|         0|1.5127e-05   
+7    |metal7    |H        |0.40000|0.40000|     0|     0.1875|    0.1539|         0|1.539e-05    
+8    |metal8    |V        |0.40000|0.40000|     0|     0.1875|   0.14979|         0|1.4979e-05   
+9    |metal9    |H        |0.80000|0.80000|     0|0.037500001|   0.17227|         0|1.7226999e-05
+10   |metal10   |V        |0.80000|0.80000|     0|0.037500001|   0.16977|         0|1.6976999e-05
+-----+----------+---------+-------+-------+------+-----------+----------+----------+-------------
+> load_upf /home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/constraints/demo_adder.85.upf
+> source /home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/constraints/demo_adder.85.upf
+> create_power_domain PD_TOP
+info:    setting default power domain for scope '/' to '/PD_TOP'  [PF-103]
+> create_supply_net VDD
+> create_supply_net VSS
+> create_supply_port VDD
+> connect_supply_net VDD -ports VDD
+> connect_supply_net VDD -ports VDD
+> set_domain_supply_net PD_TOP -primary_power_net VDD -primary_ground_net VSS
+> create_supply_set PD_TOP_primary -function {power VDD} -function {ground VSS}
+> associate_supply_set PD_TOP_primary -handle PD_TOP.primary
+> add_port_state VDD -state {on85 0.85} -state {on95 0.95}
+> create_pst pst1 -supplies VDD
+warning: supply name 'VDD' matches both supply port and supply net - assuming supply port  [PF-207]
+> add_pst_state st0 -pst pst1 -state on85
+> config_tolerance -blackbox true -connection_mismatch true -missing_physical_library true -continue_on_error false
+> read_vhdl IO_Output.vhd
+info:    File 'IO_Output.vhd', resolved to path '/home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/rtl/IO_Output.vhd' using search_path variable.  [CMD-126]
+info:    File 'IO_Output.vhd', resolved to path '/home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/rtl/IO_Output.vhd' using search_path variable.  [CMD-126]
+> set_max_route_layer 5
+Top-most available layer for routing set to metal5
+> set_dont_use {NangateOpenCellLibrary/AND2_X1 NangateOpenCellLibrary/AND2_X2 NangateOpenCellLibrary/AND2_X4 NangateOpenCellLibrary/AND3_X1 NangateOpenCellLibrary/AND3_X2 NangateOpenCellLibrary/AND3_X4 NangateOpenCellLibrary/AND4_X1 NangateOpenCellLibrary/AND4_X2 NangateOpenCellLibrary/AND4_X4 NangateOpenCellLibrary/ANTENNA_X1 NangateOpenCellLibrary/AOI21_X1 NangateOpenCellLibrary/AOI21_X2 NangateOpenCellLibrary/AOI21_X4 NangateOpenCellLibrary/AOI22_X1 NangateOpenCellLibrary/AOI22_X2 NangateOpenCellLibrary/AOI22_X4 NangateOpenCellLibrary/AOI211_X1 NangateOpenCellLibrary/AOI211_X2 NangateOpenCellLibrary/AOI211_X4 NangateOpenCellLibrary/AOI221_X1 NangateOpenCellLibrary/AOI221_X2 NangateOpenCellLibrary/AOI221_X4 NangateOpenCellLibrary/AOI222_X1 NangateOpenCellLibrary/AOI222_X2 NangateOpenCellLibrary/AOI222_X4 NangateOpenCellLibrary/BUF_X1 NangateOpenCellLibrary/BUF_X2 NangateOpenCellLibrary/BUF_X4 NangateOpenCellLibrary/BUF_X8 NangateOpenCellLibrary/BUF_X16 NangateOpenCellLibrary/BUF_X32 NangateOpenCellLibrary/CLKBUF_X1 NangateOpenCellLibrary/CLKBUF_X2 NangateOpenCellLibrary/CLKBUF_X3 NangateOpenCellLibrary/CLKGATETST_X1 NangateOpenCellLibrary/CLKGATETST_X2 NangateOpenCellLibrary/CLKGATETST_X4 NangateOpenCellLibrary/CLKGATETST_X8 NangateOpenCellLibrary/CLKGATE_X1 NangateOpenCellLibrary/CLKGATE_X2 NangateOpenCellLibrary/CLKGATE_X4 NangateOpenCellLibrary/CLKGATE_X8 NangateOpenCellLibrary/DFFRS_X1 NangateOpenCellLibrary/DFFRS_X2 NangateOpenCellLibrary/DFFR_X1 NangateOpenCellLibrary/DFFR_X2 NangateOpenCellLibrary/DFFS_X1 NangateOpenCellLibrary/DFFS_X2 NangateOpenCellLibrary/DFF_X1 NangateOpenCellLibrary/DFF_X2 NangateOpenCellLibrary/DLH_X1 NangateOpenCellLibrary/DLH_X2 NangateOpenCellLibrary/DLL_X1 NangateOpenCellLibrary/DLL_X2 NangateOpenCellLibrary/FA_X1 NangateOpenCellLibrary/FILLCELL_X1 NangateOpenCellLibrary/FILLCELL_X2 NangateOpenCellLibrary/FILLCELL_X4 NangateOpenCellLibrary/FILLCELL_X8 NangateOpenCellLibrary/FILLCELL_X16 NangateOpenCellLibrary/FILLCELL_X32 NangateOpenCellLibrary/HA_X1 NangateOpenCellLibrary/INV_X1 NangateOpenCellLibrary/INV_X2 NangateOpenCellLibrary/INV_X4 NangateOpenCellLibrary/INV_X8 NangateOpenCellLibrary/INV_X16 NangateOpenCellLibrary/INV_X32 NangateOpenCellLibrary/LOGIC0_X1 NangateOpenCellLibrary/LOGIC1_X1 NangateOpenCellLibrary/MUX2_X1 NangateOpenCellLibrary/MUX2_X2 NangateOpenCellLibrary/NAND2_X1 NangateOpenCellLibrary/NAND2_X2 NangateOpenCellLibrary/NAND2_X4 NangateOpenCellLibrary/NAND3_X1 NangateOpenCellLibrary/NAND3_X2 NangateOpenCellLibrary/NAND3_X4 NangateOpenCellLibrary/NAND4_X1 NangateOpenCellLibrary/NAND4_X2 NangateOpenCellLibrary/NAND4_X4 NangateOpenCellLibrary/NOR2_X1 NangateOpenCellLibrary/NOR2_X2 NangateOpenCellLibrary/NOR2_X4 NangateOpenCellLibrary/NOR3_X1 NangateOpenCellLibrary/NOR3_X2 NangateOpenCellLibrary/NOR3_X4 NangateOpenCellLibrary/NOR4_X1 NangateOpenCellLibrary/NOR4_X2 NangateOpenCellLibrary/NOR4_X4 NangateOpenCellLibrary/OAI21_X1 NangateOpenCellLibrary/OAI21_X2 NangateOpenCellLibrary/OAI21_X4 NangateOpenCellLibrary/OAI22_X1 NangateOpenCellLibrary/OAI22_X2 NangateOpenCellLibrary/OAI22_X4 NangateOpenCellLibrary/OAI33_X1 NangateOpenCellLibrary/OAI211_X1 NangateOpenCellLibrary/OAI211_X2 NangateOpenCellLibrary/OAI211_X4 ...(34 more)} false
+> set_clock_gating_options -control_point before -minimum_bitwidth 4 -sequential_cell latch
+info:    test control port not specified - will tie test control pin to 0  [POWER-109]
+> set_parameter ungroup_small_hierarchies 0
+info:    Parameter 'ungroup_small_hierarchies' set to '0'  [PARAM-104]
+
+-----------------------------
+
+Done preparing design for synthesis
+
+-----------------------------
+
+> source scripts/2_synthesize_optimize.tcl
+> synthesize -module IO_Output
+starting synthesize at 00:00:02(cpu)/0:00:16(wall) 72MB(vsz)/321MB(peak)
+info:    clock-gating cell for posedge FFs = CLKGATETST_X1 in target library 'default'  [POWER-112]
+info:    no clock-gating cell found in target library 'default' for negedge FFs for the given specification  [POWER-113]
+info:    clock_gating minimum_width = 4, maximum_fanout = 2147483647, num_stages = 2147483647, sequential_cell = latch, control_port = (null), control_point = before, observability = no, use_discrete_cells = no, create_multi_stage = no, merge_multi_stage = no, exclude_instantiated_clock_gates = no, log = (null), allow_clock_inversion = no  [POWER-111]
+info:    setting default power domain for scope '/' to '/PD_TOP'  [PF-103]
+info:    synthesizing module 'IO_Output' (depth 1) ((/home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/rtl/IO_Output.vhd:7))  [VHDL-600]
+warning: signal 'RST' is read in the process but is not in the sensitivity list ((/home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/rtl/IO_Output.vhd:21)[4])  [VHDL-758]
+warning: signal 'enable_output_IO' is read in the process but is not in the sensitivity list ((/home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/rtl/IO_Output.vhd:21)[4])  [VHDL-758]
+info:    module 'IO_Output' assigned to power domain '/PD_TOP'  [NL-138]
+info:    no appropriate FF cell found for register bank 'memory_address_reg' when clock-gating - ignored for clock-gating  [POWER-102]
+info:    no appropriate FF cell found for register bank 'CPU_Bus_reg' when clock-gating - ignored for clock-gating  [POWER-102]
+info:    done synthesizing module 'IO_Output' (depth 1) (1#1) ((/home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/rtl/IO_Output.vhd:7))  [VHDL-601]
+warning: No library characterized for (process = 1.00 voltage = 0.85 temperature = 25.00) can be found in the database for power domain '/PD_TOP'  [NL-174]
+finished synthesize at 00:00:03(cpu)/0:00:17(wall) 97MB(vsz)/345MB(peak)
+> write_design /home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/outputs/odb/2_synthesized.odb
+info:    design 'IO_Output' has no physical info  [WRITE-120]
+warning: WrSdc.. design 'IO_Output' has no timing constraints  [TA-118]
+> read_sdc -verbose /home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/constraints/demo_adder_func.sdc
+> 
+> ######################################################################
+> # 
+> #  ------------------------------------------------------------------
+> #   Design    : demo_Adder
+> #  ------------------------------------------------------------------
+> #     SDC timing constraint file
+> #  ------------------------------------------------------------------
+> #
+> 
+> 
+> set pad_load            10  
+> set transition          0.1
+> set io_clock_period     60
+> 
+> 
+> create_clock -name vsysclk -period ${io_clock_period} [ get_ports CLK ]
+> 
+> #set_false_path -from [ get_ports RST ]
+> #[ get_ports sysclk_byp ]
+> 
+> set_false_path   -from [ get_ports reset_n ]
+warning: Empty from list 
+warning: could not find 1 objects:
+             reset_n
+> 
+> set_load                ${pad_load}   [ all_outputs ]
+> set_input_transition    ${transition} [ all_inputs ]
+> set_input_delay 0.7 [all_inputs]
+> 
+> set_output_delay -clock vsysclk [ expr 0.3 * ${io_clock_period} ] [ all_outputs ] 
+>  #   [ remove_from_collection [ all_outputs ] [ get_ports { usb_plus usb_minus }] ]
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> report_design_metrics
+Report Physical info: 
+------------------------+---------+-----------+------------
+                        |         |Area (squm)|Leakage (uW)
+------------------------+---------+-----------+------------
+Design Name             |IO_Output|           |            
+  Total Instances       |     1046|       1900|      35.994
+    Macros              |        0|          0|       0.000
+    Pads                |        0|          0|       0.000
+    Phys                |        0|          0|       0.000
+    Blackboxes          |        0|          0|       0.000
+    Cells               |     1046|       1900|      35.994
+      Buffers           |        0|          0|       0.000
+      Inverters         |      281|        149|       4.033
+      Clock-Gates       |       65|        259|       3.844
+      Combinational     |      535|        632|      13.939
+      Latches           |        0|          0|       0.000
+      FlipFlops         |      165|        859|      14.177
+       Single-Bit FF    |      165|        859|      14.177
+       Multi-Bit FF     |        0|          0|       0.000
+       Clock-Gated      |       96|           |            
+       Bits             |      165|        859|      14.177
+         Load-Enabled   |        0|           |            
+         Clock-Gated    |       96|           |            
+  Tristate Pin Count    |        0|           |            
+Physical Info           |Unplaced |           |            
+  Chip Size (mm x mm)   |         |          0|            
+  Fixed Cell Area       |         |          0|            
+    Phys Only           |        0|          0|            
+  Placeable Area        |         |          0|            
+  Movable Cell Area     |         |       1900|            
+  Utilization (%)       |         |           |            
+  Chip Utilization (%)  |         |           |            
+  Total Wire Length (mm)|    0.000|           |            
+  Longest Wire (mm)     |         |           |            
+  Average Wire (mm)     |         |           |            
+------------------------+---------+-----------+------------
+> all_inputs
+> group_path -name I2R -from { enable_output_IO CLK RST end_T_address[31] end_T_address[30] end_T_address[29] end_T_address[28] end_T_address[27] end_T_address[26] end_T_address[25] end_T_address[24] end_T_address[23] end_T_address[22] end_T_address[21] end_T_address[20] end_T_address[19] end_T_address[18] end_T_address[17] end_T_address[16] end_T_address[15] end_T_address[14] end_T_address[13] end_T_address[12] end_T_address[11] end_T_address[10] end_T_address[9] end_T_address[8] end_T_address[7] end_T_address[6] end_T_address[5] end_T_address[4] end_T_address[3] end_T_address[2] end_T_address[1] end_T_address[0] end_Output_address[31] end_Output_address[30] end_Output_address[29] end_Output_address[28] end_Output_address[27] end_Output_address[26] end_Output_address[25] end_Output_address[24] end_Output_address[23] end_Output_address[22] end_Output_address[21] end_Output_address[20] end_Output_address[19] end_Output_address[18] end_Output_address[17] end_Output_address[16] end_Output_address[15] end_Output_ad... (message truncated)
+# group_path -from enable_output_IO CLK RST {end_T_address[31]} {end_T_address[30]} {end_T_address[29]} {end_T_address[28]} {end_T_address[27]} {end_T_address[26]} {end_T_address[25]} {end_T_address[24]} {end_T_address[23]} {end_T_address[22]} {end_T_address[21]} {end_T_address[20]} {end_T_address[19]} {end_T_address[18]} {end_T_address[17]} {end_T_address[16]} {end_T_address[15]} {end_T_address[14]} {end_T_address[13]} {end_T_address[12]} {end_T_address[11]} {end_T_address[10]} {end_T_address[9]} {end_T_address[8]} {end_T_address[7]} {end_T_address[6]} {end_T_address[5]} {end_T_address[4]} {end_T_address[3]} {end_T_address[2]} {end_T_address[1]} {end_T_address[0]} {end_Output_address[31]} {end_Output_address[30]} {end_Output_address[29]} {end_Output_address[28]} {end_Output_address[27]} {end_Output_address[26]} {end_Output_address[25]} {end_Output_address[24]} {end_Output_address[23]} {end_Output_address[22]} {end_Output_address[21]} {end_Output_address[20]} {end_Output_address[19]} {end_Output_address[18]} {end_Output_address[17]} {end_Output_address[16]} {end_Output_address[15]} {end_Output_address[14]} {end_Output_address[13]} {end_Output_address[12]} {end_Output_address[11]} {end_Output_address[10]} {end_Output_address[9]} {end_Output_address[8]} {end_Output_address[7]} {end_Output_address[6]} {end_Output_address[5]} {end_Output_address[4]} {end_Output_address[3]} {end_Output_address[2]} {end_Output_address[1]} {end_Output_address[0]} {memory_data[63]} {memory_data[62]} {memory_data[61]} {memory_data[60]} {memory_data[59]} {memory_data[58]} {memory_data[57]} {memory_data[56]} {memory_data[55]} {memory_data[54]} {memory_data[53]} {memory_data[52]} {memory_data[51]} {memory_data[50]} {memory_data[49]} {memory_data[48]} {memory_data[47]} {memory_data[46]} {memory_data[45]} {memory_data[44]} {memory_data[43]} {memory_data[42]} {memory_data[41]} {memory_data[40]} {memory_data[39]} {memory_data[38]} {memory_data[37]} {memory_data[36]} {memory_data[35]} {memory_data[34]} {memory_data[33]} {memory_data[32]} {memory_data[31]} {memory_data[30]} {memory_data[29]} {memory_data[28]} {memory_data[27]} {memory_data[26]} {memory_data[25]} {memory_data[24]} {memory_data[23]} {memory_data[22]} {memory_data[21]} {memory_data[20]} {memory_data[19]} {memory_data[18]} {memory_data[17]} {memory_data[16]} {memory_data[15]} {memory_data[14]} {memory_data[13]} {memory_data[12]} {memory_data[11]} {memory_data[10]} {memory_data[9]} {memory_data[8]} {memory_data[7]} {memory_data[6]} {memory_data[5]} {memory_data[4]} {memory_data[3]} {memory_data[2]} {memory_data[1]} {memory_data[0]}
+> all_inputs
+> all_outputs
+> group_path -name I2O -from { enable_output_IO CLK RST end_T_address[31] end_T_address[30] end_T_address[29] end_T_address[28] end_T_address[27] end_T_address[26] end_T_address[25] end_T_address[24] end_T_address[23] end_T_address[22] end_T_address[21] end_T_address[20] end_T_address[19] end_T_address[18] end_T_address[17] end_T_address[16] end_T_address[15] end_T_address[14] end_T_address[13] end_T_address[12] end_T_address[11] end_T_address[10] end_T_address[9] end_T_address[8] end_T_address[7] end_T_address[6] end_T_address[5] end_T_address[4] end_T_address[3] end_T_address[2] end_T_address[1] end_T_address[0] end_Output_address[31] end_Output_address[30] end_Output_address[29] end_Output_address[28] end_Output_address[27] end_Output_address[26] end_Output_address[25] end_Output_address[24] end_Output_address[23] end_Output_address[22] end_Output_address[21] end_Output_address[20] end_Output_address[19] end_Output_address[18] end_Output_address[17] end_Output_address[16] end_Output_address[15] end_Output_ad... (message truncated)
+# group_path -from enable_output_IO CLK RST {end_T_address[31]} {end_T_address[30]} {end_T_address[29]} {end_T_address[28]} {end_T_address[27]} {end_T_address[26]} {end_T_address[25]} {end_T_address[24]} {end_T_address[23]} {end_T_address[22]} {end_T_address[21]} {end_T_address[20]} {end_T_address[19]} {end_T_address[18]} {end_T_address[17]} {end_T_address[16]} {end_T_address[15]} {end_T_address[14]} {end_T_address[13]} {end_T_address[12]} {end_T_address[11]} {end_T_address[10]} {end_T_address[9]} {end_T_address[8]} {end_T_address[7]} {end_T_address[6]} {end_T_address[5]} {end_T_address[4]} {end_T_address[3]} {end_T_address[2]} {end_T_address[1]} {end_T_address[0]} {end_Output_address[31]} {end_Output_address[30]} {end_Output_address[29]} {end_Output_address[28]} {end_Output_address[27]} {end_Output_address[26]} {end_Output_address[25]} {end_Output_address[24]} {end_Output_address[23]} {end_Output_address[22]} {end_Output_address[21]} {end_Output_address[20]} {end_Output_address[19]} {end_Output_address[18]} {end_Output_address[17]} {end_Output_address[16]} {end_Output_address[15]} {end_Output_address[14]} {end_Output_address[13]} {end_Output_address[12]} {end_Output_address[11]} {end_Output_address[10]} {end_Output_address[9]} {end_Output_address[8]} {end_Output_address[7]} {end_Output_address[6]} {end_Output_address[5]} {end_Output_address[4]} {end_Output_address[3]} {end_Output_address[2]} {end_Output_address[1]} {end_Output_address[0]} {memory_data[63]} {memory_data[62]} {memory_data[61]} {memory_data[60]} {memory_data[59]} {memory_data[58]} {memory_data[57]} {memory_data[56]} {memory_data[55]} {memory_data[54]} {memory_data[53]} {memory_data[52]} {memory_data[51]} {memory_data[50]} {memory_data[49]} {memory_data[48]} {memory_data[47]} {memory_data[46]} {memory_data[45]} {memory_data[44]} {memory_data[43]} {memory_data[42]} {memory_data[41]} {memory_data[40]} {memory_data[39]} {memory_data[38]} {memory_data[37]} {memory_data[36]} {memory_data[35]} {memory_data[34]} {memory_data[33]} {memory_data[32]} {memory_data[31]} {memory_data[30]} {memory_data[29]} {memory_data[28]} {memory_data[27]} {memory_data[26]} {memory_data[25]} {memory_data[24]} {memory_data[23]} {memory_data[22]} {memory_data[21]} {memory_data[20]} {memory_data[19]} {memory_data[18]} {memory_data[17]} {memory_data[16]} {memory_data[15]} {memory_data[14]} {memory_data[13]} {memory_data[12]} {memory_data[11]} {memory_data[10]} {memory_data[9]} {memory_data[8]} {memory_data[7]} {memory_data[6]} {memory_data[5]} {memory_data[4]} {memory_data[3]} {memory_data[2]} {memory_data[1]} {memory_data[0]} -to {CPU_Bus[31]} {CPU_Bus[30]} {CPU_Bus[29]} {CPU_Bus[28]} {CPU_Bus[27]} {CPU_Bus[26]} {CPU_Bus[25]} {CPU_Bus[24]} {CPU_Bus[23]} {CPU_Bus[22]} {CPU_Bus[21]} {CPU_Bus[20]} {CPU_Bus[19]} {CPU_Bus[18]} {CPU_Bus[17]} {CPU_Bus[16]} {CPU_Bus[15]} {CPU_Bus[14]} {CPU_Bus[13]} {CPU_Bus[12]} {CPU_Bus[11]} {CPU_Bus[10]} {CPU_Bus[9]} {CPU_Bus[8]} {CPU_Bus[7]} {CPU_Bus[6]} {CPU_Bus[5]} {CPU_Bus[4]} {CPU_Bus[3]} {CPU_Bus[2]} {CPU_Bus[1]} {CPU_Bus[0]} {memory_address[31]} {memory_address[30]} {memory_address[29]} {memory_address[28]} {memory_address[27]} {memory_address[26]} {memory_address[25]} {memory_address[24]} {memory_address[23]} {memory_address[22]} {memory_address[21]} {memory_address[20]} {memory_address[19]} {memory_address[18]} {memory_address[17]} {memory_address[16]} {memory_address[15]} {memory_address[14]} {memory_address[13]} {memory_address[12]} {memory_address[11]} {memory_address[10]} {memory_address[9]} {memory_address[8]} {memory_address[7]} {memory_address[6]} {memory_address[5]} {memory_address[4]} {memory_address[3]} {memory_address[2]} {memory_address[1]} {memory_address[0]} done_output_data
+> all_outputs
+> group_path -name R2O -to { CPU_Bus[31] CPU_Bus[30] CPU_Bus[29] CPU_Bus[28] CPU_Bus[27] CPU_Bus[26] CPU_Bus[25] CPU_Bus[24] CPU_Bus[23] CPU_Bus[22] CPU_Bus[21] CPU_Bus[20] CPU_Bus[19] CPU_Bus[18] CPU_Bus[17] CPU_Bus[16] CPU_Bus[15] CPU_Bus[14] CPU_Bus[13] CPU_Bus[12] CPU_Bus[11] CPU_Bus[10] CPU_Bus[9] CPU_Bus[8] CPU_Bus[7] CPU_Bus[6] CPU_Bus[5] CPU_Bus[4] CPU_Bus[3] CPU_Bus[2] CPU_Bus[1] CPU_Bus[0] memory_address[31] memory_address[30] memory_address[29] memory_address[28] memory_address[27] memory_address[26] memory_address[25] memory_address[24] memory_address[23] memory_address[22] memory_address[21] memory_address[20] memory_address[19] memory_address[18] memory_address[17] memory_address[16] memory_address[15] memory_address[14] memory_address[13] memory_address[12] memory_address[11] memory_address[10] memory_address[9] memory_address[8] memory_address[7] memory_address[6] memory_address[5] memory_address[4] memory_address[3] memory_address[2] memory_address[1] memory_address[0] done_output_data }
+# group_path -to {CPU_Bus[31]} {CPU_Bus[30]} {CPU_Bus[29]} {CPU_Bus[28]} {CPU_Bus[27]} {CPU_Bus[26]} {CPU_Bus[25]} {CPU_Bus[24]} {CPU_Bus[23]} {CPU_Bus[22]} {CPU_Bus[21]} {CPU_Bus[20]} {CPU_Bus[19]} {CPU_Bus[18]} {CPU_Bus[17]} {CPU_Bus[16]} {CPU_Bus[15]} {CPU_Bus[14]} {CPU_Bus[13]} {CPU_Bus[12]} {CPU_Bus[11]} {CPU_Bus[10]} {CPU_Bus[9]} {CPU_Bus[8]} {CPU_Bus[7]} {CPU_Bus[6]} {CPU_Bus[5]} {CPU_Bus[4]} {CPU_Bus[3]} {CPU_Bus[2]} {CPU_Bus[1]} {CPU_Bus[0]} {memory_address[31]} {memory_address[30]} {memory_address[29]} {memory_address[28]} {memory_address[27]} {memory_address[26]} {memory_address[25]} {memory_address[24]} {memory_address[23]} {memory_address[22]} {memory_address[21]} {memory_address[20]} {memory_address[19]} {memory_address[18]} {memory_address[17]} {memory_address[16]} {memory_address[15]} {memory_address[14]} {memory_address[13]} {memory_address[12]} {memory_address[11]} {memory_address[10]} {memory_address[9]} {memory_address[8]} {memory_address[7]} {memory_address[6]} {memory_address[5]} {memory_address[4]} {memory_address[3]} {memory_address[2]} {memory_address[1]} {memory_address[0]} done_output_data
+> optimize -virtual
+starting optimize at 00:00:03(cpu)/0:00:17(wall) 98MB(vsz)/345MB(peak)
+Log file for child PID=28254:  /home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/oasys.etc.00/oasys.w1.00.log 
+Log file for child PID=28257:  /home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/oasys.etc.00/oasys.w2.00.log 
+Log file for child PID=28263:  /home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/oasys.etc.00/oasys.w3.00.log 
+Log file for child PID=28269:  /home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/oasys.etc.00/oasys.w4.00.log 
+info: optimized '<TOP>' area changed 0.0squm (x1), total 1900.3squm (#1, 0 secs)
+info: optimized 'IO_Output__genmod__0' area changed -472.4squm (x1), total 1427.9squm (#2)
+info: optimized '<TOP>' area changed 0.0squm (x1), total 1427.9squm (#3, 0 secs)
+done optimizing area at 00:00:05(cpu)/0:00:18(wall) 103MB(vsz)/365MB(peak)
+Splitting congested rtl-partitions
+info: optimizing design 'IO_Output' - propagating constants
+info: optimized '<TOP>' area changed 0.0squm (x1), total 1427.9squm (#1, 0 secs)
+info: set slack mode to optimize shift
+info: resetting all path groups
+info: activated path group default @ 29607.9ps
+info: activated path group I2R @ 28973.4ps
+info: suspended path group I2O @ <ill>ps
+info: activated path group R2O @ 11847.2ps
+info: finished path group R2O @ 11847.2ps
+info: finished path group I2R @ 28973.4ps
+info: finished path group default @ 29607.9ps
+info: reactivating path groups
+info: reactivated path group default @ 29607.9ps
+info: reactivated path group I2R @ 28973.4ps
+info: reactivated path group R2O @ 11847.2ps
+info: finished path group R2O @ 11847.2ps
+info: finished path group I2R @ 28973.4ps
+info: finished path group default @ 29607.9ps
+info: set slack mode to normal
+info: done with all path groups
+info: restore all path groups
+info: starting area recovery on module IO_Output
+info: optimized 'IO_Output__genmod__0' area recovered 0.0 squm (x1), total 0.0 squm (1#1), 0.44 secs
+info: area recovery done, total area reduction: 0.00squm (0.00%), slack: 11847.2ps (0.0ps) (0 secs / 0.0%)
+done optimizing virtual at 00:00:06(cpu)/0:00:19(wall) 113MB(vsz)/365MB(peak)
+finished optimize at 00:00:06(cpu)/0:00:19(wall) 113MB(vsz)/365MB(peak)
+> write_design /home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/outputs/odb/2_virtual_opt.odb
+> report_timing
+Report for group default
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+Startpoint: state_reg[1]/Q
+    (Clocked by vsysclk R)
+Endpoint: CPU_Bus_reg[31]/D
+    (Clocked by vsysclk F)
+Path Group: default
+Data required time: 29962.0
+    (Clock shift: 30000.0, minus Uncertainty: 0.0, plus Latency 0.0, minus Setup time: 38.0)
+Data arrival time: 354.1
+Slack: 29607.9
+Logic depth: 5
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                     Arrival               Arc      Net               Net    Total   fan-                                   
+Path                     Module/Cell           Edge     Time    Delay    Delay    Delay     Slew     Load     Load    out     Location Power Domain      (V)
+                                                        (ps)     (ps)     (ps)     (ps)     (ps)     (ff)     (ff)    (#)      (um,um)                      
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+CLK                      {create_clock}           r      0.0      0.0      0.0                        0.0      0.0      6                                   
+state_reg[1]/CK->Q       DFF_X1*                 rr    149.8    149.8    149.8      0.0      0.0      2.9     37.6      4              /PD_TOP        (1.10)
+i_0_0_324/A->ZN          INV_X8                  rf    157.7      7.9      7.8      0.1     15.3      1.2      7.1      2              /PD_TOP        (1.10)
+i_0_0_68/A1->ZN          NAND2_X4                fr    170.8     13.1     13.1      0.0      3.8      1.5      6.6      2              /PD_TOP        (1.10)
+i_0_0_66/B1->ZN          AOI21_X4*               rf    224.5     53.7     53.7      0.0     10.7     31.1    109.7     32              /PD_TOP        (1.10)
+i_0_0_64/A2->ZN          AOI222_X4               fr    347.8    123.3    122.0      1.3     15.3      0.8     26.2      1              /PD_TOP        (1.10)
+i_0_0_63/A->ZN           INV_X8                  rf    354.1      6.3      6.3      0.0     18.6      0.7      1.8      1              /PD_TOP        (1.10)
+CPU_Bus_reg[31]/D        DFF_X1                   f    354.1      0.0               0.0      3.2                                       /PD_TOP        (1.10)
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+Report for group I2R
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+Startpoint: enable_output_IO
+    (Clocked by rtDefaultClock R)
+Endpoint: CPU_Bus_reg[31]/D
+    (Clocked by vsysclk F)
+Path Group: I2R
+Data required time: 29962.0
+    (Clock shift: 30000.0, minus Uncertainty: 0.0, plus Latency 0.0, minus Setup time: 38.0)
+Data arrival time: 988.6
+Slack: 28973.4
+Logic depth: 4
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                     Arrival               Arc      Net               Net    Total   fan-                                   
+Path                     Module/Cell           Edge     Time    Delay    Delay    Delay     Slew     Load     Load    out     Location Power Domain      (V)
+                                                        (ps)     (ps)     (ps)     (ps)     (ps)     (ff)     (ff)    (#)      (um,um)                      
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+enable_output_IO         {set_input_delay}        f    700.0    700.0    700.0                        6.2     18.3      3                                   
+i_0_0_69/A2->ZN          NAND2_X4*               fr    797.9     97.9     97.6      0.3    100.0     32.6    119.1     34              /PD_TOP        (1.10)
+i_0_0_65/A1->ZN          NOR3_X4*                rf    845.2     47.3     45.9      1.4     15.3     31.1    104.8     32              /PD_TOP        (1.10)
+i_0_0_64/B1->ZN          AOI222_X4               fr    982.3    137.1    135.8      1.3     15.3      0.8     26.2      1              /PD_TOP        (1.10)
+i_0_0_63/A->ZN           INV_X8                  rf    988.6      6.3      6.3      0.0     18.6      0.7      1.8      1              /PD_TOP        (1.10)
+CPU_Bus_reg[31]/D        DFF_X1                   f    988.6      0.0               0.0      3.2                                       /PD_TOP        (1.10)
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+Report for group I2O
+Report for group R2O
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+Startpoint: done_output_data_reg/Q
+    (Clocked by vsysclk F)
+Endpoint: done_output_data
+    (Clocked by vsysclk R)
+Path Group: R2O
+Data required time: 12000.0
+    (Clock shift: 30000.0, minus Uncertainty: 0.0, plus Latency 0.0, minus Out delay: 18000.0)
+Data arrival time: 152.8
+Slack: 11847.2
+Logic depth: 0
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                     Arrival               Arc      Net               Net    Total   fan-                                   
+Path                     Module/Cell           Edge     Time    Delay    Delay    Delay     Slew     Load     Load    out     Location Power Domain      (V)
+                                                        (ps)     (ps)     (ps)     (ps)     (ps)     (ff)     (ff)    (#)      (um,um)                      
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+CLK                      {create_clock}           f      0.0      0.0      0.0                        0.0      0.0      6                                   
+i_0_0_323/A->ZN          INV_X1                  fr      0.0      0.0      0.0      0.0      0.0      0.0      0.0     66              /PD_TOP        (1.10)
+done_output_data_reg/CK->Q
+                         DFFR_X1                 rr    152.5    152.5    152.5      0.0      0.0      7.2     24.6      4              /PD_TOP        (1.10)
+done_output_data                                  r    152.8      0.3               0.3     59.4                                                            
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+> report_path_groups
+Report Path Groups: 
+-----+-------+------+---------+---------
+     | Path  |Weight|Critical |Worst    
+     | Group |      |Range(ps)|Slack(ps)
+-----+-------+------+---------+---------
+1    |default| 1.000|      0.0|  29607.9
+2    |I2R    | 1.000|      0.0|  28973.4
+3    |I2O    | 1.000|      0.0|<ill>    
+4    |R2O    | 1.000|      0.0|  11847.2
+-----+-------+------+---------+---------
+> redirect -file /home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/outputs/logs/chip.log { create_chip   -bottom_clearance 30 -left_clearance 30 -right_clearance 30 -top_clearance 30 -utilization 60 }
+> create_blockage -name blk_top -type macro -left 0 -right 108.780000 -bottom 78.78 -top 108.780000
+info:    create placement blockage 'blk_top' (0.000000 78.780000) (108.780000 108.780000)  [FP-103]
+> create_blockage -name blk_bottom -type macro -left 0 -right 108.780000 -bottom 0 -top 30
+info:    create placement blockage 'blk_bottom' (0.000000 0.000000) (108.780000 30.000000)  [FP-103]
+> create_blockage -name blk_left -type macro -left 0 -right 30 -bottom 0 -top 108.780000
+info:    create placement blockage 'blk_left' (0.000000 0.000000) (30.000000 108.780000)  [FP-103]
+> create_blockage -name blk_right -type macro -left 78.78 -right 108.780000 -bottom 0 -top 108.780000
+info:    create placement blockage 'blk_right' (78.780000 0.000000) (108.780000 108.780000)  [FP-103]
+> optimize -place
+starting optimize at 00:00:06(cpu)/0:00:19(wall) 113MB(vsz)/365MB(peak)
+info:	 floorplan : total 0 movable macros and 0 fixed macros
+info:    creating tracks for 10 routing layers  [FP-148]
+info:    start floorplan stage 0  [FP-145]
+info:    end floorplan stage 0  [FP-145]
+info:    start floorplan stage 1  [FP-145]
+info:    end floorplan stage 1  [FP-145]
+info:    start rtl partition placement  [PLACE-114]
+info:    placement mode : raw  [PLACE-115]
+info: set slack mode to weight modified
+info: set slack mode to normal
+info: set slack mode to optimize shift
+info:    timing-driven placement : ON  [PLACE-116]
+info:    congestion-driven placement : ON  [PLACE-117]
+info:    placement movable objects : macros 0 , rtl partitions 1, cells 0  [PLACE-118]
+info:    start placement stage 0  [PLACE-111]
+info:    start placement tuning for timing  [PLACE-110]
+info:    end placement tuning for timing  [PLACE-110]
+info:    start placement tuning for timing  [PLACE-110]
+info:    end placement tuning for timing  [PLACE-110]
+info:    start placement tuning for timing  [PLACE-110]
+info:    end placement tuning for timing  [PLACE-110]
+info:    start placement tuning for timing  [PLACE-110]
+info:    end placement tuning for timing  [PLACE-110]
+info:    end placement stage 0  [PLACE-111]
+info: set slack mode to normal
+info:    cell density map (bin size 20 x 20 rows), maximum utilization: 80.69% average utilization: 56.79%  [PLACE-153]
+info:    0.00% bins with overflow, average overflow 0.00%  [PLACE-154]
+info:    P-D: 0.000% (0.000 ~ 0.000) 
+Total Wire Length =                 0.00
+Average Wire      =                 0.00
+Longest Wire      =                 0.00
+Shortest Wire     =                 0.00
+WNS               = 11847.2ps
+info:	placing 196 unplaced IO Pins
+info:    start rtl partition placement  [PLACE-114]
+info:    placement mode : raw  [PLACE-115]
+info: set slack mode to weight modified
+info: set slack mode to normal
+info: set slack mode to optimize shift
+info:    timing-driven placement : ON  [PLACE-116]
+info:    congestion-driven placement : ON  [PLACE-117]
+info:    placement movable objects : macros 0 , rtl partitions 1, cells 0  [PLACE-118]
+info:    start placement stage 0  [PLACE-111]
+info:    end placement stage 0  [PLACE-111]
+info: set slack mode to normal
+info:    cell density map (bin size 20 x 20 rows), maximum utilization: 64.98% average utilization: 59.55%  [PLACE-153]
+info:    0.00% bins with overflow, average overflow 0.00%  [PLACE-154]
+info:    P-D: 0.000% (0.000 ~ 0.000) 
+Total Wire Length =             11536.24
+Average Wire      =                58.86
+Longest Wire      =                66.58
+Shortest Wire     =                53.90
+WNS               = 11840.9ps
+info:    0 power/ground pre-route segments processed.  [PLACE-144]
+info:    0 routing blockages processed.  [PLACE-145]
+info: replaced @ 11840.9ps
+done optimize placement at 00:00:07(cpu)/0:00:21(wall) 336MB(vsz)/639MB(peak)
+finished optimize at 00:00:07(cpu)/0:00:21(wall) 336MB(vsz)/639MB(peak)
+> write_design /home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/outputs/odb/2_placed_opt.odb
+
+-------------------------------------
+
+Synthesis, optimization complete
+
+-------------------------------------
+
+> source scripts/3_export_design.tcl
+> report_units
+Report SDC units: 
+-----+-----------+-----
+     |Unit       |Value
+-----+-----------+-----
+1    |Time       |ns   
+2    |Capacitance|ff   
+3    |Resistance |kohm 
+4    |Power      |nW   
+5    |Voltage    |V    
+6    |Current    |mA   
+-----+-----------+-----
+> report_timing > /home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/outputs/rpt/time.rpt
+> report_path_groups > /home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/outputs/rpt/path.rpt
+> report_endpoints > /home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/outputs/rpt/endpoints.rpt
+> report_power > /home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/outputs/rpt/power.rpt
+> report_design_metrics > /home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/outputs/rpt/design.rpt
+> write_design /home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/outputs/odb/IO_Output.odb
+> write_mxdb /home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/outputs/mxdb/IO_Output.mxdb
+info: using ptf '/home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/lib_data/NCSU_FreePDK_45nm.ptf'
+wrote mentor exchange database file /home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/outputs/mxdb/IO_Output.mxdb
+> write_verilog /home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/outputs/verilog/IO_Output.syn.v
+info:    writing Verilog file '/home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/outputs/verilog/IO_Output.syn.v' for module 'IO_Output'  [WRITE-100]
+> write_sdc /home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/outputs/constraints/IO_Output.oasys.sdc
+info:    writing Sdc file '/home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/outputs/constraints/IO_Output.oasys.sdc' for design 'IO_Output'  [WRITE-104]
+> save_upf /home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/outputs/constraints/IO_Output.oasys.upf
+> write_def -floorplan /home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/outputs/floorplan/IO_Output.def
+info:    writing Def file '/home/vlsi/Desktop/Lab_2_VLSI/VLSI/vlsilab02/Lab2/outputs/floorplan/IO_Output.def' for module 'IO_Output'  [WRITE-101]
+info:    use 2000 units per micron  [WRITE-130]
+info:    write def to skip macro_only blockage 'blk_top'  [DEF-149]
+info:    write def to skip macro_only blockage 'blk_bottom'  [DEF-149]
+info:    write def to skip macro_only blockage 'blk_left'  [DEF-149]
+info:    write def to skip macro_only blockage 'blk_right'  [DEF-149]
+
+-----------------------------
+
+Design data exported to output dir.
+
+-----------------------------
+
+> report_timing
+Report for group default
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+Startpoint: state_reg[1]/Q
+    (Clocked by vsysclk R)
+Endpoint: CPU_Bus_reg[31]/D
+    (Clocked by vsysclk F)
+Path Group: default
+Data required time: 29962.0
+    (Clock shift: 30000.0, minus Uncertainty: 0.0, plus Latency 0.0, minus Setup time: 38.0)
+Data arrival time: 354.1
+Slack: 29607.9
+Logic depth: 5
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                     Arrival               Arc      Net               Net    Total   fan-                                   
+Path                     Module/Cell           Edge     Time    Delay    Delay    Delay     Slew     Load     Load    out     Location Power Domain      (V)
+                                                        (ps)     (ps)     (ps)     (ps)     (ps)     (ff)     (ff)    (#)      (um,um)                      
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+CLK                      {create_clock}           r      0.0      0.0      0.0                        0.0      0.0      6    59,    0                       
+state_reg[1]/CK->Q       DFF_X1*                 rr    149.8    149.8    149.8      0.0      0.0      2.9     37.6      4    54,   54  /PD_TOP        (1.10)
+i_0_0_324/A->ZN          INV_X8                  rf    157.7      7.9      7.8      0.1     15.3      1.2      7.1      2    54,   54  /PD_TOP        (1.10)
+i_0_0_68/A1->ZN          NAND2_X4                fr    170.8     13.1     13.1      0.0      3.8      1.5      6.6      2    54,   54  /PD_TOP        (1.10)
+i_0_0_66/B1->ZN          AOI21_X4*               rf    224.5     53.7     53.7      0.0     10.7     31.1    109.7     32    54,   54  /PD_TOP        (1.10)
+i_0_0_64/A2->ZN          AOI222_X4               fr    347.8    123.3    122.0      1.3     15.3      0.8     26.2      1    54,   54  /PD_TOP        (1.10)
+i_0_0_63/A->ZN           INV_X8                  rf    354.1      6.3      6.3      0.0     18.6      0.7      1.8      1    54,   54  /PD_TOP        (1.10)
+CPU_Bus_reg[31]/D        DFF_X1                   f    354.1      0.0               0.0      3.2                             54,   54  /PD_TOP        (1.10)
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+Report for group I2R
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+Startpoint: enable_output_IO
+    (Clocked by rtDefaultClock R)
+Endpoint: CPU_Bus_reg[31]/D
+    (Clocked by vsysclk F)
+Path Group: I2R
+Data required time: 29962.0
+    (Clock shift: 30000.0, minus Uncertainty: 0.0, plus Latency 0.0, minus Setup time: 38.0)
+Data arrival time: 989.2
+Slack: 28972.8
+Logic depth: 4
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                     Arrival               Arc      Net               Net    Total   fan-                                   
+Path                     Module/Cell           Edge     Time    Delay    Delay    Delay     Slew     Load     Load    out     Location Power Domain      (V)
+                                                        (ps)     (ps)     (ps)     (ps)     (ps)     (ff)     (ff)    (#)      (um,um)                      
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+enable_output_IO         {set_input_delay}        f    700.0    700.0    700.0                        8.6     20.7      3   109,   52                       
+i_0_0_69/A2->ZN          NAND2_X4*               fr    798.5     98.5     97.6      0.9    100.0     32.6    119.1     34    54,   54  /PD_TOP        (1.10)
+i_0_0_65/A1->ZN          NOR3_X4*                rf    845.8     47.3     45.9      1.4     15.3     31.1    104.8     32    54,   54  /PD_TOP        (1.10)
+i_0_0_64/B1->ZN          AOI222_X4               fr    982.9    137.1    135.8      1.3     15.3      0.8     26.2      1    54,   54  /PD_TOP        (1.10)
+i_0_0_63/A->ZN           INV_X8                  rf    989.2      6.3      6.3      0.0     18.6      0.7      1.8      1    54,   54  /PD_TOP        (1.10)
+CPU_Bus_reg[31]/D        DFF_X1                   f    989.2      0.0               0.0      3.2                             54,   54  /PD_TOP        (1.10)
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+Report for group I2O
+Report for group R2O
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+Startpoint: done_output_data_reg/Q
+    (Clocked by vsysclk F)
+Endpoint: done_output_data
+    (Clocked by vsysclk R)
+Path Group: R2O
+Data required time: 12000.0
+    (Clock shift: 30000.0, minus Uncertainty: 0.0, plus Latency 0.0, minus Out delay: 18000.0)
+Data arrival time: 159.1
+Slack: 11840.9
+Logic depth: 0
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                     Arrival               Arc      Net               Net    Total   fan-                                   
+Path                     Module/Cell           Edge     Time    Delay    Delay    Delay     Slew     Load     Load    out     Location Power Domain      (V)
+                                                        (ps)     (ps)     (ps)     (ps)     (ps)     (ff)     (ff)    (#)      (um,um)                      
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+CLK                      {create_clock}           f      0.0      0.0      0.0                        0.0      0.0      6    59,    0                       
+i_0_0_323/A->ZN          INV_X1                  fr      0.0      0.0      0.0      0.0      0.0      0.0      0.0     66    54,   54  /PD_TOP        (1.10)
+done_output_data_reg/CK->Q
+                         DFFR_X1                 rr    158.2    158.2    158.2      0.0      0.0      9.6     27.0      4    54,   54  /PD_TOP        (1.10)
+done_output_data                                  r    159.1      0.9               0.9     64.8                             52,  109                       
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+> report_power
+warning: No library characterized for (process = 1.00 voltage = 0.85 temperature = 25.00) can be found in the database for power domain '/PD_TOP'  [NL-174]
+Report Power (instances with prefix '*' are included in total) : 
+-----+----------------------------+--------------------+---------------------+-------------------+-----------------
+     | Instance                   | Internal Power(uw) | Switching Power(uw) | Leakage Power(uw) | Total Power(uw) 
+-----+----------------------------+--------------------+---------------------+-------------------+-----------------
+1    |*done_output_data_reg       |            0.074019|             0.136105|           0.086213|         0.296336
+2    |*clk_gate_memory_address_reg|            0.032868|             0.000000|           0.059138|         0.092006
+3    |*memory_address_reg[31]     |            0.071151|             0.105537|           0.079112|         0.255800
+4    |*memory_address_reg[30]     |            0.016434|             0.024386|           0.079112|         0.119932
+5    |*memory_address_reg[29]     |            0.016435|             0.025089|           0.079112|         0.120636
+6    |*memory_address_reg[28]     |            0.016435|             0.025089|           0.079112|         0.120636
+7    |*memory_address_reg[27]     |            0.071154|             0.108445|           0.079112|         0.258712
+8    |*memory_address_reg[26]     |            0.071154|             0.108490|           0.079112|         0.258757
+9    |*memory_address_reg[25]     |            0.016435|             0.025899|           0.079112|         0.121447
+10   |*memory_address_reg[24]     |            0.016435|             0.025899|           0.079112|         0.121447
+11   |*memory_address_reg[23]     |            0.071152|             0.105718|           0.079112|         0.255982
+12   |*memory_address_reg[22]     |            0.071152|             0.105764|           0.079112|         0.256028
+13   |*memory_address_reg[21]     |            0.016435|             0.025048|           0.079112|         0.120594
+14   |*memory_address_reg[20]     |            0.016435|             0.025048|           0.079112|         0.120594
+15   |*memory_address_reg[19]     |            0.071154|             0.108263|           0.079112|         0.258530
+16   |*memory_address_reg[18]     |            0.071154|             0.108309|           0.079112|         0.258575
+17   |*memory_address_reg[17]     |            0.016435|             0.025857|           0.079112|         0.121405
+18   |*memory_address_reg[16]     |            0.016435|             0.025857|           0.079112|         0.121405
+19   |*memory_address_reg[15]     |            0.071152|             0.105900|           0.079112|         0.256164
+20   |*memory_address_reg[14]     |            0.071152|             0.105946|           0.079112|         0.256210
+21   |*memory_address_reg[13]     |            0.016434|             0.025006|           0.079112|         0.120552
+22   |*memory_address_reg[12]     |            0.016434|             0.025006|           0.079112|         0.120552
+23   |*memory_address_reg[11]     |            0.071154|             0.108081|           0.079112|         0.258348
+24   |*memory_address_reg[10]     |            0.071154|             0.108127|           0.079112|         0.258393
+25   |*memory_address_reg[9]      |            0.016435|             0.025815|           0.079112|         0.121363
+26   |*memory_address_reg[8]      |            0.016435|             0.025815|           0.079112|         0.121363
+27   |*memory_address_reg[7]      |            0.071152|             0.106082|           0.079112|         0.256346
+28   |*memory_address_reg[6]      |            0.071152|             0.106127|           0.079112|         0.256392
+29   |*memory_address_reg[5]      |            0.016434|             0.024964|           0.079112|         0.120510
+30   |*memory_address_reg[4]      |            0.016434|             0.024964|           0.079112|         0.120510
+31   |*memory_address_reg[3]      |            0.071154|             0.107900|           0.079112|         0.258166
+32   |*memory_address_reg[2]      |            0.071154|             0.107945|           0.079112|         0.258211
+33   |*memory_address_reg[1]      |            0.071157|             0.111587|           0.079112|         0.261857
+34   |*memory_address_reg[0]      |            0.070959|             0.111276|           0.079112|         0.261347
+35   |*i_0_3                      |            1.150181|             0.843645|           1.887409|         3.881235
+36   |*memory_address_reg[31]__0  |            0.000000|             0.000000|           0.100162|         0.100162
+37   |*memory_address_reg[30]__0  |            0.000000|             0.000000|           0.100162|         0.100162
+38   |*memory_address_reg[29]__0  |            0.000000|             0.000000|           0.100162|         0.100162
+39   |*memory_address_reg[28]__0  |            0.000000|             0.000000|           0.100162|         0.100162
+40   |*memory_address_reg[27]__0  |            0.000000|             0.000000|           0.100162|         0.100162
+41   |*memory_address_reg[26]__0  |            0.000000|             0.000000|           0.100162|         0.100162
+42   |*memory_address_reg[25]__0  |            0.000000|             0.000000|           0.100162|         0.100162
+43   |*memory_address_reg[24]__0  |            0.000000|             0.000000|           0.100162|         0.100162
+44   |*memory_address_reg[23]__0  |            0.000000|             0.000000|           0.100162|         0.100162
+45   |*memory_address_reg[22]__0  |            0.000000|             0.000000|           0.100162|         0.100162
+46   |*memory_address_reg[21]__0  |            0.000000|             0.000000|           0.100162|         0.100162
+47   |*memory_address_reg[20]__0  |            0.000000|             0.000000|           0.100162|         0.100162
+48   |*memory_address_reg[19]__0  |            0.000000|             0.000000|           0.100162|         0.100162
+49   |*memory_address_reg[18]__0  |            0.000000|             0.000000|           0.100162|         0.100162
+50   |*memory_address_reg[17]__0  |            0.000000|             0.000000|           0.100162|         0.100162
+51   |*memory_address_reg[16]__0  |            0.000000|             0.000000|           0.100162|         0.100162
+52   |*memory_address_reg[15]__0  |            0.000000|             0.000000|           0.100162|         0.100162
+53   |*memory_address_reg[14]__0  |            0.000000|             0.000000|           0.100162|         0.100162
+54   |*memory_address_reg[13]__0  |            0.000000|             0.000000|           0.100162|         0.100162
+55   |*memory_address_reg[12]__0  |            0.000000|             0.000000|           0.100162|         0.100162
+56   |*memory_address_reg[11]__0  |            0.000000|             0.000000|           0.100162|         0.100162
+57   |*memory_address_reg[10]__0  |            0.000000|             0.000000|           0.100162|         0.100162
+58   |*memory_address_reg[9]__0   |            0.000000|             0.000000|           0.100162|         0.100162
+59   |*memory_address_reg[8]__0   |            0.000000|             0.000000|           0.100162|         0.100162
+60   |*memory_address_reg[7]__0   |            0.000000|             0.000000|           0.100162|         0.100162
+61   |*memory_address_reg[6]__0   |            0.000000|             0.000000|           0.100162|         0.100162
+62   |*memory_address_reg[5]__0   |            0.000000|             0.000000|           0.100162|         0.100162
+63   |*memory_address_reg[4]__0   |            0.000000|             0.000000|           0.100162|         0.100162
+64   |*memory_address_reg[3]__0   |            0.000000|             0.000000|           0.100162|         0.100162
+65   |*memory_address_reg[2]__0   |            0.000000|             0.000000|           0.100162|         0.100162
+66   |*memory_address_reg[1]__0   |            0.000000|             0.000000|           0.100162|         0.100162
+67   |*memory_address_reg[0]__0   |            0.000000|             0.000000|           0.100162|         0.100162
+68   |*CPU_Bus_reg[31]            |            0.069658|             0.099912|           0.079112|         0.248682
+69   |*CPU_Bus_reg[30]            |            0.069658|             0.099956|           0.079112|         0.248727
+70   |*CPU_Bus_reg[29]            |            0.069662|             0.103522|           0.079112|         0.252296
+71   |*CPU_Bus_reg[28]            |            0.069662|             0.103522|           0.079112|         0.252296
+72   |*CPU_Bus_reg[27]            |            0.069661|             0.103344|           0.079112|         0.252118
+73   |*CPU_Bus_reg[26]            |            0.069661|             0.103388|           0.079112|         0.252162
+74   |*CPU_Bus_reg[25]            |            0.069665|             0.106954|           0.079112|         0.255731
+75   |*CPU_Bus_reg[24]            |            0.069665|             0.106954|           0.079112|         0.255731
+76   |*CPU_Bus_reg[23]            |            0.069658|             0.099734|           0.079112|         0.248504
+77   |*CPU_Bus_reg[22]            |            0.069658|             0.099778|           0.079112|         0.248548
+78   |*CPU_Bus_reg[21]            |            0.069661|             0.103344|           0.079112|         0.252118
+79   |*CPU_Bus_reg[20]            |            0.069661|             0.103344|           0.079112|         0.252118
+80   |*CPU_Bus_reg[19]            |            0.069661|             0.103166|           0.079112|         0.251940
+81   |*CPU_Bus_reg[18]            |            0.069661|             0.103210|           0.079112|         0.251984
+82   |*CPU_Bus_reg[17]            |            0.069665|             0.106776|           0.079112|         0.255553
+83   |*CPU_Bus_reg[16]            |            0.069665|             0.106776|           0.079112|         0.255553
+84   |*CPU_Bus_reg[15]            |            0.069658|             0.099556|           0.079112|         0.248326
+85   |*CPU_Bus_reg[14]            |            0.069658|             0.099600|           0.079112|         0.248370
+86   |*CPU_Bus_reg[13]            |            0.069661|             0.103166|           0.079112|         0.251940
+87   |*CPU_Bus_reg[12]            |            0.069661|             0.103166|           0.079112|         0.251940
+88   |*CPU_Bus_reg[11]            |            0.069661|             0.102988|           0.079112|         0.251761
+89   |*CPU_Bus_reg[10]            |            0.069661|             0.103033|           0.079112|         0.251806
+90   |*CPU_Bus_reg[9]             |            0.069665|             0.106598|           0.079112|         0.255375
+91   |*CPU_Bus_reg[8]             |            0.069665|             0.106598|           0.079112|         0.255375
+92   |*CPU_Bus_reg[7]             |            0.069658|             0.099607|           0.079112|         0.248377
+93   |*CPU_Bus_reg[6]             |            0.069658|             0.099651|           0.079112|         0.248421
+94   |*CPU_Bus_reg[5]             |            0.069661|             0.102988|           0.079112|         0.251761
+95   |*CPU_Bus_reg[4]             |            0.069661|             0.102988|           0.079112|         0.251761
+96   |*CPU_Bus_reg[3]             |            0.069661|             0.102810|           0.079112|         0.251583
+97   |*CPU_Bus_reg[2]             |            0.069661|             0.102855|           0.079112|         0.251628
+98   |*CPU_Bus_reg[1]             |            0.069664|             0.106420|           0.079112|         0.255197
+99   |*CPU_Bus_reg[0]             |            0.069664|             0.106420|           0.079112|         0.255197
+100  |*state_reg[1]               |            0.071203|             0.189642|           0.079112|         0.339957
+101  |*state_reg[0]               |            0.071133|             0.086651|           0.079112|         0.236896
+102  |*clk_gate_addr_output_reg   |            0.009457|             0.000000|           0.059138|         0.068595
+103  |*addr_output_reg[31]        |            0.050083|             0.079226|           0.086213|         0.215521
+104  |*addr_output_reg[30]        |            0.050066|             0.151595|           0.086213|         0.287874
+105  |*addr_output_reg[29]        |            0.050066|             0.151595|           0.086213|         0.287874
+106  |*addr_output_reg[28]        |            0.050066|             0.151595|           0.086213|         0.287874
+107  |*addr_output_reg[27]        |            0.050083|             0.078248|           0.086213|         0.214544
+108  |*addr_output_reg[26]        |            0.050058|             0.071651|           0.086213|         0.207922
+109  |*addr_output_reg[25]        |            0.050066|             0.151595|           0.086213|         0.287874
+110  |*addr_output_reg[24]        |            0.050066|             0.151595|           0.086213|         0.287874
+111  |*addr_output_reg[23]        |            0.050083|             0.078248|           0.086213|         0.214544
+112  |*addr_output_reg[22]        |            0.050058|             0.071651|           0.086213|         0.207922
+113  |*addr_output_reg[21]        |            0.050066|             0.151595|           0.086213|         0.287874
+114  |*addr_output_reg[20]        |            0.050066|             0.151595|           0.086213|         0.287874
+115  |*addr_output_reg[19]        |            0.050083|             0.078248|           0.086213|         0.214544
+116  |*addr_output_reg[18]        |            0.050058|             0.071651|           0.086213|         0.207922
+117  |*addr_output_reg[17]        |            0.050066|             0.151595|           0.086213|         0.287874
+118  |*addr_output_reg[16]        |            0.050066|             0.151595|           0.086213|         0.287874
+119  |*addr_output_reg[15]        |            0.050083|             0.078248|           0.086213|         0.214544
+120  |*addr_output_reg[14]        |            0.050058|             0.071651|           0.086213|         0.207922
+121  |*addr_output_reg[13]        |            0.050066|             0.151595|           0.086213|         0.287874
+122  |*addr_output_reg[12]        |            0.050066|             0.151595|           0.086213|         0.287874
+123  |*addr_output_reg[11]        |            0.051822|             0.078248|           0.084396|         0.214466
+124  |*addr_output_reg[10]        |            0.050058|             0.071651|           0.086213|         0.207922
+125  |*addr_output_reg[9]         |            0.050066|             0.151595|           0.086213|         0.287874
+126  |*addr_output_reg[8]         |            0.051680|             0.151595|           0.084396|         0.287671
+127  |*addr_output_reg[7]         |            0.051822|             0.078248|           0.084396|         0.214466
+128  |*addr_output_reg[6]         |            0.051853|             0.071651|           0.084396|         0.207901
+129  |*addr_output_reg[5]         |            0.050066|             0.151595|           0.086213|         0.287874
+130  |*addr_output_reg[4]         |            0.050066|             0.151595|           0.086213|         0.287874
+131  |*addr_output_reg[3]         |            0.050083|             0.078248|           0.086213|         0.214544
+132  |*addr_output_reg[2]         |            0.051847|             0.072772|           0.084396|         0.209015
+133  |*addr_output_reg[1]         |            0.051856|             0.071257|           0.084396|         0.207508
+134  |*addr_output_reg[0]         |            0.051587|             0.199413|           0.084396|         0.335397
+135  |*i_0_18                     |            1.142916|             0.344906|           1.887409|         3.375231
+136  |*clk_gate_addr_T_reg        |            0.017104|             0.000000|           0.059138|         0.076242
+137  |*addr_T_reg[31]             |            0.055412|             0.106163|           0.086213|         0.247787
+138  |*addr_T_reg[30]             |            0.055421|             0.173833|           0.086213|         0.315466
+139  |*addr_T_reg[29]             |            0.055421|             0.173833|           0.086213|         0.315466
+140  |*addr_T_reg[28]             |            0.055421|             0.173833|           0.086213|         0.315466
+141  |*addr_T_reg[27]             |            0.055421|             0.173833|           0.086213|         0.315466
+142  |*addr_T_reg[26]             |            0.055421|             0.173833|           0.086213|         0.315466
+143  |*addr_T_reg[25]             |            0.055421|             0.173833|           0.086213|         0.315466
+144  |*addr_T_reg[24]             |            0.055421|             0.173833|           0.086213|         0.315466
+145  |*addr_T_reg[23]             |            0.055421|             0.173833|           0.086213|         0.315466
+146  |*addr_T_reg[22]             |            0.055421|             0.173833|           0.086213|         0.315466
+147  |*addr_T_reg[21]             |            0.055421|             0.173833|           0.086213|         0.315466
+148  |*addr_T_reg[20]             |            0.055421|             0.173833|           0.086213|         0.315466
+149  |*addr_T_reg[19]             |            0.055421|             0.173833|           0.086213|         0.315466
+150  |*addr_T_reg[18]             |            0.055421|             0.173833|           0.086213|         0.315466
+151  |*addr_T_reg[17]             |            0.055421|             0.173833|           0.086213|         0.315466
+152  |*addr_T_reg[16]             |            0.055421|             0.173833|           0.086213|         0.315466
+153  |*addr_T_reg[15]             |            0.055421|             0.173833|           0.086213|         0.315466
+154  |*addr_T_reg[14]             |            0.055421|             0.173833|           0.086213|         0.315466
+155  |*addr_T_reg[13]             |            0.055421|             0.173833|           0.086213|         0.315466
+156  |*addr_T_reg[12]             |            0.055405|             0.173833|           0.084396|         0.313634
+157  |*addr_T_reg[11]             |            0.055421|             0.173833|           0.086213|         0.315466
+158  |*addr_T_reg[10]             |            0.055421|             0.173833|           0.086213|         0.315466
+159  |*addr_T_reg[9]              |            0.055405|             0.173833|           0.084396|         0.313634
+160  |*addr_T_reg[8]              |            0.055405|             0.173833|           0.084396|         0.313634
+161  |*addr_T_reg[7]              |            0.055405|             0.173833|           0.084396|         0.313634
+162  |*addr_T_reg[6]              |            0.055421|             0.173833|           0.086213|         0.315466
+163  |*addr_T_reg[5]              |            0.055421|             0.173833|           0.086213|         0.315466
+164  |*addr_T_reg[4]              |            0.055421|             0.173833|           0.086213|         0.315466
+165  |*addr_T_reg[3]              |            0.055405|             0.173833|           0.084396|         0.313634
+166  |*addr_T_reg[2]              |            0.055421|             0.173833|           0.086213|         0.315466
+167  |*addr_T_reg[1]              |            0.055405|             0.173833|           0.084396|         0.313634
+168  |*addr_T_reg[0]              |            0.055074|             0.330398|           0.084396|         0.469868
+169  |*state_reg[0]__0            |            0.073621|             0.047946|           0.086213|         0.207780
+170  |*i_0_0_0                    |            0.005004|             0.001922|           0.025066|         0.031992
+171  |*i_0_0_1                    |            0.007636|             0.008508|           0.014353|         0.030496
+172  |*i_0_0_2                    |            0.030684|             0.124256|           0.047399|         0.202338
+173  |*i_0_0_3                    |            0.007636|             0.008508|           0.014353|         0.030496
+174  |*i_0_0_4                    |            0.030684|             0.124256|           0.047399|         0.202338
+175  |*i_0_0_5                    |            0.007636|             0.008508|           0.014353|         0.030496
+176  |*i_0_0_6                    |            0.030689|             0.124256|           0.047399|         0.202343
+177  |*i_0_0_7                    |            0.007636|             0.008508|           0.014353|         0.030496
+178  |*i_0_0_8                    |            0.030689|             0.124256|           0.047399|         0.202343
+179  |*i_0_0_9                    |            0.007636|             0.008508|           0.014353|         0.030496
+180  |*i_0_0_10                   |            0.030689|             0.124256|           0.047399|         0.202343
+181  |*i_0_0_11                   |            0.007636|             0.008508|           0.014353|         0.030496
+182  |*i_0_0_12                   |            0.030689|             0.124256|           0.047399|         0.202343
+183  |*i_0_0_13                   |            0.007636|             0.008508|           0.014353|         0.030496
+184  |*i_0_0_14                   |            0.030694|             0.124256|           0.047399|         0.202348
+185  |*i_0_0_15                   |            0.007636|             0.008508|           0.014353|         0.030496
+186  |*i_0_0_16                   |            0.030694|             0.124256|           0.047399|         0.202348
+187  |*i_0_0_17                   |            0.007636|             0.008508|           0.014353|         0.030496
+188  |*i_0_0_18                   |            0.030683|             0.124256|           0.047399|         0.202338
+189  |*i_0_0_19                   |            0.007636|             0.008508|           0.014353|         0.030496
+190  |*i_0_0_20                   |            0.030683|             0.124256|           0.047399|         0.202338
+191  |*i_0_0_21                   |            0.007636|             0.008508|           0.014353|         0.030496
+192  |*i_0_0_22                   |            0.030689|             0.124256|           0.047399|         0.202343
+193  |*i_0_0_23                   |            0.007636|             0.008508|           0.014353|         0.030496
+194  |*i_0_0_24                   |            0.030689|             0.124256|           0.047399|         0.202343
+195  |*i_0_0_25                   |            0.007636|             0.008508|           0.014353|         0.030496
+196  |*i_0_0_26                   |            0.030689|             0.124256|           0.047399|         0.202343
+197  |*i_0_0_27                   |            0.007636|             0.008508|           0.014353|         0.030496
+198  |*i_0_0_28                   |            0.030689|             0.124256|           0.047399|         0.202343
+199  |*i_0_0_29                   |            0.007636|             0.008508|           0.014353|         0.030496
+200  |*i_0_0_30                   |            0.030694|             0.124256|           0.047399|         0.202348
+201  |*i_0_0_31                   |            0.007636|             0.008508|           0.014353|         0.030496
+202  |*i_0_0_32                   |            0.030694|             0.124256|           0.047399|         0.202348
+203  |*i_0_0_33                   |            0.007636|             0.008508|           0.014353|         0.030496
+204  |*i_0_0_34                   |            0.030683|             0.124256|           0.047399|         0.202337
+205  |*i_0_0_35                   |            0.007636|             0.008508|           0.014353|         0.030496
+206  |*i_0_0_36                   |            0.030683|             0.124256|           0.047399|         0.202337
+207  |*i_0_0_37                   |            0.007636|             0.008508|           0.014353|         0.030496
+208  |*i_0_0_38                   |            0.030689|             0.124256|           0.047399|         0.202343
+209  |*i_0_0_39                   |            0.007636|             0.008508|           0.014353|         0.030496
+210  |*i_0_0_40                   |            0.030689|             0.124256|           0.047399|         0.202343
+211  |*i_0_0_41                   |            0.007636|             0.008508|           0.014353|         0.030496
+212  |*i_0_0_42                   |            0.030688|             0.124256|           0.047399|         0.202343
+213  |*i_0_0_43                   |            0.007636|             0.008508|           0.014353|         0.030496
+214  |*i_0_0_44                   |            0.030688|             0.124256|           0.047399|         0.202343
+215  |*i_0_0_45                   |            0.007636|             0.008508|           0.014353|         0.030496
+216  |*i_0_0_46                   |            0.030693|             0.124256|           0.047399|         0.202348
+217  |*i_0_0_47                   |            0.007636|             0.008508|           0.014353|         0.030496
+218  |*i_0_0_48                   |            0.030694|             0.124256|           0.047399|         0.202348
+219  |*i_0_0_49                   |            0.007636|             0.008508|           0.014353|         0.030496
+220  |*i_0_0_50                   |            0.030683|             0.124256|           0.047399|         0.202337
+221  |*i_0_0_51                   |            0.007636|             0.008508|           0.014353|         0.030496
+222  |*i_0_0_52                   |            0.030683|             0.124256|           0.047399|         0.202337
+223  |*i_0_0_53                   |            0.007636|             0.008508|           0.014353|         0.030496
+224  |*i_0_0_54                   |            0.030688|             0.124256|           0.047399|         0.202343
+225  |*i_0_0_55                   |            0.007636|             0.008508|           0.014353|         0.030496
+226  |*i_0_0_56                   |            0.030688|             0.124256|           0.047399|         0.202343
+227  |*i_0_0_57                   |            0.007636|             0.008508|           0.014353|         0.030496
+228  |*i_0_0_58                   |            0.030688|             0.124256|           0.047399|         0.202342
+229  |*i_0_0_59                   |            0.007636|             0.008508|           0.014353|         0.030496
+230  |*i_0_0_60                   |            0.030688|             0.124256|           0.047399|         0.202342
+231  |*i_0_0_61                   |            0.007636|             0.008508|           0.014353|         0.030496
+232  |*i_0_0_62                   |            0.030693|             0.124256|           0.047399|         0.202348
+233  |*i_0_0_63                   |            0.007636|             0.008508|           0.014353|         0.030496
+234  |*i_0_0_64                   |            0.030693|             0.124256|           0.047399|         0.202348
+235  |*i_0_0_65                   |            0.004316|             0.123789|           0.026832|         0.154937
+236  |*i_0_0_66                   |            0.006272|             0.215410|           0.027858|         0.249540
+237  |*i_0_0_67                   |            0.016037|             0.018386|           0.022695|         0.057118
+238  |*i_0_0_68                   |            0.008954|             0.025031|           0.017393|         0.051378
+239  |*i_0_0_69                   |            0.546629|            27.017172|           0.017393|        27.581196
+240  |*i_0_0_70                   |            0.021305|             0.009546|           0.025066|         0.055917
+241  |*i_0_0_71                   |            0.021607|             0.009681|           0.025066|         0.056354
+242  |*i_0_0_72                   |            0.021549|             0.009681|           0.025066|         0.056296
+243  |*i_0_0_73                   |            0.021549|             0.009681|           0.025066|         0.056296
+244  |*i_0_0_74                   |            0.008033|             0.003777|           0.025066|         0.036876
+245  |*i_0_0_75                   |            0.008033|             0.003777|           0.025066|         0.036876
+246  |*i_0_0_76                   |            0.021520|             0.009681|           0.025066|         0.056267
+247  |*i_0_0_77                   |            0.021516|             0.009681|           0.025066|         0.056263
+248  |*i_0_0_78                   |            0.008044|             0.003777|           0.025066|         0.036887
+249  |*i_0_0_79                   |            0.008044|             0.003777|           0.025066|         0.036887
+250  |*i_0_0_80                   |            0.021553|             0.009681|           0.025066|         0.056300
+251  |*i_0_0_81                   |            0.021553|             0.009681|           0.025066|         0.056300
+252  |*i_0_0_82                   |            0.008033|             0.003777|           0.025066|         0.036876
+253  |*i_0_0_83                   |            0.008033|             0.003777|           0.025066|         0.036876
+254  |*i_0_0_84                   |            0.021516|             0.009681|           0.025066|         0.056263
+255  |*i_0_0_85                   |            0.021516|             0.009681|           0.025066|         0.056263
+256  |*i_0_0_86                   |            0.008045|             0.003777|           0.025066|         0.036888
+257  |*i_0_0_87                   |            0.008045|             0.003777|           0.025066|         0.036888
+258  |*i_0_0_88                   |            0.021556|             0.009681|           0.025066|         0.056303
+259  |*i_0_0_89                   |            0.021553|             0.009681|           0.025066|         0.056300
+260  |*i_0_0_90                   |            0.008034|             0.003777|           0.025066|         0.036877
+261  |*i_0_0_91                   |            0.008034|             0.003777|           0.025066|         0.036877
+262  |*i_0_0_92                   |            0.021513|             0.009681|           0.025066|         0.056260
+263  |*i_0_0_93                   |            0.021513|             0.009681|           0.025066|         0.056260
+264  |*i_0_0_94                   |            0.008046|             0.003777|           0.025066|         0.036888
+265  |*i_0_0_95                   |            0.008046|             0.003777|           0.025066|         0.036888
+266  |*i_0_0_96                   |            0.021556|             0.009681|           0.025066|         0.056303
+267  |*i_0_0_97                   |            0.021556|             0.009681|           0.025066|         0.056303
+268  |*i_0_0_98                   |            0.008034|             0.003777|           0.025066|         0.036877
+269  |*i_0_0_99                   |            0.008034|             0.003777|           0.025066|         0.036877
+270  |*i_0_0_100                  |            0.008024|             0.003777|           0.025066|         0.036867
+271  |*i_0_0_101                  |            0.021509|             0.009681|           0.025066|         0.056256
+272  |*i_0_0_102                  |            0.006762|             0.189072|           0.018105|         0.213938
+273  |*i_0_0_103                  |            0.011266|             0.012145|           0.017393|         0.040805
+274  |*i_0_0_104                  |            0.011266|             0.012145|           0.017393|         0.040805
+275  |*i_0_0_105                  |            0.011266|             0.012145|           0.017393|         0.040805
+276  |*i_0_0_106                  |            0.011266|             0.012145|           0.017393|         0.040805
+277  |*i_0_0_107                  |            0.011266|             0.012145|           0.017393|         0.040805
+278  |*i_0_0_108                  |            0.011266|             0.012145|           0.017393|         0.040805
+279  |*i_0_0_109                  |            0.011266|             0.012145|           0.017393|         0.040805
+280  |*i_0_0_110                  |            0.011266|             0.012145|           0.017393|         0.040805
+281  |*i_0_0_111                  |            0.011266|             0.012145|           0.017393|         0.040805
+282  |*i_0_0_112                  |            0.011266|             0.012145|           0.017393|         0.040805
+283  |*i_0_0_113                  |            0.011266|             0.012145|           0.017393|         0.040805
+284  |*i_0_0_114                  |            0.011266|             0.012145|           0.017393|         0.040805
+285  |*i_0_0_115                  |            0.011266|             0.012145|           0.017393|         0.040805
+286  |*i_0_0_116                  |            0.011266|             0.012145|           0.017393|         0.040805
+287  |*i_0_0_117                  |            0.011266|             0.012145|           0.017393|         0.040805
+288  |*i_0_0_118                  |            0.011266|             0.012145|           0.017393|         0.040805
+289  |*i_0_0_119                  |            0.011266|             0.012145|           0.017393|         0.040805
+290  |*i_0_0_120                  |            0.011266|             0.012145|           0.017393|         0.040805
+291  |*i_0_0_121                  |            0.011266|             0.012145|           0.017393|         0.040805
+292  |*i_0_0_122                  |            0.011266|             0.012145|           0.017393|         0.040805
+293  |*i_0_0_123                  |            0.011266|             0.012145|           0.017393|         0.040805
+294  |*i_0_0_124                  |            0.011266|             0.012145|           0.017393|         0.040805
+295  |*i_0_0_125                  |            0.011266|             0.012145|           0.017393|         0.040805
+296  |*i_0_0_126                  |            0.011266|             0.012145|           0.017393|         0.040805
+297  |*i_0_0_127                  |            0.011266|             0.012145|           0.017393|         0.040805
+298  |*i_0_0_128                  |            0.011266|             0.012145|           0.017393|         0.040805
+299  |*i_0_0_129                  |            0.011266|             0.012145|           0.017393|         0.040805
+300  |*i_0_0_130                  |            0.011266|             0.012145|           0.017393|         0.040805
+301  |*i_0_0_131                  |            0.011266|             0.012145|           0.017393|         0.040805
+302  |*i_0_0_132                  |            0.011266|             0.012145|           0.017393|         0.040805
+303  |*i_0_0_133                  |            0.011266|             0.012145|           0.017393|         0.040805
+304  |*i_0_0_134                  |            0.012415|             0.012145|           0.017393|         0.041954
+305  |*i_0_0_135                  |            0.011356|             0.009155|           0.017393|         0.037904
+306  |*i_0_0_136                  |            0.011355|             0.009155|           0.017393|         0.037904
+307  |*i_0_0_137                  |            0.011355|             0.009155|           0.017393|         0.037904
+308  |*i_0_0_138                  |            0.011355|             0.009155|           0.017393|         0.037904
+309  |*i_0_0_139                  |            0.011355|             0.009155|           0.017393|         0.037904
+310  |*i_0_0_140                  |            0.011355|             0.009155|           0.017393|         0.037904
+311  |*i_0_0_141                  |            0.011355|             0.009155|           0.017393|         0.037904
+312  |*i_0_0_142                  |            0.011355|             0.009155|           0.017393|         0.037904
+313  |*i_0_0_143                  |            0.011355|             0.009155|           0.017393|         0.037904
+314  |*i_0_0_144                  |            0.011355|             0.009155|           0.017393|         0.037904
+315  |*i_0_0_145                  |            0.011355|             0.009155|           0.017393|         0.037904
+316  |*i_0_0_146                  |            0.011355|             0.009155|           0.017393|         0.037904
+317  |*i_0_0_147                  |            0.011355|             0.009155|           0.017393|         0.037904
+318  |*i_0_0_148                  |            0.011355|             0.009155|           0.017393|         0.037904
+319  |*i_0_0_149                  |            0.011355|             0.009155|           0.017393|         0.037904
+320  |*i_0_0_150                  |            0.011355|             0.009155|           0.017393|         0.037904
+321  |*i_0_0_151                  |            0.011355|             0.009155|           0.017393|         0.037904
+322  |*i_0_0_152                  |            0.011355|             0.009155|           0.017393|         0.037904
+323  |*i_0_0_153                  |            0.011355|             0.009155|           0.017393|         0.037904
+324  |*i_0_0_154                  |            0.011355|             0.009155|           0.017393|         0.037904
+325  |*i_0_0_155                  |            0.011355|             0.009155|           0.017393|         0.037904
+326  |*i_0_0_156                  |            0.011355|             0.009155|           0.017393|         0.037904
+327  |*i_0_0_157                  |            0.011355|             0.009155|           0.017393|         0.037904
+328  |*i_0_0_158                  |            0.011355|             0.009155|           0.017393|         0.037904
+329  |*i_0_0_159                  |            0.011355|             0.009155|           0.017393|         0.037904
+330  |*i_0_0_160                  |            0.011355|             0.009155|           0.017393|         0.037904
+331  |*i_0_0_161                  |            0.011355|             0.009155|           0.017393|         0.037904
+332  |*i_0_0_162                  |            0.011355|             0.009155|           0.017393|         0.037904
+333  |*i_0_0_163                  |            0.011355|             0.009155|           0.017393|         0.037904
+334  |*i_0_0_164                  |            0.011355|             0.009155|           0.017393|         0.037904
+335  |*i_0_0_165                  |            0.011355|             0.009155|           0.017393|         0.037904
+336  |*i_0_0_166                  |            0.015764|             0.009155|           0.022695|         0.047615
+337  |*i_0_0_167                  |            0.014506|             0.005554|           0.022695|         0.042755
+338  |*i_0_0_168                  |            0.006910|             0.012834|           0.026832|         0.046575
+339  |*i_0_0_169                  |            0.015316|             0.023151|           0.027858|         0.066325
+340  |*i_0_0_170                  |            0.010569|             0.020682|           0.021200|         0.052451
+341  |*i_0_0_171                  |            0.019053|             0.024308|           0.034026|         0.077387
+342  |*i_0_0_172                  |            0.016268|             0.023562|           0.027858|         0.067688
+343  |*i_0_0_173                  |            0.015101|             0.023222|           0.027858|         0.066181
+344  |*i_0_0_174                  |            0.020715|             0.024733|           0.032612|         0.078060
+345  |*i_0_0_175                  |            0.021301|             0.022553|           0.033938|         0.077792
+346  |*i_0_0_176                  |            0.008934|             0.012697|           0.017393|         0.039024
+347  |*i_0_0_177                  |            0.018340|             0.016354|           0.034026|         0.068721
+348  |*i_0_0_178                  |            0.020591|             0.014872|           0.041741|         0.077205
+349  |*i_0_0_179                  |            0.010678|             0.012726|           0.021200|         0.044604
+350  |*i_0_0_180                  |            0.020815|             0.017296|           0.032612|         0.070723
+351  |*i_0_0_181                  |            0.021323|             0.015363|           0.033938|         0.070624
+352  |*i_0_0_182                  |            0.008934|             0.012697|           0.017393|         0.039024
+353  |*i_0_0_183                  |            0.018340|             0.016354|           0.034026|         0.068721
+354  |*i_0_0_184                  |            0.020591|             0.014872|           0.041741|         0.077205
+355  |*i_0_0_185                  |            0.010678|             0.012726|           0.021200|         0.044604
+356  |*i_0_0_186                  |            0.020815|             0.017296|           0.032612|         0.070723
+357  |*i_0_0_187                  |            0.021323|             0.015363|           0.033938|         0.070624
+358  |*i_0_0_188                  |            0.008934|             0.012697|           0.017393|         0.039024
+359  |*i_0_0_189                  |            0.018340|             0.016354|           0.034026|         0.068721
+360  |*i_0_0_190                  |            0.020591|             0.014873|           0.041741|         0.077205
+361  |*i_0_0_191                  |            0.010678|             0.012726|           0.021200|         0.044604
+362  |*i_0_0_192                  |            0.020815|             0.017296|           0.032612|         0.070723
+363  |*i_0_0_193                  |            0.021324|             0.015364|           0.033938|         0.070625
+364  |*i_0_0_194                  |            0.008934|             0.012697|           0.017393|         0.039024
+365  |*i_0_0_195                  |            0.018340|             0.016354|           0.034026|         0.068721
+366  |*i_0_0_196                  |            0.020594|             0.014874|           0.041741|         0.077209
+367  |*i_0_0_197                  |            0.010678|             0.012726|           0.021200|         0.044604
+368  |*i_0_0_198                  |            0.020815|             0.017296|           0.032612|         0.070723
+369  |*i_0_0_199                  |            0.021330|             0.015369|           0.033938|         0.070636
+370  |*i_0_0_200                  |            0.008919|             0.012697|           0.017393|         0.039009
+371  |*i_0_0_201                  |            0.018337|             0.016354|           0.034026|         0.068717
+372  |*i_0_0_202                  |            0.020618|             0.014890|           0.041741|         0.077249
+373  |*i_0_0_203                  |            0.010678|             0.012726|           0.021200|         0.044604
+374  |*i_0_0_204                  |            0.020815|             0.017296|           0.032612|         0.070723
+375  |*i_0_0_205                  |            0.021389|             0.015420|           0.033938|         0.070747
+376  |*i_0_0_206                  |            0.008919|             0.012697|           0.017393|         0.039009
+377  |*i_0_0_207                  |            0.018336|             0.016354|           0.034026|         0.068716
+378  |*i_0_0_208                  |            0.020855|             0.015042|           0.041741|         0.077638
+379  |*i_0_0_209                  |            0.010678|             0.012726|           0.021200|         0.044604
+380  |*i_0_0_210                  |            0.020815|             0.017296|           0.032612|         0.070723
+381  |*i_0_0_211                  |            0.021950|             0.015873|           0.033938|         0.071761
+382  |*i_0_0_212                  |            0.008934|             0.012697|           0.017393|         0.039024
+383  |*i_0_0_213                  |            0.018340|             0.016354|           0.034026|         0.068720
+384  |*i_0_0_214                  |            0.022688|             0.016018|           0.041741|         0.080447
+385  |*i_0_0_215                  |            0.008812|             0.010340|           0.021200|         0.040352
+386  |*i_0_0_216                  |            0.014414|             0.023213|           0.022619|         0.060247
+387  |*i_0_0_217                  |            0.010576|             0.017206|           0.021200|         0.048981
+388  |*i_0_0_218                  |            0.015633|             0.009436|           0.022619|         0.047688
+389  |*i_0_0_219                  |            0.011637|             0.022858|           0.017393|         0.051889
+390  |*i_0_0_220                  |            0.025455|             0.009432|           0.035928|         0.070815
+391  |*i_0_0_221                  |            0.025457|             0.009432|           0.035928|         0.070818
+392  |*i_0_0_222                  |            0.025471|             0.009432|           0.035928|         0.070831
+393  |*i_0_0_223                  |            0.015393|             0.009436|           0.022619|         0.047448
+394  |*i_0_0_224                  |            0.002716|             0.005232|           0.017393|         0.025342
+395  |*i_0_0_225                  |            0.015380|             0.009436|           0.022619|         0.047435
+396  |*i_0_0_226                  |            0.002716|             0.005232|           0.017393|         0.025342
+397  |*i_0_0_227                  |            0.025455|             0.009432|           0.035928|         0.070816
+398  |*i_0_0_228                  |            0.025468|             0.009432|           0.035928|         0.070829
+399  |*i_0_0_229                  |            0.015393|             0.009436|           0.022619|         0.047448
+400  |*i_0_0_230                  |            0.002718|             0.005232|           0.017393|         0.025344
+401  |*i_0_0_231                  |            0.015380|             0.009436|           0.022619|         0.047435
+402  |*i_0_0_232                  |            0.002718|             0.005232|           0.017393|         0.025344
+403  |*i_0_0_233                  |            0.025458|             0.009432|           0.035928|         0.070819
+404  |*i_0_0_234                  |            0.025468|             0.009432|           0.035928|         0.070829
+405  |*i_0_0_235                  |            0.015393|             0.009436|           0.022619|         0.047448
+406  |*i_0_0_236                  |            0.002718|             0.005232|           0.017393|         0.025344
+407  |*i_0_0_237                  |            0.015380|             0.009436|           0.022619|         0.047435
+408  |*i_0_0_238                  |            0.002716|             0.005232|           0.017393|         0.025342
+409  |*i_0_0_239                  |            0.025458|             0.009432|           0.035928|         0.070819
+410  |*i_0_0_240                  |            0.025471|             0.009432|           0.035928|         0.070831
+411  |*i_0_0_241                  |            0.015393|             0.009436|           0.022619|         0.047448
+412  |*i_0_0_242                  |            0.002716|             0.005232|           0.017393|         0.025342
+413  |*i_0_0_243                  |            0.015380|             0.009436|           0.022619|         0.047435
+414  |*i_0_0_244                  |            0.002716|             0.005232|           0.017393|         0.025342
+415  |*i_0_0_245                  |            0.025458|             0.009432|           0.035928|         0.070819
+416  |*i_0_0_246                  |            0.025471|             0.009432|           0.035928|         0.070831
+417  |*i_0_0_247                  |            0.015393|             0.009436|           0.022619|         0.047448
+418  |*i_0_0_248                  |            0.002716|             0.005232|           0.017393|         0.025342
+419  |*i_0_0_249                  |            0.015380|             0.009436|           0.022619|         0.047435
+420  |*i_0_0_250                  |            0.002716|             0.005232|           0.017393|         0.025342
+421  |*i_0_0_251                  |            0.025458|             0.009432|           0.035928|         0.070819
+422  |*i_0_0_252                  |            0.025471|             0.009432|           0.035928|         0.070831
+423  |*i_0_0_253                  |            0.015393|             0.009436|           0.022619|         0.047448
+424  |*i_0_0_254                  |            0.002716|             0.005232|           0.017393|         0.025342
+425  |*i_0_0_255                  |            0.015380|             0.009436|           0.022619|         0.047435
+426  |*i_0_0_256                  |            0.002716|             0.005232|           0.017393|         0.025342
+427  |*i_0_0_257                  |            0.025458|             0.009432|           0.035928|         0.070819
+428  |*i_0_0_258                  |            0.025471|             0.009432|           0.035928|         0.070831
+429  |*i_0_0_259                  |            0.015393|             0.009436|           0.022619|         0.047448
+430  |*i_0_0_260                  |            0.002716|             0.005232|           0.017393|         0.025342
+431  |*i_0_0_261                  |            0.015380|             0.009436|           0.022619|         0.047435
+432  |*i_0_0_262                  |            0.002716|             0.005232|           0.017393|         0.025342
+433  |*i_0_0_263                  |            0.015383|             0.009436|           0.022619|         0.047438
+434  |*i_0_0_264                  |            0.002716|             0.005232|           0.017393|         0.025342
+435  |*i_0_0_265                  |            0.025466|             0.009432|           0.035928|         0.070827
+436  |*i_0_0_266                  |            0.003336|             0.307161|           0.014353|         0.324849
+437  |*i_0_0_267                  |            0.011101|             0.176872|           0.024415|         0.212388
+438  |*i_0_0_268                  |            0.016003|             0.028176|           0.022619|         0.066799
+439  |*i_0_0_269                  |            0.010644|             0.021374|           0.017393|         0.049412
+440  |*i_0_0_270                  |            0.019473|             0.023145|           0.032612|         0.075229
+441  |*i_0_0_271                  |            0.015558|             0.020651|           0.022619|         0.058828
+442  |*i_0_0_272                  |            0.014646|             0.023473|           0.027858|         0.065977
+443  |*i_0_0_273                  |            0.010576|             0.017206|           0.021200|         0.048981
+444  |*i_0_0_274                  |            0.020712|             0.024733|           0.032612|         0.078057
+445  |*i_0_0_275                  |            0.015548|             0.022093|           0.022619|         0.060261
+446  |*i_0_0_276                  |            0.015099|             0.023473|           0.027858|         0.066430
+447  |*i_0_0_277                  |            0.010576|             0.017206|           0.021200|         0.048981
+448  |*i_0_0_278                  |            0.020717|             0.024733|           0.032612|         0.078062
+449  |*i_0_0_279                  |            0.021828|             0.022553|           0.033938|         0.078319
+450  |*i_0_0_280                  |            0.010635|             0.015602|           0.017393|         0.043630
+451  |*i_0_0_281                  |            0.020735|             0.023145|           0.032612|         0.076492
+452  |*i_0_0_282                  |            0.015558|             0.020651|           0.022619|         0.058828
+453  |*i_0_0_283                  |            0.015099|             0.023473|           0.027858|         0.066430
+454  |*i_0_0_284                  |            0.010576|             0.017206|           0.021200|         0.048981
+455  |*i_0_0_285                  |            0.020717|             0.024733|           0.032612|         0.078062
+456  |*i_0_0_286                  |            0.021828|             0.022553|           0.033938|         0.078319
+457  |*i_0_0_287                  |            0.010635|             0.015602|           0.017393|         0.043630
+458  |*i_0_0_288                  |            0.020735|             0.023145|           0.032612|         0.076492
+459  |*i_0_0_289                  |            0.015558|             0.020650|           0.022619|         0.058828
+460  |*i_0_0_290                  |            0.015099|             0.023473|           0.027858|         0.066430
+461  |*i_0_0_291                  |            0.010576|             0.017206|           0.021200|         0.048981
+462  |*i_0_0_292                  |            0.020717|             0.024733|           0.032612|         0.078062
+463  |*i_0_0_293                  |            0.021828|             0.022553|           0.033938|         0.078318
+464  |*i_0_0_294                  |            0.010636|             0.015602|           0.017393|         0.043631
+465  |*i_0_0_295                  |            0.020736|             0.023145|           0.032612|         0.076493
+466  |*i_0_0_296                  |            0.015559|             0.020650|           0.022619|         0.058828
+467  |*i_0_0_297                  |            0.015099|             0.023473|           0.027858|         0.066430
+468  |*i_0_0_298                  |            0.010576|             0.017206|           0.021200|         0.048981
+469  |*i_0_0_299                  |            0.020717|             0.024733|           0.032612|         0.078062
+470  |*i_0_0_300                  |            0.021825|             0.022550|           0.033938|         0.078313
+471  |*i_0_0_301                  |            0.010638|             0.015605|           0.017393|         0.043637
+472  |*i_0_0_302                  |            0.020736|             0.023145|           0.032612|         0.076493
+473  |*i_0_0_303                  |            0.015552|             0.020641|           0.022619|         0.058813
+474  |*i_0_0_304                  |            0.015098|             0.023471|           0.027858|         0.066428
+475  |*i_0_0_305                  |            0.010576|             0.017206|           0.021200|         0.048981
+476  |*i_0_0_306                  |            0.020717|             0.024733|           0.032612|         0.078062
+477  |*i_0_0_307                  |            0.021795|             0.022522|           0.033938|         0.078254
+478  |*i_0_0_308                  |            0.010665|             0.015640|           0.017393|         0.043698
+479  |*i_0_0_309                  |            0.020736|             0.023145|           0.032612|         0.076493
+480  |*i_0_0_310                  |            0.015490|             0.020559|           0.022619|         0.058668
+481  |*i_0_0_311                  |            0.015094|             0.023452|           0.027858|         0.066405
+482  |*i_0_0_312                  |            0.010576|             0.017206|           0.021200|         0.048981
+483  |*i_0_0_313                  |            0.020717|             0.024733|           0.032612|         0.078062
+484  |*i_0_0_314                  |            0.021419|             0.022228|           0.033938|         0.077585
+485  |*i_0_0_315                  |            0.015163|             0.016220|           0.022619|         0.054002
+486  |*i_0_0_316                  |            0.020731|             0.023431|           0.032612|         0.076774
+487  |*i_0_0_317                  |            0.020649|             0.023945|           0.034026|         0.078619
+488  |*i_0_0_318                  |            0.023563|             0.023821|           0.041741|         0.089125
+489  |*i_0_0_319                  |            0.008760|             0.012593|           0.021200|         0.042552
+490  |*i_0_0_320                  |            0.020644|             0.024308|           0.034026|         0.078978
+491  |*i_0_0_321                  |            0.020727|             0.024687|           0.032612|         0.078025
+492  |*i_0_0_322                  |           -0.133767|            38.943127|           0.021200|        38.830559
+493  |*i_0_0_323                  |            0.007705|             0.000000|           0.014353|         0.022058
+494  |*i_0_0_324                  |            0.007919|             0.035838|           0.014353|         0.058110
+495  |*i_0_0_325                  |            0.976292|             2.150291|           0.014353|         3.140937
+496  |*i_0_0_326                  |            0.007922|             0.063310|           0.014353|         0.085586
+497  |*i_0_0_327                  |            0.007921|             0.073537|           0.014353|         0.095810
+498  |*i_0_0_328                  |            0.007922|             0.063310|           0.014353|         0.085586
+499  |*i_0_0_329                  |            0.007921|             0.073537|           0.014353|         0.095810
+500  |*i_0_0_330                  |            0.007922|             0.063310|           0.014353|         0.085586
+501  |*i_0_0_331                  |            0.007921|             0.073537|           0.014353|         0.095810
+502  |*i_0_0_332                  |            0.007922|             0.063310|           0.014353|         0.085586
+503  |*i_0_0_333                  |            0.007921|             0.073537|           0.014353|         0.095810
+504  |*i_0_0_334                  |            0.007922|             0.063310|           0.014353|         0.085586
+505  |*i_0_0_335                  |            0.007921|             0.073537|           0.014353|         0.095810
+506  |*i_0_0_336                  |            0.007922|             0.063310|           0.014353|         0.085586
+507  |*i_0_0_337                  |            0.007921|             0.073537|           0.014353|         0.095810
+508  |*i_0_0_338                  |            0.007922|             0.063310|           0.014353|         0.085586
+509  |*i_0_0_339                  |            0.007921|             0.073537|           0.014353|         0.095810
+510  |*i_0_0_340                  |            0.007921|             0.072187|           0.014353|         0.094461
+511  |*i_0_0_341                  |            0.960100|             2.385339|           0.014353|         3.359792
+512  |*i_0_0_342                  |            0.957121|             2.436763|           0.014353|         3.408237
+513  |*i_0_0_343                  |            0.937258|             2.779653|           0.014353|         3.731265
+514  |*i_0_0_344                  |            0.956854|             2.441366|           0.014353|         3.412573
+515  |*i_0_0_345                  |            0.937258|             2.779653|           0.014353|         3.731265
+516  |*i_0_0_346                  |            0.956854|             2.441366|           0.014353|         3.412573
+517  |*i_0_0_347                  |            0.937258|             2.779653|           0.014353|         3.731265
+518  |*i_0_0_348                  |            0.956854|             2.441366|           0.014353|         3.412573
+519  |*i_0_0_349                  |            0.937258|             2.779653|           0.014353|         3.731265
+520  |*i_0_0_350                  |            0.956854|             2.441366|           0.014353|         3.412573
+521  |*i_0_0_351                  |            0.937258|             2.779653|           0.014353|         3.731265
+522  |*i_0_0_352                  |            0.956854|             2.441366|           0.014353|         3.412573
+523  |*i_0_0_353                  |            0.937258|             2.779653|           0.014353|         3.731265
+524  |*i_0_0_354                  |            0.956854|             2.441366|           0.014353|         3.412573
+525  |*i_0_0_355                  |            0.937258|             2.779653|           0.014353|         3.731265
+526  |*i_0_0_356                  |            0.928455|             2.931620|           0.014353|         3.874429
+527  |*i_0_0_357                  |            0.007924|             0.045206|           0.014353|         0.067483
+528  |*i_0_0_358                  |            0.007921|             0.071944|           0.014353|         0.094218
+529  |*i_0_0_359                  |            0.007922|             0.062852|           0.014353|         0.085127
+530  |*i_0_0_360                  |            0.007922|             0.064061|           0.014353|         0.086337
+531  |*i_0_0_361                  |            0.007921|             0.069736|           0.014353|         0.092011
+532  |*i_0_0_362                  |            0.007922|             0.064587|           0.014353|         0.086862
+533  |*i_0_0_363                  |            0.007922|             0.061812|           0.014353|         0.084088
+534  |*i_0_0_364                  |            0.007921|             0.071735|           0.014353|         0.094009
+535  |*i_0_0_365                  |            0.007921|             0.069027|           0.014353|         0.091302
+536  |*i_0_0_366                  |            0.007922|             0.064587|           0.014353|         0.086862
+537  |*i_0_0_367                  |            0.007922|             0.061812|           0.014353|         0.084088
+538  |*i_0_0_368                  |            0.007921|             0.071735|           0.014353|         0.094009
+539  |*i_0_0_369                  |            0.007921|             0.069027|           0.014353|         0.091302
+540  |*i_0_0_370                  |            0.007922|             0.064587|           0.014353|         0.086862
+541  |*i_0_0_371                  |            0.007922|             0.061812|           0.014353|         0.084088
+542  |*i_0_0_372                  |            0.007921|             0.071735|           0.014353|         0.094009
+543  |*i_0_0_373                  |            0.007921|             0.069027|           0.014353|         0.091302
+544  |*i_0_0_374                  |            0.007922|             0.064587|           0.014353|         0.086862
+545  |*i_0_0_375                  |            0.007922|             0.061812|           0.014353|         0.084088
+546  |*i_0_0_376                  |            0.007921|             0.071035|           0.014353|         0.093309
+547  |*i_0_0_377                  |            0.007921|             0.069727|           0.014353|         0.092001
+548  |*i_0_0_378                  |            0.007922|             0.064587|           0.014353|         0.086862
+549  |*i_0_0_379                  |            0.007922|             0.061812|           0.014353|         0.084088
+550  |*i_0_0_380                  |            0.007921|             0.071035|           0.014353|         0.093309
+551  |*i_0_0_381                  |            0.007921|             0.069727|           0.014353|         0.092001
+552  |*i_0_0_382                  |            0.007922|             0.064587|           0.014353|         0.086862
+553  |*i_0_0_383                  |            0.007922|             0.061812|           0.014353|         0.084088
+554  |*i_0_0_384                  |            0.007921|             0.071035|           0.014353|         0.093309
+555  |*i_0_0_385                  |            0.007921|             0.069727|           0.014353|         0.092001
+556  |*i_0_0_386                  |            0.007921|             0.071035|           0.014353|         0.093309
+557  |*i_0_0_387                  |            0.007921|             0.069727|           0.014353|         0.092001
+558  |*i_0_0_388                  |            0.931353|             2.881591|           0.014353|         3.827297
+559  |                            |                    |                     |                   |                 
+560  |*TOTAL                      |           32.498672|           141.040421|          27.291538|       200.830627
+-----+----------------------------+--------------------+---------------------+-------------------+-----------------
+> report_design_metrics
+Report Physical info: 
+------------------------+-------------+-----------+------------
+                        |             |Area (squm)|Leakage (uW)
+------------------------+-------------+-----------+------------
+Design Name             |IO_Output    |           |            
+  Total Instances       |          620|       1428|      27.291
+    Macros              |            0|          0|       0.000
+    Pads                |            0|          0|       0.000
+    Phys                |            0|          0|       0.000
+    Blackboxes          |            0|          0|       0.000
+    Cells               |          620|       1428|      27.291
+      Buffers           |            0|          0|       0.000
+      Inverters         |          101|         54|       1.450
+      Clock-Gates       |            3|         12|       0.177
+      Combinational     |          352|        508|      11.573
+      Latches           |            0|          0|       0.000
+      FlipFlops         |          164|        854|      14.091
+       Single-Bit FF    |          164|        854|      14.091
+       Multi-Bit FF     |            0|          0|       0.000
+       Clock-Gated      |           96|           |            
+       Bits             |          164|        854|      14.091
+         Load-Enabled   |            0|           |            
+         Clock-Gated    |           96|           |            
+  Tristate Pin Count    |            0|           |            
+Physical Info           |Placed       |           |            
+  Chip Size (mm x mm)   |0.109 x 0.109|      11833|            
+  Fixed Cell Area       |             |          0|            
+    Phys Only           |            0|          0|            
+  Placeable Area        |             |       2315|            
+  Movable Cell Area     |             |       1428|            
+  Utilization (%)       |           61|           |            
+  Chip Utilization (%)  |           61|           |            
+  Total Wire Length (mm)|       11.536|           |            
+  Longest Wire (mm)     |        0.067|           |            
+  Average Wire (mm)     |        0.059|           |            
+------------------------+-------------+-----------+------------
