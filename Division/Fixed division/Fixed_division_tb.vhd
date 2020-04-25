@@ -22,7 +22,7 @@ Signal Result : std_logic_vector(15 downto 0) ;
 
 
 begin
-ttb : entity work.fixed_division  generic map (N => 16) port map (Dividend,Divisor,Reset,clk,start,Result,Err,done,overflow);
+ttb : entity work.fixed_division  port map (Dividend,Divisor,Reset,clk,start,Result,Err,done,overflow);
 
 -- Clock process definitions
 clock_process :process
@@ -37,7 +37,12 @@ end process;
 -- Testbench sequence
 test_bench: process
 begin 
+	start<='0';
 	Reset<='1';
+	Dividend<="0000010101000000";--     10.5/
+	Divisor<= "0000000100000000";--        2=
+	Result_test<="0000001010100000";--       5.25
+
 	wait for 100 ns;
 	Reset<='0';
 	---case 1 positive / positive
@@ -50,7 +55,7 @@ begin
 	if (done ='1') then 
 		REPORT  "Result is Wrong in case 1";
 	else 		
-		wait for 1100 ns;
+		wait for 2200 ns;
 		if(done='1' and err='0' and overflow='0')then
 			ASSERT Result_test=Result REPORT  "Result is Wrong in case 1" ;
 		else
@@ -71,7 +76,7 @@ begin
 	if (done ='1') then 
 		REPORT  "Result is Wrong in case 1";
 	else 	
-		wait for 1100 ns;
+		wait for 2200 ns;
 		if(done='1' and err='0' and overflow='0')then
 			ASSERT Result_test = Result REPORT  "Result is Wrong in case 2" ;
 		else
@@ -92,7 +97,7 @@ begin
 	if (done ='1') then 
 		REPORT  "Result is Wrong in case 1";
 	else 	
-		wait for 1100 ns;
+		wait for 2200 ns;
 		if(done='1' and err='0' and overflow='0')then
 			ASSERT(Result_test = Result)
 			REPORT  "Result is Wrong in case 3"  ;
@@ -114,7 +119,7 @@ begin
 	if (done ='1') then 
 		REPORT  "Result is Wrong in case 1";	
 	else 
-		wait for 1100 ns;
+		wait for 2200 ns;
 		if(done='1' and err='0' and overflow='0')then
 			ASSERT(Result_test = Result)
 			REPORT  "Result is Wrong in case 4"  ;
@@ -136,7 +141,7 @@ begin
 	if (done ='1') then 
 		Assert overflow='1' REPORT  "Result is Wrong in case 5 'OverFlow is not detected'";
 	else	
-		wait for 1100 ns;
+		wait for 2200 ns;
 		REPORT  "Result is Wrong in case 5 'OverFlow is not detected'" ; -- fel overflow ana el mfrod aqaren el result wla la2a
 	end if;
 	wait for 100 ns;
@@ -154,7 +159,7 @@ begin
 	if(done='1')then
 		Assert err = '1' REPORT  "Result is Wrong in case 6 'Division by zero is not detected'" ;
 	else
-		wait for 1100 ns;
+		wait for 2200 ns;
 		REPORT  "Result is Wrong in case 6 'Division by zero is not detected'" ; 
 	end if;
 	wait for 100 ns;
@@ -172,7 +177,7 @@ begin
 	if(done='1')then
 		Assert Result_test = Result REPORT  "Result is Wrong in case 7 'Division by one is not detected'" ;
 	else
-		wait for 1100 ns;
+		wait for 2200 ns;
 		REPORT  "Result is Wrong in case 7 'Division by one is not detected'" ;
 	end if;
 	wait for 100 ns;
@@ -189,7 +194,7 @@ begin
 	if(done='1')then
 		Assert Result_test = Result REPORT  "Result is Wrong in case 8 'Division zero by anything is not detected'" ;
 	else
-		wait for 1100 ns;
+		wait for 2200 ns;
 		REPORT  "Result is Wrong in case 8 'Division zero by anything is not detected'" ;
 	end if;
 	wait for 100 ns;
