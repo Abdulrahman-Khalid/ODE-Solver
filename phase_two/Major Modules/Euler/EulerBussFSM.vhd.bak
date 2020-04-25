@@ -2,7 +2,7 @@ Library ieee;
 use ieee.std_logic_1164.all;
 
 entity BussFSM is
-    port ( outputDone, firstRaw, StoreEntry, processCMD: in std_logic;
+    port ( outputDone, firstRaw, StoreEntry, processCMD, compare: in std_logic;
             clk,rst: in std_logic;
 	    selector: out std_logic_vector(2 downto 0);
 	    initialize, writeX, writeU, Add: out std_logic);
@@ -10,9 +10,9 @@ end entity;
 
 Architecture FSMControl of BussFSM is
 
-    type states is (Idle,N_M_E_H,T_X0,ReadTi,A_X_UandU,SpareB,Store_fetchXn);
+    type states is (Idle,N_M_T_X0, E_H,Ti,A_X_UandU,SpareB,Store_fetchXn, fetch_fetchXn);
     signal current_state : states := Idle;
-    signal next_state : states := N_M_E_H;
+    signal next_state : states := N_M_T_X0;
 
 begin
 
@@ -21,22 +21,29 @@ begin
         begin
             case current_state is
 		when Idle =>
-                    if processCMD = '1' then next_state <= N_M_E_H; else next_state <=Idle; end if;
-                when N_M_E_H =>
-                    next_state <= T_X0;
-		when T_X0 =>
-		    next_state <= ReadTi; 
-                when ReadTi =>
+                    if processCMD = '1' then next_state <= N_M_T_X0; else next_state <=Idle; end if;
+                when N_M_T_X0 =>
+                    next_state <= E_H;
+		when E_H =>
+		    next_state <= Ti; 
+                when Ti =>
                     next_state <= A_X_UandU; 
                 when A_X_UandU =>
 		    if firstRaw = '1' then next_state <= SpareB;
 		    elsif storeEntry = '1' then next_state <= Store_fetchXn;
+		    elsif compare ='1'   then next_state <= fetch_fetchXn;
                     else next_state <= A_X_UandU; end if;
                 when SpareB =>
-		    if storeEntry = '1' then next_state <= Store_fetchXn; 
+		    if storeEntry = '1' then 
+				if compare ='1' then next_state <= fetch_fetchXn; else next_state <= Store_fetchXn; end if; 
 		    else next_state <= A_X_UandU; end if;
 		when Store_fetchXn =>
-		    if outputDone = '1' then next_state <= ReadTi; else next_state <= A_X_UandU; end if;
+		    if outputDone = '1' then next_state <= Ti;
+		    elsif compare = '1' then next_state <= fetch_fetchXn; 
+		    else next_state <= A_X_UandU; end if;
+		when fetch_fetchXn =>
+		    if outputDone = '1' then next_state <= Ti; else next_state <= A_X_UandU; end if; 
+		    
             end case;
         end process;
     
@@ -49,7 +56,7 @@ begin
              current_state <= next_state;
       end if;
     end process;
---Idle,N_M_E_H,ReadT0_X0,A_X_UandU,SpareB,Store_fetchXn
+--Idle,N_M_T_X0, E_H,Ti,A_X_UandU,SpareB,Store_fetchXn, fetch_fetchXn
     -- Calculating the 1-bit Output
     process (current_state, firstRaw)
     begin
@@ -60,23 +67,25 @@ begin
 	case current_state is
             when Idle =>
                 selector <= "000";
-            when N_M_E_H =>
+            when N_M_T_X0 =>
                 selector <= "001";
-	    when T_X0 =>
-		selector <= "010";
-		initialize <= '1';
-	    when ReadTi =>
+		initialize<= '1';
+	    when E_H =>
+                selector <= "010";
+            when  Ti =>
                 selector <= "011";
-            when  A_X_UandU =>
+	    when  A_X_UandU =>
                 selector <= "100";
 		if firstRaw ='0' then Add <= '1'; end if;
-	    when  SpareB =>
+            when  SpareB =>
                 selector <= "101";
-		writeU <= '1';
-		Add    <= '1';
-            when  Store_fetchXn =>
+		writeU   <= '1';
+		Add      <= '1';
+	    when  Store_fetchXn =>
                 selector <= "110";
 		writeX <= '1';
+	    when  fetch_fetchXn =>
+                selector <= "111";
 	end case;
     end process;
        
@@ -86,18 +95,18 @@ Library ieee;
 use ieee.std_logic_1164.all;
 
 entity StepFSM is
-    port ( clk, rst, enable, stateChange: in std_logic;
-	    reg1Enable, h_divided, h_write, incK, decK: out std_logic);
+    port ( clk, rst, enable, stateChange, converged, reached: in std_logic;
+	    Var1, Var2, Var3, Var4, Var5 : out std_logic);
 end entity;
 
 Architecture FSMControl of StepFSM is
 
-    type states is (Idle, state1, state2, state3, state4, state5);
+    type states is (Idle, state1, state2, state3, state4);
     signal current_state : states := state1;
     signal next_state : states := state2;
 
 begin
-	process(current_state, enable, rst)
+	process(current_state, enable, converged)
 	    begin
 		case current_state is
 		when Idle =>
@@ -109,9 +118,9 @@ begin
 		when state3 =>
 		    next_state <= state4; 
 		when state4 =>
-		    next_state <= state5;
+			if converged = '1' then next_state <= state5; else next_state <= state1; end if;
 		when state5 =>
-		    next_state <= state1;
+			if reached = '1' then next_state <= state1; else next_state <= state5; end if;
 		end case;
         end process;
 
@@ -120,7 +129,7 @@ begin
       		if rst = '1' then
             		current_state <= Idle;
       		elsif rising_edge(clk) then
-			if current_state = state3 or current_state = state5 then current_state <= next_state;
+			if current_state = state4 then current_state <= next_state;
   		        elsif stateChange = '1' then current_state <= next_state;
 			end if;
       		end if;
@@ -128,28 +137,24 @@ begin
 	
 	process (current_state)
 		begin
-			reg1Enable <= '0';
-			h_divided  <= '0';
-			h_write     <= '0';
-			incK 	    <= '0';	
-			decK       <= '0';
+			Var1 <= '0';
+			Var2 <= '0';
+			Var3 <= '0';
+			Var4 <= '0';
 			case current_state is
 			    when Idle =>
          			 
                 	    when state1 =>
-              		         reg1Enable <= '1';
+              		         Var1  <= '1';
 		
 		            when state2 =>
-				 h_divided  <= '1';
+				 Var2  <= '1';
 				
 			    when state3 => 
-				 incK 	    <= '1';
+				 Var3  <= '1';
 				
 			    when state4 =>
-				
-			    when state5 => 
-				 h_write    <= '1';
-				 decK       <= '1';
+				 Var4  <= '1';
 		end case;
 	end process;
 end Architecture;

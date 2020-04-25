@@ -6,7 +6,7 @@ use IEEE.std_logic_unsigned.all;
 
 entity IO_Receive is
     generic (CPU_Bus_Width : integer := 32);
-    port(CPU_Bus : inout std_logic_vector(CPU_Bus_Width-1 downto 0);
+    port(CPU_Bus : in std_logic_vector(CPU_Bus_Width-1 downto 0);
     Enable_Receiving_IO, CLK, Done_Row,RST : in std_logic;
     Done_Reading_Bus : out std_logic;
     Memory_Data_Bus : out std_logic_vector(2*CPU_Bus_Width-1 downto 0);

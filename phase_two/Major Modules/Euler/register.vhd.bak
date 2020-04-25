@@ -19,9 +19,9 @@ ARCHITECTURE Behavioral of reg is
 BEGIN
 	PROCESS(clk,load, rst)
 	BEGIN
-		if(rst ='1') then Q <= (others => '0');
-		elsIF(load='1' and falling_edge(clk)) THEN
-			Q <= D;
+		IF(falling_edge(clk)) THEN
+			if(rst ='1') then Q <= (others => '0');
+			elsif load = '1' then Q <= D; end if;
 		END IF;
 	END PROCESS;
 END ARCHITECTURE;
@@ -29,16 +29,16 @@ END ARCHITECTURE;
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL; 
 
-ENTITY reg is
+ENTITY flipflop is
 PORT ( 
 	D : IN std_logic;
 	load : IN std_logic;
 	Clk : IN std_logic;
 	Q : OUT std_logic;
 	rst: in std_logic);
-END reg;
+END flipflop;
 
-ARCHITECTURE Behavioral of reg is
+ARCHITECTURE Behavioral of flipflop is
 BEGIN
 	PROCESS(clk,load, rst)
 	BEGIN

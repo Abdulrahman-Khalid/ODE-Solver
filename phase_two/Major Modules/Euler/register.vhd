@@ -20,8 +20,8 @@ BEGIN
 	PROCESS(clk,load, rst)
 	BEGIN
 		if(rst ='1') then Q <= (others => '0');
-		elsIF(load='1' and falling_edge(clk)) THEN
-			Q <= D;
+		elsIF(falling_edge(clk)) THEN
+			if load = '1' then Q <= D; end if;
 		END IF;
 	END PROCESS;
 END ARCHITECTURE;

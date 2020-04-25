@@ -13,6 +13,7 @@ port(
     load: in std_logic;
     reset: in std_logic;
     universalReset: in std_logic;
+    continue: in std_logic;
     result: out std_logic_vector(n - 1 downto 0)
 );
 end entity;
@@ -22,6 +23,7 @@ begin
 
     result <=   start when universalReset = '1' else
                 dataIn when load = '1' else
+                counter when continue = '1' else
                 resetdata when reset = '1' else
                 counter;
         
