@@ -32,7 +32,7 @@ Architecture arch1 of StepAlgo is
 	mult2: entity work.booth_multiplier port map(h_square, L , MULT_L, overF);
 	mult3: entity work.booth_multiplier port map(const,MULT_L, firstTerm, overF);
 
-	D1:entity work.fixed_division port map(Dividend=>test, Divisor=>e, Reset=>reset, CLK=>CLK, Start=>Div_EN, Quotient=>Division_output, ERR=>ERROR, Done=>DoneSignal, OverFlow=>Div_OVF);  
+	D1:entity work.fixed_division port map(Dividend=>firstTerm, Divisor=>e, Reset=>reset, CLK=>CLK, Start=>Div_EN, Quotient=>Division_output, ERR=>ERROR, Done=>DoneSignal, OverFlow=>Div_OVF);  
        
         F:entity work.flipflop(Behavioral) port map(D=>EN, Load=>L1, CLK=>CLK, Q=>Q1, rst=>Q2);
         F2:entity work.flipflop(Behavioral) port map(D=>EN, Load=>Q1, CLK=>CLK,Q=>Q2, rst=>rst2);

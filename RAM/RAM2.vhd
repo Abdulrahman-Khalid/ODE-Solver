@@ -26,7 +26,7 @@ ARCHITECTURE RAM_arch OF RAM2 IS
 shared variable RAM_data : ram_type:= (others => (others =>'0'));
 
 BEGIN
-process(CLK,PORT1EN)--for port 1  Euler 1 Read/Write port
+process(CLK,PORT1EN,WR1,data_Euler1IN,address_Euler1)--for port 1  Euler 1 Read/Write port
 
 begin 
 if PORT1EN='0'  then
@@ -43,7 +43,7 @@ elsif(PORT1EN ='1') then
 end if;
 end process;
 
-process(CLK,PORT2EN)--for port 2  Euler 2 Read only port
+process(CLK,PORT2EN,WR2,address_Euler2)--for port 2  Euler 2 Read only port
 begin 
 if PORT2EN='0'  then
     data_Euler2OUT <=(others=>'Z');
@@ -57,7 +57,7 @@ end if;
 end process;
 
 
-process(CLK,PORT3EN)--for port 3  IO Read/Write port
+process(CLK,PORT3EN,WRIO,data_IOIN,address_IO)--for port 3  IO Read/Write port
 begin 
 if PORT3EN='0'  then
     data_IOOUT <=(others=>'Z');
