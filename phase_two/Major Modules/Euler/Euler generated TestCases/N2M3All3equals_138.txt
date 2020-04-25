@@ -1,3 +1,5 @@
+vsim work.euler(EulerModule)
+add wave sim:/euler/*
 force -freeze sim:/euler/rst 1 0
 force -freeze sim:/euler/clk 1 0, 0 {50 ps} -r 100
 run

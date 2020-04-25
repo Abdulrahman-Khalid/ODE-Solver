@@ -1,0 +1,49 @@
+vsim work.euler(EulerModule)
+add wave sim:/euler/*
+force -freeze sim:/euler/rst 1 0
+force -freeze sim:/euler/clk 1 0, 0 {50 ps} -r 100
+run
+force -freeze sim:/euler/rst 0 0
+force -freeze sim:/euler/decOut 0001100000 0
+force -freeze sim:/euler/Add 1 0
+force -freeze sim:/euler/N 0000000000000010 0
+force -freeze sim:/euler/M 0000000000000011 0
+force -freeze sim:/euler/initialize 1 0
+force -freeze sim:/euler/h_out 0000000000000010 0
+run
+force -freeze sim:/euler/initialize 0 0
+run
+force -freeze sim:/euler/Xprev 0000000000000010 0
+force -freeze sim:/euler/A 0000000000000010 0
+force -freeze sim:/euler/B 0000000000000010 0
+force -freeze sim:/euler/U 0000000000000010 0
+force -freeze sim:/euler/Xn 0000000000000010 0
+run
+force -freeze sim:/euler/A 0000000000000010 0
+force -freeze sim:/euler/B 0000000000000010 0
+force -freeze sim:/euler/U 0000000000000010 0
+force -freeze sim:/euler/Xn 0000000000000010 0
+run
+force -freeze sim:/euler/A 0000000000000010 0
+force -freeze sim:/euler/B 0000000000000010 0
+force -freeze sim:/euler/U 0000000000000010 0
+force -freeze sim:/euler/Xn 0000000000000010 0
+run
+examine -binary FinalOutput
+force -freeze sim:/euler/Xprev 0000000000000010 0
+force -freeze sim:/euler/A 0000000000000010 0
+force -freeze sim:/euler/B 0000000000000010 0
+force -freeze sim:/euler/U 0000000000000010 0
+force -freeze sim:/euler/Xn 0000000000000010 0
+run
+force -freeze sim:/euler/A 0000000000000010 0
+force -freeze sim:/euler/B 0000000000000010 0
+force -freeze sim:/euler/U 0000000000000010 0
+force -freeze sim:/euler/Xn 0000000000000010 0
+run
+force -freeze sim:/euler/A 0000000000000010 0
+force -freeze sim:/euler/B 0000000000000010 0
+force -freeze sim:/euler/U 0000000000000010 0
+force -freeze sim:/euler/Xn 0000000000000010 0
+run
+examine -binary FinalOutput
