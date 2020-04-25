@@ -51,7 +51,7 @@ signal XStoreAddress: std_logic_vector(15 downto 0) := "0000000000000010";
 signal Max : std_logic_vector(15 downto 0):= "0000000000110010";
 signal Mult : std_logic_vector(31 downto 0);
 
-signal doneA, doneB, incXR, resetA_B, dummy : std_logic;
+signal doneA, doneB, incXR, resetA_B, dummy, elementISDone : std_logic;
 signal Add_B, Add_Ucalc,Add_A,Add_X, Add_XpreS,Add_XpreR,next_Add_Xpre,Add_Ti, Add_Un, Add_Uz, Add_xs1, Add_xs2: std_logic_vector(15 downto 0);
 
 -- Main functionality signals
@@ -109,9 +109,9 @@ begin
 	XS2CounterEnable <= decOut(10) or (decOut(9) and Var2);
 	XstoreStartAddress:ENTITY work.Addition1 PORT MAP (XAddress, N, '0' ,XStoreAddress, dummy);
 	UzStartAddress:ENTITY work.Addition1 PORT MAP (UnAddress, M, '0' ,UzAddress, dummy);
-	Acounter:      entity work.counter port map(AAddress, N, initialize, decOut(4), clk, '0', resetA_B, elementDone, Add_A, doneA, firstRaw);
+	Acounter:      entity work.counter port map(AAddress, N, initialize, decOut(4), clk, '0', resetA_B, elementisDone, Add_A, doneA, firstRaw);
     	XAddress <= AAddress + mult(15 downto 0);
-   	x:      entity work.counter port map(XAddress, N, initialize, decOut(4), clk, elementDone, RST, '0', Add_X, dummy,dummy);
+   	x:      entity work.counter port map(XAddress, N, initialize, decOut(4), clk, elementisDone, RST, '0', Add_X, dummy,dummy);
     	Xstore:   entity work.counter port map(XStoreAddress, N, initialize, XstoreCounterEnable, clk, vectorDone, RST,reached, Add_XpreS, vectorDone, dummy);
     	XpreRead:entity work.counter port map(XAddress, N, initialize, incXR, clk, '0',RST, vectorDone, Add_XpreR, dummy, dummy); -----------
 	XS1Counter:entity work.counter port map(XS1Address, N, initialize,XS1CounterEnable , clk,vectorDone, RST,'0', Add_Xs1, dummy, dummy); ------------
@@ -133,17 +133,18 @@ begin
 	M2A2:   entity work.M2Add2Mux port map(Add_B, Add_Uz, selector, firstRaw,M2Address2);
 
 	-- Euler Main Function
+	delay:   entity work.flipflop port map(elementDone,'1', clk, elementISDone, rst);
 	enable_addingA <= enableAddX and not (doneA);
 	enable_addingB <= enableAddU and not (doneB);
-	rstAcc_A_B <= rst or elementDone;
+	rstAcc_A_B <= rst or elementISDone;
 	A_X_block: entity work.booth_multiplier port map(A, Xn, A_X_product, overflow1);
 	B_U_block: entity work.booth_multiplier port map(B, U, B_U_product, overflow2);
-	En_Add1:   entity work.flipflop port map(decOut(5),'1', clk, enableAddX, rst);
+	En_Add1:   entity work.flipflop port map(decOut(4),'1', clk, enableAddX, rst);
 	En_Add2:   entity work.flipflop port map(Add,'1', clk, enableAddU, rst);
-	Acc_A_X:   entity work.reg port map(Accumulator1, enableAddX, clk, AccTempA, rstAcc_A_B);
-	Acc_B_U:   entity work.reg port map(Accumulator2, enableAddU, clk, AccTempB, rstAcc_A_B);
-	C_A_X_FF:  entity work.flipflop port map(C_A_X_D, enableAddX,clk, C_A_X_Q, rstAcc_A_B);
-	C_B_U_FF:  entity work.flipflop port map(C_B_U_D, enableAddU, clk, C_B_U_Q, rstAcc_A_B);   
+	Acc_A_X:   entity work.reg port map(Accumulator1, enable_addingA, clk, AccTempA, rstAcc_A_B);
+	Acc_B_U:   entity work.reg port map(Accumulator2, enable_addingB, clk, AccTempB, rstAcc_A_B);
+	C_A_X_FF:  entity work.flipflop port map(C_A_X_D, enable_addingA,clk, C_A_X_Q, rstAcc_A_B);
+	C_B_U_FF:  entity work.flipflop port map(C_B_U_D, enable_addingB, clk, C_B_U_Q, rstAcc_A_B);   
 	addition_A_X: ENTITY work.Addition1 PORT MAP (A_X_product, AccTempA, C_A_X_Q ,Accumulator1, C_A_X_D);
 	addition_U_B: ENTITY work.Addition1 PORT MAP (B_U_product, AccTempB, C_B_U_Q ,Accumulator2, C_B_U_D);
 	--h_out_mux: entity work.twoInpMux port map(h, half_h, h_divided, h_out);
