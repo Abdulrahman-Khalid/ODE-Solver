@@ -12,13 +12,9 @@ force -deposit /ode_solver/RST 1
 
 run $cycleTime; set time [expr {$time + $cycleTime}];
 force -deposit /ode_solver/RST 0
-force -deposit /ode_solver/INT 1
-force -deposit /ode_solver/load_process 1
 force -deposit /ode_solver/Enable_Receiving_IO 0
 force -deposit /ode_solver/enable_output_IO 0
 run $cycleTime; set time [expr {$time + $cycleTime}];
-force -deposit /ode_solver/INT 0
-force -deposit /ode_solver/load_process 0
 
 proc bin_to_num { bin } {
     binary scan [binary format B* [format %032s $bin]] I val
@@ -86,6 +82,10 @@ while { [gets $fp data] >= 0 } {
 force -freeze sim:/ODE_Solver/Enable_Receiving_IO 0 0;
 noforce sim:/ode_solver/CPU_Bus
 
+force -deposit /ode_solver/INT 1
+force -deposit /ode_solver/load_process 1
+run $cycleTime; set time [expr {$time + $cycleTime}];
+
 #TODO to be removed later
 force -freeze sim:/ODE_Solver/enable_output_IO 1 0; 
 ########################
@@ -117,4 +117,26 @@ puts "_______________________________Output Meta Data___________________________
 puts "From loading data inputs to output the results"
 puts "It token the processor ($time ns) with ([expr {$time/$cycleTime}] cycles)"
 puts "Output : $resultVectorBus"
+
+set outputFile [open temp.txt w]
+set i 0
+set MS32 0
+set LS32 0
+set busesSize [llength $resultVectorBus]
+while { $i < $busesSize } {
+    set tmp [string range [lindex $resultVectorBus $i] 4 35]
+    if { [expr {$i%2}] == 0 } {
+        set MS32 $tmp
+    }
+    else {
+        set LS32 $tmp
+    }
+    if{ $MS32 != 0 && $LS32 != 0 } {
+        puts $outputFile "$MS32$LS32\n"
+        set MS32 0
+        set LS32 0
+    }
+    incr i
+}
+close $outputFile
 close $fp
