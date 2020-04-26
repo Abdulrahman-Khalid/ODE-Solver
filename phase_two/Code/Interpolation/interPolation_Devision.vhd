@@ -5,7 +5,7 @@ entity Interpolation_Devision is
     generic(width :integer:=16);
     port(
     Tk,Tz,Tn:IN std_logic_vector(width-1 downto 0);
-    CLK,reset,EN:IN std_logic;
+    clk,rst,EN:IN std_logic;
     Done: OUT  std_logic;
     DivOut:OUT std_logic_vector(width-1 downto 0)          
     ); 
@@ -19,13 +19,13 @@ architecture Interpolation_DevisionArch of Interpolation_Devision is
     signal L1,rst1,rst2,Q1,Q2:std_logic;
 
     begin
-       D1:entity work.fixed_division port map(Dividend=>Tk_Tn,Divisor=>Tz_Tn,Reset=>reset,CLK=>CLK,Start=>Div_EN,Quotient=>Division_output,ERR=>ERROR,Done=>DoneSignal,OverFlow=>Div_OVF);  
-       F:entity work.flipflop(Behavioral) port map(D=>EN,Load=>L1,CLK=>CLK,Q=>Q1,rst=>rst1);
-       F2:entity work.flipflop(Behavioral) port map(D=>EN,Load=>Q1,CLK=>CLK,Q=>Q2,rst=>rst2);
-       rst2<='1' when EN ='0' or reset ='1' else '0';
-       rst1<= '1' when EN ='0' or Q2 ='1' or reset ='1' else '0';
+       D1:entity work.fixed_division port map(Dividend=>Tk_Tn,Divisor=>Tz_Tn,rst=>rst,clk=>clk,Start=>Div_EN,Quotient=>Division_output,ERR=>ERROR,Done=>DoneSignal,OverFlow=>Div_OVF);  
+       F:entity work.flipflop(Behavioral) port map(D=>EN,Load=>L1,CLK=>clk,Q=>Q1,rst=>rst1);
+       F2:entity work.flipflop(Behavioral) port map(D=>EN,Load=>Q1,CLK=>clk,Q=>Q2,rst=>rst2);
+       rst2<='1' when EN ='0' or rst ='1' else '0';
+       rst1<= '1' when EN ='0' or Q2 ='1' or rst ='1' else '0';
         
-       L1 <= not reset;
+       L1 <= not rst;
         Div_EN <= '1' when Q1 ='1' else '0'  ;  
         temp <= not Tn;
         add1:entity work.Carry_Look_Ahead(Behavioral) port map(A=>temp,B=>(others=>'0'),Cin=>'1',S=>TkComp);
