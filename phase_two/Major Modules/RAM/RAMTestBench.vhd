@@ -20,13 +20,13 @@ signal	s_address_Euler1,s_address_Euler2 :std_logic_vector(address_width-1 DOWNT
 signal s_address_IO:integer;
 signal	s_data_Euler1OUT,s_data_Euler2OUT,s_data_IOOUT,s_data_Euler1IN,s_data_IOIN  :std_logic_vector(word_size - 1 DOWNTO 0);
 constant CLK_PERIOD :time :=100 ps;
-
+signal s_reset:std_logic:='0';
 component RAM2 is
 GENERIC (word_size : integer := 32;
 	         address_width: integer := 14;
 		    RAM_size: integer := 16384); --2^14 slot
             PORT(	
-                CLK, WR1,WR2,WRIO,PORT1EN,PORT2EN,PORT3EN  : IN std_logic;
+                CLK,reset,WR1,WR2,WRIO,PORT1EN,PORT2EN,PORT3EN  : IN std_logic;
                 address_Euler1,address_Euler2: IN  std_logic_vector(address_width-1 DOWNTO 0);
                 address_IO :IN integer;
                 data_Euler2OUT,data_Euler1OUT,data_IOOUT : OUT  std_logic_vector(word_size-1 DOWNTO 0);
@@ -37,7 +37,7 @@ end component;
 
 begin
 
-R1:RAM2 generic map(word_size=> 32,address_width=>14,RAM_size=>16384)  port map(CLK=>s_clk,WR1=>s_WR1,WR2=>s_WR2,WRIO=>s_WRIO,
+R1:RAM2 generic map(word_size=> 32,address_width=>14,RAM_size=>16384)  port map(CLK=>s_clk,reset=>s_reset,WR1=>s_WR1,WR2=>s_WR2,WRIO=>s_WRIO,
 PORT1EN=>s_PORT1EN,PORT2EN=>s_PORT2EN,PORT3EN=>s_PORT3EN
 ,address_Euler1=>s_address_Euler1,address_Euler2=>s_address_Euler2,address_IO=>s_address_IO
 ,data_Euler2OUT=>s_data_Euler2OUT,data_Euler1OUT=>s_data_Euler1OUT,data_IOOUT=>s_data_IOOUT,data_Euler1IN=>s_data_Euler1IN,data_IOIN=>s_data_IOIN);

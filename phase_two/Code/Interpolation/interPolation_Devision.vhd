@@ -26,7 +26,7 @@ architecture Interpolation_DevisionArch of Interpolation_Devision is
        rst1<= '1' when EN ='0' or Q2 ='1' or rst ='1' else '0';
         
        L1 <= not rst;
-        Div_EN <= '1' when Q1 ='1' else '0'  ;  
+        Div_EN <= '1' when Q1 ='1' else '0' ;  
         temp <= not Tn;
         add1:entity work.Carry_Look_Ahead(Behavioral) port map(A=>temp,B=>(others=>'0'),Cin=>'1',S=>TkComp);
         sub1:entity work.Carry_Look_Ahead(Behavioral) port map(A=>Tk,B=>TkComp,Cin=>'0',S=>Tk_Tn);

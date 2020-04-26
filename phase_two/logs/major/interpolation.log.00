@@ -258,36 +258,36 @@ Report Physical info:
                         |             |Area (squm)|Leakage (uW)
 ------------------------+-------------+-----------+------------
 Design Name             |Interpolation|           |            
-  Total Instances       |         3653|       5749|     119.618
+  Total Instances       |         7772|       7520|     166.241
     Macros              |            0|          0|       0.000
     Pads                |            0|          0|       0.000
     Phys                |            0|          0|       0.000
     Blackboxes          |            0|          0|       0.000
-    Cells               |         3653|       5749|     119.618
-      Buffers           |            0|          0|       0.000
-      Inverters         |          927|        493|      13.305
+    Cells               |         7772|       7520|     166.241
+      Buffers           |           39|         31|       0.836
+      Inverters         |         1780|        947|      25.549
       Clock-Gates       |            0|          0|       0.000
-      Combinational     |         2513|       4594|      95.682
-      Latches           |          163|        434|       6.661
-      FlipFlops         |           50|        228|       3.970
-       Single-Bit FF    |           50|        228|       3.970
+      Combinational     |         5743|       5884|     129.060
+      Latches           |          160|        426|       6.538
+      FlipFlops         |           50|        232|       4.258
+       Single-Bit FF    |           50|        232|       4.258
        Multi-Bit FF     |            0|          0|       0.000
        Clock-Gated      |            0|           |            
-       Bits             |           50|        228|       3.970
+       Bits             |           50|        232|       4.258
          Load-Enabled   |            0|           |            
          Clock-Gated    |            0|           |            
   Tristate Pin Count    |           16|           |            
-Physical Info           |Unplaced     |           |            
-  Chip Size (mm x mm)   |             |          0|            
+Physical Info           |Placed       |           |            
+  Chip Size (mm x mm)   |0.172 x 0.172|      29567|            
   Fixed Cell Area       |             |          0|            
     Phys Only           |            0|          0|            
-  Placeable Area        |             |          0|            
-  Movable Cell Area     |             |       5749|            
-  Utilization (%)       |             |           |            
-  Chip Utilization (%)  |             |           |            
-  Total Wire Length (mm)|        0.000|           |            
-  Longest Wire (mm)     |             |           |            
-  Average Wire (mm)     |             |           |            
+  Placeable Area        |             |      12377|            
+  Movable Cell Area     |             |       7520|            
+  Utilization (%)       |           60|           |            
+  Chip Utilization (%)  |           60|           |            
+  Total Wire Length (mm)|       14.554|           |            
+  Longest Wire (mm)     |        0.190|           |            
+  Average Wire (mm)     |        0.109|           |            
 ------------------------+-------------+-----------+------------
 > all_inputs
 > group_path -name I2R -from { Tk[15] Tk[14] Tk[13] Tk[12] Tk[11] Tk[10] Tk[9] Tk[8] Tk[7] Tk[6] Tk[5] Tk[4] Tk[3] Tk[2] Tk[1] Tk[0] Uz[15] Uz[14] Uz[13] Uz[12] Uz[11] Uz[10] Uz[9] Uz[8] Uz[7] Uz[6] Uz[5] Uz[4] Uz[3] Uz[2] Uz[1] Uz[0] Un[15] Un[14] Un[13] Un[12] Un[11] Un[10] Un[9] Un[8] Un[7] Un[6] Un[5] Un[4] Un[3] Un[2] Un[1] Un[0] Tz[15] Tz[14] Tz[13] Tz[12] Tz[11] Tz[10] Tz[9] Tz[8] Tz[7] Tz[6] Tz[5] Tz[4] Tz[3] Tz[2] Tz[1] Tz[0] CLK reset DivFlag shiftFlag }
