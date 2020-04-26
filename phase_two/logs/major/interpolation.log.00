@@ -1,0 +1,331 @@
+*******************************************************************
+*      Copyright (c) 2004 - 2020 Mentor Graphics Corporation      *
+*                       All Rights Reserved                       *
+*                                                                 *
+*                                                                 *
+*   THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION   *
+*      WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION       *
+*        OR ITS LICENSORS AND IS SUBJECT TO LICENSE TERMS.        *
+*                                                                 *
+* Program : ../bin/Linux-x86_64-O/oasysGui                        *
+* Version : 19.2-p002                                             *
+* Date    : Fri Jan 10 14:27:22 PST 2020                          *
+* Build   : releases/19.2-49727.0-CentOS_6.5-O                    *
+*******************************************************************
+ config sdc-v1.7-cpd cli cmd explore mxdb
+loading: oasys fp rta dft RTTessent-d ctl verify edit bt upf-c aos conc vcd prot int
+checked out licenses: psyncore psynfloorplan psyndft psynpower
+
+         date     : Sat Apr 25 22:47:34 EET 2020
+         ppid/pid : 26109/26119
+         hostname : localhost.localdomain
+         arch/os  : x86_64/Linux-3.10.0-1062.18.1.el7.x86_64 
+         install  : /home/vlsi/Installation/Oasys/Oasys-RTL-2019.2.R1
+         currdir  : /home/vlsi/Desktop/Team7
+         logfile  : /home/vlsi/Desktop/Team7/oasys.log.00
+         tmpdir   : /tmp/oasys.26109/
+> source /home/vlsi/Installation/Oasys/Oasys-RTL-2019.2.R1/tcl/library/history.tcl
+> source scripts/run.tcl
+> source scripts/0_adder_init_design.tcl
+> config_shell -echo true
+> config_report timing -format {cell edge arrival delay arc_delay net_delay slew net_load load fanout location power_domain}
+> check_library
+Report Check Library: 
+-----+-------------------+------+--------+------+------------------------------------------
+     |Item               |Errors|Warnings|Status|Description                               
+-----+-------------------+------+--------+------+------------------------------------------
+1    |logical_only_cell  |     0|       0|Passed|Logical only cells exist in the libraries 
+2    |physical_only_cell |     0|       0|Passed|Physical only cells exist in the libraries
+3    |no_basic_gates     |     1|       0|Failed|No basic gates for synthesis or mapping   
+4    |no_clock_gate_cells|     0|       0|Passed|No clock-gating cells for clock-gating    
+5    |bad_physical_lib   |     0|       0|Passed|Bad physical libraries (no layer etc.)    
+-----+-------------------+------+--------+------+------------------------------------------
+
+-----------------------------
+
+Done setting design variables
+
+-----------------------------
+
+> source scripts/1_read_design.tcl
+> read_library /home/vlsi/Desktop/Team7/lib_data/NangateOpenCellLibrary_typical.lib
+reading /home/vlsi/Desktop/Team7/lib_data/NangateOpenCellLibrary_typical.lib...
+Finished reading. Elapsed time= 0 seconds
+info:    The technology cmos was specified.  [LIB-200]
+info:    delay_model specified was table_lookup.  [LIB-200]
+info:    Using the cmos syntax tables...  [LIB-200]
+info:    timer ignores arcs of type 'recovery'  [LIB-117]
+info:    timer ignores arcs of type 'asynchronous'  [LIB-117]
+info:    timer ignores arcs of type 'three state disable'  [LIB-117]
+info:    found transparent arc 'DLH_X1/D->Q'  [NL-120]
+info:    found transparent arc 'DLH_X2/D->Q'  [NL-120]
+info:    found transparent arc 'DLL_X1/D->Q'  [NL-120]
+info:    found transparent arc 'DLL_X2/D->Q'  [NL-120]
+info:    found transparent arc 'TLAT_X1/D->Q'  [NL-120]
+> read_lef /home/vlsi/Desktop/Team7/lib_data/NangateOpenCellLibrary.tech.lef
+info:    units per micron 2000 defined in LEF is ignored. Tool uses 20000 units per micron.  [LEF-118]
+note:    the above message has more detailed information, see "message LEF-118"
+info:    use manufacturing grid 100  [LEF-110]
+info:    Site FreePDK45_38x28_10R_NP_162NW_34O defined in /home/vlsi/Desktop/Team7/lib_data/NangateOpenCellLibrary.tech.lef  [LEF-119]
+> read_lef /home/vlsi/Desktop/Team7/lib_data/NangateOpenCellLibrary.macro.lef
+warning: direction (tristate) of pin 'Z' of cell 'TBUF_X1' in logical/timing library does not match the direction (output) from the physical library -direction from logical/timing library overrides  [LEF-100]
+warning: direction (tristate) of pin 'Z' of cell 'TBUF_X16' in logical/timing library does not match the direction (output) from the physical library -direction from logical/timing library overrides  [LEF-100]
+warning: direction (tristate) of pin 'Z' of cell 'TBUF_X2' in logical/timing library does not match the direction (output) from the physical library -direction from logical/timing library overrides  [LEF-100]
+warning: direction (tristate) of pin 'Z' of cell 'TBUF_X4' in logical/timing library does not match the direction (output) from the physical library -direction from logical/timing library overrides  [LEF-100]
+warning: direction (tristate) of pin 'Z' of cell 'TBUF_X8' in logical/timing library does not match the direction (output) from the physical library -direction from logical/timing library overrides  [LEF-100]
+warning: direction (tristate) of pin 'ZN' of cell 'TINV_X1' in logical/timing library does not match the direction (output) from the physical library -direction from logical/timing library overrides  [LEF-100]
+warning: direction (tristate) of pin 'Q' of cell 'TLAT_X1' in logical/timing library does not match the direction (output) from the physical library -direction from logical/timing library overrides  [LEF-100]
+> read_ptf /home/vlsi/Desktop/Team7/lib_data/NCSU_FreePDK_45nm.ptf
+warning: skipping cell ANTENNA_X1 in the library since it does not have delay arcs  [NL-215]
+warning: skipping cell FILLCELL_X1 in the library since it does not have delay arcs  [NL-215]
+warning: skipping cell FILLCELL_X2 in the library since it does not have delay arcs  [NL-215]
+warning: skipping cell FILLCELL_X4 in the library since it does not have delay arcs  [NL-215]
+warning: skipping cell FILLCELL_X8 in the library since it does not have delay arcs  [NL-215]
+warning: skipping cell FILLCELL_X16 in the library since it does not have delay arcs  [NL-215]
+warning: skipping cell FILLCELL_X32 in the library since it does not have delay arcs  [NL-215]
+warning: skipping cell LOGIC0_X1 in the library since it does not have delay arcs  [NL-215]
+warning: skipping cell LOGIC1_X1 in the library since it does not have delay arcs  [NL-215]
+info:    extracting RC values from PTF file /home/vlsi/Desktop/Team7/lib_data/NCSU_FreePDK_45nm.ptf  [CMD-001]
+info:    using operating temperature 25.0  [CMD-001]
+info:    done extracting RC values from PTF  [CMD-001]
+Report Layers RC: 
+-----+----------+---------+-------+-------+------+-----------+----------+----------+-------------
+     |Layer Name|Direction|Width  |Spacing|ohm/sq|ohm/um     |cap ff/um |ecap ff/um|cap/Å       
+-----+----------+---------+-------+-------+------+-----------+----------+----------+-------------
+1    |metal1    |H        |0.07000|0.07000|     0|  5.4285712|  0.148296|         0|1.4829599e-05
+2    |metal2    |V        |0.07000|0.12000|     0|  3.5714285|  0.109236|         0|1.09236e-05  
+3    |metal3    |H        |0.07000|0.07000|     0|  3.5714285|    0.1521|         0|1.5209999e-05
+4    |metal4    |V        |0.14000|0.14000|     0|        1.5|   0.15446|         0|1.5445999e-05
+5    |metal5    |H        |0.14000|0.14000|     0|        1.5|0.15236001|         0|1.5236001e-05
+6    |metal6    |V        |0.14000|0.14000|     0|        1.5|   0.15127|         0|1.5127e-05   
+7    |metal7    |H        |0.40000|0.40000|     0|     0.1875|    0.1539|         0|1.539e-05    
+8    |metal8    |V        |0.40000|0.40000|     0|     0.1875|   0.14979|         0|1.4979e-05   
+9    |metal9    |H        |0.80000|0.80000|     0|0.037500001|   0.17227|         0|1.7226999e-05
+10   |metal10   |V        |0.80000|0.80000|     0|0.037500001|   0.16977|         0|1.6976999e-05
+-----+----------+---------+-------+-------+------+-----------+----------+----------+-------------
+> load_upf /home/vlsi/Desktop/Team7/constraints/demo_adder.85.upf
+> source /home/vlsi/Desktop/Team7/constraints/demo_adder.85.upf
+> create_power_domain PD_TOP
+info:    setting default power domain for scope '/' to '/PD_TOP'  [PF-103]
+> create_supply_net VDD
+> create_supply_net VSS
+> create_supply_port VDD
+> connect_supply_net VDD -ports VDD
+> connect_supply_net VDD -ports VDD
+> set_domain_supply_net PD_TOP -primary_power_net VDD -primary_ground_net VSS
+> create_supply_set PD_TOP_primary -function {power VDD} -function {ground VSS}
+> associate_supply_set PD_TOP_primary -handle PD_TOP.primary
+> add_port_state VDD -state {on85 0.85} -state {on95 0.95}
+> create_pst pst1 -supplies VDD
+warning: supply name 'VDD' matches both supply port and supply net - assuming supply port  [PF-207]
+> add_pst_state st0 -pst pst1 -state on85
+> config_tolerance -blackbox true -connection_mismatch true -missing_physical_library true -continue_on_error false
+> read_vhdl {/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd /home/vlsi/Desktop/Team7/rtl/cry_lkahd_adder.vhd /home/vlsi/Desktop/Team7/rtl/register.vhd /home/vlsi/Desktop/Team7/rtl/booth.vhd /home/vlsi/Desktop/Team7/rtl/interPolation_Devision.vhd /home/vlsi/Desktop/Team7/rtl/interpolation_Logic.vhd /home/vlsi/Desktop/Team7/rtl/Interpolation.vhd}
+> set_max_route_layer 5
+Top-most available layer for routing set to metal5
+> set_dont_use {NangateOpenCellLibrary/AND2_X1 NangateOpenCellLibrary/AND2_X2 NangateOpenCellLibrary/AND2_X4 NangateOpenCellLibrary/AND3_X1 NangateOpenCellLibrary/AND3_X2 NangateOpenCellLibrary/AND3_X4 NangateOpenCellLibrary/AND4_X1 NangateOpenCellLibrary/AND4_X2 NangateOpenCellLibrary/AND4_X4 NangateOpenCellLibrary/ANTENNA_X1 NangateOpenCellLibrary/AOI21_X1 NangateOpenCellLibrary/AOI21_X2 NangateOpenCellLibrary/AOI21_X4 NangateOpenCellLibrary/AOI22_X1 NangateOpenCellLibrary/AOI22_X2 NangateOpenCellLibrary/AOI22_X4 NangateOpenCellLibrary/AOI211_X1 NangateOpenCellLibrary/AOI211_X2 NangateOpenCellLibrary/AOI211_X4 NangateOpenCellLibrary/AOI221_X1 NangateOpenCellLibrary/AOI221_X2 NangateOpenCellLibrary/AOI221_X4 NangateOpenCellLibrary/AOI222_X1 NangateOpenCellLibrary/AOI222_X2 NangateOpenCellLibrary/AOI222_X4 NangateOpenCellLibrary/BUF_X1 NangateOpenCellLibrary/BUF_X2 NangateOpenCellLibrary/BUF_X4 NangateOpenCellLibrary/BUF_X8 NangateOpenCellLibrary/BUF_X16 NangateOpenCellLibrary/BUF_X32 NangateOpenCellLibrary/CLKBUF_X1 NangateOpenCellLibrary/CLKBUF_X2 NangateOpenCellLibrary/CLKBUF_X3 NangateOpenCellLibrary/CLKGATETST_X1 NangateOpenCellLibrary/CLKGATETST_X2 NangateOpenCellLibrary/CLKGATETST_X4 NangateOpenCellLibrary/CLKGATETST_X8 NangateOpenCellLibrary/CLKGATE_X1 NangateOpenCellLibrary/CLKGATE_X2 NangateOpenCellLibrary/CLKGATE_X4 NangateOpenCellLibrary/CLKGATE_X8 NangateOpenCellLibrary/DFFRS_X1 NangateOpenCellLibrary/DFFRS_X2 NangateOpenCellLibrary/DFFR_X1 NangateOpenCellLibrary/DFFR_X2 NangateOpenCellLibrary/DFFS_X1 NangateOpenCellLibrary/DFFS_X2 NangateOpenCellLibrary/DFF_X1 NangateOpenCellLibrary/DFF_X2 NangateOpenCellLibrary/DLH_X1 NangateOpenCellLibrary/DLH_X2 NangateOpenCellLibrary/DLL_X1 NangateOpenCellLibrary/DLL_X2 NangateOpenCellLibrary/FA_X1 NangateOpenCellLibrary/FILLCELL_X1 NangateOpenCellLibrary/FILLCELL_X2 NangateOpenCellLibrary/FILLCELL_X4 NangateOpenCellLibrary/FILLCELL_X8 NangateOpenCellLibrary/FILLCELL_X16 NangateOpenCellLibrary/FILLCELL_X32 NangateOpenCellLibrary/HA_X1 NangateOpenCellLibrary/INV_X1 NangateOpenCellLibrary/INV_X2 NangateOpenCellLibrary/INV_X4 NangateOpenCellLibrary/INV_X8 NangateOpenCellLibrary/INV_X16 NangateOpenCellLibrary/INV_X32 NangateOpenCellLibrary/LOGIC0_X1 NangateOpenCellLibrary/LOGIC1_X1 NangateOpenCellLibrary/MUX2_X1 NangateOpenCellLibrary/MUX2_X2 NangateOpenCellLibrary/NAND2_X1 NangateOpenCellLibrary/NAND2_X2 NangateOpenCellLibrary/NAND2_X4 NangateOpenCellLibrary/NAND3_X1 NangateOpenCellLibrary/NAND3_X2 NangateOpenCellLibrary/NAND3_X4 NangateOpenCellLibrary/NAND4_X1 NangateOpenCellLibrary/NAND4_X2 NangateOpenCellLibrary/NAND4_X4 NangateOpenCellLibrary/NOR2_X1 NangateOpenCellLibrary/NOR2_X2 NangateOpenCellLibrary/NOR2_X4 NangateOpenCellLibrary/NOR3_X1 NangateOpenCellLibrary/NOR3_X2 NangateOpenCellLibrary/NOR3_X4 NangateOpenCellLibrary/NOR4_X1 NangateOpenCellLibrary/NOR4_X2 NangateOpenCellLibrary/NOR4_X4 NangateOpenCellLibrary/OAI21_X1 NangateOpenCellLibrary/OAI21_X2 NangateOpenCellLibrary/OAI21_X4 NangateOpenCellLibrary/OAI22_X1 NangateOpenCellLibrary/OAI22_X2 NangateOpenCellLibrary/OAI22_X4 NangateOpenCellLibrary/OAI33_X1 NangateOpenCellLibrary/OAI211_X1 NangateOpenCellLibrary/OAI211_X2 NangateOpenCellLibrary/OAI211_X4 ...(34 more)} false
+> set_clock_gating_options -control_point before -minimum_bitwidth 4 -sequential_cell latch
+info:    test control port not specified - will tie test control pin to 0  [POWER-109]
+> set_parameter ungroup_small_hierarchies 0
+info:    Parameter 'ungroup_small_hierarchies' set to '0'  [PARAM-104]
+
+-----------------------------
+
+Done preparing design for synthesis
+
+-----------------------------
+
+> source scripts/2_synthesize_optimize.tcl
+> synthesize -module Interpolation
+starting synthesize at 00:00:05(cpu)/0:00:15(wall) 72MB(vsz)/321MB(peak)
+info:    clock-gating cell for posedge FFs = CLKGATETST_X1 in target library 'default'  [POWER-112]
+info:    no clock-gating cell found in target library 'default' for negedge FFs for the given specification  [POWER-113]
+info:    clock_gating minimum_width = 4, maximum_fanout = 2147483647, num_stages = 2147483647, sequential_cell = latch, control_port = (null), control_point = before, observability = no, use_discrete_cells = no, create_multi_stage = no, merge_multi_stage = no, exclude_instantiated_clock_gates = no, log = (null), allow_clock_inversion = no  [POWER-111]
+info:    setting default power domain for scope '/' to '/PD_TOP'  [PF-103]
+info:    synthesizing module 'Interpolation' (depth 1) ((/home/vlsi/Desktop/Team7/rtl/Interpolation.vhd:4))  [VHDL-600]
+info:    synthesizing module 'Interpolation_Devision' (depth 2) ((/home/vlsi/Desktop/Team7/rtl/interPolation_Devision.vhd:4))  [VHDL-600]
+info:    synthesizing module 'fixed_division' (depth 3) ((/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:7))  [VHDL-600]
+warning: signal 'Start' is read in the process but is not in the sensitivity list ((/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:23)[2])  [VHDL-758]
+warning: signal 'Divisor' is read in the process but is not in the sensitivity list ((/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:23)[2])  [VHDL-758]
+warning: signal 'Dividend' is read in the process but is not in the sensitivity list ((/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:23)[2])  [VHDL-758]
+warning: signal 'addOut' is read in the process but is not in the sensitivity list ((/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:23)[2])  [VHDL-758]
+info:    synthesizing module 'Carry_Look_Ahead' (depth 4) ((/home/vlsi/Desktop/Team7/rtl/cry_lkahd_adder.vhd:31))  [VHDL-600]
+info:    binding instance 'PFA1' of component 'Partial_Full_Adder' to module 'Partial_Full_Adder' ((/home/vlsi/Desktop/Team7/rtl/cry_lkahd_adder.vhd:54))  [VHDL-613]
+info:    synthesizing module 'Partial_Full_Adder' (depth 5) ((/home/vlsi/Desktop/Team7/rtl/cry_lkahd_adder.vhd:5))  [VHDL-600]
+info:    module 'Partial_Full_Adder' assigned to power domain '/PD_TOP'  [NL-138]
+info:    done synthesizing module 'Partial_Full_Adder' (depth 5) (1#9) ((/home/vlsi/Desktop/Team7/rtl/cry_lkahd_adder.vhd:5))  [VHDL-601]
+info:    binding instance 'PFA2' of component 'Partial_Full_Adder' to module 'Partial_Full_Adder' ((/home/vlsi/Desktop/Team7/rtl/cry_lkahd_adder.vhd:55))  [VHDL-613]
+info:    binding instance 'PFA3' of component 'Partial_Full_Adder' to module 'Partial_Full_Adder' ((/home/vlsi/Desktop/Team7/rtl/cry_lkahd_adder.vhd:56))  [VHDL-613]
+info:    binding instance 'PFA4' of component 'Partial_Full_Adder' to module 'Partial_Full_Adder' ((/home/vlsi/Desktop/Team7/rtl/cry_lkahd_adder.vhd:57))  [VHDL-613]
+info:    binding instance 'PFA5' of component 'Partial_Full_Adder' to module 'Partial_Full_Adder' ((/home/vlsi/Desktop/Team7/rtl/cry_lkahd_adder.vhd:58))  [VHDL-613]
+info:    binding instance 'PFA6' of component 'Partial_Full_Adder' to module 'Partial_Full_Adder' ((/home/vlsi/Desktop/Team7/rtl/cry_lkahd_adder.vhd:59))  [VHDL-613]
+info:    binding instance 'PFA7' of component 'Partial_Full_Adder' to module 'Partial_Full_Adder' ((/home/vlsi/Desktop/Team7/rtl/cry_lkahd_adder.vhd:60))  [VHDL-613]
+info:    binding instance 'PFA8' of component 'Partial_Full_Adder' to module 'Partial_Full_Adder' ((/home/vlsi/Desktop/Team7/rtl/cry_lkahd_adder.vhd:61))  [VHDL-613]
+info:    binding instance 'PFA9' of component 'Partial_Full_Adder' to module 'Partial_Full_Adder' ((/home/vlsi/Desktop/Team7/rtl/cry_lkahd_adder.vhd:62))  [VHDL-613]
+info:    binding instance 'PFA10' of component 'Partial_Full_Adder' to module 'Partial_Full_Adder' ((/home/vlsi/Desktop/Team7/rtl/cry_lkahd_adder.vhd:63))  [VHDL-613]
+info:    binding instance 'PFA11' of component 'Partial_Full_Adder' to module 'Partial_Full_Adder' ((/home/vlsi/Desktop/Team7/rtl/cry_lkahd_adder.vhd:64))  [VHDL-613]
+-------> Message [VHDL-613] suppressed 5 times
+info:    module 'Carry_Look_Ahead' assigned to power domain '/PD_TOP'  [NL-138]
+info:    done synthesizing module 'Carry_Look_Ahead' (depth 4) (2#9) ((/home/vlsi/Desktop/Team7/rtl/cry_lkahd_adder.vhd:31))  [VHDL-601]
+info:    module 'fixed_division' assigned to power domain '/PD_TOP'  [NL-138]
+warning: inferring latch for variable 'OverFlow_reg' ((/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:41)[5], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:117)[7])  [VLOG-566]
+warning: inferring latch for variable 'Done_reg' ((/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:39)[5], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:54)[6], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:59)[6], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:115)[7], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:136)[6])  [VLOG-566]
+warning: inferring latch for variable 'ERR_reg' ((/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:40)[5], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:58)[6])  [VLOG-566]
+warning: inferring latch for variable 'Quotient_reg' ((/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:53)[6], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:139)[6], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:143)[9], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:145)[9], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:152)[7])  [VLOG-566]
+warning: inferring latch for variable 'add2_reg' ((/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:130)[6])  [VLOG-566]
+warning: inferring latch for variable 'add1_reg' ((/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:129)[6])  [VLOG-566]
+warning: inferring latch for variable 'Done_bit_reg' ((/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:37)[7], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:42)[5], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:55)[6], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:60)[6], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:116)[7], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:122)[10], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:137)[6], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:158)[4])  [VLOG-566]
+warning: inferring latch for variable 'Index_reg' ((/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:43)[5], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:132)[18], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:135)[8], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:155)[5], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:155)[14])  [VLOG-566]
+warning: inferring latch for variable 'QuotientVar_reg' ((/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:46)[5], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:48)[5], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:52)[6], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:53)[16], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:132)[6], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:139)[21], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:140)[9], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:143)[28], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:145)[24], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:147)[11], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:152)[17])  [VLOG-566]
+warning: inferring latch for variable 'Divisor2_reg' ((/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:49)[5], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:84)[9], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:86)[9], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:93)[7], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:128)[40], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:130)[18], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:134)[5], (/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:134)[23])  [VLOG-566]
+-------> Message [VLOG-566] suppressed 2 times
+info:    done synthesizing module 'fixed_division' (depth 3) (3#9) ((/home/vlsi/Desktop/Team7/rtl/Fixed_division.vhd:7))  [VHDL-601]
+info:    synthesizing module 'flipflop' (depth 3) ((/home/vlsi/Desktop/Team7/rtl/register.vhd:32))  [VHDL-600]
+info:    module 'flipflop' assigned to power domain '/PD_TOP'  [NL-138]
+info:    no appropriate FF cell found for register bank 'Q_reg' when clock-gating - ignored for clock-gating  [POWER-102]
+info:    done synthesizing module 'flipflop' (depth 3) (4#9) ((/home/vlsi/Desktop/Team7/rtl/register.vhd:32))  [VHDL-601]
+info:    module 'Interpolation_Devision' assigned to power domain '/PD_TOP'  [NL-138]
+info:    done synthesizing module 'Interpolation_Devision' (depth 2) (5#9) ((/home/vlsi/Desktop/Team7/rtl/interPolation_Devision.vhd:4))  [VHDL-601]
+info:    synthesizing module 'Interpolation_Logic' (depth 2) ((/home/vlsi/Desktop/Team7/rtl/interpolation_Logic.vhd:6))  [VHDL-600]
+info:    synthesizing module 'booth_multiplier' (depth 3) ((/home/vlsi/Desktop/Team7/rtl/booth.vhd:5))  [VHDL-600]
+info:    module 'booth_multiplier' assigned to power domain '/PD_TOP'  [NL-138]
+info:    done synthesizing module 'booth_multiplier' (depth 3) (6#9) ((/home/vlsi/Desktop/Team7/rtl/booth.vhd:5))  [VHDL-601]
+info:    module 'Interpolation_Logic' assigned to power domain '/PD_TOP'  [NL-138]
+info:    done synthesizing module 'Interpolation_Logic' (depth 2) (7#9) ((/home/vlsi/Desktop/Team7/rtl/interpolation_Logic.vhd:6))  [VHDL-601]
+info:    synthesizing module 'reg' (depth 2) ((/home/vlsi/Desktop/Team7/rtl/register.vhd:8))  [VHDL-600]
+info:    module 'reg' assigned to power domain '/PD_TOP'  [NL-138]
+info:    no appropriate FF cell found for register bank 'Q_reg' when clock-gating - ignored for clock-gating  [POWER-102]
+info:    done synthesizing module 'reg' (depth 2) (8#9) ((/home/vlsi/Desktop/Team7/rtl/register.vhd:8))  [VHDL-601]
+info:    module 'Interpolation' assigned to power domain '/PD_TOP'  [NL-138]
+warning: inferring latch for variable 'Tn_Reg_reg' ((/home/vlsi/Desktop/Team7/rtl/Interpolation.vhd:19)[70], (/home/vlsi/Desktop/Team7/rtl/Interpolation.vhd:24)[4])  [VLOG-566]
+info:    done synthesizing module 'Interpolation' (depth 1) (9#9) ((/home/vlsi/Desktop/Team7/rtl/Interpolation.vhd:4))  [VHDL-601]
+info:    uniquifying module 'Partial_Full_Adder' for 16 instances  [NL-105]
+info:    uniquifying module 'Carry_Look_Ahead' for 7 instances  [NL-105]
+info:    uniquifying module 'reg' for 3 instances  [NL-105]
+info:    uniquifying module 'flipflop' for 2 instances  [NL-105]
+warning: No library characterized for (process = 1.00 voltage = 0.85 temperature = 25.00) can be found in the database for power domain '/PD_TOP'  [NL-174]
+finished synthesize at 00:00:07(cpu)/0:00:19(wall) 107MB(vsz)/371MB(peak)
+> write_design /home/vlsi/Desktop/Team7/outputs/odb/2_synthesized.odb
+info:    design 'Interpolation' has no physical info  [WRITE-120]
+warning: WrSdc.. design 'Interpolation' has no timing constraints  [TA-118]
+> read_sdc -verbose /home/vlsi/Desktop/Team7/constraints/demo_adder_func.sdc
+> 
+> ######################################################################
+> # 
+> #  ------------------------------------------------------------------
+> #   Design    : demo_Adder
+> #  ------------------------------------------------------------------
+> #     SDC timing constraint file
+> #  ------------------------------------------------------------------
+> #
+> 
+> 
+> set pad_load            5
+> set transition          0.1
+> set io_clock_period     1.1
+> set clock_period     1.1
+> 
+> create_clock -name sysclk -period ${clock_period} [ get_ports CLK ]
+> create_clock -name vsysclk -period ${io_clock_period} 
+> #[ get_ports sysclk_byp ]
+> 
+> # set_false_path   -from [ get_ports reset_n ]
+> set_false_path   -from [ get_ports reset ]
+# set_false_path -from reset
+> 
+> set_load                ${pad_load}   [ all_outputs ]
+> set_input_transition    ${transition} [ all_inputs ]
+> set_input_delay 0.7 [all_inputs]
+> 
+> set_output_delay -clock vsysclk [ expr 0.3 * ${io_clock_period} ] [ all_outputs ] 
+>  #   [ remove_from_collection [ all_outputs ] [ get_ports { usb_plus usb_minus }] ]
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> report_design_metrics
+Report Physical info: 
+------------------------+-------------+-----------+------------
+                        |             |Area (squm)|Leakage (uW)
+------------------------+-------------+-----------+------------
+Design Name             |Interpolation|           |            
+  Total Instances       |         3653|       5749|     119.618
+    Macros              |            0|          0|       0.000
+    Pads                |            0|          0|       0.000
+    Phys                |            0|          0|       0.000
+    Blackboxes          |            0|          0|       0.000
+    Cells               |         3653|       5749|     119.618
+      Buffers           |            0|          0|       0.000
+      Inverters         |          927|        493|      13.305
+      Clock-Gates       |            0|          0|       0.000
+      Combinational     |         2513|       4594|      95.682
+      Latches           |          163|        434|       6.661
+      FlipFlops         |           50|        228|       3.970
+       Single-Bit FF    |           50|        228|       3.970
+       Multi-Bit FF     |            0|          0|       0.000
+       Clock-Gated      |            0|           |            
+       Bits             |           50|        228|       3.970
+         Load-Enabled   |            0|           |            
+         Clock-Gated    |            0|           |            
+  Tristate Pin Count    |           16|           |            
+Physical Info           |Unplaced     |           |            
+  Chip Size (mm x mm)   |             |          0|            
+  Fixed Cell Area       |             |          0|            
+    Phys Only           |            0|          0|            
+  Placeable Area        |             |          0|            
+  Movable Cell Area     |             |       5749|            
+  Utilization (%)       |             |           |            
+  Chip Utilization (%)  |             |           |            
+  Total Wire Length (mm)|        0.000|           |            
+  Longest Wire (mm)     |             |           |            
+  Average Wire (mm)     |             |           |            
+------------------------+-------------+-----------+------------
+> all_inputs
+> group_path -name I2R -from { Tk[15] Tk[14] Tk[13] Tk[12] Tk[11] Tk[10] Tk[9] Tk[8] Tk[7] Tk[6] Tk[5] Tk[4] Tk[3] Tk[2] Tk[1] Tk[0] Uz[15] Uz[14] Uz[13] Uz[12] Uz[11] Uz[10] Uz[9] Uz[8] Uz[7] Uz[6] Uz[5] Uz[4] Uz[3] Uz[2] Uz[1] Uz[0] Un[15] Un[14] Un[13] Un[12] Un[11] Un[10] Un[9] Un[8] Un[7] Un[6] Un[5] Un[4] Un[3] Un[2] Un[1] Un[0] Tz[15] Tz[14] Tz[13] Tz[12] Tz[11] Tz[10] Tz[9] Tz[8] Tz[7] Tz[6] Tz[5] Tz[4] Tz[3] Tz[2] Tz[1] Tz[0] CLK reset DivFlag shiftFlag }
+# group_path -from {Tk[15]} {Tk[14]} {Tk[13]} {Tk[12]} {Tk[11]} {Tk[10]} {Tk[9]} {Tk[8]} {Tk[7]} {Tk[6]} {Tk[5]} {Tk[4]} {Tk[3]} {Tk[2]} {Tk[1]} {Tk[0]} {Uz[15]} {Uz[14]} {Uz[13]} {Uz[12]} {Uz[11]} {Uz[10]} {Uz[9]} {Uz[8]} {Uz[7]} {Uz[6]} {Uz[5]} {Uz[4]} {Uz[3]} {Uz[2]} {Uz[1]} {Uz[0]} {Un[15]} {Un[14]} {Un[13]} {Un[12]} {Un[11]} {Un[10]} {Un[9]} {Un[8]} {Un[7]} {Un[6]} {Un[5]} {Un[4]} {Un[3]} {Un[2]} {Un[1]} {Un[0]} {Tz[15]} {Tz[14]} {Tz[13]} {Tz[12]} {Tz[11]} {Tz[10]} {Tz[9]} {Tz[8]} {Tz[7]} {Tz[6]} {Tz[5]} {Tz[4]} {Tz[3]} {Tz[2]} {Tz[1]} {Tz[0]} CLK reset DivFlag shiftFlag
+> all_inputs
+> all_outputs
+> group_path -name I2O -from { Tk[15] Tk[14] Tk[13] Tk[12] Tk[11] Tk[10] Tk[9] Tk[8] Tk[7] Tk[6] Tk[5] Tk[4] Tk[3] Tk[2] Tk[1] Tk[0] Uz[15] Uz[14] Uz[13] Uz[12] Uz[11] Uz[10] Uz[9] Uz[8] Uz[7] Uz[6] Uz[5] Uz[4] Uz[3] Uz[2] Uz[1] Uz[0] Un[15] Un[14] Un[13] Un[12] Un[11] Un[10] Un[9] Un[8] Un[7] Un[6] Un[5] Un[4] Un[3] Un[2] Un[1] Un[0] Tz[15] Tz[14] Tz[13] Tz[12] Tz[11] Tz[10] Tz[9] Tz[8] Tz[7] Tz[6] Tz[5] Tz[4] Tz[3] Tz[2] Tz[1] Tz[0] CLK reset DivFlag shiftFlag } -to { DivDoneFlag Uk[15] Uk[14] Uk[13] Uk[12] Uk[11] Uk[10] Uk[9] Uk[8] Uk[7] Uk[6] Uk[5] Uk[4] Uk[3] Uk[2] Uk[1] Uk[0] }
+# group_path -from {Tk[15]} {Tk[14]} {Tk[13]} {Tk[12]} {Tk[11]} {Tk[10]} {Tk[9]} {Tk[8]} {Tk[7]} {Tk[6]} {Tk[5]} {Tk[4]} {Tk[3]} {Tk[2]} {Tk[1]} {Tk[0]} {Uz[15]} {Uz[14]} {Uz[13]} {Uz[12]} {Uz[11]} {Uz[10]} {Uz[9]} {Uz[8]} {Uz[7]} {Uz[6]} {Uz[5]} {Uz[4]} {Uz[3]} {Uz[2]} {Uz[1]} {Uz[0]} {Un[15]} {Un[14]} {Un[13]} {Un[12]} {Un[11]} {Un[10]} {Un[9]} {Un[8]} {Un[7]} {Un[6]} {Un[5]} {Un[4]} {Un[3]} {Un[2]} {Un[1]} {Un[0]} {Tz[15]} {Tz[14]} {Tz[13]} {Tz[12]} {Tz[11]} {Tz[10]} {Tz[9]} {Tz[8]} {Tz[7]} {Tz[6]} {Tz[5]} {Tz[4]} {Tz[3]} {Tz[2]} {Tz[1]} {Tz[0]} CLK reset DivFlag shiftFlag -to DivDoneFlag {Uk[15]} {Uk[14]} {Uk[13]} {Uk[12]} {Uk[11]} {Uk[10]} {Uk[9]} {Uk[8]} {Uk[7]} {Uk[6]} {Uk[5]} {Uk[4]} {Uk[3]} {Uk[2]} {Uk[1]} {Uk[0]}
+> all_outputs
+> group_path -name R2O -to { DivDoneFlag Uk[15] Uk[14] Uk[13] Uk[12] Uk[11] Uk[10] Uk[9] Uk[8] Uk[7] Uk[6] Uk[5] Uk[4] Uk[3] Uk[2] Uk[1] Uk[0] }
+# group_path -to DivDoneFlag {Uk[15]} {Uk[14]} {Uk[13]} {Uk[12]} {Uk[11]} {Uk[10]} {Uk[9]} {Uk[8]} {Uk[7]} {Uk[6]} {Uk[5]} {Uk[4]} {Uk[3]} {Uk[2]} {Uk[1]} {Uk[0]}
+> optimize -virtual
+starting optimize at 00:00:07(cpu)/0:00:19(wall) 109MB(vsz)/371MB(peak)
+warning: excessively large parameter 'numMpgWorkersLocal' was reset from 4 to 2, because this host has 2 processors currently available  [MPG-206]
+Log file for child PID=26240:  /home/vlsi/Desktop/Team7/oasys.etc.00/oasys.w1.00.log 
+Log file for child PID=26242:  /home/vlsi/Desktop/Team7/oasys.etc.00/oasys.w2.00.log 
+info: optimized '<TOP>' area changed 0.0squm (x1), total 5160.7squm (#1, 0 secs)
+info: optimized 'Interpolation__genmod__1' area changed -670.1squm (x1), total 4490.6squm (#2)
+info: optimized 'Interpolation_Devision__genmod__0' area changed -327.2squm (x1), total 4163.4squm (#3)
+info: optimized '<TOP>' area changed 0.0squm (x1), total 4163.4squm (#4, 0 secs)
+done optimizing area at 00:00:30(cpu)/0:00:39(wall) 111MB(vsz)/381MB(peak)
+Splitting congested rtl-partitions
+info: optimizing design 'Interpolation' - propagating constants
+info: optimized '<TOP>' area changed 0.0squm (x1), total 4163.4squm (#1, 0 secs)
+info: set slack mode to optimize shift
+info: resetting all path groups
+info: activated path group default @ 835.6ps
+info: activated path group I2R @ -488.0ps
+info: activated path group I2O @ -5112.2ps
+info: activated path group R2O @ -5093.0ps
+info: (0) optimizing 'Uk[15]' (path group I2O) @ -5112.2ps(1/1) (1 secs)
+info: (1) optimizing 'Uk[15]' (path group I2O) @ -5147.1ps(1/1) (1 secs)
+info: (2) optimizing 'Uk[15]' (path group R2O) @ -5070.2ps(1/1) (8 secs)
+info: (3) optimizing 'Uk[15]' (path group R2O) @ -5062.0ps(1/1) (6 secs)
+info: (4) optimizing 'Uk[15]' (path group R2O) @ -5009.8ps(1/1) (10 secs)
+info: (5) optimizing 'Uk[15]' (path group R2O) @ -5008.5ps(1/1) (8 secs)
+info: (6) optimizing 'Uk[15]' (path group R2O) @ -5001.9ps(1/1) (5 secs)
+info: (7) optimizing 'Uk[15]' (path group R2O) @ -3374.4ps(1/1) (613 secs)
+info: (8) optimizing 'Uk[15]' (path group R2O) @ -3383.5ps(1/1) (91 secs)
+info: (9) optimizing 'Uk[15]' (path group R2O) @ -3268.0ps(1/1) (148 secs)
+info: (10) optimizing 'Uk[15]' (path group R2O) @ -3248.3ps(1/1) (135 secs)
