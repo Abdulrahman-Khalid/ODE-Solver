@@ -1,34 +1,13 @@
 vsim -gui work.interpolation_devision
-add wave -position insertpoint  \
-sim:/interpolation_devision/width \
-sim:/interpolation_devision/Tk \
-sim:/interpolation_devision/Tz \
-sim:/interpolation_devision/Tn \
-sim:/interpolation_devision/CLK \
-sim:/interpolation_devision/EN \
-sim:/interpolation_devision/Done \
-sim:/interpolation_devision/DivOut \
-sim:/interpolation_devision/temp \
-sim:/interpolation_devision/TkComp \
-sim:/interpolation_devision/Tk_Tn \
-sim:/interpolation_devision/Tz_Tn \
-sim:/interpolation_devision/Division_output \
-sim:/interpolation_devision/Div_EN \
-sim:/interpolation_devision/ERROR \
-sim:/interpolation_devision/Div_OVF
-add wave -position insertpoint  \
-sim:/interpolation_devision/DoneSignal
-add wave -position insertpoint  \
-sim:/interpolation_devision/rst2 \
-sim:/interpolation_devision/Q1 \
-sim:/interpolation_devision/Q2
+add wave -position insertpoint sim:/interpolation_devision/*
 force -freeze sim:/interpolation_devision/Tk 0000000010000000 0
 force -freeze sim:/interpolation_devision/Tz 0000000100000000 0
 force -freeze sim:/interpolation_devision/Tn 0000000000000000 0
 force -freeze sim:/interpolation_devision/CLK 1 0, 0 {50 ps} -r 100
 force -freeze sim:/interpolation_devision/EN 1 0
-
+force -freeze sim:/interpolation_devision/reset 1 0
 run
+force -freeze sim:/interpolation_devision/reset 0 0
 run
 run
 run
